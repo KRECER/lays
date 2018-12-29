@@ -113,7 +113,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('copy', () => {
-	return gulp.src(['src/fonts/**/*.{woff,woff2}'], {base: 'src'})
+	return gulp.src(['src/*.html', 'src/fonts/**/*.{woff,woff2}'], {base: 'src'})
 		.pipe( gulp.dest('build') )
 });
 
