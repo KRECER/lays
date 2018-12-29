@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130405568-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-130405568-1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="theme-color" content="#F6CE57"> -->
+    <!-- <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'images/favicon.ico?v=1.00' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/app.min.css' %}?v=1.03">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'img/favicon.ico' %}">
+	<title>Кіно смакує краще з Lay’s</title>
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <!-- <script type="text/javascript" src="{% static 'js/flipdown.min.js' %}"></script> -->
+    <script src="{% static 'js/app.min.js' %}?v=1.03" async="" defer=""></script>
+</body>
+</html>

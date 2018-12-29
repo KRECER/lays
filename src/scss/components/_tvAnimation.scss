@@ -1,0 +1,31 @@
+.tvAnimation{
+    bottom: -300px;
+    transform: translate(-50%, 0%);
+	animation: tvAnimation 1s linear 1s forwards;
+    .light{
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        opacity: 0;
+        animation: light 10s linear 2.4s infinite;
+        width: 153%;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+@keyframes tvAnimation{
+    100%{
+        bottom: -1px;
+    }
+}
+
+@keyframes light{
+    0% {opacity: 1}
+    49% {opacity: 1}
+    50% {opacity: 1} 
+    51% {opacity: 0} 
+    100% {opacity: 0} 
+}

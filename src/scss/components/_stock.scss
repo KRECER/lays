@@ -1,0 +1,33 @@
+.stockTitle{
+    transform: translate(0%, -100%);
+	animation: stockTitle 0.25s linear 1s forwards;
+
+}
+
+.stockAnimation{
+    transform: translate(100%, 0%);
+	animation: stockAnimation 0.5s ease-in forwards;
+}
+
+@keyframes stockAnimation{
+	100%{
+        transform: translate(0%, 0%);
+    }
+}
+
+@keyframes stockTitle{
+	100%{
+        transform: translate(0%, 0%);
+    }
+}
+
+.timerAnimation{
+	opacity: 0;
+	animation: timerAnimation 2s linear 3.5s forwards;
+}
+
+@keyframes timerAnimation{
+	100%{
+		opacity: 1;
+    }
+}

@@ -1,0 +1,334 @@
+/* THEMES */
+$heightRotor:45px;
+$widthRotor:$heightRotor/2 + 5;
+
+// $heightRotorMob:20px;
+// $widthRotorMob:$heightRotorMob/2 + 5;
+
+/********** Theme: dark **********/
+/* Font styles */
+.flipdown.flipdown__theme-dark {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+/* Rotor group headings */
+.flipdown.flipdown__theme-dark .rotor-group-heading:before {
+  color:$yellow;
+
+
+}
+/* Delimeters */
+.flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+.flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  background-color: #fff;
+}
+
+/* Rotor tops */
+.flipdown .rotor,
+.flipdown .rotor-top,
+.flipdown .rotor-leaf-front {
+  color: #ff0000;
+  background: linear-gradient(to top, #cbcdcf 0%, #fff);
+}
+/* Rotor bottoms */
+.flipdown .rotor-bottom,
+.flipdown .rotor-leaf-rear {
+  color: #ff0000;
+  background: linear-gradient(to bottom, #cbcdcf 100%, #fff);
+}
+
+
+
+/* Rotor tops */
+// .flipdown.flipdown__theme-dark .rotor,
+// .flipdown.flipdown__theme-dark .rotor-top,
+// .flipdown.flipdown__theme-dark .rotor-leaf-front {
+//   // color: red;
+  // background-color: #fff;
+  // background: linear-gradient(to top, #cbcdcf 0%, #fff);
+// }
+ // Rotor bottoms 
+// .flipdown.flipdown__theme-dark .rotor-bottom,
+// .flipdown.flipdown__theme-dark .rotor-leaf-rear {
+  // color: red;
+  // background: linear-gradient(to bottom, #cbcdcf 100%, #fff);
+  // background-color: #fff;
+// }
+/* Hinge */
+.flipdown.flipdown__theme-dark .rotor:after {
+  border-top: solid 1px #fff;
+}
+
+/********** Theme: light **********/
+/* Font styles */
+.flipdown.flipdown__theme-light {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+/* Rotor group headings */
+.flipdown.flipdown__theme-light .rotor-group-heading:before {
+  color:red;
+}
+/* Delimeters */
+.flipdown.flipdown__theme-light .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+.flipdown.flipdown__theme-light .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  background-color: #DDDDDD;
+}
+
+/* Hinge */
+.flipdown.flipdown__theme-light .rotor:after {
+  border-top: solid 1px #fff;
+}
+
+/* END OF THEMES */
+
+.flipdown {
+  overflow: visible;
+  height: 110px;
+  width: 288px;
+  margin: 0 auto;
+  color: #ff0000;
+}
+
+.flipdown .rotor-group {
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  box-shadow: 0px 0px 120px -11px rgba(0,0,0,1);
+}
+
+.flipdown .rotor-group:last-child {
+  margin-right: 0;
+}
+.rotor-group-heading{
+  position: relative;
+}
+.flipdown .rotor-group-heading:before {
+  display: block;
+  height: 30px;
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  content: 'ДІБ';
+}
+
+.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  content: 'ГОДИН';
+}
+
+.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  content: 'ХВИЛИН';
+}
+
+.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  content: 'СЕКУНД';
+}
+
+
+.flipdown .rotor {
+  position: relative;
+  float: left;
+  width: $widthRotor;
+  height: $heightRotor;
+  margin: 0px 2px 0px 0px;
+  border-radius: 4px;
+  font-size: 5rem;
+  font-weight: 100;
+  font-family: Bebas Neue Cyrillic;
+  text-align: center;
+  perspective: 200px;
+}
+
+.flipdown .rotor:last-child {
+  margin-right: 0;
+}
+
+.flipdown .rotor-top,
+.flipdown .rotor-bottom {
+  overflow: hidden;
+  position: absolute;
+  width: $widthRotor;
+  height: $heightRotor;
+}
+
+.flipdown .rotor-leaf {
+  z-index: 1;
+  position: absolute;
+  width: $widthRotor;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0s;
+}
+
+.flipdown .rotor-leaf.flipped {
+  transform: rotateX(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.flipdown .rotor-leaf-front,
+.flipdown .rotor-leaf-rear {
+  overflow: hidden;
+  position: absolute;
+  width: $widthRotor;
+  height: $heightRotor;
+  margin: 0;
+  transform: rotateX(0deg);
+  backface-visibility: hidden;
+}
+
+.flipdown .rotor-leaf-front {
+  line-height: $heightRotor;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.flipdown .rotor-leaf-rear {
+  line-height: 0;
+  border-radius: 0px 0px 4px 4px;
+  transform: rotateX(-180deg);
+}
+
+.flipdown .rotor-top {
+  line-height: $heightRotor;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.flipdown .rotor-bottom {
+  bottom: 0;
+  line-height: 0px;
+  border-radius: 0px 0px 4px 4px;
+  // z-index: 2;
+}
+
+.flipdown .rotor:after {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: $widthRotor;
+  height: ($heightRotor/2);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+  border-radius: 0px 0px 4px 4px;
+}
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom{
+    height: $heightRotor/2;
+  }
+
+@media only screen and (max-width: $breakpoint-middle){
+  .flipdown{
+    transform: scale(.8);
+  }
+  .flipdown .rotor-group-heading:before{
+    font-size: 1.1rem;
+  }
+}
+
+         
+         
+@media screen and (max-width: $breakpoint-phone-rotate) and (min-aspect-ratio: 3/3){
+  .flipdown{
+    position: absolute;
+    transform: scale(0.5);
+    left: calc(50% - 142px);
+    bottom: -40px;
+  }  
+}
+
+// @media only screen and (max-width: $breakpoint-phone-rotate)
+@media screen and (max-width: $breakpoint-phone-big){
+  .flipdown{
+    position: absolute;
+    transform: scale(0.6);
+    left: calc(50% - 99px);
+    width: 198px;
+    bottom: -50px;
+  }
+  .flipdown .rotor{
+    width: 20px;
+    height: 30px;
+    font-size: 3.4rem;
+    font-weight: 100;
+  }
+
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom {
+    width: 20px;
+    height: 30px;
+  }
+  .flipdown .rotor-leaf {
+    width: 20px;
+    height: 30px;
+  }
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear {
+    width: 20px;
+    line-height: 38px;
+  }
+  .flipdown .rotor-leaf-front{
+    line-height: 38px;
+  }
+  .flipdown .rotor-leaf-rear {
+    line-height: 5px;
+  }
+  .flipdown .rotor-top {
+    line-height: 38px;
+  }
+
+  .flipdown .rotor-bottom {
+    line-height: 5px;
+  }
+
+  .flipdown .rotor:after {
+    width: 20px;
+    height: 15px;
+  }
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom{
+    height: 15px;
+  }
+  .flipdown .rotor-group {
+    margin-right: 10px;
+  }
+  .flipdown .rotor-group-heading:before {
+    top: 25px;
+    font-size: .8rem;
+  }
+}
+
+#flipdown{
+    >div{
+        // animation: flipdown 1.2s ease-in-out forwards;
+        transform: scale(1);
+        @for $j from 1 through 4 {
+            &:nth-child(#{$j}){
+                animation-delay: 3.5+0.1*$j+s;
+            }
+        }
+    }
+}
+
+@keyframes flipdown{
+    70%{
+        transform: scale(1);
+    }
+    85%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
