@@ -51,7 +51,7 @@ gulp.task('deploy', () => {
 });
 
 gulp.task('plugins:js', () => {
-	return gulp.src('src/js/plugins/*.js', {base: 'src'})
+	return gulp.src('src/js/plugins/*.js', {base: 'src/js/plugins'})
 		.pipe( babel() )
 		.pipe( concat('plugins.js') )
 		.pipe( gulp.dest('build/js') )
@@ -62,7 +62,7 @@ gulp.task('plugins:js', () => {
 });
 
 gulp.task('script', () => {
-	return gulp.src('src/js/main.js', {base: 'src'})
+	return gulp.src('src/js/main.js', {base: 'src/js'})
 		.pipe( babel() )
 		.pipe( gulp.dest('build/js') )
 		.pipe( uglify() )
@@ -76,7 +76,7 @@ gulp.task('del', () => {
 });
 
 gulp.task('style', () => {
-	return gulp.src('src/scss/style.scss', {base: 'src'})
+	return gulp.src('src/scss/style.scss', {base: 'src/scss'})
 		.pipe( plumber() )
 		.pipe( sassGlob() )
 		.pipe( sass() )
@@ -89,7 +89,7 @@ gulp.task('style', () => {
 });
 
 gulp.task('sprite', () => {
-	return gulp.src('src/img/**/icon-*.svg', {base: 'src'})
+	return gulp.src('src/img/**/icon-*.svg', {base: 'src/img'})
 		.pipe(svgstore({ inlineSvg: true }))
 		.pipe(cheerio({
 				run: function ($) {
@@ -102,7 +102,7 @@ gulp.task('sprite', () => {
 });
 
 gulp.task('images', () => {
-	return gulp.src('src/img/**/*.{png,jpg,svg}', {base: 'src'})
+	return gulp.src('src/img/**/*.{png,jpg,svg}', {base: 'src/img/'})
 		.pipe( changed('build/img') )
 		.pipe(imagemin([
 			imagemin.jpegtran({progressive: true}),
