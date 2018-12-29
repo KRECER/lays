@@ -35,6 +35,6 @@
     "posthtml-include": "^1.2.0"
   },
   "dependencies": {
-    "node-sass": "^4.11.0"
+    "normalize.scss": "^0.1.0"
   }
 }
