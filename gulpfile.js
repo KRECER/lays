@@ -124,7 +124,7 @@ gulp.task('tinypng', function() {
 });
 
 /* BUILD */
-gulp.task('build', gulp.series('del', 'copy', 'images', 'sprite', gulp.parallel('html', 'style', 'script')) );
+gulp.task('build', gulp.series('del', 'copy', 'images', 'sprite', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
 
 /* DEV */
 gulp.task('dev', gulp.series('build', 'server') );
