@@ -31,6 +31,9 @@
 				height: 25%;
 				background: url('../img/information.svg') right no-repeat;
 				background-size: contain;
+				&:hover{
+					cursor: pointer;
+				}
 			}
 			&:before{
 				content: '';
