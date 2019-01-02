@@ -1,7 +1,20 @@
-* {
+html {
     box-sizing: border-box;
+}
+  
+*, 
+*::before, 
+*::after {
+    box-sizing: inherit;
 }
 
 body {
     font-family: 'Gotham Pro', Arial, sans-serif;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }

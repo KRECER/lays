@@ -1,98 +1,22 @@
-*{
-	margin: 0px;
-	padding: 0px;
+.page-header {
+  height: 100vh;
+
+  background-color: #fde619;
 }
-html,body{
-	height:100%;
+
+.page-header__wrapper {
+  display: flex;
+  justify-content: space-between;
 }
-.headerpage_bgcolor{
-	background: #eed617;
-	width: 100%;
-	height: 100vh;
-	position: fixed;
+
+.page-header__left {
+  width: 70%;
+  height: 100vh;
 }
-.headerpage_bgimg{
-	background-image: url('../img/circles_Y.png');
-	height: 66%;
-	width: 100%;
-/*	position: absolute;*/
-/*    bottom: 21%;*/
-/*    background-position: -399.7vw bottom;*/
-    background-size:100% 155%;
-    position: relative;
-}
-.header_sofa{
-	bottom:-25%;
-	position: absolute;
-	z-index: 2;
-	width: 80%;
-    left: -10%;
-}
-@media (min-width:380px) and (max-width:620px){
-	.headerpage_bgimg{
-	background-image: url(../img/circles_Y.png);
-    height: 66%;
-    width: 100%;
-    background-size: 110% 110%;
-    position: relative;
-    background-position: right;
-	}
-	.header_sofa {
-    bottom: -10%;
-    position: absolute;
-    z-index: 2;
-    width: 105%;
-    left: -18%;
-	}
-}
-@media (min-width:621px) and (max-width:820px){
-	.headerpage_bgimg{
-	background-image: url(../img/circles_Y.png);
-    height: 66%;
-    width: 100%;
-    background-size: 110% 110%;
-    position: relative;
-    background-position: 65%;
-	}
-	.header_sofa {
-    bottom: -15%;
-    position: absolute;
-    z-index: 2;
-    width: 105%;
-    left: -18%;
-	}
-}
-@media (min-width:821px) and (max-width:1020px){
-	.headerpage_bgimg{
-	background-image: url(../img/circles_Y.png);
-    height: 66%;
-    width: 100%;
-    background-size: 110% 110%;
-    position: relative;
-    background-position: 65%;
-	}
-	.header_sofa {
-    bottom: -22%;
-    position: absolute;
-    z-index: 2;
-    width: 105%;
-    left: -18%;
-	}
-}
-@media(min-width:1021px) and (max-width:1200px){
-	.headerpage_bgimg {
-    background-image: url(../img/circles_Y.png);
-    height: 66%;
-    width: 100%;
-    background-size: 110% 143%;
-    position: relative;
-    background-position: top;
-	}
-	.header_sofa {
-    bottom: -30%;
-    position: absolute;
-    z-index: 2;
-    width: 94%;
-    left: -18%;
-	}
+
+.page-header__right {
+  width: 30%;
+  padding-top: 550px;
+  // padding-right: 300px;
+  height: 100vh;
 }

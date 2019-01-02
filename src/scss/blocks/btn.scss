@@ -4,10 +4,13 @@
 	width: 581px;
 	height: 130px;
 
+	line-height: 105px;
+
 	border: 7px solid #fcc403;
 	border-radius: 100px;
 
 	&::after {
+
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -18,8 +21,6 @@
 		width: 100%;
 		height: 100%;
 		padding-left: 160px;
-		padding-top: 30px;
-		padding-bottom: 30px;
 
 		color: #fff;
 		font-size: 32px;
@@ -28,12 +29,20 @@
 		border-radius: 100px;
 		border: 6px solid #fde619;
 		cursor: pointer;
+
+		&:hover {
+			display: none;
+		}
 	}
 
 	&:hover::after {
 		color: #ed1d24;
 
 		background-color: #ffffff;
+	}
+
+	&:hover > .btn__icon {
+		fill: red;
 	}
 }
 
@@ -47,7 +56,7 @@
 	width: 95px;
 	height: 94px;
 
-	fill: red;
+	fill: #ffffff;
 }
 
 .btn__input {
