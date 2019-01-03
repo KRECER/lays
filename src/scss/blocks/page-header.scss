@@ -84,12 +84,14 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1399px) {
 	.page-header__tv {
+		left: 172px;
 		bottom: -64px;
 	}
 
 	.page-header__sova-wrapper {
+		left: 47px;
 		top: 381px;
 	}
 
@@ -108,19 +110,19 @@
 	}
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1328px) {
 	.page-header__sova-wrapper {
-		top: 449px;
-		left: 51px;
+		top: 481px;
+		left: 69px;
 
-		width: 732px;
+		width: 612px;
 	}
 
 	.page-header__tv {
 			left: 182px;
-			bottom: -97px;
+			bottom: -66px;
 
-			width: 500px;
+			width: 430px;
 
 			background-size: contain;
 	}
@@ -129,6 +131,45 @@
 		&--couple {
 			top: 216px;
 			left: 91px;
+		}
+	
+		&--superman {
+			top: 181px;
+			left: 298px;
+
+			width: 319px;
+		}
+	
+		&--alien {
+			top: 205px;
+			left: 546px;
+		}
+	}
+}
+
+@media (max-width: 1225px) {
+	.page-header__sova-wrapper {
+		top: 481px;
+		left: 69px;
+
+		width: 500px;
+	}
+
+	.page-header__tv {
+			left: 182px;
+			bottom: -66px;
+
+			width: 350px;
+
+			background-size: contain;
+	}
+
+	.page-header__shadow {
+		&--couple {
+			top: 286px;
+			left: 99px;
+			
+			width: 189px;
 		}
 	
 		&--superman {
