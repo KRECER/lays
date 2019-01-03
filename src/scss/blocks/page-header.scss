@@ -1,189 +1,58 @@
 .page-header {
-	position: relative;
-	height: 100vh;
-	// display: none;
-
-  background-color: #fde619;
-}
-
-.page-header__people {
-	position: absolute;
-	top: -13vh;
-	left: 2%;
-	z-index: 2;
-
-	width: 100%;
-}
-
-.page-header__sova-wrapper {
+  height: 100vh;
   position: relative;
-  top: 335px;
-	left: 126px;
-	z-index: 2;
-	
-	width: 788px;
+  // background-color: #fde619;
+  background-image: url('../img/nastya.png');
+  background-repeat:  no-repeat;
+  background-position: center;
+  background-size: 334vh auto;
+  @media screen and (max-width: 186vh) {
+    background-size: 182vw auto;
+    background-position: center;  
+  }
+
+  // @media screen and (max-height: 769px) {
+  //   background-image: url('../img/nastya2.png');
+   
+  // }
+
+  &__tv {
+    width: 100%;
+    max-width: 1780px;
+    max-height: 25vh;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+      img{
+        margin-left: -10%;
+      }
+
+    
+  }
 }
 
-.page-header__sova {
-  position: absolute;
-  top: 0;
-  left: 0;
-	z-index: 2;
-
-	width: 100%;
-}
-
-.page-header__tv {
-	position: absolute;
-	bottom: 0;
-	left: 242px;
-	z-index: 4;
-
-	width: 600px;
-	height: 285px;
-
-	color: #fff;
-	text-align: center;
-
-	background: #232930 url(../img/tv.png) no-repeat;
-	background-size: cover;
-}
-
-.page-header__scroll {
+.page-header__wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 147px;
-  margin: 40px auto;
-
-  fill: transparent;
+  // background: url('../img/wall.jpg') no-repeat;
+  // background-size: contain;
 }
 
-.page-header__shadow {
-  position: absolute;
-	z-index: 1;
-	
-
-  &--couple {
-    left: 171px;
-		top: 104px;
-		
-    width: 210px;
-  }
-
-  &--superman {
-    top: 53px;
-		left: 380px;
-		
-    width: 349px;
-  }
-
-  &--alien {
-		top: 100px;
-		left: 671px;
-		
-    width: 213px;
-  }
+.page-header__left {
+  width: 70%;
+  height: 100vh;
 }
 
-@media (max-width: 1399px) {
-	.page-header__tv {
-		left: 172px;
-		bottom: -64px;
-	}
-
-	.page-header__sova-wrapper {
-		left: 47px;
-		top: 381px;
-	}
-
-	.page-header__shadow {
-		&--couple {
-			top: 164px;
-		}
-	
-		&--superman {
-			top: 103px;
-		}
-	
-		&--alien {
-			top: 145px;
-		}
-	}
+.page-header__right {
+  width: 30%;
+  padding-top: 550px;
+  // padding-right: 300px;
+  height: 100vh;
 }
 
-@media (max-width: 1328px) {
-	.page-header__sova-wrapper {
-		top: 481px;
-		left: 69px;
 
-		width: 612px;
-	}
 
-	.page-header__tv {
-			left: 182px;
-			bottom: -66px;
-
-			width: 430px;
-
-			background-size: contain;
-	}
-
-	.page-header__shadow {
-		&--couple {
-			top: 216px;
-			left: 91px;
-		}
-	
-		&--superman {
-			top: 181px;
-			left: 298px;
-
-			width: 319px;
-		}
-	
-		&--alien {
-			top: 205px;
-			left: 546px;
-		}
-	}
-}
-
-@media (max-width: 1225px) {
-	.page-header__sova-wrapper {
-		top: 481px;
-		left: 69px;
-
-		width: 500px;
-	}
-
-	.page-header__tv {
-			left: 182px;
-			bottom: -66px;
-
-			width: 350px;
-
-			background-size: contain;
-	}
-
-	.page-header__shadow {
-		&--couple {
-			top: 286px;
-			left: 99px;
-			
-			width: 189px;
-		}
-	
-		&--superman {
-			top: 181px;
-			left: 298px;
-
-			width: 319px;
-		}
-	
-		&--alien {
-			top: 205px;
-			left: 546px;
-		}
-	}
-}

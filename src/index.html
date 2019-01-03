@@ -11,32 +11,45 @@
 	<div class="visually-hidden">
 		<include src="build/img/sprite.svg"></include>
 	</div>
+
 	<header class="page-header">
-				<img class="page-header__shadow page-header__shadow--couple" src="../img/shadows/couple.png" alt="">
-				<img class="page-header__shadow page-header__shadow--superman" src="../img/shadows/superman.png" alt="">
-				<img class="page-header__shadow page-header__shadow--alien" src="../img/shadows/alien.png" alt="">
-				<div class="page-header__sova-wrapper">
-					<img class="page-header__sova" src="./img/sofa.png" alt="">
-					<img class="page-header__people" src="../img/people.png" alt="">
+		<div class="page-header__wrapper">
+			<div class="page-header__left room">
+
+				<div class="room__wrapper">
+					<!-- <img class="room__sofa" src="./img/sofa.png" alt=""> -->
+<!-- 					<div class="shadow">
+						<img class="room__shadow room__shadow--couple" src="../img/shadows/couple.png" alt="">
+						<img class="room__shadow room__shadow--superman" src="../img/shadows/superman.png" alt="">
+						<img class="room__shadow room__shadow--alien" src="../img/shadows/ufo.png" alt="">
+					</div> -->
+					<img class="room__sofa" src="./img/sofa_cut.png" alt="">
+					<img class="room__people" src="../img/room/people.png" alt="">
 				</div>
-				<div class="page-header__tv">
-					<div class="page-header__scroll">
-						Крути 
-						<svg class="page-header__icon-arrow" width="29" height="46">
-							<use xlink:href="#icon-arrow_down"></use>
-						</svg>
-						 Вниз
-					</div>
-				</div>
-				<div class="page-header__btn btn">
+				
+			</div>
+<!-- 			<div class="page-header__right">
+				<div class="btn">
 					<input class="btn__input btn__input--show" type="text" placeholder="ВВЕДІТЬ КОД">
 					<svg class="btn__icon" width="95" height="94">
 						<use xlink:href="#icon-wheel"></use>
 					</svg>
 				</div>
-				
-				<include src="build/instr.html"></include>
+			</div> -->
+		</div>
+		<div class="page-header__tv">
+			<div class="room__scroll">
+			<img src="img/room/tv.png" alt="">
+				Крути
+				<svg class="room__icon-arrow" width="29" height="46"><use xlink:href="#icon-arrow_down"></use></svg>
+				Вниз
+			</div>
+		</div>
+
+		<include src="build/instr.html"></include>
+	
 	</header>
+
 	<section class="prizes">
 		<header class="prizes__header">
 			<img class="prizes__title" src="../img/prizes/title.svg" alt="">
