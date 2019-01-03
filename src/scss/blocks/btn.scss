@@ -1,8 +1,12 @@
 .btn {
-	position: relative;
+	position: absolute;
+	right: 5%;
+	bottom: 32%;
 
-	width: 581px;
-	height: 130px;
+	width: 31vw;
+	height: 13%;
+	max-width: 550px;
+	display: none;
 
 	line-height: 105px;
 
@@ -23,7 +27,7 @@
 		padding-left: 160px;
 
 		color: #fff;
-		font-size: 32px;
+		font-size: 1.5em;
 
 		background-color: #ed1d24;
 		border-radius: 100px;

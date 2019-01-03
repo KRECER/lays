@@ -93,12 +93,13 @@ gulp.task('sprite', () => {
 		.pipe(svgstore({ inlineSvg: true }))
 		.pipe(cheerio({
 				run: function ($) {
-						$('svg').attr('style',  'display:none');
+					$('[fill]').removeAttr('fill');
 				},
 				parserOptions: { xmlMode: true }
 		}))
 		.pipe( rename('sprite.svg') )
 		.pipe( gulp.dest('build/img') )
+		.pipe(browserSync.stream());
 });
 
 gulp.task('images', () => {
@@ -109,7 +110,8 @@ gulp.task('images', () => {
 			imagemin.optipng({optimizationLevel: 3}),
 			imagemin.svgo()
 		]))
-		.pipe( gulp.dest('build/img') );
+		.pipe( gulp.dest('build/img') )
+		.pipe(browserSync.stream());
 });
 
 gulp.task('copy', () => {

@@ -8,34 +8,32 @@
 	<link rel="stylesheet" href="css/style-min.css">
 </head>
 <body>
-	<div class="visuallyhidden">
+	<div class="visually-hidden">
 		<include src="build/img/sprite.svg"></include>
 	</div>
 	<header class="page-header">
-		<div class="page-header__wrapper">
-			<div class="page-header__left room">
-				<img class="room__shadow room__shadow--couple" src="../img/room/shadows/couple.png" alt="">
-				<img class="room__shadow room__shadow--superman" src="../img/room/shadows/superman.png" alt="">
-				<img class="room__shadow room__shadow--alien" src="../img/room/shadows/alien.png" alt="">
-				<img class="room__sova" src="./img/room/sofa.png" alt="">
-				<img class="room__people" src="../img/room/people.png" alt="">
-				<div class="room__tv">
-					<div class="room__scroll">
-						Крути
-						<svg class="room__icon-arrow" width="29" height="46"><use xlink:href="#icon-arrow_down"></use></svg>
-						Вниз
+				<img class="page-header__shadow page-header__shadow--couple" src="../img/shadows/couple.png" alt="">
+				<img class="page-header__shadow page-header__shadow--superman" src="../img/shadows/superman.png" alt="">
+				<img class="page-header__shadow page-header__shadow--alien" src="../img/shadows/alien.png" alt="">
+				<div class="page-header__sova-wrapper">
+					<img class="page-header__sova" src="./img/sofa.png" alt="">
+					<img class="page-header__people" src="../img/people.png" alt="">
+				</div>
+				<div class="page-header__tv">
+					<div class="page-header__scroll">
+						Крути 
+						<svg class="page-header__icon-arrow" width="29" height="46">
+							<use xlink:href="#icon-arrow_down"></use>
+						</svg>
+						 Вниз
 					</div>
 				</div>
-			</div>
-			<div class="page-header__right">
-				<div class="btn">
+				<div class="page-header__btn btn">
 					<input class="btn__input btn__input--show" type="text" placeholder="ВВЕДІТЬ КОД">
 					<svg class="btn__icon" width="95" height="94">
 						<use xlink:href="#icon-wheel"></use>
 					</svg>
 				</div>
-			</div>
-		</div>
 	</header>
 
 	<include src="build/instr.html"></include>
