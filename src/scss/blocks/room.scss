@@ -1,37 +1,21 @@
 .room {
   position: relative;
-
-  padding-top: 16%;
-}
-
-.room__people {
-  position: absolute;
-  top: 133px;
-  left: 188px;
-  z-index: 3;
-}
-
-.room__sova {
-  position: absolute;
-  top: 283px;
-  left: 165px;
-  z-index: 2;
-}
-
-.room__tv {
-  position: absolute;
-  bottom: 0;
-  left: 332px;
-  z-index: 4;
-
-  width: 603px;
-  height: 285px;
-
-  color: #ffffff;
-  text-align: center;
-
-  background: #232930 url("../img/room/tv.png") no-repeat;
-  background-size: cover;
+  width: 100%;
+  margin-top: -20vh;
+  &__wall{
+    width: 100%;
+  }
+  &__sofa {
+    width: 44%;
+    margin: -14% 0 0 7%;
+  
+  }
+  &__people{
+    width: 46%;
+    // display: none;
+    display: block;
+    margin: -27% 0 0 7%;
+  }
 }
 
 .room__scroll {
