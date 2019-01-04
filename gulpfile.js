@@ -72,7 +72,7 @@ gulp.task('script', () => {
 });
 
 gulp.task('del', () => {
-	return del(['build']);
+	return del(['build/css', 'build/fonts', 'build/js', 'build/*.html']);
 });
 
 gulp.task('style', () => {
@@ -103,7 +103,7 @@ gulp.task('sprite', () => {
 });
 
 gulp.task('images', () => {
-	return gulp.src('src/img/**/*.{png,jpg,svg}', {base: 'src/img/'})
+	return gulp.src('src/img/**/*.{png,jpg,svg,jpeg}', {base: 'src/img/'})
 		.pipe( changed('build/img') )
 		.pipe(imagemin([
 			imagemin.jpegtran({progressive: true}),
