@@ -1,37 +1,15 @@
 .page-header {
   height: 100vh;
   position: relative;
-  // background-color: #fde619;
-  background-image: url('../img/nastya.png');
   background-repeat:  no-repeat;
+  background-size: 690vh auto;
+  background-image: url(../img/nastya4.png);
   background-position: center;
-  background-size: 334vh auto;
-  @media screen and (max-width: 186vh) {
-    background-size: 182vw auto;
-    background-position: center;  
-  }
 
-  // @media screen and (max-height: 769px) {
-  //   background-image: url('../img/nastya2.png');
-   
-  // }
-
-  &__tv {
-    width: 100%;
-    max-width: 1780px;
-    max-height: 25vh;
-    color: #fff;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-      img{
-        margin-left: -10%;
-      }
-
-    
+  @media screen and (max-width: 150vh) {
+    background-size: auto 135vw;
+    background-position: center;
+ 
   }
 }
 

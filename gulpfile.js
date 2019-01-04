@@ -29,7 +29,7 @@ gulp.task('server', function() {
 		port: 9000
 	});
 
-	gulp.watch('src/*.html', gulp.series('html') );
+	gulp.watch('src/**/*.html', gulp.series('html') );
 	gulp.watch('src/scss/**/*.scss', gulp.series('style') );
 	gulp.watch('src/js/main.js', gulp.series('script') );
 	gulp.watch('src/js/plugins/*.js', gulp.series('plugins:js') );
@@ -39,7 +39,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('html', () => {
-	return gulp.src('src/*.html', {base: 'src'})
+	return gulp.src('src/index.html', {base: 'src'})
 		.pipe( postHTML([include()]) )
 		.pipe( gulp.dest('build') )
 		.pipe( browserSync.stream() );
