@@ -1,3 +1,4 @@
+
 .room {
   position: relative;
   width: 186vh;
@@ -13,9 +14,10 @@
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 
-    @media screen and (max-width: 110vh) {
-      top: 47.1%;
-      width: 71.6%;
+    @media screen and (max-width: 182vh) {
+      top: 46vh;
+      left: -1vw;
+      width: 70%;
       transform: translateY(-50%);
     }
   }
@@ -30,8 +32,6 @@
     bottom: 0;
     width: 100%;
     padding-top: 10%; 
-  
-
   }
   &__people{
     display: block;
@@ -53,13 +53,24 @@
     background-repeat: no-repeat;
     padding-top: 12vw;
     background-size: 100% auto;
-    .scroll {
+    .tv__scroll-btn {
+      font-family: "Gotham Pro Medium";
+      font-size: 1.5vh;
+      text-transform: uppercase;
+      font-weight: 100;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       top: 0;
-      width: 30%;
+      display: flex;
+      width: 14vh;
+      height: 6.4vw;
+      align-items: center;
+      justify-content: center;
       fill: transparent;
+      svg{
+        margin: 0 5%;
+      }
     }
 
   }
