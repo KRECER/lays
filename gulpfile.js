@@ -4,7 +4,7 @@ const gulp 				    =	require('gulp'),
 			sass            = require('gulp-sass'),
 			plumber         = require('gulp-plumber'),
 			postCSS         = require('gulp-postcss'),
-			autoprefixer    = require('autoprefixer'),
+			autoprefixer    = require('autoprefixer'), // plugin postCSS
 			sassGlob        = require('gulp-sass-glob'),
 			csso            = require('gulp-csso'),
 			rename          = require('gulp-rename'),
@@ -15,10 +15,9 @@ const gulp 				    =	require('gulp'),
 			changed         = require('gulp-changed'),
 			imagemin        = require('gulp-imagemin'),
 			postHTML        = require('gulp-posthtml'),
-			include         = require('posthtml-include'),
+			include         = require('posthtml-include'), // Plugin postHTML
 			cheerio         = require('gulp-cheerio'),
-			svgstore        = require('gulp-svgstore'),
-			githubPages     = require('gulp-gh-pages');
+			svgstore        = require('gulp-svgstore');
 
 
 gulp.task('server', function() {
@@ -35,7 +34,6 @@ gulp.task('server', function() {
 	gulp.watch('src/js/plugins/*.js', gulp.series('plugins:js') );
 	gulp.watch(['src/img/**/*.{png,jpg,svg}', '!src/img/**/icon-*.svg'], gulp.series('images') );
 	gulp.watch(['src/img/**/icon-*.svg'], gulp.series('sprite') );
-	gulp.watch('src/img/**/*.svg', gulp.series('sprite') );
 });
 
 gulp.task('html', () => {
@@ -43,11 +41,6 @@ gulp.task('html', () => {
 		.pipe( postHTML([include()]) )
 		.pipe( gulp.dest('build') )
 		.pipe( browserSync.stream() );
-});
-
-gulp.task('deploy', () => {
-	return gulp.src('build/**/*')
-		.pipe( githubPages() )
 });
 
 gulp.task('plugins:js', () => {
@@ -97,9 +90,14 @@ gulp.task('sprite', () => {
 				},
 				parserOptions: { xmlMode: true }
 		}))
+		// .pipe( imagemin([imagemin.svgo()]) )
 		.pipe( rename('sprite.svg') )
 		.pipe( gulp.dest('build/img') )
 		.pipe(browserSync.stream());
+});
+
+gulp.task("clean-images", function() {
+  return del("build/img/**/*.{png,jpg,svg,webp}");
 });
 
 gulp.task('images', () => {

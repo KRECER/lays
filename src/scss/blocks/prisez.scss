@@ -55,7 +55,7 @@
 .prizes__btn {
   position: relative;
 
-  display: block;
+  display: none;
   margin: 0 auto;
   width: 20vw;
   padding-top: 20px;
@@ -89,15 +89,29 @@
 }
 
 @media (max-width: 768px) {
+	.prizes {
+		height: auto;
+	}
+
   .prizes__header {
-    height: 10vh;
-  }
+		min-height: auto;
+	}
+	
+	.prizes__title {
+		height: auto;
+	}
 
   .prizes__list {
-    flex-direction: column;
+		flex-direction: column;
+		height: 600px;
   }
 
   .prizes__item {
-    height: 20%;
+		width: 100%;
+
+		&--hollywood {
+			padding-top: 0;
+			flex-basis: auto;
+		}
   }
 }
