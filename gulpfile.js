@@ -90,7 +90,6 @@ gulp.task('sprite', () => {
 				},
 				parserOptions: { xmlMode: true }
 		}))
-		// .pipe( imagemin([imagemin.svgo()]) )
 		.pipe( rename('sprite.svg') )
 		.pipe( gulp.dest('build/img') )
 		.pipe(browserSync.stream());

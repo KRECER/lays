@@ -55,7 +55,7 @@
 .prizes__btn {
   position: relative;
 
-  display: none;
+  display: block;
   margin: 0 auto;
   width: 20vw;
   padding-top: 20px;
@@ -108,6 +108,7 @@
 
   .prizes__item {
 		width: 100%;
+		height: 300px;
 
 		&--hollywood {
 			padding-top: 0;
