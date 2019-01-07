@@ -1,0 +1,92 @@
+.hollywood {
+	height: 100vh;
+
+	font-weight: 300;
+	color: #ffffff;
+
+	background: #000 url("../img/hollywood/background.png") no-repeat center top;
+	background-size: cover;
+}
+
+.hollywood__wrapper {
+	width: 80vw;
+	height: 100%;
+	margin: 0 auto;
+	padding-left: 35vw;
+}
+
+.hollywood__content {
+	padding-top: 19vh;
+}
+
+.hollywood__intro {
+	width: 100%;
+	margin-bottom: 10vh;
+}
+
+.hollywood__description {
+	margin-bottom: 3vh;
+
+	font-size: 1.5vw;
+	text-align: center;
+}
+
+.hollywood__btn {
+  position: relative;
+
+  display: block;
+	margin: 0 auto;
+	margin-bottom: 11vh;
+	width: 15vw;
+	padding: 2vh 0;
+	padding-left: 2.2vw;
+
+	font-size: 0.8vw;
+	text-align: left;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  background-color: #ed1d24;
+  outline: none;
+  border: none;
+  border: 3px solid #fcc403;
+  border-radius: 5vh;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border:	2px solid #fde619;
+    border-radius: inherit;
+  }
+}
+
+.hollywood__icon-triangle {
+	position: absolute;
+	right: 1.4vw;
+	top: 50%;
+
+	width: 2vw;
+	height: 2vh;
+	transform: translateY(-50%);
+
+	fill: #ffffff;
+}
+
+.hollywood__text {
+	font-size: 0.5vw;
+	text-align: center;
+	line-height: 1.3vh;
+}
+
+
+@media (max-width: 768px) {
+	.hollywood {
+		height: auto;
+	}
+}
