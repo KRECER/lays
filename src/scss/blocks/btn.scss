@@ -7,47 +7,30 @@
 	@media screen and (max-width: 169vh) {
 		border: 3px solid #fcc403;
     }
-	&::after {
 
+  @media (max-aspect-ratio:3/3){
+    border: 4px solid #fcc403;
+  } 
+	&::after {
 		position: absolute;
 		top: 0;
 		left: 0;
-
-		// content: 'РЕЄСТРУЙ КОД';
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;
 		width: 100%;
 		height: 100%;
-		// padding-left: 169px;
-
 		color: #fff;
-		// font-size: 31px;
-
 		background-color: #ed1d24;
 		border-radius: 100px;
 		border: 6px solid #fde619;
 		cursor: pointer;
 
-		// &:hover {
-		// 	display: none;
-		// }
 	}
-
-	// &:hover::after {
-	// 	color: #ed1d24;
-	// 	background-color: #fff;
-	// }
-
-	// &:hover > .btn__icon {
-	// 	fill: red;
-	// }
-
 
 	&__text{
 		color: #fff;
-		font-family: "Gotham Pro Bold";
-		// font-weight: 500;			
+		font-family: "Gotham Pro Bold";	
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		position: absolute;
@@ -55,24 +38,17 @@
 		transform: translate(-50%);
 		top: 34%;
 		font-size: 1.5vw;
-    	width: 100%;
-    	text-align: center;
+    width: 100%;
+    text-align: center;
+    @media (max-aspect-ratio:3/3){
+      font-size: 4vw;
 
+       @media screen and (max-height: 216vw){
+        font-size: 1.5vh;
+        top:40%;
+       }
+    }
 	}
-
-	// @media screen and (max-width: 1687px) {
-	// 	font-size: 0.85rem;		
-	// }
-	// @media screen and (max-width: 1469px) {
-	// 	font-size: 0.75rem;		
-	// }
-	// @media screen and (max-width: 1286px) {
-	// 	font-size: 0.65rem;		
-	// }
-	// @media screen and (max-width: 1157px) {
-	// 	font-size: 0.55rem;		
-			
-	// }
 }
 
 .btn__icon {
@@ -87,7 +63,10 @@
 	@media screen and (max-width: 169vh) {
 		left: 5px;
 		width: 4.6vw;
-    }
+  }
+  @media (max-aspect-ratio:3/3){
+    width: 18%;
+  } 
 }
 
 .btn__input {
@@ -97,8 +76,6 @@
 	padding: 6% 6% 6% 6.4vw;
 	background: #ed1d24;
 	color: #fff;
-	// font-size: 32px;
-
 	border-radius: 100px;
 	outline: none;
 	border: 6px solid #fde619;

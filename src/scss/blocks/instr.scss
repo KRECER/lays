@@ -1,37 +1,50 @@
 .instruction{
 	width: 100%;
 	position: absolute;
-	bottom: 0;
+	bottom: 0vh;
 	left: 0;
 	z-index: 2;
 	background: url('../img/Asset.svg');
-	// padding-top:7vw;
 	background-size: auto 100%;
 	overflow: hidden;
 
-	&__background{
-		width:100%;
-		display: block;
-	}
 	&__steps{
 		display: flex;
 		align-items: center;
 		list-style: none;
 		padding: 0;
 		margin: 0 auto;
-	    width: 161vh;
-	    max-width: 1780px;
-
-
+	  width: 161vh;
+	  max-width: 1780px;
+    
 		@media screen and (max-width: 182vh) {
 	    	width: 85%;
-	    }
+     } 
+    @media (max-aspect-ratio:3/3){
+      width: 100%;  
+      overflow: scroll;
+      padding-top:15vh;      
+    }
+    &:first-child:before{
+        display: none;
+    }
 		.instruction__item{
 			padding: 3.2vh 7%;
 			position: relative;
 			display: flex;
 			height: 100%;
 			align-items: center;
+
+        @media (max-aspect-ratio:3/3) {
+          position: absolute;
+          left: 50%;
+          top: 0%;
+          width: 33%;
+          transform: translate(-50%);
+          padding: 0;
+
+        }
+      }
 			img{
 				width: 100%;
 			}
@@ -59,10 +72,6 @@
 				top: 50%;
 				transform: translateY(-50%);
 			}
-			&:first-child:before{
-				display: none;
-			}
-		}
 			
-	}
+		}
 }	

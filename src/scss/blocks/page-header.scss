@@ -5,11 +5,22 @@
   background-size: 690vh auto;
   background-image: url('../img/wallRedText.png');
   background-position: center;
+  background-color: #ffdf0c;
 
   @media screen and (max-width: 182vh) {
     background-size: auto 135vw;
     background-position: center;
- 
+  }
+
+  @media (max-aspect-ratio: 3/3) {
+    background-image: url('../img/wallMobail.png');
+    background-size: 180vw auto;
+    background-position-y: top;
+
+    @media screen and (max-height: 216vw){
+       background-size: 100vh auto;
+      
+     }
   }
 
   &__right {
@@ -21,6 +32,21 @@
     @media screen and (max-width: 169vh) {
       top: 59vh;  
     }
+    @media (max-aspect-ratio: 3/3) {
+      z-index:2;
+      height: 32vh;
+      width: 65%;
+      position: absolute;
+      left: 50%;
+      right: auto;
+      top: auto;
+      bottom:0;
+      transform: translateX(-50%);
+      @media screen and (max-height: 216vw){
+       width: 35vh; 
+       height:25vh;
+      }
+    }
   }
 
 }
@@ -28,8 +54,16 @@
 .page-header__wrapper {
   display: flex;
   justify-content: space-between;
-  // background: url('../img/wall.jpg') no-repeat;
-  // background-size: contain;
+
+  @media (max-aspect-ratio: 3/3) {
+    display: block;
+    margin-top: -10%;
+    /*height: 100%;*/
+    overflow:hidden;
+    @media screen and (max-height: 216vw){
+      margin: 0;
+    }
+  }
 }
 
 .page-header__left {
