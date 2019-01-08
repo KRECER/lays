@@ -22,7 +22,6 @@
 .prizes__list {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   height: 60vh;
   margin: 0;
   padding: 0;
@@ -90,29 +89,52 @@
 
 @media (max-width: 768px) {
 	.prizes {
-		height: auto;
+    height: auto;
 	}
 
   .prizes__header {
-		min-height: auto;
+    height: 30vh;
+    min-height: auto;
+
+    background-image: url("../img/prizes/chips-mobile.png");
+    background-size: cover;
 	}
 	
 	.prizes__title {
+    width: 75vw;
 		height: auto;
 	}
 
   .prizes__list {
-		flex-direction: column;
-		height: 600px;
+    flex-direction: column;
+    height: auto;
   }
 
   .prizes__item {
 		width: 100%;
-		height: 300px;
+		height: 45vh;
 
 		&--hollywood {
 			padding-top: 0;
 			flex-basis: auto;
 		}
+  }
+
+  .prizes__btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .prizes__header {
+    height: 40vh;
+  }
+
+  .prizes__list {
+    flex-direction: row;
+  }
+
+  .prizes__item {
+    height: 60vh;
   }
 }
