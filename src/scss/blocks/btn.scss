@@ -132,7 +132,10 @@
 	border-radius: 100px;
 	outline: none;
 	border: 6px solid #fde619;
-
+	
+	&:focus{
+		background: #fff;
+	}
 	@media screen and (max-width: 169vh) {
 		border: 3px solid #fde619;
     }	
