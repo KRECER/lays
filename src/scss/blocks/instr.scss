@@ -7,18 +7,26 @@
 	background: url('../img/Asset.svg');
 	background-size: auto 100%;
 	overflow: hidden;
-
+	@media screen and (max-width: 182vh) {
+	   bottom: 8.5%;
+     } 
+    @media (max-aspect-ratio:3/3){
+    	bottom: 0;
+    	@media screen and (min-height: $minHightIphX) {
+    		bottom: 6%;
+    	}
+    }
 	&__steps{
 		display: flex;
 		align-items: center;
 		list-style: none;
 		padding: 0;
 		margin: 0 auto;
-	  width: 161vh;
-	  max-width: 1780px;
+		width: 161vh;
+		max-width: 1780px;
     
-		@media screen and (max-width: 182vh) {
-	    	width: 85%;
+	@media screen and (max-width: 182vh) {
+	    width: 85%;
      } 
     @media (max-aspect-ratio:3/3){
       width: 100%;  

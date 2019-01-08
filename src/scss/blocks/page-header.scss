@@ -2,7 +2,8 @@
   height: 100vh;
   position: relative;
   background-repeat:  no-repeat;
-  background-size: 690vh auto;
+  // background-size: 690vh auto;
+  background-size: 694vh 241%;
   background-image: url('../img/wallRedText.png');
   background-position: center;
   background-color: #ffdf0c;
@@ -13,42 +14,27 @@
   }
 
   @media (max-aspect-ratio: 3/3) {
-    background-image: url('../img/wallMobail.png');
-    background-size: 180vw auto;
+    /*iphone 5,6 */
+
+    background-image: url('../img/wallMobailYellow.png');
+    background-size: 160vw auto;
     background-position-y: top;
+    margin-top: -16%;
 
-    @media screen and (max-height: 216vw){
+    @media screen and (max-height: $maxHightTab){
+    /*ipad */
+       
        background-size: 100vh auto;
+       margin-top: -7%;
+    }
+    @media screen and (min-height: $minHightIphX){
+    /*iphone 10 */
+       
+       background-size: 180vw auto;
+       margin-top: -17%;
       
-     }
-  }
-
-  &__right {
-    height: 38vh;
-    width: 27%;
-    position: absolute;
-    right: 11%;
-    top: 63%;
-    @media screen and (max-width: 169vh) {
-      top: 59vh;  
-    }
-    @media (max-aspect-ratio: 3/3) {
-      z-index:2;
-      height: 32vh;
-      width: 65%;
-      position: absolute;
-      left: 50%;
-      right: auto;
-      top: auto;
-      bottom:0;
-      transform: translateX(-50%);
-      @media screen and (max-height: 216vw){
-       width: 35vh; 
-       height:25vh;
-      }
     }
   }
-
 }
 
 .page-header__wrapper {
@@ -57,10 +43,10 @@
 
   @media (max-aspect-ratio: 3/3) {
     display: block;
-    margin-top: -10%;
+    // margin-top: -10%;
     /*height: 100%;*/
     overflow:hidden;
-    @media screen and (max-height: 216vw){
+    @media screen and (max-height: $maxHightTab){
       margin: 0;
     }
   }
@@ -70,7 +56,6 @@
   width: 70%;
   height: 100vh;
 }
-
 
 
 

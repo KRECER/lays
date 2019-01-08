@@ -24,14 +24,18 @@
     }
 
      @media (max-aspect-ratio:3/3){
-        top: 69vw;
+        top: 62vw;
         left: 49.7%;
         transform: translateX(-50%);
-        width: 109vw;
-       @media screen and (max-height: 216vw){
+        width: 95vw;
+       @media screen and (max-height: $maxHightTab){
         width: 62vh;
         top: 38vh;
-       }   
+       }  
+        @media screen and (min-height: $minHightIphX){
+        top: 69vw;
+        width: 109vw;   
+        }
      }
   }
 
@@ -52,8 +56,7 @@
     z-index: 2;
     width: 61%;
     left: 21.5%;
-    top: 20.5%;
-
+    top: 22%;
   }
   &__tv{
     width: 30%;
@@ -64,19 +67,30 @@
     bottom: 0;
     background-image: url(../img/tv.png);
     background-repeat: no-repeat;
-    padding-top: 12vw;
+    padding-top: 24vh;
     background-size: 100% auto;
 
+    @media screen and (max-width: 182vh) {
+      padding-top: 25vw;
+      bottom: -5%;
+      width: 32%;
+    }
     @media (max-aspect-ratio:3/3){
      width: 40%;
      left: 50%;
      transform: translateX(-50%);
-     bottom: 32%;
+     bottom: 24%;
      z-index: 1;
-      @media screen and (max-height: 216vw){
-        width: 21vh;
-        bottom: 22vh;
+     padding-top: 17vw;
+      @media screen and (max-height: $maxHightTab){
+        width: 22vh;
+        bottom: 20%;
+        padding-top:15vw;
       }
+      @media screen and (min-height: $minHightIphX){
+        bottom: 30%;
+      }
+
     }
     .tv__scroll-btn {
       font-family: "Gotham Pro Medium";
@@ -120,7 +134,7 @@
     }
 
     &--superman {
-      top: -15%;
+      top: -11%;
       left: 50%;
       width: 45%;
       transform: translateX(-50%);

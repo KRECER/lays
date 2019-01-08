@@ -8,6 +8,13 @@
   z-index: 1;
   display: none;
   @media (max-aspect-ratio:3/3){
-    display: block;
+      display: block;
+      height: 6vh;
+      @media screen and (max-height: $maxHightTab){
+        height: 9vh;
+      }
+      @media screen and (min-height: $minHightIphX) {
+        height: 6vh;
+      }
   }
 }
