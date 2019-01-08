@@ -1,3 +1,27 @@
+.arrow{
+	display: none;
+	 @media (max-aspect-ratio:3/3){
+	 	display: block;
+	 	position: absolute;
+	 	top: 0;
+	 	bottom: 0;
+	 	margin: auto;
+	 	right: 10%;
+	 	height: 20%;
+	 }
+}
+.infoText{
+	display: none;
+}
+.infoTextStyle{
+	position: absolute;
+}
+.lays{
+	 @media (max-aspect-ratio:3/3){
+	 	height: 59%;
+	
+	 }
+}
 .instruction{
 	width: 100%;
 	position: absolute;
@@ -29,7 +53,8 @@
 	    width: 85%;
      } 
     @media (max-aspect-ratio:3/3){
-      width: 100%;  
+      width: 100%;
+      pointer-events:none;  
       overflow: scroll;
       padding-top:15vh;      
     }
@@ -47,20 +72,25 @@
           position: absolute;
           left: 50%;
           top: 0%;
-          width: 33%;
+          width: 100%;
           transform: translate(-50%);
           padding: 0;
-
+          justify-content:center;
+			// display: none;
         }
       }
 			img{
 				width: 100%;
+					@media (max-aspect-ratio:3/3) {
+						width: 33%;
+					}
 			}
 			.infoBtn{
 				position: absolute;
 				bottom: 33%;
 				right: 29%;
 				width: 100%;
+				pointer-events:auto;
 				height: 15%;
 				background: url('../img/information.svg') right no-repeat;
 				background-size: contain;
@@ -82,4 +112,8 @@
 			}
 			
 		}
+}
+.slideshow-container{
+	max-width: 200vw;
+	position: relative;
 }	

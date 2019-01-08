@@ -32,9 +32,8 @@
     "gulp-svgstore": "^7.0.0",
     "gulp-tinypng": "^1.0.2",
     "gulp-uglify": "^3.0.1",
+    "normalize.scss": "^0.1.0",
     "posthtml-include": "^1.2.0"
   },
-  "dependencies": {
-    "normalize.scss": "^0.1.0"
-  }
+  "dependencies": {}
 }
