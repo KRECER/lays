@@ -37,7 +37,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('html', () => {
-	return gulp.src('src/index.html', {base: 'src'})
+	return gulp.src('src/*.html', {base: 'src'})
 		.pipe( postHTML([include()]) )
 		.pipe( gulp.dest('build') )
 		.pipe( browserSync.stream() );
