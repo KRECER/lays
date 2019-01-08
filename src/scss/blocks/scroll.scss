@@ -9,3 +9,12 @@ body{
     z-index: 3;
     transition: transform 500ms;
 }
+
+@media (max-aspect-ratio:3/3) {
+    body{
+        overflow: auto;
+    }
+    .show{
+        transform: none;
+    }
+}
