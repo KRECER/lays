@@ -1,0 +1,11 @@
+body{
+    overflow: hidden;
+}
+.show{
+    transform: translate3d(0, -100%, 0);
+}
+#bottom-block{
+    position: relative;
+    z-index: 3;
+    transition: transform 500ms;
+}
