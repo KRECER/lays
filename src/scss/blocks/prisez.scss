@@ -1,7 +1,6 @@
 .prizes {
   height: 100vh;
 }
-
 .prizes__header {
   display: flex;
   min-height: 40vh;
@@ -30,7 +29,8 @@
 }
 
 .prizes__item {
-  flex-grow: 1;
+	flex-grow: 1;
+	// height: 250px;
 
   &--megogo {
     background: #00aa4f url("../img/prizes/megogo.svg") no-repeat center;
@@ -38,7 +38,9 @@
   }
 
   &--hollywood {
-    padding-top: 50vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
     flex-basis: 10%;
 
     background: #ed1d24 url("../img/prizes/hollywood.svg") no-repeat center;
@@ -52,22 +54,31 @@
 }
 
 .prizes__btn {
-  position: relative;
+	position: relative;
+<<<<<<< HEAD
+	
+=======
+  text-align: center;
+  text-decoration: none;
+>>>>>>> 53027d3bd4eeb8de42ad7f181a797ea0fedb29e4
+	display: block;
+	margin: 0 auto;
+	width: 200px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+<<<<<<< HEAD
+	margin-bottom: 30px;
 
-  display: block;
-  margin: 0 auto;
-  width: 20vw;
-  padding-top: 20px;
-  padding-bottom: 20px;
+=======
+>>>>>>> 53027d3bd4eeb8de42ad7f181a797ea0fedb29e4
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 12px;
 
-  text-transform: uppercase;
-  color: #ffffff;
-
-  background-color: #ed1d24;
-  outline: none;
-  border: none;
-  border: 7px solid #fcc403;
-  border-radius: 5vh;
+	background-color: #ed1d24;
+	outline: 0;
+	border: 3px solid #fcc403;
+	border-radius: 25px;
 
   &::after {
     content: '';
@@ -78,21 +89,33 @@
     width: 100%;
     height: 100%;
 
-    border: 6px solid #fde619;
+    border: 3px solid #fde619;
     border-radius: inherit;
   }
 }
 
-@media (max-width: 1200px) {
-  
+@media (max-width: 1170px) {
+  .prizes__header {
+		height: 50vh;
+	}
+
+	.prizes__title {
+		width: 44vw;
+		height: 39vh;
+	}
+
+	.prizes__item {
+		height: 50vh;
+	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
 	.prizes {
     height: auto;
 	}
 
   .prizes__header {
+		display: none;
     height: 30vh;
     min-height: auto;
 
@@ -117,6 +140,18 @@
 		&--hollywood {
 			padding-top: 0;
 			flex-basis: auto;
+		}
+
+		&:nth-child(1) {
+			order: 3;
+		}
+
+		&:nth-child(2) {
+			order: 2;
+		}
+
+		&:nth-child(3) {
+			order: 2;
 		}
   }
 
