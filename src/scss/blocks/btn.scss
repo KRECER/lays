@@ -47,7 +47,7 @@
 	position: relative;
     display: block;
     padding: 2vw;
-    background: #ed1d24;
+    // background: #ed1d24;
     border: 5px solid #fcc403;
     border-radius: 100px;
 	box-shadow: 0px 0px 50px 1px rgba(0,0,0,.7);
@@ -80,6 +80,8 @@
 
 	&__text{
 		color: #fff;
+		background:#ed1d24;
+		line-height: 230%;
 		font-family: "Gotham Pro Bold";	
 		font-weight: 700;
 		letter-spacing: 1px;
@@ -87,6 +89,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
+		z-index: 1;
 		font-size: 1.5vw;
 	    width: 100%;
 	    height: 100%;
@@ -117,7 +120,7 @@
 	left: 7px;
 	top: 50%;
 	transform: translateY(-50%);
-	z-index: 1;
+	z-index: 3;
 	fill: #fff;
 	width: 3.3vw;
     pointer-events: none;
@@ -149,6 +152,7 @@
     width: 93%;
     transform: translateX(-100%);
     pointer-events: none;
+    z-index: 2;
 
 	
 	&:focus{
@@ -183,6 +187,7 @@
 		animation: rotationSvg 1s linear;
 	}
 	.btn__input{
+		background:#fff;
     	transition: transform 1s linear;
     	// animation-timing-function:linear;
     	// animation-duration: 5s;
@@ -194,6 +199,10 @@
     	// animation-timing-function:linear;
     	// animation-duration: 5s;
     	transform: translate(618%, -50%);
+	}
+	.btn__text{
+		color: #ed1d24;
+		background:#fff;
 	}
 	
 }
