@@ -1,10 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var slider = document.getElementById('sliders');
+  var slider = document.getElementById('sliders');
 
-if (window.location.pathname === '/prizes/') document.getElementById('bottom-block').classList.add('show');
 
+  var rePrizes = new RegExp('/prizes/?');
+  if (rePrizes.test(window.location.pathname)) {
+    document.getElementById('bottom-block').classList.add('show')
+  }
+
+  var reHollywood = new RegExp('/hollywood/?');
+  if (reHollywood.test(window.location.pathname)) {
+    document.querySelector('.hollywood').classList.add('show')
+  }
+
+  // document.querySelector('.prizes__btn').addEventListener('click', function(){
+    // console.log('prizes__btn');
+    // window.history.pushState("", "", '/hollywood');
+    // window.location.href = '/hollywood';
+  // })
   // slider
-//   if (slider) setInterval(nextSlide(), 3000);
+  // if (slider) setInterval(nextSlide(), 3000);
 
   // Slider
   document.addEventListener('wheel', scrollDirection);
@@ -66,4 +80,11 @@ if (window.location.pathname === '/prizes/') document.getElementById('bottom-blo
     xDown = null;
     yDown = null;
   }
-})  
+
+
+  var btnAnimation = document.getElementById('js-btn-animation');
+  btnAnimation.addEventListener('click', function (event){
+    this.classList.add('btn-animation');
+  })
+
+});  

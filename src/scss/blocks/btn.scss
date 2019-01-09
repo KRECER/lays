@@ -4,6 +4,7 @@
     position: absolute;
     right: 11%;
     top: 63%;
+    pointer-events: none;
     @media screen and (max-width: 169vh) {
       top: 59vh;  
     }
@@ -44,10 +45,15 @@
 }
 .btn {
 	position: relative;
-	display: block;
-	border: 5px solid #fcc403;
-	border-radius: 100px;
+    display: block;
+    padding: 2vw;
+    background: #ed1d24;
+    border: 5px solid #fcc403;
+    border-radius: 100px;
 	box-shadow: 0px 0px 50px 1px rgba(0,0,0,.7);
+    overflow: hidden;
+    pointer-events: auto;
+	
 	@media screen and (max-width: 169vh) {
 		border: 3px solid #fcc403;
     }
@@ -79,12 +85,17 @@
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		position: absolute;
-		left: 55%;
-		transform: translate(-50%);
-		top: 34%;
+		left: 0;
+		top: 0;
 		font-size: 1.5vw;
 	    width: 100%;
+	    height: 100%;
 	    text-align: center;
+	    border: 6px solid #fde619;
+   		border-radius: 100px;
+    	pointer-events: none;
+
+
     @media (max-aspect-ratio:3/3){
       font-size: 3vw;
 
@@ -103,12 +114,13 @@
 
 .btn__icon {
 	position: absolute;
-	left: 9px;
+	left: 7px;
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 1;
-	fill: #ffffff;
-	width: 3.6vw;
+	fill: #fff;
+	width: 3.3vw;
+    pointer-events: none;
 
 	@media screen and (max-width: 169vh) {
 		left: 5px;
@@ -123,15 +135,21 @@
 }
 
 .btn__input {
-	display: none;
-	width: 100%;
-	height: 100%;
-	padding: 6% 6% 6% 6.4vw;
-	background: #ed1d24;
-	color: #fff;
-	border-radius: 100px;
+	display: block;
+	background: #fff;
+	color: #000;
+	border-radius: 100px 0 0 50px;
 	outline: none;
-	border: 6px solid #fde619;
+	border-right: none; 
+	border-bottom: 3px solid #ed1d24;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 89%;
+    width: 93%;
+    transform: translateX(-100%);
+    pointer-events: none;
+
 	
 	&:focus{
 		background: #fff;
@@ -149,7 +167,34 @@
 			padding: 3% 3% 3% 5vw;
 		}
   	} 
-	&--show {
-		display: block;
-	}
 }
+
+
+@keyframes rotationSvg {
+	from {transform: rotate(0deg)}
+	to {transform: rotate(360deg)}
+}
+
+
+.btn-animation{
+	background: #fff;
+	.animationSvg{
+		transform-origin: center;
+		animation: rotationSvg 1s linear;
+	}
+	.btn__input{
+    	transition: transform 1s linear;
+    	// animation-timing-function:linear;
+    	// animation-duration: 5s;
+		transform: translateX(0);
+	}
+	.btn__icon{
+		fill: #ed1d24;
+    	transition: transform 1s linear;
+    	// animation-timing-function:linear;
+    	// animation-duration: 5s;
+    	transform: translate(618%, -50%);
+	}
+	
+}
+

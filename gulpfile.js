@@ -17,7 +17,8 @@ const gulp 				    =	require('gulp'),
 			postHTML        = require('gulp-posthtml'),
 			include         = require('posthtml-include'), // Plugin postHTML
 			cheerio         = require('gulp-cheerio'),
-			svgstore        = require('gulp-svgstore');
+			svgstore        = require('gulp-svgstore'),
+			history 		= require('connect-history-api-fallback');
 
 
 gulp.task('server', function() {
@@ -25,7 +26,11 @@ gulp.task('server', function() {
 		server: {
 			baseDir: 'build'
 		},
-		port: 9000
+		port: 9000,
+		middleware: [ history({
+			  	index: '/index.html'
+			})
+		]
 	});
 
 	gulp.watch('src/**/*.html', gulp.series('html') );
