@@ -1,0 +1,180 @@
+// body{
+// 	overflow: hidden;
+// }
+.megago{
+	background: #00a3e2;
+	height: 100vh;
+	display: flex;
+}
+.lenth{
+	background:url(../img/megago/lenth.png);
+	height: 100vh;
+	width: 182px;
+}
+.megago_headers{
+	display: flex;
+	flex-direction:column;
+	width: 650px;
+	color: white;
+}
+.megago_arrows{
+	text-align: left;
+	height: 8vh;
+	line-height: 8vh;
+	display: flex;
+	align-items:center;
+	font-weight: lighter;
+	span{
+		margin-left:20px;
+		font-weight: light;
+	}
+	img{
+		margin-left: 20px;
+	}
+}
+.megago_camera{
+	height: 30vh;
+	text-align: center;
+	position: relative;
+	img{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		height: 200px;
+
+	}
+}
+.megago_logo{
+	height: 25vh;
+	position: relative;
+	text-align: center;
+	div{
+		position: absolute;
+		display: flex;
+		align-items:center;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		justify-content:center;
+	}
+	img{
+		height: 150px;
+	}
+}
+.megago_films{
+	height: 25vh;
+	position: relative;
+img{
+		position: absolute;
+		display: flex;
+		align-items:center;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		text-align: center;
+		justify-content:center;
+		height: 110px;
+	}
+}
+.megago_text{
+	display: flex;
+	flex-direction:column;
+	width: 800px;
+	color: white;
+	position: relative;
+	text-align: center;
+	height: 100vh;
+	.hollywood__btn{
+		height: 70px;
+		padding: 0px;
+		text-align: center;
+		width: 300px;
+		margin-top: 20px;
+		margin-bottom: 0px;
+		svg{
+			height: 22px
+		}
+	}
+}
+.megago_watching{
+	margin-top: 8vh;
+	img{
+		height: 140px;
+	}
+	h2{
+		padding: 20px 0px;
+	}
+}
+.inpText{
+	// margin-bottom: 20px;
+}
+.circle{
+	border-radius: 50%;
+	height: 70px;
+	width: 70px;
+	background:#eed617;
+	border: 5px solid #c8bd31;
+	line-height: 65px;
+	text-align: center;
+	color: #ed1d24;
+	font-weight: bold;
+	font-size: 30px;
+	// float: left;
+	// clear: both;
+}
+.megagoForm>div{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	margin: 10px 0px; 
+}
+.megagoForm input{
+	height: 70px;
+	margin-left: 20px;
+	width: 30vw;
+	border: 5px solid #eed617;
+	border-radius: 10px;
+	color: #2371b9;
+	padding-left: 10px;
+	text-align: center;
+	font-weight: bold;
+	
+}
+::-webkit-input-placeholder {color:#2371b9}
+::-moz-placeholder          {color:#2371b9}/* Firefox 19+ */
+:-moz-placeholder           {color:#2371b9}/* Firefox 18- */
+:-ms-input-placeholder      {color:#2371b9}
+
+:focus::-webkit-input-placeholder {
+  color: transparent
+}
+ 
+:focus::-moz-placeholder {
+  color: transparent
+}
+ 
+:focus:-moz-placeholder {
+  color: transparent
+}
+ 
+:focus:-ms-input-placeholder {
+  color: transparent
+}
+
+
+.footer{
+	color: black;
+	font-size: 10px;
+	color: white;
+	position: absolute;
+	bottom: 10px;
+	left: 0px;
+	right: 0px;
+	margin:auto; 
+}

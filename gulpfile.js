@@ -37,11 +37,18 @@ gulp.task('server', function() {
 });
 
 gulp.task('html', () => {
-	return gulp.src('src/index.html', {base: 'src'})
+	return gulp.src('src/*.html', {base: 'src'})
 		.pipe( postHTML([include()]) )
 		.pipe( gulp.dest('build') )
 		.pipe( browserSync.stream() );
 });
+
+// gulp.task('html_megago', () => {
+// 	return gulp.src('src/megago.html', {base: 'src'})
+// 		.pipe( postHTML([include()]) )
+// 		.pipe( gulp.dest('build') )
+// 		.pipe( browserSync.stream() );
+// });
 
 gulp.task('plugins:js', () => {
 	return gulp.src('src/js/plugins/*.js', {base: 'src/js/plugins'})
