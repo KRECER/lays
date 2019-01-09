@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   var slider = document.getElementById('sliders');
 
-
   var rePrizes = new RegExp('^/prizes/?$');
   if (rePrizes.test(window.location.pathname)) {
     document.querySelector('.prizes').classList.add('show');
@@ -19,13 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // Slider
   document.addEventListener('wheel', scrollDirection);
 
-  var isScrolling = false;
+  var lastScrollDate = new Date();
   function scrollDirection(e) {
-    console.log(e);
-    if (isScrolling) {
+    if (new Date() - lastScrollDate <= 500) {
       return;
     } else {
-      isScrolling = true;
+      lastScrollDate = new Date();
     }
     if ((e.deltaY > 0)) {
       if (document.getElementById('bottom-block') && (reMain.test(window.location.pathname) || reRoot.test(window.location.pathname)) ) {
@@ -45,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('bottom-block').classList.remove('show');
       }
     }
-
-    isScrolling = false;
   }
 
   //btn main
