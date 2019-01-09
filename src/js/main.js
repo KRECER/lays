@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	console.log('2222222');
+	// console.log('2222222');
 });

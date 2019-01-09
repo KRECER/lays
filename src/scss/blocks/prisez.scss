@@ -1,7 +1,6 @@
 .prizes {
   height: 100vh;
 }
-
 .prizes__header {
   display: flex;
   min-height: 40vh;
@@ -53,13 +52,13 @@
 
 .prizes__btn {
 	position: relative;
-
+  text-align: center;
+  text-decoration: none;
 	display: block;
 	margin: 0 auto;
 	width: 200px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-
 	text-transform: uppercase;
 	color: #fff;
 	font-size: 12px;
