@@ -48,6 +48,13 @@ gulp.task('html', () => {
 		.pipe( browserSync.stream() );
 });
 
+// gulp.task('html_megago', () => {
+// 	return gulp.src('src/megago.html', {base: 'src'})
+// 		.pipe( postHTML([include()]) )
+// 		.pipe( gulp.dest('build') )
+// 		.pipe( browserSync.stream() );
+// });
+
 gulp.task('plugins:js', () => {
 	return gulp.src('src/js/plugins/*.js', {base: 'src/js/plugins'})
 		.pipe( babel() )
