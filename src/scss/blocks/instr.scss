@@ -10,9 +10,6 @@
 	 	height: 20%;
 	 }
 }
-.infoText{
-	display: none;
-}
 .infoTextStyle{
 	position: absolute;
 }
@@ -30,7 +27,7 @@
 	z-index: 2;
 	background: url('../img/Asset.svg');
 	background-size: auto 100%;
-	overflow: hidden;
+	// overflow: hidden;
 	@media screen and (max-width: 182vh) {
 	   bottom: 8.5%;
      } 
@@ -89,7 +86,8 @@
 				position: absolute;
 				bottom: 33%;
 				right: 29%;
-				width: 100%;
+				width: 5%;
+    			float: right;
 				pointer-events:auto;
 				height: 15%;
 				background: url('../img/information.svg') right no-repeat;
@@ -117,3 +115,90 @@
 	max-width: 200vw;
 	position: relative;
 }	
+.info__hidden{
+	height: 100%;
+	width: 6%;
+	position: relative;
+	right: 0px;
+	float: right;
+}
+.infoTextStyle{
+	position: absolute;
+	top: -30px;
+	width: 30vh;
+	border: 2px solid #fcc403;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    font-size: 27px;
+    right: 20px;
+    transform: translate(100%,-100%) scale(.6);
+    background: #fff;
+    z-index: 99;
+    padding: 15px;
+    width: 450px;
+    text-align: center;
+    opacity: 1;
+    pointer-events: none;
+    transition: transform .4s,opacity .4s;
+    transition-delay: 0s;
+    transform-origin: 0 100%;
+}
+.infoTextStyle:before{
+	position: absolute;
+    content: '';
+    border: 11px solid transparent;
+    left: 0;
+    z-index: 6;
+    border-top-color: #fcc403;
+    bottom: 0px;
+    transform: translate(10px,22px);
+}
+.infoText{
+	opacity: 0;
+}
+@media (max-aspect-ratio:3/3){
+
+	.infoTextStyle{
+	position: absolute;
+	top: -30px;
+	width: 30vh;
+	border: 2px solid #fcc403;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    font-size: 27px;
+    right: 200px;
+    transform: translate(100%,-100%) scale(.6);
+    background: #fff;
+    z-index: 99;
+    padding: 15px;
+    width: 450px;
+    text-align: center;
+    opacity: 1;
+    pointer-events: none;
+    transition: transform .4s,opacity .4s;
+    transition-delay: 0s;
+    transform-origin: 0 100%;
+    // left: 0px;
+    // right: 0px;
+    // margin: auto;
+}
+.infoText{
+	opacity: 0;
+}
+.infoTextStyle:before{
+	position: absolute;
+    content: '';
+	display: none;
+    border: 11px solid transparent;
+    left: 0;
+    z-index: 6;
+    border-top-color: #fcc403;
+    bottom: 0px;
+    transform: translate(10px,22px);
+	}
+	.instruction__steps {
+   	overflow: initial;
+	}
+}
