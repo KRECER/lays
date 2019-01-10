@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	// console.log('2222222');
+	$(".tel").mask("+38(999) 999-99-99");
 });

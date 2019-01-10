@@ -15,10 +15,10 @@ const gulp 				    =	require('gulp'),
 			changed         = require('gulp-changed'),
 			imagemin        = require('gulp-imagemin'),
 			postHTML        = require('gulp-posthtml'),
-			include         = require('posthtml-include'), // Plugin postHTML
+			include         = require('posthtml-include'), // plugin postHTML
 			cheerio         = require('gulp-cheerio'),
 			svgstore        = require('gulp-svgstore'),
-			history 		= require('connect-history-api-fallback');
+			history 		    = require('connect-history-api-fallback');
 
 
 gulp.task('server', function() {
@@ -47,13 +47,6 @@ gulp.task('html', () => {
 		.pipe( gulp.dest('build') )
 		.pipe( browserSync.stream() );
 });
-
-// gulp.task('html_megago', () => {
-// 	return gulp.src('src/megago.html', {base: 'src'})
-// 		.pipe( postHTML([include()]) )
-// 		.pipe( gulp.dest('build') )
-// 		.pipe( browserSync.stream() );
-// });
 
 gulp.task('plugins:js', () => {
 	return gulp.src('src/js/plugins/*.js', {base: 'src/js/plugins'})
@@ -128,14 +121,6 @@ gulp.task('copy', () => {
 		.pipe( gulp.dest('build') )
 });
 
-gulp.task('tinypng', function() {
-	return gulp.src('src/img/**/*.{jpg,png}')
-		.pipe( tinyPng('WYFtJYfxrL1VNKh6RmRnhZcV0shrHvpY') )
-		.pipe( gulp.dest('src/img') );
-});
-
-/* BUILD */
 gulp.task('build', gulp.series('del', 'copy', 'images', 'sprite', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
 
-/* DEV */
 gulp.task('dev', gulp.series('build', 'server') );

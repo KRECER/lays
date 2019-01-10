@@ -56,5 +56,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     setTimeout(superPuperSetFocusOnInputPleaseWorkHotyaBuRazochek, 1000);
   })
-
 });  
