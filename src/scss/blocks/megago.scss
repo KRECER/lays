@@ -4,8 +4,12 @@
 	display: flex;
 }
 
+.megago__text .megago__arrows {
+	display: none;
+}
+
 .megago__lenth {
-	background:url(../img/megago/lenth.png);
+	background: url(../img/megago/lenth.png);
 	height: 100vh;
 	min-width: 182px;
 }
@@ -176,21 +180,48 @@ input:focus::placeholder      {color: transparent;}
 	color: black;
 	font-size: 10px;
 	color: white;
-	
-	
-	align-self: flex-end;
+	margin-top: auto !important;
 }
 
 .megago__text .megago__films {
 	display: none;
 }
 
-@media (max-width: 1200px) {
+form.megago__form {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+// Tablet
+@media (max-width: 1294px) {
 	.megago__lenth {
 		min-width: 116px;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 	}
+
+	.megago__form input {
+		padding-left: 15px;
+		padding-right: 15px;
+		width: 80%;
+		height: 50px;
+		font-size: 12px;
+	}
+
+	.circle {
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 17px;
+	}
+
+	.megago__btn {
+    height: 50px;
+    width: 212px;
+		font-size: 14px;
+		margin-bottom: 10px;
+ }
 
 	.megago__camera img {
     height: 128px;
@@ -226,7 +257,12 @@ input:focus::placeholder      {color: transparent;}
 	}
 }
 
+// Mobile
 @media (max-width: 768px) {
+	.megago__text .megago__arrows {
+		display: block;
+	}
+
 	.megago__text .megago__films {
 		display: block;
 		height: 100px;
@@ -238,10 +274,12 @@ input:focus::placeholder      {color: transparent;}
 
 	.megago__text .megago__logo {
 		display: block;
+		margin-bottom: 30px;
 	}
 
 	.megago {
 		height: auto;
+		position: relative;
 	}
 
 	.megago__headers {
@@ -250,16 +288,19 @@ input:focus::placeholder      {color: transparent;}
 
 	.megago__lenth {
 		min-width: 50px;
-		height: auto;
+		height: 100%;
 		background-size: contain;
 		background-repeat: repeat-y;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 	}
 
 	.megago__text {
 		flex-grow: 1;
 		height: auto;
-		padding-left: 10px;
-		padding-right: 30px;
+		padding-top: 0;
 	}
 
 	.circle {
@@ -267,6 +308,12 @@ input:focus::placeholder      {color: transparent;}
     height: 40px;
     line-height: 31px;
     font-size: 17px;
+	}
+
+	form.megago__form {
+		height: auto;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 	.megago__form > div {
@@ -297,11 +344,7 @@ input:focus::placeholder      {color: transparent;}
  }
 
  .megago__footer {
-	 margin-top: 20px;
+	 margin-top: 20px !important;
 	 position: static;
  }
-}
-
-@media (max-width: 576px) {
-
 }
