@@ -1,12 +1,12 @@
 .prizes{
     position: relative;
-    z-index: 4;
+    z-index: 5;
     transition: transform 600ms;
     transform: translate3d(0, 0, 0);
 }
 .hollywood{
     position: relative;
-    z-index: 5;
+    z-index: 6;
     transition: transform 600ms;
     transform: translate3d(0, -100%, 0);
 }
@@ -19,9 +19,21 @@
   transform: translate3d(0,-200%,0);
 }
 
-@media (max-aspect-ratio:3/3) {
+@media (orientation: landscape){
     body{
         overflow: auto;
+
+    }
+    .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
+        transform: none;
+    }
+}
+
+@media (max-aspect-ratio:3/3){
+    body{
+        overflow: auto;
+        // display: none;
+
     }
     .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
         transform: none;

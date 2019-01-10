@@ -1,0 +1,86 @@
+.enterform{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+  	background-size: 694vh 241%;
+  	background-image: url('../img/wallRedText.png');
+  	background-position: center;
+  	background-color: #ffdf0c;
+  	font-weight: 700;
+}
+.enterform:before{
+	background: rgba(0,159,229,0.8);
+	background:rgba(35,113,185,0.8);
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	content: '';
+}
+
+.enterform__wrapper{
+	position: absolute;
+	width: 30vw;
+	height: 60vh;
+	background:rgba(254,251,232,0.7);
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	top: 0px;
+	margin: auto;
+	border-radius: 20px;
+
+}
+.enterform__btn{
+	margin-bottom: 15px;
+	width: 50%;
+	height: 60px;
+	font-size: 20px;
+}
+.enterform__btn:last-child{
+	background: #fde619;
+}
+.enterform__head{
+	color: #ed1d24;
+	font-weight: 900;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 28px;
+}
+.enterform input:focus{
+	border-color: #fcc403; 
+}
+input{
+	cursor: pointer;
+	height: 50px;
+	width: 50%;
+}
+.enterform__inp{
+	text-align: center;
+	margin: 20px auto;
+}
+.enterform__question{
+	text-align: center;
+	font-size: 12px;
+	font-weight: 900;
+	border-bottom: 2px solid #fcc403;
+	width: 35%;
+	margin: auto;
+	margin-bottom: 15px;
+	padding-bottom: 20px;
+}
+.enterform__question a{
+	color: red;
+	text-decoration: none; 
+}
+.enterform__btn:last-child{
+	color: red;
+}
+.enterform__btn{
+	margin-bottom: 0px;
+}
+.enterform__btn:last-child{
+	color: red;
+}
+.enterform__logo{
+	text-align: center;
+}
