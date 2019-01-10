@@ -1,89 +1,61 @@
-@font-face {
-     font-family: 'Gotham Pro Medium';
-     src: url('../fonts/GothamPro/GothamPro-Medium.woff2') format('woff2'),
-         url('../fonts/GothamPro/GothamPro-Medium.woff') format('woff');
-     font-weight: 500;
-     font-style: normal;
- }
- @font-face {
-     font-family: ' GothamPro-Light';
-     src: url('../fonts/GothamPro/GothamPro-Light.ttf') format('ttf');
-     font-style: normal;
-      font-weight: 300;
- }
- @font-face {
-     font-family: 'Gotham Pro Bold';
-     src: url('../fonts/GothamPro/GothamPro-Bold.woff2') format('woff2'),
-         url('../fonts/GothamPro/GothamPro-Bold.woff') format('woff');
-     font-weight: bold;
-     font-style: normal;
- }
- 
- @font-face {
-     font-family: 'Gotham Pro Black';
-     src: url('../fonts/GothamPro/GothamPro-Black.woff2') format('woff2'),
-         url('../fonts/GothamPro/GothamPro-Black.woff') format('woff');
-       font-weight: 900;
-       font-style: normal;
-   }
-   
-   @font-face {
-       font-family: 'Noto Sans';
-       src: url('../fonts/NatoSans/NotoSans.woff2') format('woff2'),
-           url('../fonts/NatoSans/NotoSans.woff') format('woff');
-       font-weight: normal;
-       font-style: normal;
-   }
-.megago{
+.megago {
 	background: #00a3e2;
 	height: 100vh;
 	display: flex;
 }
-.lenth{
+
+.megago__lenth {
 	background:url(../img/megago/lenth.png);
 	height: 100vh;
 	min-width: 182px;
 }
-.megago_headers{
+
+.megago__headers {
 	display: flex;
 	flex-direction:column;
 	width: 700px;
 	color: white;
 }
-.megago_arrows{
+
+.megago__arrows {
 	text-align: left;
 	height: 8vh;
 	line-height: 8vh;
 	display: flex;
 	align-items:center;
 	font-weight: lighter;
+
 	span{
 		margin-left:20px;
-		font-weight: light;
+		font-weight: 300;
 	}
-	img{
+
+	img {
 		margin-left: 20px;
 	}
 }
-.megago_camera{
+
+.megago__camera{
 	height: 30vh;
 	text-align: center;
 	position: relative;
-	img{
+
+	img {
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		margin: auto;
 		height: 200px;
-
 	}
 }
-.megago_logo{
+
+.megago__logo {
 	height: 25vh;
 	position: relative;
 	text-align: center;
-	div{
+
+	div {
 		position: absolute;
 		display: flex;
 		align-items:center;
@@ -94,14 +66,17 @@
 		margin: auto;
 		justify-content:center;
 	}
-	img{
+
+	img {
 		height: 150px;
 	}
 }
-.megago_films{
+
+.megago__films {
 	height: 25vh;
 	position: relative;
-img{
+
+	img {
 		position: absolute;
 		display: flex;
 		align-items:center;
@@ -115,7 +90,8 @@ img{
 		height: 110px;
 	}
 }
-.megago_text{
+
+.megago__text {
 	display: flex;
 	flex-direction:column;
 	width: 900px;
@@ -123,37 +99,45 @@ img{
 	position: relative;
 	text-align: center;
 	height: 100vh;
-	.hollywood__btn{
-		height: 70px;
-		padding: 0px;
-		text-align: center;
-		width: 300px;
-		margin-top: 20px;
-		margin-bottom: 0px;
-		font-family: 'Gotham Pro Bold';
-		font-size: 20px;
-		svg{
-			height: 22px
-		}
+}
+
+.megago__text .megago__logo {
+	display: none;
+}
+
+.megago__btn {
+	height: 70px;
+	padding: 0px;
+	text-align: center;
+	width: 300px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-weight: 700;
+	font-size: 20px;
+
+	svg {
+		height: 22px;
 	}
 }
-.megago_watching{
+
+.megago__watching {
 	margin-top: 8vh;
-	img{
+
+	img {
 		height: 140px;
 	}
-	h2{
+
+	h2 {
 		padding: 20px 0px;
-		font-family: 'Gotham Pro Bold';
+		font-weight: 700;
 	}
-	div{
-		font-family: 'GothamPro-Light';
+
+	div {
+		font-weight: 300;
 	}
 }
-.inpText{
-	// margin-bottom: 20px;
-}
-.circle{
+
+.circle {
 	border-radius: 50%;
 	height: 70px;
 	width: 70px;
@@ -164,16 +148,16 @@ img{
 	color: #ed1d24;
 	font-weight: bold;
 	font-size: 30px;
-	// float: left;
-	// clear: both;
 }
-.megagoForm>div{
+
+.megago__form > div {
 	display: flex;
 	justify-content:center;
 	align-items:center;
-	margin: 10px 0px; 
+	margin: 10px 0px;
 }
-.megagoForm input{
+
+.megago__form input{
 	height: 70px;
 	margin-left: 20px;
 	width: 30vw;
@@ -182,37 +166,142 @@ img{
 	color: #2371b9;
 	padding-left: 10px;
 	text-align: center;
-	font-weight: bold;
-	font-family: 'Gotham Pro Bold';
-}
-::-webkit-input-placeholder {color:#2371b9}
-::-moz-placeholder          {color:#2371b9}/* Firefox 19+ */
-:-moz-placeholder           {color:#2371b9}/* Firefox 18- */
-:-ms-input-placeholder      {color:#2371b9}
-
-:focus::-webkit-input-placeholder {
-  color: transparent
-}
- 
-:focus::-moz-placeholder {
-  color: transparent
-}
- 
-:focus:-moz-placeholder {
-  color: transparent
-}
- 
-:focus:-ms-input-placeholder {
-  color: transparent
+	font-weight: 700;
 }
 
-.footer{
+input::placeholder      {color:#2371b9}
+input:focus::placeholder      {color: transparent;}
+
+.megago__footer{
 	color: black;
 	font-size: 10px;
 	color: white;
-	position: absolute;
-	bottom: 10px;
-	left: 0px;
-	right: 0px;
-	margin:auto; 
+	
+	
+	align-self: flex-end;
+}
+
+.megago__text .megago__films {
+	display: none;
+}
+
+@media (max-width: 1200px) {
+	.megago__lenth {
+		min-width: 116px;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.megago__camera img {
+    height: 128px;
+	}
+
+	.megago__logo img {
+    height: 100px;
+	}
+
+	.megago__films img {
+    height: 90px;
+	}
+
+	.megago__watching {
+    margin-top: 19vh;
+	}
+
+
+	.megago__watching img {
+    height: 70px;
+	}
+
+	.megago__watching h2 {
+    font-size: 14px;
+	}
+
+	.megago__watching div {
+    font-size: 12px;
+	}
+
+	.megago__text {
+    width: 720px;
+	}
+}
+
+@media (max-width: 768px) {
+	.megago__text .megago__films {
+		display: block;
+		height: 100px;
+	}
+
+	.megago__watching {
+		margin-top: 0;
+	}
+
+	.megago__text .megago__logo {
+		display: block;
+	}
+
+	.megago {
+		height: auto;
+	}
+
+	.megago__headers {
+		display: none;
+	}
+
+	.megago__lenth {
+		min-width: 50px;
+		height: auto;
+		background-size: contain;
+		background-repeat: repeat-y;
+	}
+
+	.megago__text {
+		flex-grow: 1;
+		height: auto;
+		padding-left: 10px;
+		padding-right: 30px;
+	}
+
+	.circle {
+    width: 40px;
+    height: 40px;
+    line-height: 31px;
+    font-size: 17px;
+	}
+
+	.megago__form > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+		margin: 0;
+		margin-bottom: 10px;
+	}
+
+	.megago__form input {
+		padding-left: 15px;
+		padding-right: 15px;
+		width: 80%;
+		height: 40px;
+		font-size: 12px;
+	}
+
+	.megago__form input::placeholder {
+		font-size: 9px;
+	}
+
+	.megago__btn {
+    height: 50px;
+    width: 212px;
+		font-size: 14px;
+		margin-bottom: 10px;
+ }
+
+ .megago__footer {
+	 margin-top: 20px;
+	 position: static;
+ }
+}
+
+@media (max-width: 576px) {
+
 }

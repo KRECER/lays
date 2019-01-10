@@ -46,10 +46,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   //btn main
-  var btnAnimation = document.getElementById('js-btn-animation');
-  btnAnimation.addEventListener('click', function (event){
-    this.classList.add('btn-animation');
-    document.getElementsByName('code')[0].focus();
-  })
+  // var btnAnimation = document.getElementById('js-btn-animation');
+  // btnAnimation.addEventListener('click', function (event){
+  //   this.classList.add('btn-animation');
+  //   document.getElementsByName('code')[0].focus();
+  // })
 
 });  
