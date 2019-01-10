@@ -24,17 +24,20 @@
     }
 
      @media (max-aspect-ratio:3/3){
-        top: 62vw;
+        top: 77vw;
         left: 49.7%;
         transform: translateX(-50%);
-        width: 95vw;
+        width: 123vw;
        @media screen and (max-height: $maxHightTab){
         width: 62vh;
         top: 38vh;
        }  
         @media screen and (min-height: $minHightIphX){
-        top: 69vw;
-        width: 109vw;   
+        // top: 69vw;
+        // width: 109vw;   
+
+          top: 83vw;
+          width: 130vw;
         }
      }
   }
@@ -58,6 +61,7 @@
     left: 21.5%;
     top: 22%;
   }
+ 
   &__tv{
     width: 30%;
     color: #fff;
@@ -79,7 +83,7 @@
      width: 40%;
      left: 50%;
      transform: translateX(-50%);
-     bottom: 24%;
+     bottom: 8%;
      z-index: 1;
      padding-top: 17vw;
       @media screen and (max-height: $maxHightTab){
@@ -88,7 +92,9 @@
         padding-top:15vw;
       }
       @media screen and (min-height: $minHightIphX){
-        bottom: 30%;
+        // bottom: 30%;
+
+        bottom: 19%;
       }
 
     }
@@ -114,6 +120,24 @@
         display:none; 
       }
     }
+
+     .tv__shadow{
+      position: absolute;
+      top: 0;
+      height: 37vh;
+      background-image: url('../img/shadow.png');
+      background-size: 100% auto;
+      background-position: top;
+      background-repeat: no-repeat;
+      width: 100%;
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+        @media (max-aspect-ratio:3/3){
+           @media screen and (min-height: $minHightIphX){
+            height: 13vh;
+          }
+        }
+     }
   }
 }
 

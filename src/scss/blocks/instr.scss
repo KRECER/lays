@@ -34,7 +34,7 @@
     @media (max-aspect-ratio:3/3){
     	bottom: 0;
     	@media screen and (min-height: $minHightIphX) {
-    		bottom: 6%;
+    		bottom: 0;
     	}
     }
 	&__steps{
