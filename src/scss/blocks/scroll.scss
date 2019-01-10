@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 .prizes{
     position: relative;
     z-index: 5;
@@ -22,13 +25,12 @@
 @media (max-width: 1200px){
     body{
         overflow: auto;
-
     }
     .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
         transform: none;
     }
 }
-// @media (orientation: landscape){
+/*// @media (orientation: landscape){
 //     body{
 //         overflow: auto;
 
@@ -47,4 +49,4 @@
 //     .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
 //         transform: none;
 //     }
-// }
+// }*/
