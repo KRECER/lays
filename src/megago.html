@@ -35,13 +35,31 @@
 			</div>
 			<h2>ЩОБ РОЗПОЧАТИ ПЕРЕГЛЯД:</h2>
 		</div>
+		<form action="" class="megagoForm">
+		<div>
+			<div class="circle">1</div><input type="text" placeholder="ВВЕДИ ТВІЙ НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel">
+		</div>
+		<div>
+			<div class="circle">2</div><input type="text" placeholder="ВВЕДИ ТВІЙ ПРОМО-КОД MEGOGO">
+		</div>
 		<button class="hollywood__btn">ПРОДОВЖИТИ
-			<svg class ="hollywood__icon-triangle">
-				<g id="icon-triangle" viewBox="0 0 16.25 21.23"><path d="M15.2,12.67,4,20.74a2.56,2.56,0,0,1-1.5.49,2.47,2.47,0,0,1-1.15-.28A2.53,2.53,0,0,1,0,18.69V2.54a2.54,2.54,0,0,1,4-2L15.2,8.56a2.54,2.54,0,0,1,0,4.11Z"/></g>
+			<svg class="hollywood__icon-triangle">
+				<g id="icon-triangle" viewBox="0 0 16.25 21.23"><path d="M15.2,12.67,4,20.74a2.56,2.56,0,0,1-1.5.49,2.47,2.47,0,0,1-1.15-.28A2.53,2.53,0,0,1,0,18.69V2.54a2.54,2.54,0,0,1,4-2L15.2,8.56a2.54,2.54,0,0,1,0,4.11Z"></path></g>
 			</svg>
 		</button>
+		<div class="footer">
+			* Маються на увазі тільки пачки ТМ «LAY’S» з акційним  банером «КІНО СМАКУЄ КРАЩЕ З LAY’S» так кодом всередині.
+		</div>
+	</form>
 	</div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
+<script>
+	jQuery( function($){
+		$(".tel").mask("+38(999) 999-99-99");
+	});
+</script>
 </section>
 </body>
 </html>
+

@@ -1,6 +1,39 @@
-// body{
-// 	overflow: hidden;
-// }
+@font-face {
+     font-family: 'Gotham Pro Medium';
+     src: url('../fonts/GothamPro/GothamPro-Medium.woff2') format('woff2'),
+         url('../fonts/GothamPro/GothamPro-Medium.woff') format('woff');
+     font-weight: 500;
+     font-style: normal;
+ }
+ @font-face {
+     font-family: ' GothamPro-Light';
+     src: url('../fonts/GothamPro/GothamPro-Light.ttf') format('ttf');
+     font-style: normal;
+      font-weight: 300;
+ }
+ @font-face {
+     font-family: 'Gotham Pro Bold';
+     src: url('../fonts/GothamPro/GothamPro-Bold.woff2') format('woff2'),
+         url('../fonts/GothamPro/GothamPro-Bold.woff') format('woff');
+     font-weight: bold;
+     font-style: normal;
+ }
+ 
+ @font-face {
+     font-family: 'Gotham Pro Black';
+     src: url('../fonts/GothamPro/GothamPro-Black.woff2') format('woff2'),
+         url('../fonts/GothamPro/GothamPro-Black.woff') format('woff');
+       font-weight: 900;
+       font-style: normal;
+   }
+   
+   @font-face {
+       font-family: 'Noto Sans';
+       src: url('../fonts/NatoSans/NotoSans.woff2') format('woff2'),
+           url('../fonts/NatoSans/NotoSans.woff') format('woff');
+       font-weight: normal;
+       font-style: normal;
+   }
 .megago{
 	background: #00a3e2;
 	height: 100vh;
@@ -9,12 +42,12 @@
 .lenth{
 	background:url(../img/megago/lenth.png);
 	height: 100vh;
-	width: 182px;
+	min-width: 182px;
 }
 .megago_headers{
 	display: flex;
 	flex-direction:column;
-	width: 650px;
+	width: 700px;
 	color: white;
 }
 .megago_arrows{
@@ -85,7 +118,7 @@ img{
 .megago_text{
 	display: flex;
 	flex-direction:column;
-	width: 800px;
+	width: 900px;
 	color: white;
 	position: relative;
 	text-align: center;
@@ -97,6 +130,8 @@ img{
 		width: 300px;
 		margin-top: 20px;
 		margin-bottom: 0px;
+		font-family: 'Gotham Pro Bold';
+		font-size: 20px;
 		svg{
 			height: 22px
 		}
@@ -109,6 +144,10 @@ img{
 	}
 	h2{
 		padding: 20px 0px;
+		font-family: 'Gotham Pro Bold';
+	}
+	div{
+		font-family: 'GothamPro-Light';
 	}
 }
 .inpText{
@@ -144,7 +183,7 @@ img{
 	padding-left: 10px;
 	text-align: center;
 	font-weight: bold;
-	
+	font-family: 'Gotham Pro Bold';
 }
 ::-webkit-input-placeholder {color:#2371b9}
 ::-moz-placeholder          {color:#2371b9}/* Firefox 19+ */
@@ -166,7 +205,6 @@ img{
 :focus:-ms-input-placeholder {
   color: transparent
 }
-
 
 .footer{
 	color: black;
