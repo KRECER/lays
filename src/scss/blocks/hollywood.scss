@@ -1,25 +1,67 @@
 .hollywood {
+	position: relative;
 	height: 100vh;
 
 	font-weight: 300;
 	color: #ffffff;
 
-	background:#000 url("../img/hollywood/background.png") no-repeat center top;
-	background-size: cover;
+	// background:#000 url("../img/hollywood/background.png") no-repeat center top;
+	// background-size: cover;
+	background-color: #000000;
 }
 
-.hollywood__wrapper {
-	width: 80vw;
+.hollywood__lights-desktop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	object-fit: cover;
 	height: 100%;
-	margin: 0 auto;
-	padding-left: 35vw;
+	width: 100%;
+}
+
+.hollywood__lights-mobile {
+	display: none;
+}
+
+.hollywood__montains {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+	object-fit: cover;
+	height: 100%;
+	width: 100vw;
+
+	&--mobile {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+}
+
+.hollywood__houses-dark {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	height: 93vh;
+	width: 100%;
 }
 
 .hollywood__content {
+	padding-top: 63vh;
+	padding-left: 30vw;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	padding-top: 19vh;
-	height: 100%;
+	align-items: center;
+	position: relative;
+	z-index: 3;
 }
 
 .hollywood__intro {
@@ -28,25 +70,23 @@
 }
 
 .hollywood__description {
-	margin-bottom: 3vh;
+	margin: 0;
 
-	font-size: 1.5vw;
+	font-size: 27px;
 	text-align: center;
+	margin-bottom: 40px;
 }
 
 .hollywood__btn {
   position: relative;
 
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
-	margin-bottom: 11vh;
-	width: 180px;
-	padding: 1.6vh 0;
-	padding-left: 20px;
+	width: 200px;
+	padding: 15px 0;
+	padding-left: 30px;
 
-	font-size: 0.7rem;
+	font-size: 12px;
 	text-align: left;
   text-transform: uppercase;
 	color: #ffffff;
@@ -85,25 +125,82 @@
 }
 
 .hollywood__hero {
-	display: none;
+	// display: none;
+	position: absolute;
+	left: 7vw;
+	bottom: 0;
+	width: 30%;
+	object-fit: cover;
 }
 
 .hollywood__text {
 	margin-top: auto;
 
-	font-size: 0.5vw;
+	font-size: 9px;
 	text-align: center;
 }
 
+@media (max-width: 1314px) {
+	.hollywood__description {
+		font-size: 21px;
+		// margin-bottom: 80px;
+	}
 
-@media (max-width: 768px) {
+	.hollywood__text {
+		font-size: 8px;
+	}
+
+	.hollywood__content {
+		// height: 30%;
+		bottom: 0;
+	}
+
+	.hollywood__hero {
+		width: 35vw;
+		left: 2%;
+	}
+}
+
+
+// Mobile
+@media (max-width: 976px) {
 	.hollywood {
 		height: 100%;
 
-		background-image: url("../img/hollywood/lights.png"), url("../img/hollywood/background-mobile.png");
-		background-color: #000000;
-		background-size: cover, cover;
-		background-position: -30px -100px, 0 0;
+		// background-image: url("../img/hollywood/lights.png"), url("../img/hollywood/background-mobile.png");
+		// background-color: #000000;
+		// background-size: cover, cover;
+		// background-position: -30px -100px, 0 0;
+	}
+
+	.hollywood__lights-desktop {
+		display: none;
+	}
+	
+	.hollywood__lights-mobile {
+		display: block;
+		position: absolute;
+		top: -90px;
+		left: 0;
+
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		z-index: 2;
+	}
+	
+
+	.hollywood__montains {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+
+		display: none;
+	
+		&--mobile {
+			display: block;
+		}
 	}
 
 	.hollywood__wrapper {
@@ -111,9 +208,10 @@
 	}
 
 	.hollywood__content {
-		padding-top: 0;
-		height: 100%;
-		padding-top: 60px;
+		padding: 0;
+		padding-top: 60%;
+		width: auto;
+		height: auto;
 
 		text-align: center;
 	}
@@ -140,6 +238,7 @@
 		width: 180px;
 		height: 45px;
 		padding: 0;
+		padding-left: 15px;
 		padding-right: 20px;
 		margin-bottom: 30px;
 
@@ -156,6 +255,7 @@
 	}
 
 	.hollywood__hero {
+		position: static;
 		width: 300px;
 		display: block;
 		margin: 0 auto;
