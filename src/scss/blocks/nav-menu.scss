@@ -22,7 +22,7 @@ $lays-yellow: #feda00;
 $lays-red: #e13016;
 .menu {
   position: fixed;
-  z-index: 5;
+  z-index: 7;
   top: 0;
   left: 0;
   box-sizing: border-box;
@@ -32,6 +32,7 @@ $lays-red: #e13016;
   background-color: $lays-yellow;
   &.expanded {
     background: white;
+    z-index: 6;
     .hamburger-menu-icon {
       pointer-events: none;
       opacity: 0;
@@ -68,6 +69,7 @@ $lays-red: #e13016;
     margin-top: 12px;
   }
 }
+
 
 .menu-inner-wrapper {
   position: fixed;
@@ -119,10 +121,10 @@ $lays-red: #e13016;
     justify-content: center;
     cursor: pointer;
     display: flex;
-    font-size: 16px;
+    font-size: 1.5vh;
     box-sizing: border-box;
-    height: 100px;
-    padding: 0 25px;
+    height: 11vh;
+    padding: 0 2vh;
     text-align: center;
     flex-flow: column nowrap;
     transition: all 300ms;
