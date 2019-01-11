@@ -1,5 +1,5 @@
 body{
-    overflow: hidden;
+  overflow: hidden;
 }
 .prizes{
     position: relative;
@@ -22,23 +22,31 @@ body{
   transform: translate3d(0,-200%,0);
 }
 
-@media (orientation: landscape){
+@media (max-width: 1200px){
     body{
         overflow: auto;
-
     }
     .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
         transform: none;
     }
 }
+/*// @media (orientation: landscape){
+//     body{
+//         overflow: auto;
 
-@media (max-aspect-ratio:3/3){
-    body{
-        overflow: auto;
-        // display: none;
+//     }
+//     .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
+//         transform: none;
+//     }
+// }
 
-    }
-    .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
-        transform: none;
-    }
-}
+// @media (max-aspect-ratio:3/3){
+//     body{
+//         overflow: auto;
+//         // display: none;
+
+//     }
+//     .show,.hollywood,.prizes,.hollywood.show,.prizes.show{
+//         transform: none;
+//     }
+// }*/

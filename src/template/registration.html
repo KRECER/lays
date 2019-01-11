@@ -1,23 +1,50 @@
-
-<section class="enterform">
-	<div class="enterform__wrapper">
+<button onclick="getRegistration()"> registration </button>
+<section class="registration" onclick="hideModalRegistrationOverlay()">
+	<div class="registration__wrapper" onclick="event.stopPropagation()">
 		<form action="">
-			<div class="enterform__close">&times;</div>
-			<div class="enterform__logo"><img src="img/logo.png" alt=""></div>
-			<h2 class="enterform__head">РЕЄСТРАЦІЯ</h2>
-				<div class="enterform__inp"><input type="text" class="input input--yellow" placeholder="ТЕЛЕФОН"></div>
-				<div class="enterform__inp"><input type="password" class="input input--yellow" placeholder="ПАРОЛЬ"></div>
-			<button class="enterform__btn button">УВІЙТИ
+			<div class="registration__close" onclick="hideModalRegistrationCloseButton()">&times;</div>
+			<div class="registration__logo"><img src="img/logo.png" alt=""></div>
+			<h2 class="registration__head">РЕЄСТРАЦІЯ</h2>
+				<div class="registration__inp"><input type="text" class="input input--yellow" placeholder="ІМ'Я"></div>
+				<div class="registration__inp"><input type="text" class="input input--yellow" placeholder="ТЕЛЕФОН"></div>
+				<div class="registration__inp"><input type="text" class="input input--yellow" placeholder="ДАТА НАРОДЖЕННЯ"></div>
+				<div class="registration__inp"><input type="text" class="input input--yellow" placeholder="E-MAIL"></div>
+				<div class="registration__inp"><input type="password" class="input input--yellow" placeholder="ПАРОЛЬ"></div>
+				<div class="registration__agreement">
+					 <label class="label">
+    					<input  class="label__checkbox" type="checkbox" />
+    					<span class="label__text">
+    					  <span class="label__check">
+    					    <i class="fa fa-check icon"></i>
+    					  </span>
+   						</span>
+ 					 </label>
+ 					 <div class="registration__agreementText" >
+ 					 	Я погоджуюся з <a href="#" class="underline">Офіційними правилами</a> та даю згоду на обробку персональних данних
+ 					 </div>
+				</div>
+				<div class="registration__agreement">
+					 <label class="label">
+    					<input  class="label__checkbox" type="checkbox" />
+    					<span class="label__text">
+    					  <span class="label__check">
+    					    <i class="fa fa-check icon"></i>
+    					  </span>
+   						</span>
+ 					 </label>
+ 					 <div class="registration__agreementText2" >
+ 					 	Я погоджуюся з <a href="#"  class="underline">Умовами використання</a>
+ 					 </div>
+				</div>
+
+
+			<button class="registration__btn button">ЗАРЕЄСТРУВАТИСЯ
 				<svg class="hollywood__icon-triangle">
-					<use xlink:href="#icon-triangle"></use>
-				</svg>
-			</button>
-			<div class="enterform__question"><a href="">ЗАБУЛИ ПАРОЛЬ?</a> </div>
-			<button class="enterform__btn button">ЗАРЕЄСТРУВАТИСЯ
-				<svg class="hollywood__icon-triangle" style='color: red'>
 					<use xlink:href="#icon-triangle"></use>
 				</svg>
 			</button>
 		</form>
 	</div>
 </section>
+<script>
+</script>

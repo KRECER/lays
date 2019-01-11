@@ -22,15 +22,17 @@
       width: 70%;
       transform: translateY(-50%);
     }
+    //mob Bohdana
 
-     @media (max-aspect-ratio:3/3){
+     @media (max-aspect-ratio:3/3), (max-width: 567px){
         top: 77vw;
         left: 49.7%;
         transform: translateX(-50%);
         width: 123vw;
        @media screen and (max-height: $maxHightTab){
-        width: 62vh;
-        top: 38vh;
+          width: 82vh;
+          top: 52vh;
+
        }  
         @media screen and (min-height: $minHightIphX){
         // top: 69vw;
@@ -79,7 +81,9 @@
       bottom: -5%;
       width: 32%;
     }
-    @media (max-aspect-ratio:3/3){
+
+    //mob Bohdana , (max-width: 567px) 
+    @media (max-aspect-ratio: 3/3), (max-width: 567px){
      width: 40%;
      left: 50%;
      transform: translateX(-50%);
@@ -87,9 +91,9 @@
      z-index: 1;
      padding-top: 17vw;
       @media screen and (max-height: $maxHightTab){
-        width: 22vh;
-        bottom: 20%;
-        padding-top:15vw;
+        width: 30vh;
+        bottom: 0%;
+        padding-top:12vw;
       }
       @media screen and (min-height: $minHightIphX){
         // bottom: 30%;
@@ -116,7 +120,7 @@
       svg{
         margin: 0 5%;
       }
-      @media (max-aspect-ratio:3/3){
+      @media (max-aspect-ratio:3/3), (max-width: 567px){
         display:none; 
       }
     }
