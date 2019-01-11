@@ -29,11 +29,14 @@ var modalReg = document.getElementsByClassName('registration')[0];
 var formReg = document.getElementsByClassName('registration__wrapper')[0];
 var closeSignReg = document.getElementsByClassName('registration__close')[0];
 var headerBg = document.getElementsByClassName('page-header')[0];
+var registrationBtn = document.getElementById('registrationBtn');
 function getRegistration(){
 	modalReg.style.display = 'block';
 	modalReg.style.zIndex = '10';
 	closeSignReg.style.zIndex = '10';
 	headerBg.style.zIndex = '9';
+	modal.style.display='none';
+
 }
 function hideModalRegistrationCloseButton(){
 	modalReg.style.display = 'none';
