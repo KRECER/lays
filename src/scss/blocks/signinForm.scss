@@ -3,10 +3,13 @@
 	height: 100vh;
 	position: relative;
   	background-size: 694vh 241%;
-  	background-image: url('../img/wallRedText.png');
   	background-position: center;
-  	background-color: #ffdf0c;
   	font-weight: 700;
+  	position: fixed;
+  	display: none;
+  	top: 0;
+  	left: 0;
+  	z-index: -1;
 }
 .enterform:before{
 	background: rgba(0,159,229,0.8);
@@ -21,13 +24,15 @@
 	position: absolute;
 	width: 30vw;
 	height: 60vh;
-	background:rgba(254,251,232,0.7);
+	background:rgba(254,251,232,0.9);
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
 	top: 0px;
 	margin: auto;
 	border-radius: 20px;
+	min-width: 600px;
+	min-height: 600px;
 
 }
 .enterform__btn{
@@ -62,9 +67,10 @@ input{
 	text-align: center;
 	font-size: 12px;
 	font-weight: 900;
-	border-bottom: 2px solid #fcc403;
+	border-bottom: 1px solid #fcc403;
 	width: 35%;
 	margin: auto;
+	margin-top: 10px;
 	margin-bottom: 15px;
 	padding-bottom: 20px;
 }
@@ -81,6 +87,38 @@ input{
 .enterform__btn:last-child{
 	color: red;
 }
+.enterform__btn:last-child svg{;
+	fill:red;
+}
 .enterform__logo{
 	text-align: center;
 }
+.enterform__close{
+   	font-size: 65px;
+    /* float: right; */
+    position: absolute;
+    right: 10px;
+    color: red;
+    cursor: pointer;
+    z-index: -1;
+}
+  @media (max-aspect-ratio: 3/3) {
+  	.enterform{
+  		// z-index: -2;
+  	}
+  	.enterform__wrapper{
+  		min-width: 100vw;
+		min-height: 100vh;
+		border-radius:0;
+
+  	}
+  	input{
+  		width: 78%;
+  	}
+  	.enterform__btn{
+  		width: 78%;
+  	}
+  	.registration__agreement{
+  		width: 78%;
+  	}
+  }
