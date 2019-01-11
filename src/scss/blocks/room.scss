@@ -22,8 +22,9 @@
       width: 70%;
       transform: translateY(-50%);
     }
+    //mob Bohdana
 
-     @media (max-aspect-ratio:3/3){
+     @media (max-aspect-ratio:3/3), (max-width: 567px){
         top: 77vw;
         left: 49.7%;
         transform: translateX(-50%);
@@ -80,7 +81,9 @@
       bottom: -5%;
       width: 32%;
     }
-    @media (max-aspect-ratio:3/3){
+
+    //mob Bohdana , (max-width: 567px) 
+    @media (max-aspect-ratio: 3/3), (max-width: 567px){
      width: 40%;
      left: 50%;
      transform: translateX(-50%);

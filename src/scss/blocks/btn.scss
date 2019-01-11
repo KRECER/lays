@@ -8,8 +8,9 @@
     @media screen and (max-width: 169vh) {
       top: 59vh;  
     }
+    //mob Bohdana , (max-width: 567px) 
 
-    @media (max-aspect-ratio: 3/3) {
+  	@media (max-aspect-ratio: 3/3), (max-width: 567px){
       z-index:2;
       width: 65%;
       height: 25vh;
@@ -20,7 +21,8 @@
       bottom: -13%;
       transform: translateX(-50%);
       @media screen and (max-height: $maxHightTab){ 
-				width: 57vw; 
+				// width: 57vw; 
+				width: 40%; 
       	height: 17vh;
       }
       @media screen and (min-height: $minHightIphX){
@@ -58,9 +60,10 @@
 	@media screen and (max-width: 169vh) {
 		padding: 3.8vh;
   }
+    //mob Bohdana , (max-width: 567px) 
 
-  @media (max-aspect-ratio:3/3){
-    padding: 3vw;
+  @media (max-aspect-ratio:3/3), (max-width: 567px){
+    padding: 5.5vw;
     border: 0.4vh solid #fcc403;
     @media screen and (max-height: $maxHightTab){ 
       padding: 4.5vw;     
@@ -136,7 +139,7 @@
 		width: 4.6vw;
   	}
 	@media (max-aspect-ratio:3/3){
-	  	width: 11.5%;
+	  	width: 13%;
       @media screen and (max-height: $maxHightTab){
         width: 13%;
         left: 0.8vh;
@@ -160,7 +163,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 3vw;
+  height: 7vh;
   width: 85%;
   transform: translateX(-100%);
   pointer-events: none;
@@ -170,10 +173,9 @@
     /*Ipad*/
 		height: 6.8vh;
   }	
-    
     @media (max-aspect-ratio:3/3){
 			border-bottom: 0.2vh solid #ed1d24;
-   		height: 4vw;
+   		height: 9.5vw;
       @media screen and (max-height: $maxHightTab){
           border-bottom: 0.3vh solid #ed1d24;
           height: 8vw;
@@ -195,6 +197,7 @@
 
 .btn-animation{
   background:#fcc403;
+  z-index: 10;
 	&:after{
 		background: #fff;
 		color: #ed1d24;
@@ -216,12 +219,10 @@
 		left: 4vh;
    	pointer-events: auto;
    		@media (max-aspect-ratio:3/3){
-        
-
+				transform: translateX(0);
 	   		@media screen and (min-height: $minHightIphX){
 				left: 20px;
 	   		}
-		
   		} 
 	}
 	.btn__icon{
@@ -231,10 +232,12 @@
     @media screen and (max-width: 169vh) {
       left: 29.9vh;
     }
-      @media screen and (max-height: $maxHightTab){
-        left:85.5%;
-      }
+      
     	@media (max-aspect-ratio:3/3){
+        left:85%;
+    		@media screen and (max-height: $maxHightTab){
+        	left:85.5%;
+      	}
 	   		@media screen and (min-height: $minHightIphX){
 					left: 53.5vw;
 	   		}
