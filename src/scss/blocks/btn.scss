@@ -21,8 +21,9 @@
       bottom: -13%;
       transform: translateX(-50%);
       @media screen and (max-height: $maxHightTab){ 
-				// width: 57vw; 
-				width: 40%; 
+				width: 57vw; 
+				//mob Bohdana
+				width: 45vh; 
       	height: 17vh;
       }
       @media screen and (min-height: $minHightIphX){
@@ -66,7 +67,8 @@
     padding: 5.5vw;
     border: 0.4vh solid #fcc403;
     @media screen and (max-height: $maxHightTab){ 
-      padding: 4.5vw;     
+    	//mob Bohdana 
+      padding: 3.5vh;     
     }
 		@media screen and (min-height: $minHightIphX){
 			padding: 6vw; 		
@@ -138,7 +140,7 @@
 		left: 5px;
 		width: 4.6vw;
   	}
-	@media (max-aspect-ratio:3/3){
+	@media (max-aspect-ratio:3/3), (max-width: 567px){
 	  	width: 13%;
       @media screen and (max-height: $maxHightTab){
         width: 13%;
@@ -170,15 +172,17 @@
   z-index: 4;
 	
 	@media screen and (max-width: 169vh) {
-    /*Ipad*/
-		height: 6.8vh;
+    /*Ipad desktop*/
+
+		height: 5vw;
   }	
-    @media (max-aspect-ratio:3/3){
+    @media (max-aspect-ratio:3/3), (max-width: 567px){
 			border-bottom: 0.2vh solid #ed1d24;
-   		height: 9.5vw;
+   		height: 5.3vw;
       @media screen and (max-height: $maxHightTab){
           border-bottom: 0.3vh solid #ed1d24;
-          height: 8vw;
+			// Bohdan
+          height: 6vh;
           font-size: 3vh;
       }
    		@media screen and (min-height: $minHightIphX){
@@ -233,10 +237,10 @@
       left: 29.9vh;
     }
       
-    	@media (max-aspect-ratio:3/3){
+    	@media (max-aspect-ratio:3/3), (max-width: 567px){
         left:85%;
     		@media screen and (max-height: $maxHightTab){
-        	left:85.5%;
+        	left:38vh;
       	}
 	   		@media screen and (min-height: $minHightIphX){
 					left: 53.5vw;
