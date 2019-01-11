@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var lastScrollDate = new Date();
   function scrollDirection(e) {
+    closeMenu();
     if (new Date() - lastScrollDate <= 500) {
       return;
     } else {
@@ -52,5 +53,4 @@ document.addEventListener("DOMContentLoaded", function() {
     this.classList.add('btn-animation');
     setTimeout(function() {document.getElementById("super-puper-input-id").focus();}, 1000);
   });
-
 });  
