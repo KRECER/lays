@@ -21,11 +21,11 @@
     background-position-y: top;
     margin-top: -20%;
 
-    @media screen and (max-height: $maxHightTab){
+    @media screen and (max-height: $maxHightTab){       
     /*ipad */
-       
-       background-size: 100vh auto;
-       margin-top: -7%;
+      height: 125vh;
+      background-size: 135vh auto;
+      margin-top: -13%;
     }
     @media screen and (min-height: $minHightIphX){
     /*iphone 10 */
@@ -47,6 +47,7 @@
     overflow:hidden;
     @media screen and (max-height: $maxHightTab){
       margin: 0;
+      height: 100%;
     }
   }
 }
