@@ -1,9 +1,9 @@
-// Маска
-$(document).ready(function() {
-	$(".tel").mask("+38(999) 999-99-99");
-});
 
-// Модальное Вход
+	$(".tel").mask("+38(999) 999-99-99");
+	$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
+	$(".registration__inp [name=birthdate").mask("1993-10-10");
+
+	// Модальное Вход
 var modal = document.getElementsByClassName('enterform')[0];
 var form = document.getElementsByClassName('enterform__wrapper')[0];
 var closeSign = document.getElementsByClassName('enterform__close')[0];
@@ -45,4 +45,23 @@ function hideModalRegistrationCloseButton(){
 function hideModalRegistrationOverlay(){
 	modalReg.style.display = 'none';
 	headerBg.style.zIndex = '1';
-} 
+}
+
+var formReg = document.querySelector('.registration__wrapper form');
+
+formReg.addEventListener('submit', function(event) {
+	event.preventDefault();
+
+	var data = new FormData(formReg);
+
+	var request = new XMLHttpRequest();
+	request.open('POST', 'http://lays-movie.dev.itcg.ua/api/registration/', true);
+	request.send(data);
+	
+
+	request.addEventListener('readystatechange', function() {
+		if (request.status === 200 && request.readyState === 4) {
+			console.log(request.response);
+		}
+	});
+});
