@@ -71,7 +71,7 @@
     position: absolute;
     left: 19%;
     bottom: 0;
-    background-image: url(../img/tv.png);
+    background-image: url('../img/tv.png');
     background-repeat: no-repeat;
     padding-top: 24vh;
     background-size: 100% auto;
@@ -87,7 +87,7 @@
      width: 40%;
      left: 50%;
      transform: translateX(-50%);
-     bottom: 8%;
+     bottom: 4%;
      z-index: 1;
      padding-top: 17vw;
       @media screen and (max-height: $maxHightTab){

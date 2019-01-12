@@ -57,23 +57,8 @@
 	box-shadow: 0px 0px 50px 1px rgba(0,0,0,.7);
 	overflow: hidden;
 	pointer-events: auto;
-	padding: 4vh;
-	@media screen and (max-width: 169vh) {
-		padding: 3.8vh;
-  }
-    //mob Bohdana , (max-width: 567px) 
+	padding-top: 16%;
 
-  @media (max-aspect-ratio:3/3), (max-width: 567px){
-    padding: 5.5vw;
-    border: 0.4vh solid #fcc403;
-    @media screen and (max-height: $maxHightTab){ 
-    	//mob Bohdana 
-      padding: 3.5vh;     
-    }
-		@media screen and (min-height: $minHightIphX){
-			padding: 6vw; 		
-		}
-  } 
 	&::before{
 		content:'';
 		position: absolute;
@@ -86,8 +71,9 @@
 		pointer-events: none;
 		background: #ed1d24;
 		z-index: 4;
-
-
+		@media (max-aspect-ratio:3/3){
+			border: 0.8vw solid #fde619;
+		}
   }
 	&::after {
 		content: 'реєструй код';
@@ -98,59 +84,30 @@
 		color: #fff;
 		width: 100%;
 		height: 100%;
-		line-height: 4vw;
 		font-family: "Gotham Pro Bold";	
 		font-weight: 700;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 3vh;
-		@media screen and (max-width: 169vh) {
-			font-size: 2.3vh;
-			left: 14px;
-			line-height:6vw;
-		}
+		font-size: 1.5vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
  		@media (max-aspect-ratio:3/3){
-			line-height:12vw;
-			font-size: 2vh;
-      @media screen and (max-height: $maxHightTab){
-        line-height:9vw;
-        font-size: 3vh;
-      }
-			@media screen and (min-height: $minHightIphX){
-				line-height: 12vw;
-				font-size: 4vw;
-				left: 0;
-			}
+			font-size: 3.5vw;
 		}	
 	}
 }
 
 .btn__icon {
 	position: absolute;
-	left: 0.8vh;
+	left: 1.5%;
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 4;
 	fill: #fff;
-	width: 6.5vh;
-  pointer-events: none;
-
-	@media screen and (max-width: 169vh) {
-		left: 5px;
-		width: 4.6vw;
-  	}
-	@media (max-aspect-ratio:3/3), (max-width: 567px){
-	  	width: 13%;
-      @media screen and (max-height: $maxHightTab){
-        width: 13%;
-        left: 0.8vh;
-      }
-	  	@media screen and (min-height: $minHightIphX){
-	  		width: 4.3vh;
-				left: 0.8vh;
-	  	}
-	}     
+	width: 13.2%;
+  pointer-events: none;   
 }
 
 .btn__input {
@@ -158,39 +115,22 @@
 	background: #fff;
 	color: #000;
 	font-size: 1.8vw;
-	padding-left: 10px;
+	padding: 0 10px;
 	outline: none;
 	border: none;
 	border-bottom: 0.3vh solid #ed1d24;
+	border-radius: 0;
 	position: absolute;
-	top: 0.2vh;
+	bottom: 10%;
 	left: 0;
-	height: 7vh;
-	width: 85%;
+	height: 80%;
+	width: 83%;
 	transform: translateX(-100%);
 	pointer-events: none;
-	z-index: 4;
-	
-	@media screen and (max-width: 169vh) {
-    /*Ipad desktop*/
-
-		height: 5vw;
-  }	
-    @media (max-aspect-ratio:3/3), (max-width: 567px){
-		border-bottom: 0.2vh solid #ed1d24;
-   		height: 5.3vw;
-      @media screen and (max-height: $maxHightTab){
-          border-bottom: 0.3vh solid #ed1d24;
-			// Bohdan
-          height: 6vh;
-          font-size: 3vh;
-      }
-   		@media screen and (min-height: $minHightIphX){
-   			height: 10.5vw;
-				font-size: 4.8vw;
-		}
-		
-  	} 
+	z-index: 4; 
+ 	@media (max-aspect-ratio:3/3){
+		font-size: 5vw;
+	}
 }
 
 @keyframes rotationSvg {
@@ -220,32 +160,13 @@
 		background:#fff;
     transition: transform 1s linear;
 		transform: translateX(0);
-		left: 4vh;
-   	pointer-events: auto;
-   		@media (max-aspect-ratio:3/3){
-				transform: translateX(0);
-	   		@media screen and (min-height: $minHightIphX){
-				left: 20px;
-	   		}
-  		} 
+		left: 8%;
+   	pointer-events: auto; 
 	}
 	.btn__icon{
 		fill: #ed1d24;
-		left: 41.5vh;
-   	transition: left 1s linear;
-    @media screen and (max-width: 169vh) {
-      left: 29.9vh;
-    }
-      
-    	@media (max-aspect-ratio:3/3), (max-width: 567px){
-        left:85%;
-    		@media screen and (max-height: $maxHightTab){
-        	left:38vh;
-      	}
-	   		@media screen and (min-height: $minHightIphX){
-					left: 53.5vw;
-	   		}
-  		} 
+		left: 85%;
+   	transition: left 1s linear;      
 	}	
 }
 
