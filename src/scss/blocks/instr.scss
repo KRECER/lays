@@ -159,10 +159,10 @@
 
       .infoBtn{
           position: absolute;
-          bottom: 33%;
-          right: 29%;
+          bottom: 25%;
+          right: 30%;
           width: 5%;
-          float: right;
+          // float: right;
           pointer-events:auto;
           height: 15%;
           background: url('../img/information.svg') right no-repeat;
@@ -170,6 +170,13 @@
 
           &:hover{
               cursor: pointer;
+          }
+
+          @media (max-aspect-ratio:3/3) {
+            bottom: 22%;
+            @media screen and (max-height: $maxHightTab){  
+              right: 38%;
+            }
           }
       }
       &:before{
