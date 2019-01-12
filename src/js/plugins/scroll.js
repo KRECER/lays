@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  var slider = document.getElementById('sliders');
-
   var rePrizes = new RegExp('^/prizes/?$');
   if (rePrizes.test(window.location.pathname)) {
     document.querySelector('.prizes').classList.add('show');
@@ -65,22 +63,33 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  function isLaysCodeValid(str) {
-  var localStr = str;
+  function isCodeValid(str) {
+  var localStr = str.replace(/^\ + |\ +$/g, '');
 
-  // if (/[а-я]+/ig.test(localStr)) {
-  //   return false;
-  // }
+  if (/[а-я]+/ig.test(localStr)) {
+    return false;
+  }
 
   if (localStr.length !== 11) {
     return false;
   }
+
   return !/[\\\/\%\;\.\№\#\»\@\*]/.test(localStr);
 }
 
   function sendCode (){
-    console.log(isLaysCodeValid(codeInput.value))
-    
+    if (isCodeValid(codeInput.value)) {
+      $.post('http://lays-movie.dev.itcg.ua/api/code/', function(e) {
+        console.log(e);
+        if (e.status) {
+          // popup success
+        } else {
+          // popup error
+        }
+      });
+    } else {
+      console.log('error');
+    }
   }
 
 
