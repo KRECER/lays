@@ -1,15 +1,14 @@
 .registration{
 	width: 100vw;
 	height: 100vh;
-	position: relative;
-  	background-size: 694vh 241%;
-  	background-position: center;
-  	font-weight: 700;
-  	position: fixed;
-  	display: none;
-  	top: 0;
-  	left: 0;
-  	z-index:-1;
+  background-size: 694vh 241%;
+  background-position: center;
+  font-weight: 700;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index:-1;
 }
 .registration:before{
 	background: rgba(0,159,229,0.8);

@@ -77,22 +77,54 @@ document.addEventListener("DOMContentLoaded", function() {
   return !/[\\\/\%\;\.\№\#\»\@\*]/.test(localStr);
 }
 
-  function sendCode (){
+  function sendCode () {
     if (isCodeValid(codeInput.value)) {
       $.post('http://lays-movie.dev.itcg.ua/api/code/', function(e) {
         console.log(e);
         if (e.status) {
           // popup success
+          openTextModal({
+            title: 'Успіх',
+            text: e.message,
+          });
         } else {
           // popup error
+          openTextModal({
+            title: 'Увага',
+            text: e.message,
+          });
         }
       });
     } else {
       console.log('error');
     }
   }
+});
 
+var textModal = document.querySelector('.js-text-modal');
+var closeTextModalBtn = textModal.querySelector('.js-close');
 
+console.log(closeTextModalBtn);
 
+closeTextModalBtn.addEventListener('click', function (e) {
+  console.log('asdasdsaa');
+  closeModal(textModal);
+});
 
-});  
+function openTextModal(param) {
+  var title = textModal.querySelector('.js-title');
+  var text = textModal.querySelector('.js-text');
+  title.innerHTML = param.title || '';
+  text.innerHTML = param.text || '';
+  openModal(textModal);
+}
+
+function openModal(modal) {
+  modal.style.display = 'flex';
+  modal.style.zIndex = 23;
+}
+
+function closeModal(modal) {
+  modal.style.display = 'none';
+}
+

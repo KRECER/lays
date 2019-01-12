@@ -19,7 +19,7 @@ function hideModalCloseButton(){
 	modal.style.display = 'none';
 	headerBg.style.zIndex = '1';
 }
-function hideModalOverlay(){
+function hideModalOverlay() {
 	modal.style.display = 'none';
 	headerBg.style.zIndex = '1';
 } 
@@ -30,7 +30,7 @@ var formReg = document.getElementsByClassName('registration__wrapper')[0];
 var closeSignReg = document.getElementsByClassName('registration__close')[0];
 var headerBg = document.getElementsByClassName('page-header')[0];
 var registrationBtn = document.getElementById('registrationBtn');
-function getRegistration(){
+function getRegistration() {
 	modalReg.style.display = 'block';
 	modalReg.style.zIndex = '10';
 	closeSignReg.style.zIndex = '10';
@@ -38,11 +38,11 @@ function getRegistration(){
 	modal.style.display='none';
 
 }
-function hideModalRegistrationCloseButton(){
+function hideModalRegistrationCloseButton() {
 	modalReg.style.display = 'none';
 	headerBg.style.zIndex = '1';
 }
-function hideModalRegistrationOverlay(){
+function hideModalRegistrationOverlay() {
 	modalReg.style.display = 'none';
 	headerBg.style.zIndex = '1';
 } 

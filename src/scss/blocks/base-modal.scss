@@ -1,0 +1,123 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  // z-index: -1;
+  font-weight: 700;
+  align-items: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: rgba(35,113,185,0.8);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__title {
+    color: #ed1d24;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 28px;
+    margin-top: 0;
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &__wrapper {
+    position: absolute;
+    width: 30vw;
+    height: auto;
+    background: rgba(254,251,232,0.9);
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 20px;
+    min-width: 600px;
+    padding: 30px;
+  }
+
+  &__btn {
+    margin-bottom: 15px;
+    width: 50%;
+    height: 60px;
+    font-size: 20px;
+  }
+
+  &__btn:last-child {
+    background: #fde619;
+  }
+
+  &__head {
+    color: #ed1d24;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  input:focus {
+    border-color: #fcc403; 
+  }
+
+  input {
+    cursor: pointer;
+    height: 50px;
+    width: 50%;
+  }
+
+  &__inp {
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  &__question {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    border-bottom: 1px solid #fcc403;
+    width: 35%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+  }
+
+  &__question a {
+    color: red;
+    text-decoration: none; 
+  }
+
+  &__logo {
+    text-align: center;
+  }
+
+  &__close {
+      position: absolute;
+      font-size: 55px;
+      top: 0;
+      right: 10px;
+      color: red;
+      cursor: pointer;
+  }
+
+  @media (max-aspect-ratio: 3/3) {
+    &__wrapper {
+      // min-width: 100vw;
+      // min-height: 100vh;
+      border-radius:0;
+      width: 90%;
+      min-width: 300px;
+    }
+
+    &__btn {
+      width: 78%;
+    }
+  }
+}
