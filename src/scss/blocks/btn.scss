@@ -107,9 +107,9 @@
 	z-index: 4;
 	fill: #fff;
 	width: 13.2%;
-  pointer-events: none;   
-}
+  	pointer-events: none;   
 
+}
 .btn__input {
 	display: block;
 	background: #fff;
@@ -128,6 +128,7 @@
 	transform: translateX(-100%);
 	pointer-events: none;
 	z-index: 4; 
+	text-transform:uppercase;
  	@media (max-aspect-ratio:3/3){
 		font-size: 5vw;
 	}

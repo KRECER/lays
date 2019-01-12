@@ -19,41 +19,41 @@
 				<img  class = 'mySlides' src="/img/step4.svg" alt="">
 			</li>
 		</ul>
-		<img   class="arrow" src="/img/rightArrowWhite.svg" onclick="plusSlides(1)" alt="">
+		<img class="arrow" src="/img/rightArrowWhite.svg" onclick="plusSlides(1)" alt="">
 		<script>
-			var infoText = document.getElementsByClassName('infoText')[0];
-			var infoBtn = document.getElementById('infoBtn');
-			infoBtn.onmouseover =function(){
-				infoText.classList.toggle('infoText')
-			}
-			infoBtn.onclick =function(){
-				if (screen.width<769){
-				infoText.classList.toggle('infoText')
+				// var infoText = document.getElementsByClassName('infoText')[0];
+				var infoBtn = document.getElementById('infoBtn');
+				infoBtn.onmouseover =function(){
+					infoText.classList.toggle('infoText')
 				}
-			}
-			infoBtn.onmouseout =function(){
-				infoText.classList.toggle('infoText')
-			}
+				infoBtn.onclick =function(){
+					if (screen.width<769){
+					infoText.classList.toggle('infoText')
+					}
+				}
+				infoBtn.onmouseout =function(){
+					infoText.classList.toggle('infoText')
+				}
 
-			// Slider
-			var slideIndex = 1;
-			showSlides(slideIndex);
-			function plusSlides(n){
-				showSlides(slideIndex +=n);
-			}
-			function showSlides(n){
-				if (screen.width<769) {
-				var i;
-				var slides = document.getElementsByClassName('mySlides');
-				if (n>slides.length) {
-					slideIndex = 1
-				}
-				for(i=0;i<slides.length;i++){
-					slides[i].style.display = 'none'
-				}
-				slides[slideIndex-1].style.display = 'flex'
-				}
-			}
+				// Slider
+				// var slideIndex = 1;
+				// showSlides(slideIndex);
+				// function plusSlides(n){
+				// 	showSlides(slideIndex +=n);
+				// }
+				// function showSlides(n){
+				// 	if (screen.width<769) {
+				// 	var i;
+				// 	var slides = document.getElementsByClassName('mySlides');
+				// 	if (n>slides.length) {
+				// 		slideIndex = 1
+				// 	}
+				// 	for(i=0;i<slides.length;i++){
+				// 		slides[i].style.display = 'none'
+				// 	}
+				// 	slides[slideIndex-1].style.display = 'flex'
+				// 	}
+				// }
 		</script>
 </section>
 

@@ -46,11 +46,44 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  var codeInput = document.getElementById("super-puper-input-id");
   //btn main
   var isAnimationClicked = false;
   var btnAnimation = document.getElementById('js-btn-animation');
   btnAnimation.addEventListener('click', function (event){
     this.classList.add('btn-animation');
-    setTimeout(function() {document.getElementById("super-puper-input-id").focus();}, 1000);
+    setTimeout(function() {codeInput.focus();}, 1000);
   });
+
+
+  //send code
+  if (codeInput !== null) {
+  codeInput.addEventListener('keyup', function (e) {
+    if (e.keyCode === 13) {
+      sendCode();
+      }
+    });
+  }
+
+  function isLaysCodeValid(str) {
+  var localStr = str;
+
+  // if (/[а-я]+/ig.test(localStr)) {
+  //   return false;
+  // }
+
+  if (localStr.length !== 11) {
+    return false;
+  }
+  return !/[\\\/\%\;\.\№\#\»\@\*]/.test(localStr);
+}
+
+  function sendCode (){
+    console.log(isLaysCodeValid(codeInput.value))
+    
+  }
+
+
+
+
 });  

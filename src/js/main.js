@@ -46,3 +46,5 @@ function hideModalRegistrationOverlay(){
 	modalReg.style.display = 'none';
 	headerBg.style.zIndex = '1';
 } 
+
+
