@@ -130,7 +130,8 @@
 	left: 7vw;
 	bottom: 0;
 	width: 30%;
-	object-fit: cover;
+	height: 99vh;
+	// object-fit: cover;
 }
 
 .hollywood__text {
@@ -257,6 +258,7 @@
 	.hollywood__hero {
 		position: static;
 		width: 300px;
+		height: auto;
 		display: block;
 		margin: 0 auto;
 		margin-bottom: 10px;
