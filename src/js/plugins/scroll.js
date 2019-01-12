@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  var slider = document.getElementById('sliders');
-
   var rePrizes = new RegExp('^/prizes/?$');
   if (rePrizes.test(window.location.pathname)) {
     document.querySelector('.prizes').classList.add('show');
@@ -46,11 +44,83 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  var codeInput = document.getElementById("super-puper-input-id");
   //btn main
   var isAnimationClicked = false;
   var btnAnimation = document.getElementById('js-btn-animation');
-  btnAnimation.addEventListener('click', function (event){
+  btnAnimation.addEventListener('click', function(event) {
     this.classList.add('btn-animation');
-    setTimeout(function() {document.getElementById("super-puper-input-id").focus();}, 1000);
+    setTimeout(function() {codeInput.focus();}, 1000);
   });
-});  
+
+  //send code
+  if (codeInput !== null) {
+  codeInput.addEventListener('keyup', function(e) {
+    if (e.keyCode === 13) {
+      sendCode();
+      }
+    });
+  }
+
+  function isCodeValid(str) {
+  var localStr = str.replace(/^\ + |\ +$/g, '');
+
+  if (/[а-я]+/ig.test(localStr)) {
+    return false;
+  }
+
+  if (localStr.length !== 11) {
+    return false;
+  }
+
+  return !/[\\\/\%\;\.\№\#\»\@\*]/.test(localStr);
+}
+
+  function sendCode () {
+    if (isCodeValid(codeInput.value)) {
+      $.post('http://lays-movie.dev.itcg.ua/api/code/', {code: codeInput.value}, function(e) {
+        console.log(e);
+        if (e.status) {
+          // popup success
+          openTextModal({
+            title: 'Успіх',
+            text: e.message,
+          });
+        } else {
+          // popup error
+          openTextModal({
+            title: 'Увага',
+            text: e.message,
+          });
+        }
+      });
+    } else {
+      console.log('error');
+    }
+  }
+});
+
+var textModal = document.querySelector('.js-text-modal');
+var closeTextModalBtn = textModal.querySelector('.js-close');
+
+closeTextModalBtn.addEventListener('click', function (e) {
+  closeModal(textModal);
+});
+
+function openTextModal(param) {
+  var title = textModal.querySelector('.js-title');
+  var text = textModal.querySelector('.js-text');
+  title.innerHTML = param.title || '';
+  text.innerHTML = param.text || '';
+  openModal(textModal);
+}
+
+function openModal(modal) {
+  modal.style.display = 'flex';
+  modal.style.zIndex = 23;
+}
+
+function closeModal(modal) {
+  modal.style.display = 'none';
+}
+
