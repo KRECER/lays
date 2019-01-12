@@ -19,19 +19,19 @@
     background-image: url('../img/wallMobailYellow.png');
     background-size: 200vw auto;
     background-position-y: top;
-    margin-top: -20%;
+    margin-top: -32%;
 
     @media screen and (max-height: $maxHightTab){       
     /*ipad */
       height: 125vh;
       background-size: 135vh auto;
-      margin-top: -13%;
+      margin-top: -28%;
     }
     @media screen and (min-height: $minHightIphX){
     /*iphone 10 */
 
       background-size: 215vw auto;
-      margin-top: -17%;
+      margin-top: -30%;
     }
   }
 }

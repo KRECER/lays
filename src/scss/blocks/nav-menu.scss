@@ -1,23 +1,3 @@
-// .nav-menu{
-//   background: #ffdf0c;
-//   height: 8vh;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   z-index: 1;
-//   display: none;
-//   @media (max-aspect-ratio:3/3){
-//       display: block;
-//       height: 6vh;
-//       @media screen and (max-height: $maxHightTab){
-//         height: 9vh;
-//       }
-//       @media screen and (min-height: $minHightIphX) {
-//         height: 6vh;
-//       }
-//   }
-// }
 $lays-yellow: #feda00;
 $lays-red: #e13016;
 .menu {
@@ -40,10 +20,10 @@ $lays-red: #e13016;
     }
     .cross {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 12px;
-      height: 12px;
+      top: 0.8vh;
+      right: 0.8vh;
+      width: 1.5vh;
+      height: 1.5vh;
       background: transparent url('../img/menu/cross.svg') center center no-repeat;
       background-size: 100%;
       &:hover{
@@ -66,7 +46,7 @@ $lays-red: #e13016;
     object-fit: contain;
   }
   .item ~ .item {
-    margin-top: 12px;
+    margin-top: 1.5vh;
   }
 }
 
@@ -155,14 +135,15 @@ $lays-red: #e13016;
     transform: translate3d(100px, 0, 0);
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
+    pointer-events: none;
     &.expanded {
+      pointer-events: auto;
       transform: translate3d(0, 0, 0);
     }
     .item{
       height: 12vh;
     }
   }
-  
   .logan-fhd{
     width: 12%;
   }
@@ -183,13 +164,13 @@ $lays-red: #e13016;
     flex-flow: row nowrap;
     .item {
       display: block;
-      margin-left: 3%;
+      margin-left: 0;
       margin-right: 0;
     }
     .item ~ .item {
       margin: auto;
       margin-left: 0;
-      width: 14%;
+      width: 12%;
     }
     .item.hamburger-menu-icon {
       display: block;

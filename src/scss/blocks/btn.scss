@@ -162,14 +162,14 @@
 	outline: none;
 	border: none;
 	border-bottom: 0.3vh solid #ed1d24;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 7vh;
-  width: 85%;
-  transform: translateX(-100%);
-  pointer-events: none;
-  z-index: 4;
+	position: absolute;
+	top: 0.2vh;
+	left: 0;
+	height: 7vh;
+	width: 85%;
+	transform: translateX(-100%);
+	pointer-events: none;
+	z-index: 4;
 	
 	@media screen and (max-width: 169vh) {
     /*Ipad desktop*/
@@ -177,7 +177,7 @@
 		height: 5vw;
   }	
     @media (max-aspect-ratio:3/3), (max-width: 567px){
-			border-bottom: 0.2vh solid #ed1d24;
+		border-bottom: 0.2vh solid #ed1d24;
    		height: 5.3vw;
       @media screen and (max-height: $maxHightTab){
           border-bottom: 0.3vh solid #ed1d24;
