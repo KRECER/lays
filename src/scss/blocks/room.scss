@@ -76,11 +76,11 @@
     padding-top: 24vh;
     background-size: 100% auto;
 
-    @media screen and (max-width: 182vh) {
-      padding-top: 25vw;
-      bottom: -5%;
-      width: 32%;
-    }
+    // @media screen and (max-width: 182vh) {
+    //   padding-top: 25vw;
+    //   bottom: -5%;
+    //   width: 32%;
+    // }
 
     //mob Bohdana , (max-width: 567px) 
     @media (max-aspect-ratio: 3/3), (max-width: 567px){
