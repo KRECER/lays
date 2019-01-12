@@ -23,11 +23,13 @@ function signIn() {
 function hideModalCloseButton() {
 	modal.style.display = 'none';
 	headerBg.style.zIndex = '1';
+	document.body.style.position = 'static';
 }
 
 function hideModalOverlay() {
 	modal.style.display = 'none';
 	headerBg.style.zIndex = '1';
+	document.body.style.position = 'static';
 } 
 
 // Модальное Регестрация
@@ -43,16 +45,20 @@ function getRegistration() {
 	closeSignReg.style.zIndex = '10';
 	headerBg.style.zIndex = '9';
 	modal.style.display='none';
+	console.log('asdkjasdnaskjdnsakjdnaskjn');
+	document.body.style.position = 'fixed';
 }
 
 function hideModalRegistrationCloseButton() {
 	modalReg.style.display = 'none';
 	headerBg.style.zIndex = '1';
+	document.body.style.position = 'static';
 }
 
 function hideModalRegistrationOverlay() {
 	modalReg.style.display = 'none';
 	headerBg.style.zIndex = '1';
+	document.body.style.position = 'static';
 } 
 
 

@@ -1,0 +1,146 @@
+.profile{
+ width: 100vw;
+ height: 100vh;
+ position: relative;
+ background-size: 694vh 241%;
+ background-position: center;
+ font-weight: 700;
+ position: fixed;
+ display: none;
+ top: 0;
+ left: 0;
+ z-index:-5;
+}
+.profile:before{
+	background: rgba(0,159,229,0.8);
+	background:rgba(35,113,185,0.8);
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	content: '';
+}
+ .profile__voucher{
+  position: relative;
+  width: 70%;
+  height: 40vh;
+  background: white;
+  margin: 50px auto;
+  border:1px solid black;
+    &:before{
+        content: 'ЗАРЕЄСТРОВАНІ ЧЕКИ';
+        width: 70%;
+        height: 50px;
+        left: 0;
+        right: 0;
+        top: -20px;
+        margin:auto;
+        position: absolute;
+        background:#fed30b;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+  }
+.profile__wrapper{
+	position: absolute;
+	width: 65vw;
+	height: 85vh;
+	background:rgba(254,251,232,0.9);
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	top: 0px;
+	margin: auto;
+	border-radius: 20px;
+	min-height: 400px;
+}
+.profile__head{
+  color: #ed1d24;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 23px;
+}
+.profile__btn{
+	margin-bottom: 15px;
+	width: 50%;
+	height: 60px;
+	font-size: 20px;
+}
+.profile__inf{
+	color: #ed1d24;
+	font-weight: 900;
+	text-align: center;
+	font-size: 18px;
+}
+.profile__infoblock{
+  text-align: center;
+}
+.profile__logo{
+	text-align: center;
+}
+.profile__close{
+  font-size: 65px;
+    /* float: right; */
+    position: absolute;
+    right: 10px;
+    color: red;
+    cursor: pointer;
+    z-index: -5;
+}
+
+@media (max-aspect-ratio: 3/3) {
+  	.profile__wrapper{
+  		min-width: 100vw;
+      min-height: 100vh;
+      border-radius:0;
+    }
+    .profile__inf{
+      color: #ed1d24;
+      font-weight: 900;
+      text-align: center;
+      font-size: 14px;
+    }
+    .profile__btn{
+      width: 78%;
+    }
+    .profile__infoblock{
+     text-align: left;
+     width: 90%;
+     margin: auto;
+}
+    .profile__logo img{
+      height: 120px;
+    }
+    .profile__voucher{
+      position: relative;
+      width: 90%;
+      height: 40vh;
+      background: white;
+      margin: 50px auto;
+      border:1px solid black;
+      &:before{
+        content: 'ЗАРЕЄСТРОВАНІ ЧЕКИ';
+        width: 70%;
+        height: 50px;
+        left: 0;
+        right: 0;
+        top: -20px;
+        margin:auto;
+        position: absolute;
+        background:#fed30b;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 20px;
+        font-size: 15px;
+      }
+    }
+.profile__head{
+  color: #ed1d24;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
+  }
+}
