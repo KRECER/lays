@@ -48,15 +48,14 @@ document.addEventListener("DOMContentLoaded", function() {
   //btn main
   var isAnimationClicked = false;
   var btnAnimation = document.getElementById('js-btn-animation');
-  btnAnimation.addEventListener('click', function (event){
+  btnAnimation.addEventListener('click', function(event) {
     this.classList.add('btn-animation');
     setTimeout(function() {codeInput.focus();}, 1000);
   });
 
-
   //send code
   if (codeInput !== null) {
-  codeInput.addEventListener('keyup', function (e) {
+  codeInput.addEventListener('keyup', function(e) {
     if (e.keyCode === 13) {
       sendCode();
       }
@@ -104,10 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
 var textModal = document.querySelector('.js-text-modal');
 var closeTextModalBtn = textModal.querySelector('.js-close');
 
-console.log(closeTextModalBtn);
-
 closeTextModalBtn.addEventListener('click', function (e) {
-  console.log('asdasdsaa');
   closeModal(textModal);
 });
 
