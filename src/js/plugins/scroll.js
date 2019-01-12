@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  var slider = document.getElementById('sliders');
-
   var rePrizes = new RegExp('^/prizes/?$');
   if (rePrizes.test(window.location.pathname)) {
     document.querySelector('.prizes').classList.add('show');
