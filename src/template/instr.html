@@ -10,7 +10,7 @@
 				</div>
 			</li>	
 			<li class="instruction__item">
-				<img  class = 'mySlides' src="/img/step2.svg" alt="">
+				<img class = 'mySlides' src="/img/step2.svg" alt="">
 			</li>	
 			<li class="instruction__item">
 				<img class = 'mySlides' src="/img/step3.svg" alt="">
@@ -19,7 +19,7 @@
 				<img  class = 'mySlides' src="/img/step4.svg" alt="">
 			</li>
 		</ul>
-		<img   class="arrow" src="/img/rightArrowWhite.svg" onclick="plusSlides(1)" alt="">
+		<!-- <img class="arrow" src="/img/rightArrowWhite.svg" id="arrow-instruction" alt=""> -->
 		<script>
 			var infoText = document.getElementsByClassName('infoText')[0];
 			var infoBtn = document.getElementById('infoBtn');
@@ -35,25 +35,6 @@
 				infoText.classList.toggle('infoText')
 			}
 
-			// Slider
-			var slideIndex = 1;
-			showSlides(slideIndex);
-			function plusSlides(n){
-				showSlides(slideIndex +=n);
-			}
-			function showSlides(n){
-				if (screen.width<769) {
-				var i;
-				var slides = document.getElementsByClassName('mySlides');
-				if (n>slides.length) {
-					slideIndex = 1
-				}
-				for(i=0;i<slides.length;i++){
-					slides[i].style.display = 'none'
-				}
-				slides[slideIndex-1].style.display = 'flex'
-				}
-			}
 		</script>
 </section>
 
