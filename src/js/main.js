@@ -2,6 +2,7 @@
 	$(".tel").mask("+38(999) 999-99-99");
 	$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
 	$(".registration__inp [name=birthdate").mask("1993-10-10");
+	$(".registration [name=phone").mask("+38(999) 999-99-99");
 
 	// Модальное Вход
 var modal = document.getElementsByClassName('enterform')[0];
@@ -76,7 +77,30 @@ formReg.addEventListener('submit', function(event) {
 
 	request.addEventListener('readystatechange', function() {
 		if (request.status === 200 && request.readyState === 4) {
-			console.log(request.response);
+			$('.registration').hide();
+		}
+	});
+});
+
+
+
+
+
+var formEnter = document.querySelector('.enterform__wrapper form');
+
+formEnter.addEventListener('submit', function(event) {
+	event.preventDefault();
+
+	var data = new FormData(formEnter);
+
+	var request = new XMLHttpRequest();
+	request.open('POST', 'http://lays-movie.dev.itcg.ua/api/login/', true);
+	request.send(data);
+	
+
+	request.addEventListener('readystatechange', function() {
+		if (request.status === 200 && request.readyState === 4) {
+			$('.enterform').hide();
 		}
 	});
 });
