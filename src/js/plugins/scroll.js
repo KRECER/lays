@@ -50,8 +50,22 @@ document.addEventListener("DOMContentLoaded", function() {
   var btnAnimation = document.getElementById('js-btn-animation');
   btnAnimation.addEventListener('click', function(event) {
     this.classList.add('btn-animation');
-    setTimeout(function() {codeInput.focus();}, 1000);
+    setTimeout(function() {
+      codeInput.focus();
+      //show block mob-Apps
+      var tabletMedia = window.matchMedia('(max-aspect-ratio:3/3)');
+      if (tabletMedia.matches) {
+        document.getElementById('js-show-mob-app').classList.add('showApps');
+      }
+      
+    }, 1000);
   });
+
+  
+
+  codeInput.addEventListener('click', function (){
+    document.getElementById('js-show-mob-app').classList.add('showApps');
+  })
 
   // show active button registration
   function showActiveBtn (){
@@ -92,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+
+
   function isCodeValid(str) {
   var localStr = str.replace(/^\ + |\ +$/g, '');
 
@@ -109,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function sendCode () {
     if (isCodeValid(codeInput.value)) {
       $.post('http://lays-movie.dev.itcg.ua/api/code/', {code: codeInput.value}, function(e) {
-        console.log(e);
+        // alert(e.status + ' ' + e.message);
         if (e.status) {
           // popup success
           openTextModal({

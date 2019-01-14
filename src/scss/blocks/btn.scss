@@ -146,7 +146,6 @@
 
 .btn-animation{
   background:#fcc403;
-  // z-index: 10;
   pointer-events: none;
 	&:after{
 		background: #fff;
@@ -157,6 +156,11 @@
 	&::before{
 		z-index: 5;
 		background: transparent;
+	}
+
+ 	@media (max-aspect-ratio:3/3){
+		//for Safari
+		z-index: 10;
 	}
 	.animationSvg{
 		transform-origin: center;
