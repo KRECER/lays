@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function sendCode () {
     if (isCodeValid(codeInput.value)) {
-      $.post('http://lays-movie.dev.itcg.ua/api/code/', {code: codeInput.value}, function(e) {
+      $.post('/api/code/', {code: codeInput.value}, function(e) {
         // alert(e.status + ' ' + e.message);
         if (e.status) {
           // popup success

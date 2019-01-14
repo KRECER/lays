@@ -105,7 +105,8 @@ function validateForm(link, data, form, modal) {
                     title: 'Успіх',
                     text: response.message,
                 });
-            console.log('isCodeEntered', isCodeEntered);
+                console.log('isCodeEntered', isCodeEntered);
+                isAuth();
                 if (isCodeEntered) {
                     sendCode();
                 }
@@ -124,7 +125,7 @@ formReg.addEventListener('submit', function(event) {
 
     var data = new FormData(formReg);
 
-    validateForm('http://lays-movie.dev.itcg.ua/api/registration/', data, formReg, modalFormReg);
+    validateForm('/api/registration/', data, formReg, modalFormReg);
 });
 
 
@@ -133,12 +134,12 @@ var formEnter = document.querySelector('.enterform__wrapper form');
 formEnter.addEventListener('submit', function(event) {
     event.preventDefault();
     var data = new FormData(formEnter);
-    validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, modal);
+    validateForm('/api/login/', data, formEnter, modal);
 });
 
 function isAuth(callback) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://lays-movie.dev.itcg.ua/api/is_authenticated/', true);
+    xhr.open('GET', '/api/is_authenticated/', true);
     xhr.send();
 
     xhr.addEventListener('readystatechange', function() {
@@ -183,7 +184,7 @@ forgetModelClose.addEventListener('click', function() {
 forgetForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    $.post('http://lays-movie.dev.itcg.ua/api/reset/password/', {email: forgetForm.email.value}, function(e) {
+    $.post('/api/reset/password/', {email: forgetForm.email.value}, function(e) {
         if (e.status) {
             forgetModel.style.display = 'none';
 
@@ -348,7 +349,7 @@ function sendCode(login) {
     }
 
     if (isCodeValid(codeInput.value)) {
-      $.post('http://lays-movie.dev.itcg.ua/api/code/', {code: codeInput.value}, function(e) {
+      $.post('/api/code/', {code: codeInput.value}, function(e) {
         isCodeEntered = false;
         hideRegModal();
         hideEnterModal();
@@ -435,6 +436,6 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
 })
 
 $("#menu-exit").click(function() {
-    $.get('http://lays-movie.dev.itcg.ua/api/logout/');
+    $.get('/api/logout/');
     window.location.reload();
 });

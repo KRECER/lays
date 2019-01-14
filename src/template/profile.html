@@ -17,7 +17,7 @@
 	var profileBtn = document.getElementById('profileBtn');
 
 	function openProfile(){
-		$.get( 'http://lays-movie.dev.itcg.ua/api/cabinet/', function( data ) {
+		$.get( '/api/cabinet/', function( data ) {
 			if (data.hasOwnProperty('status') && data.status == false) {
 				// popup error
 				hideModalProfileCloseButton();
