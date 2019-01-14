@@ -162,8 +162,9 @@ function openTextModal(param) {
   var title = textModal.querySelector('.js-title');
   var text = textModal.querySelector('.js-text');
   var modalImg = textModal.querySelector('.js-img');
-  title.innerHTML = param.title || '';
-  text.innerHTML = param.text || '';
+  title.innerHTML = param.text.title || '';
+  text.innerHTML = param.text.body || '';
+  console.log(param);
   if (param.hasOwnProperty('imagePath')) {
     modalImg.setAttribute('src', param.imagePath);
     modalImg.setAttribute('alt', param.imageAlt || '');
