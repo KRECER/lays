@@ -138,6 +138,7 @@ function openMegagoTextModal(param) {
 
   if (param.hasOwnProperty('btn')) {
     console.log(param.btn);
+    modalBtn.style.display = "flex";
     modalBtn.innerHTML = param.btn.text;
     modalBtn.setAttribute('href', param.btn.link);
   } else {
