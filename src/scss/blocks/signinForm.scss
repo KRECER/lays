@@ -9,7 +9,7 @@
   	display: none;
   	top: 0;
   	left: 0;
-  	z-index: -1;
+  	z-index: 100;
 }
 .enterform:before{
 	background: rgba(0,159,229,0.8);
@@ -94,13 +94,21 @@ input{
 	text-align: center;
 }
 .enterform__close{
-   	font-size: 65px;
+   	// font-size: 65px;
     /* float: right; */
-    position: absolute;
-    right: 10px;
-    color: red;
-    cursor: pointer;
-    z-index: -1;
+    // position: absolute;
+    // right: 10px;
+    // color: red;
+    // cursor: pointer;
+    // z-index: 100;
+
+	position: absolute;
+	font-size: 55px;
+	font-weight: 100;
+	top: 0;
+	right: 10px;
+	color: red;
+	cursor: pointer;
 }
   @media (max-aspect-ratio: 3/3) {
   	.enterform{

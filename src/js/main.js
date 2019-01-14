@@ -12,25 +12,18 @@ var headerBg = document.getElementsByClassName('page-header')[0];
 
 function signIn() {
 	modal.style.display = 'block';
-	modal.style.zIndex = '11';
-	closeSign.style.zIndex = '11';
-	headerBg.style.zIndex = '9';
+	modalReg.style.display = 'none';
 
 	document.getElementById('menu-block').classList.remove('expanded');
 	document.getElementById('menu-inner-block').classList.remove('expanded');
 	document.getElementById('close-menu-bg').classList.remove('expanded');
 }
 
-function hideModalCloseButton() {
-	modal.style.display = 'none';
-	headerBg.style.zIndex = '1';
-	document.body.style.position = 'static';
-}
+closeSign.addEventListener('click', hideEnterModal);
+modal.addEventListener('click', hideEnterModal);
 
-function hideModalOverlay() {
+function hideEnterModal() {
 	modal.style.display = 'none';
-	headerBg.style.zIndex = '1';
-	document.body.style.position = 'static';
 } 
 
 // Модальное Регестрация
@@ -40,27 +33,18 @@ var closeSignReg = document.getElementsByClassName('registration__close')[0];
 var headerBg = document.getElementsByClassName('page-header')[0];
 var registrationBtn = document.getElementById('registrationBtn');
 
+registrationBtn.addEventListener('click', getRegistration);
+closeSignReg.addEventListener('click', hideRegModal);
+modalReg.addEventListener('click', hideRegModal);
+
 function getRegistration() {
 	modalReg.style.display = 'block';
-	modalReg.style.zIndex = '11';
-	closeSignReg.style.zIndex = '11';
-	headerBg.style.zIndex = '9';
-	modal.style.display='none';
-	// document.body.style.position = 'fixed';
+	modal.style.display = 'none';
 }
 
-function hideModalRegistrationCloseButton() {
+function hideRegModal() {
 	modalReg.style.display = 'none';
-	headerBg.style.zIndex = '1';
-	document.body.style.position = 'static';
-}
-
-function hideModalRegistrationOverlay() {
-	modalReg.style.display = 'none';
-	headerBg.style.zIndex = '1';
-	document.body.style.position = 'static';
-
-}
+} 
 
 var formReg = document.querySelector('.registration__wrapper form');
 
