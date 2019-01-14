@@ -118,45 +118,6 @@ var formEnter = document.querySelector('.enterform__wrapper form');
 formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
 	var data = new FormData(formEnter);
-
-<<<<<<< HEAD
-	// var request = new XMLHttpRequest();
-	// request.open('POST', 'http://lays-movie.dev.itcg.ua/api/login/', true);
-	// request.send(data);
-	// request.addEventListener('readystatechange', function () {
-	// if (request.status === 200 && request.readyState === 4) {
-	//   $('.enterform').hide();
-	// }
-	// });
-
-	$.ajax({
-        type: 'POST',
-        url: "http://lays-movie.dev.itcg.ua/api/login/",
-        data: data,
-        processData: false,
-        contentType: false,
-    }).done(function(data) {
-        $('.enterform').hide();
-        if (data.status == true) {
-	        openTextModal({
-	            title: 'Успіх',
-	            text: data.message,
-	      	});
-
-        } else {
-	      	openTextModal({
-	            title: 'Увага',
-	            text: data.message,
-	      	});
-        }
-    }).fail(function(data) {
-        openTextModal({
-            title: 'Увага',
-            text: data.message,
-      	});
-    });
-
-=======
 	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, form);
 });
 
@@ -178,5 +139,4 @@ function isAuth() {
 
 window.addEventListener('DOMContentLoaded', function() {
 	isAuth();
->>>>>>> 3100aa72d9386471f18b4c7a235e6f8a21e2b8ae
 });
