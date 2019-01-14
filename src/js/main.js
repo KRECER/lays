@@ -12,8 +12,8 @@ var headerBg = document.getElementsByClassName('page-header')[0];
 
 function signIn() {
 	modal.style.display = 'block';
-	modal.style.zIndex = '10';
-	closeSign.style.zIndex = '10';
+	modal.style.zIndex = '11';
+	closeSign.style.zIndex = '11';
 	headerBg.style.zIndex = '9';
 
 	document.getElementById('menu-block').classList.remove('expanded');
@@ -42,12 +42,11 @@ var registrationBtn = document.getElementById('registrationBtn');
 
 function getRegistration() {
 	modalReg.style.display = 'block';
-	modalReg.style.zIndex = '10';
-	closeSignReg.style.zIndex = '10';
+	modalReg.style.zIndex = '11';
+	closeSignReg.style.zIndex = '11';
 	headerBg.style.zIndex = '9';
 	modal.style.display='none';
-	console.log('asdkjasdnaskjdnsakjdnaskjn');
-	document.body.style.position = 'fixed';
+	// document.body.style.position = 'fixed';
 }
 
 function hideModalRegistrationCloseButton() {
@@ -90,18 +89,42 @@ var formEnter = document.querySelector('.enterform__wrapper form');
 
 formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
-
 	var data = new FormData(formEnter);
-
-	var request = new XMLHttpRequest();
-	request.open('POST', 'http://lays-movie.dev.itcg.ua/api/login/', true);
-	request.send(data);
 	
+	// var request = new XMLHttpRequest();
+	// request.open('POST', 'http://lays-movie.dev.itcg.ua/api/login/', true);
+	// request.send(data);
+	// request.addEventListener('readystatechange', function () {
+	// if (request.status === 200 && request.readyState === 4) {
+	//   $('.enterform').hide();
+	// }
+	// });
 
-	request.addEventListener('readystatechange', function() {
-		if (request.status === 200 && request.readyState === 4) {
-			$('.enterform').hide();
-		}
-	});
+	$.ajax({
+        type: 'POST',
+        url: "http://lays-movie.dev.itcg.ua/api/login/",
+        data: data,
+        processData: false,
+        contentType: false,
+    }).done(function(data) {
+        $('.enterform').hide();
+        if (data.status == true) {
+	        openTextModal({
+	            title: 'Успіх',
+	            text: data.message,
+	      	});
+        	
+        } else {
+	      	openTextModal({
+	            title: 'Увага',
+	            text: data.message,
+	      	});
+        }
+    }).fail(function(data) {
+        openTextModal({
+            title: 'Увага',
+            text: data.message,
+      	});
+    });
+	
 });
-
