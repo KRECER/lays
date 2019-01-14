@@ -117,6 +117,7 @@
               transition-property: transform, -webkit-transform;
               display: flex;
               justify-content: center;
+          }
 
               &:after {
                 content: '';
@@ -138,7 +139,6 @@
                   display: none;
                 }
               }
-          }
       }
 
       img {
