@@ -1,14 +1,11 @@
-
 $(".tel").mask("+38(999) 999-99-99");
 $(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
 // $(".registration__inp [name=birthdate").mask("00-00-0000");
 
 // $(".registration__inp [name=birthdate").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
-$(".registration__inp [name=birthdate").mask("0000-00-00", {placeholder: "ДД-ММ-РРРР"});
 
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
-
 // Модальное Вход
 var modal = document.querySelector('.enterform');
 var form = document.querySelector('.enterform__wrapper');
@@ -22,6 +19,7 @@ var formReg = document.querySelector('.registration__wrapper');
 var closeSignReg = document.querySelector('.registration__close');
 var headerBg = document.querySelector('.page-header');
 var registrationBtn = document.getElementById('registrationBtn');
+// alert('asd');
 
 // signInBtn.addEventListener('click', signIn);
 function signIn() {
@@ -39,6 +37,7 @@ modal.addEventListener('click', hideEnterModal);
 
 function hideEnterModal() {
 	modal.style.display = 'none';
+	document.body.style.position = 'static';
 }
 
 registrationBtn.addEventListener('click', getRegistration);
@@ -48,10 +47,12 @@ modalReg.addEventListener('click', hideRegModal);
 function getRegistration() {
 	modalReg.style.display = 'block';
 	modal.style.display = 'none';
+	$(".registration__inp [name=birthdate").mask("0000-00-00", {placeholder: "ДД-ММ-РРРР"});
 }
 
 function hideRegModal() {
 	modalReg.style.display = 'none';
+	document.body.style.position = 'static';
 }
 
 

@@ -11,6 +11,11 @@ html {
 body {
     font-family: 'Gotham Pro', Arial, sans-serif;
     min-width: 320px;
+
+    @media (max-aspect-ratio: 3/3) {
+    	min-width: 100%;
+    	left: 0;
+    }
 }
 
 img {

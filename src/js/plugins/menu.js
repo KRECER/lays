@@ -13,12 +13,16 @@ if (toggleMenuBtn) toggleMenuBtn.addEventListener('click', toggleMenu);
 
 function closeMenu(e) {
 	if (e) e.preventDefault();
+		document.body.style.position = 'static';
 		menu.classList.remove('expanded');
 		menuInner.classList.remove('expanded');
 		bgMenu.classList.remove('expanded');
 	}
 function openMenu(e) {
 	if (e) e.preventDefault();
+		if (window.matchMedia('(max-aspect-ratio:3/3)').matches) {
+			document.body.style.position = 'fixed';
+		}
 		menu.classList.add('expanded');
 		menuInner.classList.add('expanded');
 		bgMenu.classList.add('expanded');
