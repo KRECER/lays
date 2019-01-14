@@ -151,12 +151,13 @@ function isAuth(callback) {
                 itemAuth.style.display = 'none';
                 $("#menu-cabinet").removeClass("hide");
                 $("#menu-exit").removeClass("hide");
-                console.log('callback(true)');
                 callback && callback(true);
                 return true;
+            } else {
+                callback && callback(false);
+                return false;
             }
         } else {
-            callback && callback(false)
             return false;
         }   
     });
@@ -336,7 +337,10 @@ function sendCode(login) {
         return isAuth(sendCode);
     }
 
+    console.log('login', login);
+
     if (login !== true) {
+        console.log('login')
         code = codeInput.value;
         isCodeEntered = true;
         signIn();
