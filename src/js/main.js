@@ -93,12 +93,12 @@ function validateForm(link, data, form, modal) {
 				}
 				grecaptcha.reset();
 			} else {
-				modal.parentNode.style.display = 'none';
+				modal.style.display = 'none';
 				isAuth();
 				openTextModal({
 					title: 'Успіх',
 					text: response.message,
-			});
+				});
 			}
 		}
 	});
@@ -131,12 +131,20 @@ function isAuth() {
 	xhr.open('GET', 'http://lays-movie.dev.itcg.ua/api/is_authenticated/', true);
 	xhr.send();
 
+	
+
 	xhr.addEventListener('readystatechange', function() {
-		if (xhr.status === 200 && xhr.readyState === 4) {
-			if (xhr.response.status) {
+		var json = JSON.parse(xhr.response);
+		console.log(json);
+
+		if (xhr.status == 200 && xhr.readyState == 4) {
+			if (json.status) {
 				var itemAuth = document.querySelector('.item._isAuth').parentElement;
 
 				itemAuth.style.display = 'none';
+				$("#menu-cabinet").removeClass("hide");
+				$("#menu-exit").removeClass("hide");
+
 			}
 		}	
 	});
