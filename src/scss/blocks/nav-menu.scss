@@ -2,7 +2,7 @@ $lays-yellow: #feda00;
 $lays-red: #e13016;
 .menu {
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   top: 0;
   left: 0;
   box-sizing: border-box;
@@ -124,7 +124,7 @@ $lays-red: #e13016;
 //mob Bohdana , (max-width: 567px) 
 @media (max-aspect-ratio: 3/3), (max-width: 567px){
   .menu-inner {
-    z-index: 5;
+    z-index: 6;
     top: 0;
     bottom: 0;
     right: 0;
