@@ -398,6 +398,7 @@ function openTextModal(param) {
   if (param.hasOwnProperty('imagePath')) {
     modalImg.setAttribute('src', param.imagePath);
     modalImg.setAttribute('alt', param.imageAlt || '');
+    modalImg.style.display = "block";
   } else {
     modalImg.style.display = "none";
   }

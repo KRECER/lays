@@ -105,7 +105,7 @@ gulp.task("clean-images", function() {
 });
 
 gulp.task('images', () => {
-	return gulp.src('src/img/**/*.{png,jpg,svg,jpeg}', {base: 'src/img/'})
+	return gulp.src('src/img/**/*.{png,jpg,svg,jpeg,ico}', {base: 'src/img/'})
 		.pipe( changed('build/img') )
 		.pipe(imagemin([
 			imagemin.jpegtran({progressive: true}),
