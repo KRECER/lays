@@ -1,20 +1,31 @@
 
 $(".tel").mask("+38(999) 999-99-99");
 $(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
-$(".registration__inp [name=birthdate").mask("00-00-0000");
+// $(".registration__inp [name=birthdate").mask("00-00-0000");
 
-$(".registration__inp [name=birthdate").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
+// $(".registration__inp [name=birthdate").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
+$(".registration__inp [name=birthdate").mask("0000-00-00", {placeholder: "ДД-ММ-РРРР"});
 
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
-	// Модальное Вход
-var modal = document.getElementsByClassName('enterform')[0];
-var form = document.getElementsByClassName('enterform__wrapper')[0];
-var closeSign = document.getElementsByClassName('enterform__close')[0];
-var headerBg = document.getElementsByClassName('page-header')[0];
+// Модальное Вход
+var modal = document.querySelector('.enterform');
+var form = document.querySelector('.enterform__wrapper');
+var closeSign = document.querySelector('.enterform__close');
+var headerBg = document.querySelector('.page-header');
+// var signInBtn = document.getElementById('signIn');
 
+// Модальное Регестрация
+var modalReg = document.querySelector('.registration');
+var formReg = document.querySelector('.registration__wrapper');
+var closeSignReg = document.querySelector('.registration__close');
+var headerBg = document.querySelector('.page-header');
+var registrationBtn = document.getElementById('registrationBtn');
+
+// signInBtn.addEventListener('click', signIn);
 function signIn() {
+	modal = document.querySelector('.enterform');  // так работает
 	modal.style.display = 'block';
 	modalReg.style.display = 'none';
 
@@ -29,13 +40,6 @@ modal.addEventListener('click', hideEnterModal);
 function hideEnterModal() {
 	modal.style.display = 'none';
 } 
-
-// Модальное Регестрация
-var modalReg = document.getElementsByClassName('registration')[0];
-var formReg = document.getElementsByClassName('registration__wrapper')[0];
-var closeSignReg = document.getElementsByClassName('registration__close')[0];
-var headerBg = document.getElementsByClassName('page-header')[0];
-var registrationBtn = document.getElementById('registrationBtn');
 
 registrationBtn.addEventListener('click', getRegistration);
 closeSignReg.addEventListener('click', hideRegModal);
@@ -141,4 +145,42 @@ function isAuth() {
 
 window.addEventListener('DOMContentLoaded', function() {
 	isAuth();
+});
+
+var forgetModel = document.querySelector('.js-modal-forget');
+var forgetModelClose = forgetModel.querySelector('.js-close');
+var forgetForm = document.querySelector('.js-forget-form');
+
+document.querySelector('.js-forget').addEventListener('click', function (){
+	hideEnterModal();
+	forgetModel.style.display = 'flex';
+});
+
+forgetModelClose.addEventListener('click', function() {
+	forgetModel.style.display = 'none';
+});
+
+forgetForm.addEventListener('submit', function(e) {
+	e.preventDefault();
+
+	$.post('http://lays-movie.dev.itcg.ua/api/reset/password/', {email: forgetForm.email.value}, function(e) {
+		if (e.status) {
+			forgetModel.style.display = 'none';
+
+			openTextModal({
+				text: {
+					body: e.message,
+					title: 'Успіх!',
+				}
+			})
+		} else {
+			forgetModel.style.display = 'none';
+			openTextModal({
+				text: {
+					body: typeof e.message !== 'object' ? e.message : 'Невірний формат пошти',
+					title: 'Увага!',
+				}
+			})
+		}
+	});
 });

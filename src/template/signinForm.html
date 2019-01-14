@@ -1,4 +1,5 @@
 <!-- <button onclick="signIn()"> sign in </button> -->
+
 <section class="enterform">
 	<div class="enterform__wrapper" onclick="event.stopPropagation()">
 		<form action="">
@@ -12,15 +13,25 @@
 					<use xlink:href="#icon-triangle"></use>
 				</svg>
 			</button>
-			<div class="enterform__question"><a href="#">ЗАБУЛИ ПАРОЛЬ?</a> </div>
+			<div class="enterform__question">
+				<a class="js-forget">ЗАБУЛИ ПАРОЛЬ?</a>
+			</div>
 		</form>
-			<button class="enterform__btn button" id="registrationBtn">ЗАРЕЄСТРУВАТИСЯ
-				<svg class="hollywood__icon-triangle" style='color: red'>
-					<use xlink:href="#icon-triangle"></use>
-				</svg>
-			</button>
+		<button class="enterform__btn button" id="registrationBtn">ЗАРЕЄСТРУВАТИСЯ
+			<svg class="hollywood__icon-triangle" style='color: red'>
+				<use xlink:href="#icon-triangle"></use>
+			</svg>
+		</button>
 	</div>
 </section>
-<script>
-	
-</script>
+
+<section class="modal js-modal-forget">
+  <div class="modal__wrapper">
+    <div class="modal__close js-close">&times;</div>
+    <h4 class="modal__title">Відновлення паролю</h4>
+    <form class="forget-password js-forget-form">
+    	<input type="email" name="email" class="input input--yellow" placeholder="E-MAIL" required>
+    	<button class="modal__btn modal__btn_red button">далі</button>
+    </form>
+  </div>
+</section>

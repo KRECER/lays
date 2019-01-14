@@ -8,6 +8,7 @@
   // z-index: -1;
   font-weight: 700;
   align-items: center;
+  z-index: 100;
 
   &:before {
     content: '';
@@ -52,10 +53,16 @@
     width: 50%;
     height: 60px;
     font-size: 20px;
-  }
 
-  &__btn:last-child {
-    background: #fde619;
+    &:last-child {
+      background-color: #fde619;
+    }
+
+    &_red:last-child {
+      background-color: #ed1d24;
+      margin-bottom: 0;
+      margin-top: 20px;
+    }
   }
 
   &__head {
@@ -112,6 +119,13 @@
       cursor: pointer;
   }
 
+  .forget-password {
+    input {
+      display: block;
+      margin: auto;
+    }
+  }
+
   @media (max-aspect-ratio: 3/3) {
     &__wrapper {
       // min-width: 100vw;
@@ -123,6 +137,11 @@
 
     &__btn {
       width: 78%;
+    }
+
+    input {
+      width: 90%;
+      font-size: 80%;
     }
   }
 }

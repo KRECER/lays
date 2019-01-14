@@ -176,7 +176,7 @@ function openTextModal(param) {
 
 function openModal(modal) {
   modal.style.display = 'flex';
-  modal.style.zIndex = 250;
+  // modal.style.zIndex = 250;
 }
 
 function closeModal(modal) {
