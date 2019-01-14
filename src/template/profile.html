@@ -3,33 +3,55 @@
 	<div class="profile__wrapper" onclick="event.stopPropagation()">
 			<div class="profile__close" onclick="hideModalProfileCloseButton()">&times;</div>
 			<div class="profile__logo"><img src="img/logo.png" alt=""></div>
-			<div class="profile__infoblock"><span class="profile__inf">Номер телефону:</span></div>
-			<div class="profile__infoblock"><span class="profile__inf">Email:</span></div>
-			<h2 class="profile__head">КІЛЬКІСТЬ ШЕРІВ:</h2>
-			<div class="profile__voucher"></div>
+			<div class="profile__infoblock"><span class="profile__inf">Номер телефону <span id="phone"></span></span></div>
+			<div class="profile__infoblock"><span class="profile__inf">Email: <span id="email"></span></span></div>
+			<div class="profile__voucher" id="codes"></div>
 			<div class="profile__head">Обов'язково збережи чек!</div>
 	</div>
 </section>
 <script>
-var modalPr = document.getElementsByClassName('profile')[0];
-var formPr = document.getElementsByClassName('profile__wrapper')[0];
-var closeSignPr = document.getElementsByClassName('profile__close')[0];
-var headerBg = document.getElementsByClassName('page-header')[0];
-var profileBtn = document.getElementById('profileBtn');
-function openProfile(){
-	modalPr.style.display = 'block';
-	modalPr.style.zIndex = '10';
-	closeSignPr.style.zIndex = '10';
-	headerBg.style.zIndex = '9';
-	// modalPr.style.display='none';
+	var modalPr = document.getElementsByClassName('profile')[0];
+	var formPr = document.getElementsByClassName('profile__wrapper')[0];
+	var closeSignPr = document.getElementsByClassName('profile__close')[0];
+	var headerBg = document.getElementsByClassName('page-header')[0];
+	var profileBtn = document.getElementById('profileBtn');
 
-}
-function hideModalProfileCloseButton(){
-	modalPr.style.display = 'none';
-	headerBg.style.zIndex = '1';
-}
-function hideModalProfileOverlay(){
-	modalPr.style.display = 'none';
-	headerBg.style.zIndex = '1';
-} 
+	function openProfile(){
+		$.get( 'http://lays-movie.dev.itcg.ua/api/cabinet/', function( data ) {
+			if (data.hasOwnProperty('status') && data.status == false) {
+				// popup error
+				hideModalProfileCloseButton();
+				hideModalProfileOverlay();
+				openTextModal({
+				  title: 'Увага',
+				  text: data.message,
+				});
+			} else {
+				$( '#phone' ).html(data.phone);
+				$( '#email' ).html(data.email);
+
+				var codesHtml = '';
+				for (var i = 0; i < data.codes.length; i++) {
+					var code = data.codes[i];
+					codesHtml += '<p>' + code.code + ' | ' +  code.prize + ' | ' + code.date + '</p>';
+				}
+				$( '#codes' ).html(codesHtml);
+				modalPr.style.display = 'block';
+				modalPr.style.zIndex = '10';
+				closeSignPr.style.zIndex = '10';
+				headerBg.style.zIndex = '9';
+				// modalPr.style.display='none';
+			}
+		});
+	}
+
+	function hideModalProfileCloseButton(){
+		modalPr.style.display = 'none';
+		headerBg.style.zIndex = '1';
+	}
+
+	function hideModalProfileOverlay(){
+		modalPr.style.display = 'none';
+		headerBg.style.zIndex = '1';
+	} 
 </script>

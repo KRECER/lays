@@ -1,15 +1,15 @@
 <nav class="nav-menu"></nav>
 
 <div class="menu" id="menu-block">
-	<div class="cross" id="close-menu"></div>
-	<img src="/img/menu/movieText.png" class="item logan-fhd"/>
+  <div class="cross" id="close-menu"></div>
+  <img src="/img/menu/movieText.png" class="item logan-fhd"/>
 
-	<a href="https://lays.ua/" class="item logo-lays">
-	  <img src='/img/menu/logo-lays-fhd.png'
-	     class="item logo-lays"/>
-	 </a>
-	<img src='/img/menu/hamburger-menu-icon.svg'
-	     class="item hamburger-menu-icon" id="open-menu" />
+  <a href="https://lays.ua/" class="item logo-lays">
+    <img src='/img/menu/logo-lays-fhd.png'
+       class="item logo-lays"/>
+   </a>
+  <img src='/img/menu/hamburger-menu-icon.svg'
+       class="item hamburger-menu-icon" id="open-menu" />
 </div>
 
 <div class="menu-inner-wrapper" id="close-menu-bg"></div>
@@ -40,10 +40,16 @@
         <span class="title">запитання та відповіді</span>
       </a>
     </li>
-    <li  onclick="signIn()">
-      <a onclick="signIn()" class="item _isAuth">
+    <li onclick="signIn()">
+      <a class="item _isAuth">
         <img class="icon-login" src="/img/menu/icon-login.svg" alt="" class="icon" />
         <span class="title">Вхід, реєстрація</span>
+      </a>
+    </li>
+    <li  onclick="openProfile()">
+      <a class="item _isAuth">
+        <img class="icon-login" src="/img/menu/icon-login.svg" alt="" class="icon" />
+        <span class="title">Приватний кабінет</span>
       </a>
     </li>
     <li>
@@ -64,17 +70,5 @@
           <span class="title">Приватний кабінет</span>
         </a>
       </li> -->
-      <li>
-        <a class="item _logout hide _isAuth">
-          <img class="icon-exit" src="img/icon-log-out.svg" alt="" class="icon" />
-          <span class="title">Вихід</span>
-        </a>
-      </li>
-      <li>
-        <a class="item _open-login-modal _isNotAuth">
-          <img class="icon-login" src="img/icon-login.svg" alt="" class="icon" />
-          <span class="title">Вхід, реєстрація</span>
-        </a>
-      </li>
   </ul>
 </div>
