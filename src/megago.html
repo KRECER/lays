@@ -50,11 +50,11 @@
 		<form class="megago__form" id="code-registration-form">
 			<div>
 				<div class="circle">1</div>
-				<input type="text" required name="tel" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel" minlength="18" maxlength="18">
+				<input type="tel" required name="phone" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel" minlength="18" maxlength="18">
 			</div>
 			<div>
 				<div class="circle">2</div>
-				<input type="text" required name="code" id="code-input" placeholder="ПРОМО-КОД MEGOGO" minlength="11" maxlength="11">
+				<input type="text" required name="megogo" id="code-input" placeholder="ПРОМО-КОД MEGOGO" minlength="12" maxlength="12">
 			</div>
 			<button class="megago__btn button" id="submit-btn">ПРОДОВЖИТИ
 				<svg class="hollywood__icon-triangle">
@@ -79,7 +79,7 @@
 <script src="/js/plugins.js"></script>
 
 <script>
-$(".megago__form [name=tel").mask("+38(999) 999-99-99");
+$(".megago__form [type=tel").mask("+38(999) 999-99-99");
 var submitBtn = document.querySelector("#submit-btn");
 var form = document.querySelector("#code-registration-form");
 
