@@ -1,9 +1,9 @@
 
-	$(".tel").mask("+38(999) 999-99-99");
-	$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
-	// $(".registration__inp [name=birthdate").mask("1993-10-10");
-	$(".registration [name=phone").mask("+38(999) 999-99-99");
-	$(".enterform__wrapper form [name=phone").mask("+38(999) 999-99-99");
+$(".tel").mask("+38(999) 999-99-99");
+$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
+// $(".registration__inp [name=birthdate").mask("1993-10-10");
+$(".registration [name=phone]").mask("+38(999) 999-99-99");
+$(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
 	// Модальное Вход
 var modal = document.getElementsByClassName('enterform')[0];
@@ -87,6 +87,7 @@ function validateForm(link, data, form, modal) {
 				grecaptcha.reset();
 			} else {
 				modal.style.display = 'none';
+				isAuth();
 				openTextModal({
 					title: 'Успіх',
 					text: response.message,
@@ -116,5 +117,25 @@ formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
 	var data = new FormData(formEnter);
 
-	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter);
+	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, form);
+});
+
+function isAuth() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'http://lays-movie.dev.itcg.ua/api/is_authenticated/', true);
+	xhr.send();
+
+	xhr.addEventListener('readystatechange', function() {
+		if (xhr.status === 200 && xhr.readyState === 4) {
+			if (xhr.response.status) {
+				var itemAuth = document.querySelector('.item._isAuth').parentElement;
+
+				itemAuth.style.display = 'none';
+			}
+		}	
+	});
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+	isAuth();
 });
