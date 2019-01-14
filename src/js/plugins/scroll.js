@@ -162,6 +162,7 @@ function openTextModal(param) {
   var title = textModal.querySelector('.js-title');
   var text = textModal.querySelector('.js-text');
   var modalImg = textModal.querySelector('.js-img');
+  var modalBtn = textModal.querySelector('.js-btn');
   title.innerHTML = param.text.title || '';
   text.innerHTML = param.text.body || '';
   console.log(param);
@@ -170,6 +171,14 @@ function openTextModal(param) {
     modalImg.setAttribute('alt', param.imageAlt || '');
   } else {
     modalImg.style.display = "none";
+  }
+
+  if (param.hasOwnProperty('btn')) {
+    modalBtn.style.display = "flex";
+    modalBtn.innerHTML = param.btn.text;
+    modalBtn.setAttribute('href', param.btn.link);
+  } else {
+    modalBtn.style.display = "none";
   }
   openModal(textModal);
 }
@@ -186,8 +195,10 @@ function closeModal(modal) {
 
 document.getElementById('show-find-modal').addEventListener('click', function (){
    openTextModal({
-      title: 'ЯК ЗНАЙТИ КОД?',
-      text: 'Акційний код нанесено всередині пачки поверх склейки швів безкольоровою лазерною гравіровкою.',
+      text: {
+        title: 'ЯК ЗНАЙТИ КОД?',
+        body: 'Акційний код нанесено всередині пачки поверх склейки швів безкольоровою лазерною гравіровкою.'
+      },
       imagePath: '/img/find-code.png',
       imageAlt: 'find code',
    });

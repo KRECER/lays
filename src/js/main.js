@@ -1,7 +1,10 @@
 
 $(".tel").mask("+38(999) 999-99-99");
-$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
-// $(".registration__inp [name=birthdate").mask("1993-10-10");
+$(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
+$(".registration__inp [name=birthdate").mask("00-00-0000");
+
+$(".registration__inp [name=birthdate").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
+
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
@@ -25,7 +28,7 @@ modal.addEventListener('click', hideEnterModal);
 
 function hideEnterModal() {
 	modal.style.display = 'none';
-} 
+}
 
 // Модальное Регестрация
 var modalReg = document.getElementsByClassName('registration')[0];
@@ -45,19 +48,17 @@ function getRegistration() {
 
 function hideRegModal() {
 	modalReg.style.display = 'none';
-} 
+}
 
 
 // Vilidation Form
 function validateForm(link, data, form, modal) {
 
-	if (form.hasOwnProperty('rules')) {
-		if (!form.rules.checked || !form.rules2.checked) {
-			// console.log('roor')
-			form.rules.parentNode.classList.add('error');
-			form.rules2.parentNode.classList.add('error');
-			return;
-		}
+	if (form.rules && form.rules2 && (!form.rules.checked || !form.rules2.checked)) {
+		// console.log('roor')
+		form.rules.parentNode.classList.add('error');
+		form.rules2.parentNode.classList.add('error');
+		return;
 	}
 
 	var request = new XMLHttpRequest();
@@ -65,7 +66,6 @@ function validateForm(link, data, form, modal) {
 	request.send(data);
 
 	var inputs = form.querySelectorAll('input');
-
 	request.addEventListener('readystatechange', function() {
 
 
@@ -88,12 +88,12 @@ function validateForm(link, data, form, modal) {
 					}
 				}
 
-				if (response.message.captcha) {
+				if (response.message && response.message.captcha) {
 					document.querySelector('.js-reg-captcha').classList.add('error');
 				}
 				grecaptcha.reset();
 			} else {
-				modal.style.display = 'none';
+				modal.parentNode.style.display = 'none';
 				isAuth();
 				openTextModal({
 					title: 'Успіх',
@@ -123,8 +123,12 @@ var formEnter = document.querySelector('.enterform__wrapper form');
 formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
 	var data = new FormData(formEnter);
+<<<<<<< HEAD
 
 	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, modal);
+=======
+	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, form);
+>>>>>>> 9926eca1f38c20c9aea7f13d9e6f63641f86e60a
 });
 
 function isAuth() {
