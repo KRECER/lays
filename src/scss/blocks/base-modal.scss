@@ -42,6 +42,11 @@
     min-width: 600px;
     padding: 30px;
   }
+  &__img {
+    display: block;
+    margin: 10px auto 0;
+  }
+
   &__btn {
     margin-bottom: 15px;
     width: 50%;

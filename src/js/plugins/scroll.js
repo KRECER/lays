@@ -140,8 +140,15 @@ closeTextModalBtn.addEventListener('click', function (e) {
 function openTextModal(param) {
   var title = textModal.querySelector('.js-title');
   var text = textModal.querySelector('.js-text');
+  var modalImg = textModal.querySelector('.js-img');
   title.innerHTML = param.title || '';
   text.innerHTML = param.text || '';
+  if (param.hasOwnProperty('imagePath')) {
+    modalImg.setAttribute('src', param.imagePath);
+    modalImg.setAttribute('alt', param.imageAlt || '');
+  } else {
+    modalImg.style.display = "none";
+  }
   openModal(textModal);
 }
 
@@ -159,5 +166,7 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
    openTextModal({
       title: 'ЯК ЗНАЙТИ КОД?',
       text: 'Акційний код нанесено всередині пачки поверх склейки швів безкольоровою лазерною гравіровкою.',
+      imagePath: '/img/find-code.png',
+      imageAlt: 'find code',
    });
 })
