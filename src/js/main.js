@@ -24,7 +24,7 @@ modal.addEventListener('click', hideEnterModal);
 
 function hideEnterModal() {
 	modal.style.display = 'none';
-} 
+}
 
 // Модальное Регестрация
 var modalReg = document.getElementsByClassName('registration')[0];
@@ -44,7 +44,7 @@ function getRegistration() {
 
 function hideRegModal() {
 	modalReg.style.display = 'none';
-} 
+}
 
 var formReg = document.querySelector('.registration__wrapper form');
 
@@ -56,7 +56,7 @@ formReg.addEventListener('submit', function(event) {
 	var request = new XMLHttpRequest();
 	request.open('POST', 'http://lays-movie.dev.itcg.ua/api/registration/', true);
 	request.send(data);
-	
+
 
 	request.addEventListener('readystatechange', function() {
 		if (request.status === 200 && request.readyState === 4) {
@@ -74,7 +74,7 @@ var formEnter = document.querySelector('.enterform__wrapper form');
 formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
 	var data = new FormData(formEnter);
-	
+
 	// var request = new XMLHttpRequest();
 	// request.open('POST', 'http://lays-movie.dev.itcg.ua/api/login/', true);
 	// request.send(data);
@@ -97,7 +97,7 @@ formEnter.addEventListener('submit', function(event) {
 	            title: 'Успіх',
 	            text: data.message,
 	      	});
-        	
+
         } else {
 	      	openTextModal({
 	            title: 'Увага',
@@ -110,5 +110,5 @@ formEnter.addEventListener('submit', function(event) {
             text: data.message,
       	});
     });
-	
+
 });

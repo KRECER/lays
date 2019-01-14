@@ -7,72 +7,150 @@
 	<link rel="stylesheet" href="css/style-min.css">
 </head>
 <body>
-		<div class="visually-hidden">
-				<include src="build/img/sprite.svg"></include>
-			</div>
+<div class="visually-hidden">
+	<include src="build/img/sprite.svg"></include>
+</div>
 <section class="megago">
 	<div class="megago__lenth"></div>
 	<div class="megago__headers">
 		<div class="megago__arrows">
-			<img src="img/megago/arrows.png" alt=""><span>НА САЙТ</span>
+			<img src="/img/megago/arrows.png" alt=""><a href="/">НА САЙТ</a>
 		</div>
 		<div class="megago__camera">
-			<img src="img/megago/cinema.png" alt="">
+			<img src="/img/megago/cinema.png" alt="">
 		</div>
 		<div class="megago__logo">
 			<div>
-				<img src="img/megago/logo.png" alt="">
+				<img src="/img/megago/logo.png" alt="">
 			</div>
 		</div>
 		<div class="megago__films">
-			<img src="img/megago/films.png" alt="">
+			<img src="/img/megago/films.png" alt="">
 		</div>
-</div>
+	</div>
 	<div class="megago__text">
 			<div class="megago__arrows">
-					<img src="img/megago/arrows.png" alt=""><span>НА САЙТ</span>
+					<img src="/img/megago/arrows.png" alt=""><a href="/">НА САЙТ</a>
 				</div>
 		<div class="megago__logo">
 				<div>
-					<img src="img/megago/logo.png" alt="">
+					<img src="/img/megago/logo.png" alt="">
 				</div>
 			</div>
 		<div class="megago__watching">
-			<img src="img/megago/watching.png" alt="">
+			<img src="/img/megago/watching.png" alt="">
 			<h2>
 				ОТРИМАВ ПРОМО-КОД НА БЕЗКОШТОВНУ ПІДПИСКУ?
 			</h2>
 			<div>Вітаємо! <br>
-			Ти маєш 7 днів перегляду пакету «Кіно і ТБ: Оптимальна» безкоштовно! <br> Активуй отриманий промо-код не пізніше 23 квітня 2019 року.<br>Активацію промо-коду може здійснити лише Власник промо-коду – <br>Учасник Акції з належним лише йому номером мобільного телефону, який <br> ти використовував при реєстрації акційного коду з акційної пачки Lay’s.*
+			Ти маєш 7 днів перегляду пакету «Кіно і ТБ: Оптимальна» безкоштовно! <br> Активуй отриманий промо-код не пізніше <span>23 квітня 2019 року</span>.<br>Активацію промо-коду може здійснити лише Власник промо-коду – Учасник Акції з належним лише йому номером мобільного телефону, який ти використовував при реєстрації акційного коду з акційної пачки Lay’s.*
 			</div>
 			<h2>ЩОБ РОЗПОЧАТИ ПЕРЕГЛЯД:</h2>
 		</div>
-		<form action="" class="megago__form">
-		<div>
-			<div class="circle">1</div><input type="text" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel">
-		</div>
-		<div>
-			<div class="circle">2</div><input type="text" placeholder="ПРОМО-КОД MEGOGO" maxlength="12">
-		</div>
-		<button class="megago__btn button">ПРОДОВЖИТИ
-			<svg class="hollywood__icon-triangle">
-				<use xlink:href="#icon-triangle"></use>
-			</svg>
-		</button>
+		<form class="megago__form" id="code-registration-form">
+			<div>
+				<div class="circle">1</div>
+				<input type="text" required name="tel" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel">
+			</div>
+			<div>
+				<div class="circle">2</div>
+				<input type="text" required name="code" id="code-input" placeholder="ПРОМО-КОД MEGOGO" maxlength="12">
+			</div>
+			<button class="megago__btn button" id="submit-btn">ПРОДОВЖИТИ
+				<svg class="hollywood__icon-triangle">
+					<use xlink:href="#icon-triangle"></use>
+				</svg>
+			</button>
 
-		<div class="megago__films">
-			<img src="img/megago/films.png" alt="">
-		</div>
+			<div class="megago__films">
+				<img src="/img/megago/films.png" alt="">
+			</div>
+
+		</form>
 
 		<div class="megago__footer">
 			* Маються на увазі тільки пачки ТМ «LAY’S» з акційним  банером «КІНО СМАКУЄ КРАЩЕ З LAY’S» так кодом всередині.
 		</div>
-	</form>
 	</div>
 </section>
 
-<script src="/js/plugins-min.js"></script>
-<script src="/js/main-min.js"></script>
+<include src="src/template/textModal.html"></include>
+
+<script src="/js/plugins.js"></script>
+
+<script>
+$(".megago__form [name=tel").mask("+38(999) 999-99-99");
+var submitBtn = document.querySelector("#submit-btn");
+var form = document.querySelector("#code-registration-form");
+
+if (submitBtn) {
+  // submitBtn.addEventListener('click', function(event) {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var form = document.querySelector("#code-registration-form");
+    var data = new FormData(form);
+
+    var request = new XMLHttpRequest();
+    request.open('POST', 'http://lays-movie.dev.itcg.ua/api/megogo/', true);
+    request.send(data);
+
+
+    request.addEventListener('readystatechange', function() {
+        if (request.status === 200 && request.readyState === 4) {
+            var response = JSON.parse(request.response);
+            if (response.status) {
+              openMegagoTextModal({
+                  title: response.message.title,
+                  text: response.message.body,
+                  btn: {
+                      text: 'ПЕРЕЙТИ ДО ПЕРЕГЛЯДУ',
+                      link: 'https://megogo.net/ru/profile',
+                  }
+              });
+            }
+            else {
+              openMegagoTextModal({
+                  title: response.message.title,
+                  text: response.message.body,
+              });
+            }
+        }
+    });
+  });
+}
+
+function openMegagoTextModal(param) {
+  console.log('work');
+  console.log(param);
+  var title = textModal.querySelector('.js-title');
+  var text = textModal.querySelector('.js-text');
+  var modalImg = textModal.querySelector('.js-img');
+  var modalBtn = textModal.querySelector('.js-btn');
+  title.innerHTML = param.title || '';
+  text.innerHTML = param.text || '';
+  if (param.hasOwnProperty('imagePath')) {
+    modalImg.setAttribute('src', param.imagePath);
+    modalImg.setAttribute('alt', param.imageAlt || '');
+  } else {
+    modalImg.style.display = "none";
+  }
+
+  if (param.hasOwnProperty('btn')) {
+    console.log(param.btn);
+    modalBtn.innerHTML = param.btn.text;
+    modalBtn.setAttribute('href', param.btn.link);
+  } else {
+    modalBtn.style.display = "none";
+  }
+  openMegagoModal(textModal);
+}
+
+function openMegagoModal(modal) {
+  modal.style.display = 'flex';
+  modal.style.zIndex = 23;
+}
+</script>
 </body>
 </html>
 
