@@ -1,7 +1,10 @@
 
 $(".tel").mask("+38(999) 999-99-99");
-$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
-// $(".registration__inp [name=birthdate").mask("1993-10-10");
+$(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
+$(".registration__inp [name=birthdate").mask("00-00-0000");
+
+$(".registration__inp [name=birthdate").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
+
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
@@ -51,7 +54,7 @@ function hideRegModal() {
 // Vilidation Form
 function validateForm(link, data, form, modal) {
 
-	if (!form.rules.checked || !form.rules2.checked) {
+	if (form.rules && form.rules2 && (!form.rules.checked || !form.rules2.checked)) {
 		// console.log('roor')
 		form.rules.parentNode.classList.add('error');
 		form.rules2.parentNode.classList.add('error');
@@ -81,12 +84,12 @@ function validateForm(link, data, form, modal) {
 					}
 				}
 
-				if (response.message.captcha) {
+				if (response.message && response.message.captcha) {
 					document.querySelector('.js-reg-captcha').classList.add('error');
 				}
 				grecaptcha.reset();
 			} else {
-				modal.style.display = 'none';
+				modal.parentNode.style.display = 'none';
 				isAuth();
 				openTextModal({
 					title: 'Успіх',
