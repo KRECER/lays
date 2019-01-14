@@ -33,7 +33,7 @@
 				var codesHtml = '';
 				for (var i = 0; i < data.codes.length; i++) {
 					var code = data.codes[i];
-					codesHtml += '<p>' + code.code + ' | ' +  code.prize + ' | ' + code.date + '</p>';
+					codesHtml += '<p class="profile__row">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</p>';
 				}
 				$( '#codes' ).html(codesHtml);
 				modalPr.style.display = 'block';

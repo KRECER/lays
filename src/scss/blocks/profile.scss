@@ -25,6 +25,8 @@
   height: 40vh;
   background: white;
   margin: 50px auto;
+  overflow: scroll;
+  padding: 50px 20px;
   border:1px solid black;
     &:before{
         content: 'ЗАРЕЄСТРОВАНІ ЧЕКИ';
@@ -32,7 +34,7 @@
         height: 50px;
         left: 0;
         right: 0;
-        top: -20px;
+        top: 5px;
         margin:auto;
         position: absolute;
         background:#fed30b;
@@ -61,6 +63,7 @@
   text-transform: uppercase;
   text-align: center;
   font-size: 23px;
+  display: none;
 }
 .profile__btn{
 	margin-bottom: 15px;
@@ -90,11 +93,23 @@
     z-index: -5;
 }
 
+.profile__row {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
 @media (max-aspect-ratio: 3/3) {
   	.profile__wrapper{
   		min-width: 100vw;
       min-height: 100vh;
       border-radius:0;
+    }
+    .profile__row {
+      flex-direction: column;
     }
     .profile__inf{
       color: #ed1d24;
@@ -120,13 +135,14 @@
       background: white;
       margin: 50px auto;
       border:1px solid black;
+      padding-top: 65px;
       &:before{
         content: 'ЗАРЕЄСТРОВАНІ ЧЕКИ';
         width: 70%;
         height: 50px;
         left: 0;
         right: 0;
-        top: -20px;
+        top: 20px;
         margin:auto;
         position: absolute;
         background:#fed30b;
