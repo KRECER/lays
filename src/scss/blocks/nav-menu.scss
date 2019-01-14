@@ -12,7 +12,7 @@ $lays-red: #e13016;
   background-color: $lays-yellow;
   &.expanded {
     background: white;
-    z-index: 6;
+    z-index: 7;
     .hamburger-menu-icon {
       pointer-events: none;
       opacity: 0;
@@ -71,7 +71,7 @@ $lays-red: #e13016;
 .menu-inner {
   display: flex;
   position: fixed;
-  z-index: 6;
+  z-index: 7;
   top: 22vh;
   width: 15vh;
   height: calc(100% - 22vh);
