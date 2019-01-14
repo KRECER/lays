@@ -11,6 +11,15 @@
     &--yellow::placeholder {
 		color: #eed617;
     }
+
+    &--error {
+       border: 1px solid red;
+    }
+}
+
+input[name=name],
+input[name=email] {
+   text-transform: uppercase;
 }
 
 ::-webkit-input-placeholder {

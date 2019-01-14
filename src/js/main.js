@@ -1,8 +1,9 @@
 
 	$(".tel").mask("+38(999) 999-99-99");
 	$(".registration__inp [type=tel]").mask("+38(999) 999-99-99");
-	$(".registration__inp [name=birthdate").mask("1993-10-10");
+	// $(".registration__inp [name=birthdate").mask("1993-10-10");
 	$(".registration [name=phone").mask("+38(999) 999-99-99");
+	$(".enterform__wrapper form [name=phone").mask("+38(999) 999-99-99");
 
 	// Модальное Вход
 var modal = document.getElementsByClassName('enterform')[0];
@@ -76,10 +77,34 @@ formReg.addEventListener('submit', function(event) {
 
 	request.addEventListener('readystatechange', function() {
 		if (request.status === 200 && request.readyState === 4) {
-			$('.registration').hide();
+			var response = JSON.parse(request.response);
+
+			validateForm(response, formReg);
 		}
 	});
 });
+
+function validateForm(response, formReg) {
+	var inputs = formReg.querySelectorAll('input');
+
+	if (!response.status) {
+		for (var i = 0; i < inputs.length; i++) {
+			for (var key in response.message) {
+				if (inputs[i].name == key) {
+					inputs[i].classList.add('input--error');
+				} else {
+					inputs[i].classList.remove('input--error');
+				}
+			}
+		}
+	} else {
+		modalReg.style.display = 'none';
+		openTextModal({
+			title: 'Успіх',
+			text: response.message,
+	});
+	}
+}
 
 
 
