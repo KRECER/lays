@@ -5,13 +5,13 @@
 			<div class="registration__logo"><img src="/img/logo.png" alt=""></div>
 			<h2 class="registration__head">РЕЄСТРАЦІЯ</h2>
 				<div class="registration__inp"><input type="text" name="name" class="input input--yellow" placeholder="ІМ'Я" required></div>
-				<div class="registration__inp"><input type="phone" name="phone" class="input input--yellow" placeholder="ТЕЛЕФОН" required></div>
+				<div class="registration__inp"><input type="tel" name="phone" class="input input--yellow" placeholder="+38 (XXX) XXX-XX-XX" required></div>
 				<div class="registration__inp"><input type="text" name="birthdate" class="input input--yellow" placeholder="ДАТА НАРОДЖЕННЯ" required></div>
 				<div class="registration__inp"><input type="email" name="email" class="input input--yellow" placeholder="E-MAIL" required></div>
 				<div class="registration__inp"><input type="password" name="password" class="input input--yellow" placeholder="ПАРОЛЬ" required></div>
 				<div class="registration__agreement">
 					 <label class="label">
-    					<input  class="label__checkbox" type="checkbox" required>
+    					<input  class="label__checkbox" name="rules2" type="checkbox">
     					<span class="label__text">
     					  <span class="label__check">
     					    <i class="fa fa-check icon"></i>
@@ -24,7 +24,7 @@
 				</div>
 				<div class="registration__agreement">
 					 <label class="label">
-    					<input  class="label__checkbox" type="checkbox" required>
+    					<input  class="label__checkbox" name="rules" type="checkbox">
     					<span class="label__text">
     					  <span class="label__check">
     					    <i class="fa fa-check icon"></i>
@@ -36,6 +36,7 @@
  					 </div>
 				</div>
 
+			<div class="g-recaptcha js-reg-captcha" data-sitekey="6Lebq4kUAAAAANm0B8bVipY2a_wUYxHl8ughPAv7"></div>
 
 			<button class="registration__btn button">ЗАРЕЄСТРУВАТИСЯ
 				<svg class="hollywood__icon-triangle">

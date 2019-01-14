@@ -1,8 +1,8 @@
 .input {
-    border: 5px solid #eed617;
+    border: 0.4vh solid #eed617;
     border-radius: 10px;
     color: #2371b9;
-    padding-left: 5px;
+    // padding-left: 5px;
 
     &--blue::placeholder {
 		color: #2371b9;
@@ -11,6 +11,15 @@
     &--yellow::placeholder {
 		color: #eed617;
     }
+
+    &--error {
+       border: 1px solid red;
+    }
+}
+
+input[name=name],
+input[name=email] {
+   text-transform: uppercase;
 }
 
 ::-webkit-input-placeholder {
