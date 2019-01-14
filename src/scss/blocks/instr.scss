@@ -27,7 +27,7 @@
     position: absolute;
     bottom: 0vh;
     left: 0;
-    z-index: 2;
+    // z-index: 2;
     background: url('../img/Asset.svg');
     background-size: auto 100%;
     // overflow: hidden;
@@ -125,13 +125,17 @@
                 width: 20px;
                 height: 20%;
                 position: absolute;
-                right: 10%;
+                right: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 background-image: url('/img/rightArrowWhite.svg');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
+                @media (max-aspect-ratio:3/3) {
+                  right: 10%;
+                }
+                
               }
 
               &:last-child {
