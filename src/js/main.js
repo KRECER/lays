@@ -123,12 +123,7 @@ var formEnter = document.querySelector('.enterform__wrapper form');
 formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
 	var data = new FormData(formEnter);
-<<<<<<< HEAD
-
 	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, modal);
-=======
-	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, form);
->>>>>>> 9926eca1f38c20c9aea7f13d9e6f63641f86e60a
 });
 
 function isAuth() {
