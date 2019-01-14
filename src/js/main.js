@@ -51,11 +51,13 @@ function hideRegModal() {
 // Vilidation Form
 function validateForm(link, data, form, modal) {
 
-	if (!form.rules.checked || !form.rules2.checked) {
-		// console.log('roor')
-		form.rules.parentNode.classList.add('error');
-		form.rules2.parentNode.classList.add('error');
-		return;
+	if (form.hasOwnProperty('rules')) {
+		if (!form.rules.checked || !form.rules2.checked) {
+			// console.log('roor')
+			form.rules.parentNode.classList.add('error');
+			form.rules2.parentNode.classList.add('error');
+			return;
+		}
 	}
 
 	var request = new XMLHttpRequest();
@@ -65,19 +67,24 @@ function validateForm(link, data, form, modal) {
 	var inputs = form.querySelectorAll('input');
 
 	request.addEventListener('readystatechange', function() {
+
+
 		if (request.status === 200 && request.readyState === 4) {
 			var response = JSON.parse(request.response);
 			
 			if (!response.status) {
 				for (var i = 0; i < inputs.length; i++) {
 					for (var key in response.message) {
-						if (inputs[i].name == key) {
-							inputs[i].classList.add('input--error');
+						if (key == 'body') {
+							openTextModal({text: response.message});
 						} else {
-							inputs[i].classList.remove('input--error');
+							if (inputs[i].name == key) {
+								
+								inputs[i].classList.add('input--error');
+							} else {
+								inputs[i].classList.remove('input--error');
+							}
 						}
-
-
 					}
 				}
 
@@ -100,7 +107,7 @@ function validateForm(link, data, form, modal) {
 // -- End Validation Form --
 
 var formReg = document.querySelector('.registration__wrapper form');
-var modalFormReg = document.querySelector('.registration__wrapper');
+var modalFormReg = document.querySelector('.registration');
 
 formReg.addEventListener('submit', function(event) {
 	event.preventDefault();
@@ -117,7 +124,7 @@ formEnter.addEventListener('submit', function(event) {
 	event.preventDefault();
 	var data = new FormData(formEnter);
 
-	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, form);
+	validateForm('http://lays-movie.dev.itcg.ua/api/login/', data, formEnter, modal);
 });
 
 function isAuth() {
