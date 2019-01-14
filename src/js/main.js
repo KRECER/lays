@@ -433,3 +433,7 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
    });
 })
 
+$("#menu-exit").click(function() {
+    $.get('http://lays-movie.dev.itcg.ua/api/logout/');
+    window.location.reload();
+});
