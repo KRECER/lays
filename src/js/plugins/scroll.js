@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('send-code').style.transition = 'none';
     document.querySelector('.animationSvg').style.animation = 'none';
     codeInput.focus();
+    document.getElementById('js-show-mob-app').classList.add('showApps');
   }
   // show active button registration hollywood
 
@@ -132,6 +133,10 @@ document.addEventListener("DOMContentLoaded", function() {
             title: 'Успіх',
             text: e.message,
           });
+          //hide block apps
+          if(document.getElementById('js-show-mob-app').classList.contains('showApps')){
+            document.getElementById('js-show-mob-app').classList.remove('showApps');
+          }
         } else {
           // popup error
           openTextModal({

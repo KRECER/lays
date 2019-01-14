@@ -1,0 +1,44 @@
+.appsForMob{
+	display: none;
+ 	@media (max-aspect-ratio:3/3){
+		display: block;
+		top: -10px;
+		left: 50%;
+		transform: translate(-50%, -100%);
+		position: absolute;
+		z-index: 5;
+	   	display: flex;
+	   	align-items: center;
+	   	justify-content: space-between;
+	    align-items: center;
+	    width: 70%;
+	    border-radius: 10px;
+	    background: rgba(255, 255, 255, .9);
+	    padding: 3%;
+	    opacity: 0;
+	    &:before{
+	    	content: '';
+	    	display: block;
+	    	position: absolute;
+	    	bottom: -20px;
+	    	left: 50%;
+	    	transform: translate(-50%);
+	    	border: 10px solid transparent;	border-top: 10px solid rgba(255, 255, 255, .9);
+	    }
+		a{
+			width: 20%;
+		}
+		p{
+			width: 50%;
+			font-size: 1.5vh;
+			font-weight: bold;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
+}
+
+.appsForMob.showApps{
+	transition: opacity 1s linear;
+	opacity: 1;
+}
