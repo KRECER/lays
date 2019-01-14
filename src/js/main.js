@@ -50,6 +50,14 @@ function hideRegModal() {
 
 // Vilidation Form
 function validateForm(link, data, form, modal) {
+
+	if (!form.rules.checked || !form.rules2.checked) {
+		// console.log('roor')
+		form.rules.parentNode.classList.add('error');
+		form.rules2.parentNode.classList.add('error');
+		return;
+	}
+
 	var request = new XMLHttpRequest();
 	request.open('POST', link, true);
 	request.send(data);
@@ -68,8 +76,15 @@ function validateForm(link, data, form, modal) {
 						} else {
 							inputs[i].classList.remove('input--error');
 						}
+
+
 					}
 				}
+
+				if (response.message.captcha) {
+					document.querySelector('.js-reg-captcha').classList.add('error');
+				}
+				grecaptcha.reset();
 			} else {
 				modal.style.display = 'none';
 				openTextModal({

@@ -41,7 +41,12 @@
 	// min-height: 800px;
 
   .button{
+    padding: 2vh 0;
     margin-bottom: 0;
+    border: 0.5vh solid #fcc403;
+    &:after{
+      border: 0.4vh solid #fde619
+    }
   }
 
 }
@@ -140,6 +145,17 @@
   justify-content: center;
   transition: border 0.3s ease;
 }
+.error {
+  input:not(:checked) ~ .label__text .label__check {
+    border: 0.5vh solid #ed1d24;
+  }
+}
+
+.g-recaptcha.error iframe {
+  border-radius: 3px;
+  border: 1px solid #ed1d24;
+}
+
 .label__check i.icon {
   opacity: 0.2;
   font-size: calc(1rem + 1vw);
@@ -249,3 +265,9 @@
 	text-decoration: underline;
 	color: black;
 }
+
+.g-recaptcha{
+  margin: 2% auto;
+  display: flex;
+  justify-content: center;
+}      
