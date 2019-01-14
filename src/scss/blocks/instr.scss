@@ -214,7 +214,7 @@
     border-radius: 10px;
     position: absolute;
     top: -5px;
-    font-size: 27px;
+    font-size: 2vh;
     right: 20px;
     transform: translate(100%,-100%) scale(.6);
     background: #fff;
@@ -227,6 +227,8 @@
     transition: transform .4s,opacity .4s;
     transition-delay: 0s;
     transform-origin: 0 100%;
+
+
 }
 
 .infoTextStyle:before{
@@ -253,7 +255,7 @@
         border-radius: 10px;
         position: absolute;
         top: -5px;
-        font-size: 27px;
+        // font-size: 2vh;
         right: 200px;
         transform: translate(100%,-100%) scale(.6);
         background: #fff;

@@ -53,9 +53,39 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {codeInput.focus();}, 1000);
   });
 
+  // show active button registration
+  function showActiveBtn (){
+    window.history.pushState("", "", '/main');
+    document.getElementById('bottom-block').classList.remove('show');
+    document.getElementById('js-scroll-hollywood').classList.remove('show');
+    btnAnimation.classList.add('btn-animation');
+    codeInput.style.transition = 'none';
+    document.getElementById('send-code').style.transition = 'none';
+    document.querySelector('.animationSvg').style.animation = 'none';
+    codeInput.focus();
+  }
+  // show active button registration hollywood
+
+  document.getElementById('js-hollywood-btn').addEventListener('click', function (e){
+    e.preventDefault();
+    showActiveBtn();
+  })
+
+  // show active button registration menu
+
+  document.getElementById('js-menu-code').addEventListener('click', function (e){
+    e.preventDefault();
+    showActiveBtn();
+    closeMenu();
+  })
+  
+
   //send code
   if (codeInput !== null) {
   codeInput.addEventListener('keyup', function(e) {
+    document.getElementById('send-code').addEventListener('click', function (){
+      sendCode();
+    })
     if (e.keyCode === 13) {
       sendCode();
       }
@@ -124,3 +154,10 @@ function closeModal(modal) {
   modal.style.display = 'none';
 }
 
+
+document.getElementById('show-find-modal').addEventListener('click', function (){
+   openTextModal({
+      title: 'ЯК ЗНАЙТИ КОД?',
+      text: 'Акційний код нанесено всередині пачки поверх склейки швів безкольоровою лазерною гравіровкою.',
+   });
+})

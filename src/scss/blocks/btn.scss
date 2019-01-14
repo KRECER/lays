@@ -4,7 +4,7 @@
     position: absolute;
     right: 11%;
     top: 63%;
-    pointer-events: none;
+    // pointer-events: none;
     @media screen and (max-width: 169vh) {
       top: 59vh;  
     }
@@ -40,6 +40,9 @@
 		width: 100%;
 		text-align: center;	
 		margin: .5vw 0 0;
+		&:hover{
+			cursor: pointer;
+		}
 		@media (max-aspect-ratio:3/3){
 	      font-size: 3.8vw;
 
@@ -107,8 +110,9 @@
 	z-index: 4;
 	fill: #fff;
 	width: 13.2%;
-  	pointer-events: none;   
-
+ 	&:hover{
+		cursor: pointer;
+	}  
 }
 .btn__input {
 	display: block;
@@ -142,12 +146,13 @@
 
 .btn-animation{
   background:#fcc403;
-  z-index: 10;
+  // z-index: 10;
+  pointer-events: none;
 	&:after{
 		background: #fff;
 		color: #ed1d24;
 		z-index: 3;
-    left: 0;
+   	left: 0;
 	}
 	&::before{
 		z-index: 5;
@@ -167,7 +172,8 @@
 	.btn__icon{
 		fill: #ed1d24;
 		left: 85%;
-   	transition: left 1s linear;      
+   	transition: left 1s linear;    
+   	pointer-events: auto;
 	}	
 }
 
