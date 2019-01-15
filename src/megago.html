@@ -93,7 +93,7 @@ if (submitBtn) {
     var data = new FormData(form);
 
     var request = new XMLHttpRequest();
-    request.open('POST', 'http://lays-movie.dev.itcg.ua/api/megogo/', true);
+    request.open('POST', '/api/megogo/', true);
     request.send(data);
 
 
@@ -121,9 +121,9 @@ if (submitBtn) {
   });
 }
 
+var textModal = document.querySelector('.js-text-modal');
+
 function openMegagoTextModal(param) {
-  console.log('work');
-  console.log(param);
   var title = textModal.querySelector('.js-title');
   var text = textModal.querySelector('.js-text');
   var modalImg = textModal.querySelector('.js-img');
@@ -152,6 +152,13 @@ function openMegagoModal(modal) {
   modal.style.display = 'flex';
   modal.style.zIndex = 23;
 }
+
+var closeTextModalBtn = textModal.querySelector('.js-close');
+
+closeTextModalBtn.addEventListener('click', function (e) {
+  textModal.style.display = 'none';
+});
+
 </script>
 </body>
 </html>
