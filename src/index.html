@@ -37,16 +37,32 @@
 		<include src="build/img/sprite.svg"></include>
 	</div>
 
-	<include src="src/template/signinForm.html"></include>
-	<include src="src/template/registration.html"></include>
 	<include src="src/template/page-header.html"></include>
 	<include src="src/template/prizes.html"></include>
 	<include src="src/template/hollywood.html"></include>
+	<include src="src/template/signinForm.html"></include>
+	<include src="src/template/registration.html"></include>
 	<include src="src/template/textModal.html"></include>
 	<include src="src/template/profile.html"></include>
 
 	<script src="/js/plugins-min.js?v=002"></script>
 	<script src="/js/main-min.js?v=002"></script>
+	<script>
+	  window.senderCallback = function() {
+	    SenderWidget.init({
+	      companyId: "i360500235"
+	    });
+	  }
+	</script>
+	<script>
+	  (function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    js = d.createElement(s);
+	    js.id = id;
+	    js.src = "https://widget.sender.mobi/build/init.js";
+	    fjs.parentNode.insertBefore(js, fjs, 'sender-widget');
+	  })(document, 'script');
+	</script>
 
 </body>
 </html>
