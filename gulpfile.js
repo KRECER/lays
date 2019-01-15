@@ -18,7 +18,18 @@ const gulp 				    =	require('gulp'),
 			include         = require('posthtml-include'), // plugin postHTML
 			cheerio         = require('gulp-cheerio'),
 			svgstore        = require('gulp-svgstore'),
-			history 		    = require('connect-history-api-fallback');
+			history		    = require('connect-history-api-fallback')
+			proxyMiddleware = require('http-proxy-middleware');
+
+
+/**
+ * Configure proxy middleware
+ */
+var jsonPlaceholderProxy = proxyMiddleware('/api', {
+	target: 'http://lays-movie.dev.itcg.ua',
+	changeOrigin: true, // for vhosted sites, changes host header to match to target's host
+	logLevel: 'debug'
+})
 
 
 gulp.task('server', function() {
@@ -29,7 +40,8 @@ gulp.task('server', function() {
 		port: 9000,
 		middleware: [ history({
 			  	index: '/index.html'
-			})
+			}),
+			jsonPlaceholderProxy
 		]
 	});
 
