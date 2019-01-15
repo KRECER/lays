@@ -180,5 +180,8 @@
    	transition: left 1s linear;    
    	pointer-events: auto;
 	}	
+	&.code--error{
+		border-color: #ed1d24;
+	}
 }
 
