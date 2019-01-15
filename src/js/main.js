@@ -233,8 +233,8 @@ forgetForm.addEventListener('submit', function(e) {
       forgetModel.style.display = 'none';
       openTextModal({
           text: {
-            title: 'Успіх!',
-            body: e.message,
+            title: e.message.title,
+            body: e.message.body,
           }
       });
     } else {
