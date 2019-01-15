@@ -121,7 +121,7 @@ $lays-red: #e13016;
   }
 }
 
-//mob Bohdana , (max-width: 567px) 
+//mob Bohdana , (max-width: 567px)
 @media (max-aspect-ratio: 3/3), (max-width: 567px){
   .menu-inner {
     z-index: 6;
@@ -147,7 +147,7 @@ $lays-red: #e13016;
   .logan-fhd{
     width: 12%;
   }
-  
+
   .menu-inner-wrapper {
     top: 0;
     bottom: 0;
@@ -188,5 +188,4 @@ $lays-red: #e13016;
       top: 50%;
       transform: translateY(-50%);
     }
-  
 }
