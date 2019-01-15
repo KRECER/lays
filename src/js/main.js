@@ -6,8 +6,7 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
-var isCodeEntered = false;
-var code;
+
 // Модальное Вход
 var modal = document.querySelector('.enterform');
 var form = document.querySelector('.enterform__wrapper');
@@ -77,7 +76,7 @@ function validateForm(link, data, form, modal) {
 
         if (request.status === 200 && request.readyState === 4) {
             var response = JSON.parse(request.response);
-            
+
             if (!response.status) {
                 for (var i = 0; i < inputs.length; i++) {
                     for (var key in response.message) {
@@ -85,7 +84,7 @@ function validateForm(link, data, form, modal) {
                             openTextModal({text: response.message});
                         } else {
                             if (inputs[i].name == key) {
-                                
+
                                 inputs[i].classList.add('input--error');
                             } else {
                                 inputs[i].classList.remove('input--error');
@@ -100,15 +99,20 @@ function validateForm(link, data, form, modal) {
                 grecaptcha.reset();
             } else {
                 modal.style.display = 'none';
+
                 // isAuth();
-                openTextModal({
-                    title: 'Успіх',
-                    text: response.message,
-                });
-                console.log('isCodeEntered', isCodeEntered);
-                isAuth();
-                if (isCodeEntered) {
+                $("#menu-login").addClass("hide");
+                $("#menu-cabinet").removeClass("hide");
+                $("#menu-exit").removeClass("hide");
+
+                isLoggedIn = true;
+                if (code) {
                     sendCode();
+                } else {
+                  openTextModal({
+                      title: 'Успіх',
+                      text: response.message,
+                  });
                 }
             }
         }
@@ -137,7 +141,10 @@ formEnter.addEventListener('submit', function(event) {
     validateForm('/api/login/', data, formEnter, modal);
 });
 
-function isAuth(callback) {
+
+var isLoggedIn = false;
+
+function isAuth() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/is_authenticated/', true);
     xhr.send();
@@ -147,20 +154,12 @@ function isAuth(callback) {
 
         if (xhr.status == 200 && xhr.readyState == 4) {
             if (json.status) {
-                var itemAuth = document.querySelector('.item._isAuth').parentElement;
-
-                itemAuth.style.display = 'none';
+                $("#menu-login").addClass("hide");
                 $("#menu-cabinet").removeClass("hide");
                 $("#menu-exit").removeClass("hide");
-                callback && callback(true);
-                return true;
-            } else {
-                callback && callback(false);
-                return false;
+                isLoggedIn = true;
             }
-        } else {
-            return false;
-        }   
+        }
     });
 }
 
@@ -266,11 +265,11 @@ forgetForm.addEventListener('submit', function(e) {
       if (tabletMedia.matches) {
         document.getElementById('js-show-mob-app').classList.add('showApps');
       }
-      
+
     }, 1000);
   });
 
-  
+
 
   codeInput.addEventListener('click', function (){
     document.getElementById('js-show-mob-app').classList.add('showApps');
@@ -302,7 +301,7 @@ forgetForm.addEventListener('submit', function(e) {
     showActiveBtn();
     closeMenu();
   })
-  
+
 
   //send code
   if (codeInput !== null) {
@@ -333,24 +332,19 @@ forgetForm.addEventListener('submit', function(e) {
 }
 
 
-function sendCode(login) {
-    if (login === undefined) {
-        return isAuth(sendCode);
-    }
+var code = '';
 
-    console.log('login', login);
-
-    if (login !== true) {
-        console.log('login')
-        code = codeInput.value;
-        isCodeEntered = true;
-        signIn();
-        return;
+function sendCode() {
+  console.log('isLoggedIn', isLoggedIn);
+    if (!isLoggedIn) {
+      code = codeInput.value;
+      signIn();
+      return;
     }
 
     if (isCodeValid(codeInput.value)) {
-      $.post('/api/code/', {code: codeInput.value}, function(e) {
-        isCodeEntered = false;
+      $.post('/api/code/', {code: code}, function(e) {
+        code = '';
         hideRegModal();
         hideEnterModal();
         // alert(e.status + ' ' + e.message);
@@ -436,6 +430,11 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
 })
 
 $("#menu-exit").click(function() {
-    $.get('/api/logout/');
-    window.location.reload();
+    $.get('/api/logout/', function( data ) {
+      $("#menu-login").removeClass("hide");
+      $("#menu-cabinet").addClass("hide");
+      $("#menu-exit").addClass("hide");
+      isLoggedIn = false;
+      window.location.reload();
+    });
 });
