@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="ua">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130405568-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-130405568-1');
-	</script>
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -37,16 +28,32 @@
 		<include src="build/img/sprite.svg"></include>
 	</div>
 
-	<include src="src/template/signinForm.html"></include>
-	<include src="src/template/registration.html"></include>
 	<include src="src/template/page-header.html"></include>
 	<include src="src/template/prizes.html"></include>
 	<include src="src/template/hollywood.html"></include>
+	<include src="src/template/signinForm.html"></include>
+	<include src="src/template/registration.html"></include>
 	<include src="src/template/textModal.html"></include>
 	<include src="src/template/profile.html"></include>
 
 	<script src="/js/plugins-min.js?v=002"></script>
 	<script src="/js/main-min.js?v=002"></script>
+	<script>
+	  window.senderCallback = function() {
+	    SenderWidget.init({
+	      companyId: "i360500235"
+	    });
+	  }
+	</script>
+	<script>
+	  (function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    js = d.createElement(s);
+	    js.id = id;
+	    js.src = "https://widget.sender.mobi/build/init.js";
+	    fjs.parentNode.insertBefore(js, fjs, 'sender-widget');
+	  })(document, 'script');
+	</script>
 
 </body>
 </html>
