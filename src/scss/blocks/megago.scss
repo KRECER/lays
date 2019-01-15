@@ -133,7 +133,7 @@
 	height: 70px;
 	padding: 0px;
 	text-align: center;
-	width: 300px;
+	width: 40%;
 	margin-top: 20px;
 	margin-bottom: 0px;
 	font-weight: 700;
@@ -168,15 +168,15 @@
 
 .circle {
 	border-radius: 50%;
-	height: 70px;
-	width: 70px;
+	height: 7vh;
+	width: 7vh;
 	background:#eed617;
 	border: 5px solid #c8bd31;
-	line-height: 65px;
+	line-height: 6vh;
 	text-align: center;
 	color: #ed1d24;
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 3vh;
 }
 
 .megago__form > div {
@@ -187,7 +187,7 @@
 }
 
 .megago__form input{
-	height: 70px;
+	height: 7vh;
 	margin-left: 20px;
 	width: 30vw;
 	border: 5px solid #eed617;
@@ -196,6 +196,7 @@
 	padding-left: 10px;
 	text-align: center;
 	font-weight: 700;
+	padding: 0;
 	&:focus {
 		outline: none;
 	}
