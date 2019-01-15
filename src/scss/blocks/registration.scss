@@ -1,19 +1,19 @@
 .registration{
-	width: 100vw;
+  width: 100vw;
 	height: 100vh;
-  background-size: 694vh 241%;
-  background-position: center;
-  font-weight: 700;
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  z-index:2000;
-  input{
-    cursor: pointer;
-    text-align: center;
-    padding: 2.5% 10%;
-  }
+	position: relative;
+	background-size: 694vh 241%;
+	background-position: center;
+	font-weight: 700;
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+	
+	overflow-y: auto;
+
+ 
   
 }
 .registration:before{
@@ -27,9 +27,8 @@
 
 .registration__wrapper{
 	position: absolute;
-	width: 60vh;
-	padding: 2%;
-  height: max-content;
+	width: 30vw;
+	height: 85vh;
 	background:rgba(254,251,232,0.9);
 	left: 0px;
 	bottom: 0px;
@@ -37,18 +36,15 @@
 	top: 0px;
 	margin: auto;
 	border-radius: 20px;
-	// min-width: 600px;
-	// min-height: 800px;
-
-  .button{
-    padding: 2vh 0;
-    margin-bottom: 0;
-    border: 0.5vh solid #fcc403;
-    &:after{
-      border: 0.4vh solid #fde619
-    }
-  }
-
+	min-width: 600px;
+	min-height: 600px;
+  
+  @media (max-width: 768px) {
+		min-width: 100vw;
+    // min-height: 100vh;
+		border-radius: 0;
+		max-height: calc(100vh);
+	}
 }
 .registration__btn{
 	width: 67%;
@@ -59,6 +55,10 @@
   .hollywood__icon-triangle{
     width: 1.2vh;
     right: 2vh;
+  }
+  @media (max-width: 768px) {
+    width: 80vw !important;
+    padding: 20px 0;
   }
 
 }
@@ -77,11 +77,14 @@
 	cursor: pointer;
   font-family: 'Gotham Pro Bold';
   text-align: center;
-  font-size: 2vh;
+  width: 66%;
 }
 .registration__inp{
 	text-align: center;
-	margin: 1.5% auto;
+  margin: 1.5% auto;
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
 }
 .registration__question{
 	text-align: center;
@@ -257,9 +260,15 @@
 
 }
 .registration__agreementText, .registration__agreementText2{
-  font-size: 1.2vh;
+  font-size: 12px;
   text-align: left;
   font-weight: 100;
+
+  @media (max-width: 768px) {
+    width: 87vw !important;
+    padding: 20px 0;
+    font-size: 8px;
+  }
 }
 .underline{
 	text-decoration: underline;
