@@ -5,7 +5,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgba(35,113,185,.8);
+	background: rgb(35,113,185);
+	z-index: 1001;
 	&__icon{
 		position: absolute;
 		left: 50%;
@@ -17,6 +18,23 @@
 			animation: rotationSvg 3s linear infinite;
 		}
 	}
+	.icon__red{
+		fill: #ed1d24;
+		
+	}
+	&__text{
+		display: block;
+		color: #fff;
+		font-size: 2vh;
+		position: absolute;
+		top: 62%;
+		left: 50%;
+		transform: translate(-50%);
+	}
+}
+
+#index-preloader {
+	display: block;
 }
 
 
