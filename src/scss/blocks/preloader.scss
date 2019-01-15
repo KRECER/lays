@@ -1,0 +1,27 @@
+.preloader {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(35,113,185,.8);
+	&__icon{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%);
+		fill: #fff;
+		.animationSvg{
+			transform-origin: center;
+			animation: rotationSvg 3s linear infinite;
+		}
+	}
+}
+
+
+
+@keyframes rotationSvg {
+	from {transform: rotate(0deg)}
+	to {transform: rotate(360deg)}
+}
