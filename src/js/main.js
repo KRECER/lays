@@ -7,6 +7,8 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
+alert('5');
+
 // Модальное Вход
 var modal = document.querySelector('.enterform');
 var form = document.querySelector('.enterform__wrapper');
@@ -107,11 +109,12 @@ function validateForm(link, data, form, modal) {
 
                 isLoggedIn = true;
                 if (code) {
-                    sendCode();
+                  console.log("validateForm", code);
+                  sendCode();
                 } else {
                   openTextModal({
-                      title: 'Успіх',
-                      text: response.message,
+                    title: 'Успіх',
+                    text: response.message,
                   });
                 }
             }
@@ -305,19 +308,21 @@ forgetForm.addEventListener('submit', function(e) {
 
   //send code
   if (codeInput !== null) {
-  codeInput.addEventListener('keyup', function(e) {
-    document.getElementById('send-code').addEventListener('click', function (){
-      sendCode();
-    })
-    if (e.keyCode === 13) {
-      sendCode();
+    codeInput.addEventListener('keyup', function(e) {
+      if (e.keyCode === 13) {
+        console.log('//send code e.keyCode');
+        sendCode();
       }
+    });
+    document.getElementById('send-code').addEventListener('click', function (){
+      console.log('//send code addEventListener');
+      sendCode();
     });
   }
 
 
 
-  function isCodeValid(str) {
+function isCodeValid(str) {
   var localStr = str.replace(/^\ + |\ +$/g, '');
 
   if (/[а-я]+/ig.test(localStr)) {
@@ -336,44 +341,43 @@ var code = '';
 
 function sendCode() {
   console.log('isLoggedIn', isLoggedIn);
-    if (!isLoggedIn) {
-      code = codeInput.value;
-      signIn();
-      return;
-    }
-
-    if (isCodeValid(codeInput.value)) {
-      $.post('/api/code/', {code: code}, function(e) {
-        code = '';
-        hideRegModal();
-        hideEnterModal();
-        // alert(e.status + ' ' + e.message);
-        if (e.status) {
-          // popup success
-          openTextModal({
-            text: {
-                title: e.message.title,
-                body: e.message.body,
-            }
-          });
-          //hide block apps
-          if(document.getElementById('js-show-mob-app').classList.contains('showApps')){
-            document.getElementById('js-show-mob-app').classList.remove('showApps');
-          }
-        } else {
-          // popup error
-          openTextModal({
-            text: {
-                title: e.message.title,
-                body: e.message.body,
-            }
-          });
-        }
-      });
-    } else {
-      console.log('error');
-    }
+  if (!isLoggedIn) {
+    code = codeInput.value;
+    signIn();
+    return;
   }
+
+  console.log(isCodeValid(code));
+  if (code !== '' && isCodeValid(code)) {
+    console.log('$post code');
+    $.post('/api/code/', {code: code}, function(e) {
+      hideRegModal();
+      hideEnterModal();
+      if (e.status) {
+        code = '';
+        // popup success
+        openTextModal({
+          text: {
+              title: e.message.title,
+              body: e.message.body,
+          }
+        });
+        //hide block apps
+        if(document.getElementById('js-show-mob-app').classList.contains('showApps')){
+          document.getElementById('js-show-mob-app').classList.remove('showApps');
+        }
+      } else {
+        // popup error
+        openTextModal({
+          text: {
+              title: e.message.title,
+              body: e.message.body,
+          }
+        });
+      }
+    });
+  }
+}
 
 var textModal = document.querySelector('.js-text-modal');
 var closeTextModalBtn = textModal.querySelector('.js-close');
