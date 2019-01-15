@@ -7,9 +7,12 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
-
 window.addEventListener('DOMContentLoaded', function() {
-    isAuth();
+  isAuth();
+});
+
+window.addEventListener('load', function() {
+  document.querySelector('#index-preloader').style.display = 'none';  
 });
 
 
@@ -263,7 +266,7 @@ codeInput.addEventListener('click', function (){
 })
 
 // show active button registration
-function showActiveBtn (){
+function showActiveBtn() {
   window.history.pushState("", "", '/main');
   document.getElementById('bottom-block').classList.remove('show');
   document.getElementById('js-scroll-hollywood').classList.remove('show');
