@@ -6,10 +6,14 @@
  background-position: center;
  font-weight: 700;
  position: fixed;
- display: none;
+ display: block;
  top: 0;
  left: 0;
- z-index:-5;
+//  z-index:-5;
+}
+
+.profile__row span {
+  margin-right: 10px;
 }
 
 .profile__row span {
