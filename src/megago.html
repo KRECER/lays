@@ -73,6 +73,11 @@
 		</div>
 	</div>
 </section>
+<section class="preloader">
+	<svg class="btn__icon preloader__icon" width="95" height="94" id="send-code">
+		<use xlink:href="#icon-wheel" class="animationSvg"></use>
+	</svg>
+</section>
 
 <include src="src/template/textModal.html"></include>
 
@@ -89,15 +94,19 @@ if (submitBtn) {
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    var preloader = document.querySelector(".preloader"); 
     var form = document.querySelector("#code-registration-form");
     var data = new FormData(form);
 
     var request = new XMLHttpRequest();
     request.open('POST', '/api/megogo/', true);
     request.send(data);
+    preloader.style.display = 'block'
+
 
 
     request.addEventListener('readystatechange', function() {
+		preloader.style.display = 'none';
         if (request.status === 200 && request.readyState === 4) {
             var response = JSON.parse(request.response);
             if (response.status) {
