@@ -7,8 +7,6 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
-alert('5');
-
 // Модальное Вход
 var modal = document.querySelector('.enterform');
 var form = document.querySelector('.enterform__wrapper');
