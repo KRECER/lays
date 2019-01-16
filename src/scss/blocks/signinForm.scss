@@ -27,11 +27,12 @@
 }
 
 .enterform__wrapper {
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: 50%;
   right: 0;
   bottom: 0;
   left: 0;
+  transform: translateY(-50%);
 
   width: 30vw;
   min-width: 600px;
@@ -43,6 +44,8 @@
   border-radius: 20px;
 
   @media (max-width: 768px) {
+    top: 0;
+    transform: translateY(0);
     min-width: 100vw;
     max-height: calc(100vh);
     // min-height: 100vh;
@@ -51,7 +54,7 @@
   }
 }
 .enterform__btn {
-  width: 50%;
+  width: 60%;
   height: 60px;
   margin-bottom: 15px;
 
@@ -149,12 +152,16 @@ input {
   }
   input {
     width: 78%;
+    max-width: 450px;
   }
   .enterform__btn {
     width: 78%;
-
+    max-width: 450px;
     @media (max-width: 768px) {
       width: 80vw !important;
+    }
+    @media (max-width: 420px) {
+      font-size: 16px;
     }
   }
 }

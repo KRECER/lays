@@ -24,6 +24,9 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     rulesItem.addEventListener('click', function() {
+      document.getElementById('menu-block').classList.remove('expanded');
+      document.getElementById('menu-inner-block').classList.remove('expanded');
+      document.getElementById('close-menu-bg').classList.remove('expanded');
       rulesModal.classList.toggle('rules--show');
     });
 
