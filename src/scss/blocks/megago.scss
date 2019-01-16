@@ -200,6 +200,9 @@
 	&:focus {
 		outline: none;
 	}
+	&.input--error {
+		border: 5px solid red;
+	}
 }
 
 input::placeholder      {

@@ -7,10 +7,36 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
-
 window.addEventListener('DOMContentLoaded', function() {
-    isAuth();
+  isAuth();
 });
+
+var indexPreloader =  document.querySelector('#index-preloader');
+
+window.addEventListener('load', function() {
+ indexPreloader.style.display = 'none';  
+});
+
+
+// #### Nav menu ####
+
+var menuLogin = document.querySelector('#menu-login');
+var menuCabinet = document.querySelector('#menu-cabinet');
+var menuExit = document.querySelector('#menu-exit');
+
+menuLogin.addEventListener('click', signIn);
+menuCabinet.addEventListener('click', openProfile);
+menuExit.addEventListener('click', logout);
+
+function logout() {
+  $.get('/api/logout/', function( data ) {
+    isLoggedIn = false;
+    menuLogin.classList.remove("hide");
+    menuCabinet.classList.add("hide");
+    menuExit.classList.add("hide");
+    window.location.reload();
+  });
+}
 
 
 // #### Modal enter ####
@@ -29,6 +55,7 @@ function signIn() {
   modal.style.display = 'block';
   modalReg.style.display = 'none';
 
+  form.focus();
   document.getElementById('menu-block').classList.remove('expanded');
   document.getElementById('menu-inner-block').classList.remove('expanded');
   document.getElementById('close-menu-bg').classList.remove('expanded');
@@ -62,10 +89,10 @@ function isAuth() {
 
     if (xhr.status == 200 && xhr.readyState == 4) {
       if (json.status) {
-        $("#menu-login").addClass("hide");
-        $("#menu-cabinet").removeClass("hide");
-        $("#menu-exit").removeClass("hide");
         isLoggedIn = true;
+        menuLogin.classList.add("hide");
+        menuCabinet.classList.remove("hide");
+        menuExit.classList.remove("hide");
       }
     }
   });
@@ -87,6 +114,7 @@ closeSignReg.addEventListener('click', hideRegModal);
 modalReg.addEventListener('click', hideRegModal);
 
 function getRegistration() {
+    modalReg.focus();
     modalReg.style.display = 'block';
     modal.style.display = 'none';
 }
@@ -105,23 +133,38 @@ formReg.addEventListener('submit', function(event) {
 // #### Form utils ####
 
 function validateForm(link, data, form, modal) {
-
   if (form.rules && form.rules2 && (!form.rules.checked || !form.rules2.checked)) {
       form.rules.parentNode.classList.add('error');
       form.rules2.parentNode.classList.add('error');
-      return;
+      // return;
   }
 
+  
   var inputs = form.querySelectorAll('input');
   var request = new XMLHttpRequest();
   request.open('POST', link, true);
   request.send(data);
 
+  indexPreloader.style.display = 'block';
+
+  var isEmptyFields = false;
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].value === '') {
+      inputs[i].classList.add('input--error');
+      isEmptyFields = true;
+    } else {
+      inputs[i].classList.remove('input--error');
+    }
+  }
+
+  if (isEmptyFields) return;
+
   request.addEventListener('readystatechange', function() {
+    
+    indexPreloader.style.display = 'none';
 
     if (request.status === 200 && request.readyState === 4) {
       var response = JSON.parse(request.response);
-
       if (!response.status) {
         for (var i = 0; i < inputs.length; i++) {
           for (var key in response.message) {
@@ -139,19 +182,21 @@ function validateForm(link, data, form, modal) {
 
         if (response.message && response.message.captcha) {
             document.querySelector('.js-reg-captcha').classList.add('error');
+        } else {
+            document.querySelector('.js-reg-captcha').classList.remove('error');
         }
         grecaptcha.reset();
       } else {
         modal.style.display = 'none';
 
         // isAuth();
-        $("#menu-login").addClass("hide");
-        $("#menu-cabinet").removeClass("hide");
-        $("#menu-exit").removeClass("hide");
+        menuLogin.classList.add("hide");
+        menuCabinet.classList.remove("hide");
+        menuExit.classList.remove("hide");
 
         isLoggedIn = true;
         if (codeInput.value) {
-          console.log("validateForm: code = ", code);
+          console.log("validateForm: code = ", codeInput.value);
           sendCode();
         } else {
           openTextModal({
@@ -188,8 +233,8 @@ forgetForm.addEventListener('submit', function(e) {
       forgetModel.style.display = 'none';
       openTextModal({
           text: {
-            title: 'Успіх!',
-            body: e.message,
+            title: e.message.title,
+            body: e.message.body,
           }
       });
     } else {
@@ -207,6 +252,7 @@ forgetForm.addEventListener('submit', function(e) {
 
 // #### Code Registration ####
 
+var openNextSignIn = false;
 var codeInput = document.getElementById("super-puper-input-id");
 var isAnimationClicked = false;
 var btnAnimation = document.getElementById('js-btn-animation');
@@ -227,7 +273,7 @@ codeInput.addEventListener('click', function (){
 })
 
 // show active button registration
-function showActiveBtn (){
+function showActiveBtn() {
   window.history.pushState("", "", '/main');
   document.getElementById('bottom-block').classList.remove('show');
   document.getElementById('js-scroll-hollywood').classList.remove('show');
@@ -280,41 +326,56 @@ function isCodeValid(str) {
 }
 
 function sendCode() {
+  console.log('sendCode: isCodeValid(codeInput.value) = ', isCodeValid(codeInput.value));
+  if (!isCodeValid(codeInput.value)) {
+    btnAnimation.classList.add('code--error');
+    return;
+  } 
+  btnAnimation.classList.remove('code--error');
+
   console.log('sendCode: isLoggedIn = ', isLoggedIn);
   if (!isLoggedIn) {
-    signIn();
-    return;
-  }
-
-  if (isCodeValid(codeInput.value)) {
-    console.log('sendCode: $post code = ', codeInput.value);
-    $.post('/api/code/', {code: codeInput.value}, function(e) {
-      hideRegModal();
-      hideEnterModal();
-      if (e.status) {
-        codeInput.value = '';
-        // popup success
-        openTextModal({
-          text: {
-            title: e.message.title,
-            body: e.message.body,
-          }
-        });
-        //hide block apps
-        if(document.getElementById('js-show-mob-app').classList.contains('showApps')){
-          document.getElementById('js-show-mob-app').classList.remove('showApps');
-        }
-      } else {
-        // popup error
-        openTextModal({
-          text: {
-            title: e.message.title,
-            body: e.message.body,
-          }
-        });
+    openNextSignIn = true;
+    openTextModal({
+      text: {
+        title: 'ДЯКУЄМО!',
+        body: 'Твій код прийнято!<br>Щоб дізнатися про свій приз, будь ласка, зареєструйся.',
       }
     });
+    // signIn();
+    return;
   }
+  console.log('sendCode: $post code = ', codeInput.value);
+  indexPreloader.style.display = 'block';
+
+  $.post('/api/code/', {code: codeInput.value.toUpperCase()}, function(e) {
+    hideRegModal();
+    hideEnterModal();
+    indexPreloader.style.display = 'none';
+
+    if (e.status) {
+      codeInput.value = '';
+      // popup success
+      openTextModal({
+        text: {
+          title: e.message.title,
+          body: e.message.body,
+        }
+      });
+      //hide block apps
+      if(document.getElementById('js-show-mob-app').classList.contains('showApps')){
+        document.getElementById('js-show-mob-app').classList.remove('showApps');
+      }
+    } else {
+      // popup error
+      openTextModal({
+        text: {
+          title: e.message.title,
+          body: e.message.body,
+        }
+      });
+    }
+  });
 }
 
 
@@ -360,6 +421,10 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.style.display = 'none';
+  if (openNextSignIn) {
+    openNextSignIn = false;
+    signIn();
+  }
 }
 
 
@@ -375,13 +440,3 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
     imageAlt: 'find code',
   });
 })
-
-$("#menu-exit").click(function() {
-  $.get('/api/logout/', function( data ) {
-    $("#menu-login").removeClass("hide");
-    $("#menu-cabinet").addClass("hide");
-    $("#menu-exit").addClass("hide");
-    isLoggedIn = false;
-    window.location.reload();
-  });
-});

@@ -37,8 +37,15 @@
 	<include src="src/template/textModal.html"></include>
 	<include src="src/template/profile.html"></include>
 
-	<script src="/js/plugins-min.js?v=002"></script>
-	<script src="/js/main-min.js?v=002"></script>
+	<section class="preloader" id="index-preloader">
+		<!-- <span class="preloader__text">Будь-ласка, зачекай...</span> -->
+		<svg class="btn__icon preloader__icon icon__red" width="95" height="94" id="send-code">
+			<use xlink:href="#icon-wheel" class="animationSvg"></use>
+		</svg>
+	</section>
+
+	<script src="/js/plugins-min.js?v=003"></script>
+	<script src="/js/main-min.js?v=003"></script>
 	<script>
 	  window.senderCallback = function() {
 	    SenderWidget.init({

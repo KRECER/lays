@@ -50,11 +50,11 @@
 		<form class="megago__form" id="code-registration-form">
 			<div>
 				<div class="circle">1</div>
-				<input type="tel" required name="phone" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel" minlength="18" maxlength="18">
+				<input type="tel" name="phone" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel">
 			</div>
 			<div>
 				<div class="circle">2</div>
-				<input type="text" required name="megogo" id="code-input" placeholder="ПРОМО-КОД MEGOGO" minlength="12" maxlength="12">
+				<input type="text" name="megogo" id="code-input" placeholder="ПРОМО-КОД MEGOGO" maxlength="12">
 			</div>
 			<button class="megago__btn button" id="submit-btn">ПРОДОВЖИТИ
 				<svg class="hollywood__icon-triangle">
@@ -74,6 +74,7 @@
 	</div>
 </section>
 <section class="preloader">
+	<!-- <span class="preloader__text">Будь-ласка, зачекай...</span> -->
 	<svg class="btn__icon preloader__icon" width="95" height="94" id="send-code">
 		<use xlink:href="#icon-wheel" class="animationSvg"></use>
 	</svg>
@@ -89,46 +90,42 @@ $(".megago__form [type=tel]").mask("+38(999) 999-99-99");
 var submitBtn = document.querySelector("#submit-btn");
 var form = document.querySelector("#code-registration-form");
 
-if (submitBtn) {
-  // submitBtn.addEventListener('click', function(event) {
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    var preloader = document.querySelector(".preloader"); 
-    var form = document.querySelector("#code-registration-form");
-    var data = new FormData(form);
+  var preloader = document.querySelector(".preloader");
+  var form = document.querySelector("#code-registration-form");
+  if (!validateForm(form)) return;
+  else var data = new FormData(form);
 
-    var request = new XMLHttpRequest();
-    request.open('POST', '/api/megogo/', true);
-    request.send(data);
-    preloader.style.display = 'block'
+  var request = new XMLHttpRequest();
+  request.open('POST', '/api/megogo/', true);
+  request.send(data);
+  preloader.style.display = 'block'
 
-
-
-    request.addEventListener('readystatechange', function() {
-		preloader.style.display = 'none';
-        if (request.status === 200 && request.readyState === 4) {
-            var response = JSON.parse(request.response);
-            if (response.status) {
-              openMegagoTextModal({
-                  title: response.message.title,
-                  text: response.message.body,
-                  btn: {
-                      text: 'ПЕРЕЙТИ ДО ПЕРЕГЛЯДУ',
-                      link: 'https://megogo.net/ru/auth_register',
-                  }
-              });
-            }
-            else {
-              openMegagoTextModal({
-                  title: response.message.title,
-                  text: response.message.body,
-              });
-            }
-        }
-    });
+  request.addEventListener('readystatechange', function() {
+	preloader.style.display = 'none';
+    if (request.status === 200 && request.readyState === 4) {
+      var response = JSON.parse(request.response);
+      if (response.status) {
+				openMegagoTextModal({
+					title: response.message.title,
+					text: response.message.body,
+					btn: {
+						text: 'ПЕРЕЙТИ ДО ПЕРЕГЛЯДУ',
+						link: 'https://megogo.net/ru/profile',
+					}
+				});
+      }
+      else {
+				openMegagoTextModal({
+					title: response.message.title,
+					text: response.message.body,
+				});
+      }
+    }
   });
-}
+});
 
 var textModal = document.querySelector('.js-text-modal');
 
@@ -147,7 +144,6 @@ function openMegagoTextModal(param) {
   }
 
   if (param.hasOwnProperty('btn')) {
-    console.log(param.btn);
     modalBtn.style.display = "flex";
     modalBtn.innerHTML = param.btn.text;
     modalBtn.setAttribute('href', param.btn.link);
@@ -167,6 +163,45 @@ var closeTextModalBtn = textModal.querySelector('.js-close');
 closeTextModalBtn.addEventListener('click', function (e) {
   textModal.style.display = 'none';
 });
+
+
+function validateForm(form) {
+	var inputs = form.querySelectorAll('input');
+  var formValid = true;
+
+  var phoneValue = inputs[0].value;
+  if (phoneValue === '') {
+    formValid = false;
+    inputs[0].classList.add('input--error');
+  } else {
+    inputs[0].classList.remove('input--error');
+  }
+
+  var codeValue = inputs[1].value;
+  if (codeValue === '' || !isMegagoCodeValid(codeValue)) {
+    formValid = false;
+    inputs[1].classList.add('input--error');
+  } else {
+  	inputs[1].classList.remove('input--error');
+  }
+
+  return formValid;
+}
+
+
+function isMegagoCodeValid(str) {
+  var localStr = str.replace(/^\ + |\ +$/g, '');
+
+  if (!/[0-9]+/ig.test(localStr)) {
+    return false;
+  }
+
+  if (localStr.length !== 12) {
+    return false;
+  }
+
+  return !/[\\\/\%\;\.\№\#\»\@\*]/.test(localStr);
+}
 
 </script>
 </body>
