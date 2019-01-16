@@ -9,6 +9,32 @@ $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
+  var rulesModal = document.querySelector('.rules'),
+    rulesContent = document.querySelector('.rules__content'),
+    rulesItem = document.querySelector('.rules-item'),
+    rulesClose = document.querySelector('.rules__close'),
+    xhr = new XMLHttpRequest();
+
+    xhr.open('GET', '/api/rules/', true);
+    xhr.send();
+
+    xhr.addEventListener('readystatechange', function() {
+      var json = JSON.parse(xhr.response);
+      rulesContent.innerHTML = json.content;
+    });
+
+    rulesItem.addEventListener('click', function() {
+      rulesModal.classList.toggle('rules--show');
+    });
+
+    rulesModal.addEventListener('click', function(event) {
+      var target = event.target;
+
+      if (target == rulesClose || target == rulesModal) {
+        rulesModal.classList.toggle('rules--show');
+      }
+    });
+
 });
 
 var indexPreloader =  document.querySelector('#index-preloader');
