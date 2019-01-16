@@ -38,10 +38,13 @@
 	<include src="src/template/profile.html"></include>
 
 	<section class="preloader" id="index-preloader">
-		<!-- <span class="preloader__text">Будь-ласка, зачекай...</span> -->
-		<svg class="btn__icon preloader__icon icon__red" width="95" height="94" id="send-code">
-			<use xlink:href="#icon-wheel" class="animationSvg"></use>
-		</svg>
+		<div class="preloader__container">
+			<!-- <svg class="btn__icon preloader__icon icon__red" width="95" height="94" id="send-code"> -->
+			<svg class="preloader__icon icon__red">
+				<use xlink:href="#icon-wheel" class="animationSvg"></use>
+			</svg>
+			<span class="preloader__text">Будь-ласка, зачекай...</span>
+		</div>
 	</section>
 
 	<script src="/js/plugins-min.js?v=003"></script>
