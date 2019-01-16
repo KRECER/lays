@@ -2,7 +2,7 @@
 <section class="profile" onclick="hideModalProfileOverlay()">
 	<div class="profile__wrapper" onclick="event.stopPropagation()">
 			<div class="profile__close" onclick="hideModalProfileCloseButton()">&times;</div>
-			<div class="profile__logo"><img src="img/logo.png" alt=""></div>
+			<div class="profile__logo"><img src="/img/logo.png" alt=""></div>
 			<div class="profile__infoblock"><span class="profile__inf">Номер телефону <span id="phone"></span></span></div>
 			<div class="profile__infoblock"><span class="profile__inf">Email: <span id="email"></span></span></div>
 			<div class="profile__voucher" id="codes">
@@ -62,5 +62,5 @@
 	function hideModalProfileOverlay(){
 		modalPr.style.display = 'none';
 		headerBg.style.zIndex = '1';
-	} 
+	}
 </script>
