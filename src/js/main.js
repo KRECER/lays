@@ -10,7 +10,7 @@ $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
 // #### general variables ####
 
-var indexPreloader =  document.querySelector('#index-preloader');
+var indexPreloader = document.querySelector('#index-preloader');
 var isPopupOpen = false;
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -19,8 +19,8 @@ window.addEventListener('DOMContentLoaded', function() {
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
     rulesClose = document.querySelector('.rules__close'),
-    xhr = new XMLHttpRequest();
 
+    xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/rules/', true);
     xhr.send();
 
@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('load', function() {
- indexPreloader.style.display = 'none';
+  indexPreloader.style.display = 'none';
 });
 
 
@@ -497,8 +497,10 @@ modalPr.addEventListener('click', hideModalProfile);
 closeSignPr.addEventListener('click', hideModalProfile);
 
 function openProfile() {
+  indexPreloader.style.display = 'block';
   isPopupOpen = true;
   $.get( '/api/cabinet/', function( data ) {
+    indexPreloader.style.display = 'none';
     if (data.hasOwnProperty('status') && data.status == false) {
       // popup error
       hideModalProfile();
