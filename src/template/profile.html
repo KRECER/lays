@@ -1,7 +1,7 @@
-<!-- <button onclick="openProfile()" style="float:right;position: absolute;right: 0;z-index: 2000;"> profile </button> -->
-<section class="profile" onclick="hideModalProfileOverlay()">
+<!-- <section class="profile" onclick="hideModalProfileOverlay()"> -->
+<section class="profile">
 	<div class="profile__wrapper" onclick="event.stopPropagation()">
-			<div class="profile__close" onclick="hideModalProfileCloseButton()">&times;</div>
+			<div class="profile__close">&times;</div>
 			<div class="profile__logo"><img src="/img/logo.png" alt=""></div>
 			<div class="profile__infoblock"><span class="profile__inf">Номер телефону <span id="phone"></span></span></div>
 			<div class="profile__infoblock"><span class="profile__inf">Email: <span id="email"></span></span></div>
@@ -18,49 +18,3 @@
 			<a class="profile__btn button" href="/megogo" >АКТИВУВАТИ</a>
 	</div>
 </section>
-<script>
-	var modalPr = document.getElementsByClassName('profile')[0];
-	var formPr = document.getElementsByClassName('profile__wrapper')[0];
-	var closeSignPr = document.getElementsByClassName('profile__close')[0];
-	var headerBg = document.getElementsByClassName('page-header')[0];
-	var profileBtn = document.getElementById('profileBtn');
-
-	function openProfile(){
-		$.get( '/api/cabinet/', function( data ) {
-			if (data.hasOwnProperty('status') && data.status == false) {
-				// popup error
-				hideModalProfileCloseButton();
-				hideModalProfileOverlay();
-				openTextModal({
-				  title: 'Увага',
-				  text: data.message,
-				});
-			} else {
-				$( '#phone' ).html(data.phone);
-				$( '#email' ).html(data.email);
-
-				var codesHtml = '';
-				for (var i = 0; i < data.codes.length; i++) {
-					var code = data.codes[i];
-					codesHtml += '<p class="profile__row">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</p>';
-				}
-				$( '#codes' ).html(codesHtml);
-				modalPr.style.display = 'block';
-				modalPr.style.zIndex = '3000';
-				closeSignPr.style.zIndex = '3000';
-				headerBg.style.zIndex = '2999';
-				// modalPr.style.display='none';
-			}
-		});
-	}
-
-	function hideModalProfileCloseButton(){
-		modalPr.style.display = 'none';
-		headerBg.style.zIndex = '1';
-	}
-
-	function hideModalProfileOverlay(){
-		modalPr.style.display = 'none';
-		headerBg.style.zIndex = '1';
-	}
-</script>

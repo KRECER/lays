@@ -7,37 +7,40 @@
 	left: 0;
 	background: rgb(35,113,185);
 	z-index: 3000;
-	&__icon{
+
+	&__container {
 		position: absolute;
-		left: 50%;
-		top: 50%;
+		left: 52%;
+		top: 43%;
+	}
+
+	&__icon {
 		transform: translate(-50%);
 		fill: #fff;
+		height: 12vh;
 		.animationSvg{
 			transform-origin: center;
 			animation: rotationSvg 3s linear infinite;
 		}
 	}
-	.icon__red{
-		fill: #ed1d24;
-		
-	}
-	&__text{
+
+	&__text {
 		display: block;
+		text-align: center;
 		color: #fff;
 		font-size: 2vh;
-		position: absolute;
-		top: 62%;
-		left: 50%;
 		transform: translate(-50%);
 	}
+}
+
+.icon__red {
+	fill: #ed1d24;
+	margin-bottom: 10px;
 }
 
 #index-preloader {
 	display: block;
 }
-
-
 
 @keyframes rotationSvg {
 	from {transform: rotate(0deg)}

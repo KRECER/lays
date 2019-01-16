@@ -7,14 +7,20 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
+
+// #### general variables ####
+
+var indexPreloader = document.querySelector('#index-preloader');
+var isPopupOpen = false;
+
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
     rulesClose = document.querySelector('.rules__close'),
-    xhr = new XMLHttpRequest();
 
+    xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/rules/', true);
     xhr.send();
 
@@ -40,10 +46,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 });
 
-var indexPreloader =  document.querySelector('#index-preloader');
-
 window.addEventListener('load', function() {
- indexPreloader.style.display = 'none';  
+  indexPreloader.style.display = 'none';
 });
 
 
@@ -56,6 +60,9 @@ var menuExit = document.querySelector('#menu-exit');
 menuLogin.addEventListener('click', signIn);
 menuCabinet.addEventListener('click', openProfile);
 menuExit.addEventListener('click', logout);
+
+
+// #### Logout ####
 
 function logout() {
   $.get('/api/logout/', function( data ) {
@@ -80,6 +87,7 @@ closeSign.addEventListener('click', hideEnterModal);
 modal.addEventListener('click', hideEnterModal);
 
 function signIn() {
+  isPopupOpen = true;
   modal = document.querySelector('.enterform');  // так работает
   modal.style.display = 'block';
   modalReg.style.display = 'none';
@@ -91,6 +99,7 @@ function signIn() {
 }
 
 function hideEnterModal() {
+  isPopupOpen = false;
   modal.style.display = 'none';
   document.body.style.position = 'static';
 }
@@ -143,14 +152,17 @@ closeSignReg.addEventListener('click', hideRegModal);
 modalReg.addEventListener('click', hideRegModal);
 
 function getRegistration() {
-    modalReg.focus();
-    modalReg.style.display = 'block';
-    modal.style.display = 'none';
+  hideEnterModal();
+  isPopupOpen = true;
+  modalReg.focus();
+  modalReg.style.display = 'block';
+  modal.style.display = 'none';
 }
 
 function hideRegModal() {
-    modalReg.style.display = 'none';
-    document.body.style.position = 'static';
+  isPopupOpen = false;
+  modalReg.style.display = 'none';
+  document.body.style.position = 'static';
 }
 
 formReg.addEventListener('submit', function(event) {
@@ -162,21 +174,15 @@ formReg.addEventListener('submit', function(event) {
 // #### Form utils ####
 
 function validateForm(link, data, form, modal) {
+  var isEmptyFields = false;
+  var inputs = form.querySelectorAll('input');
+
   if (form.rules && form.rules2 && (!form.rules.checked || !form.rules2.checked)) {
       form.rules.parentNode.classList.add('error');
       form.rules2.parentNode.classList.add('error');
-      // return;
+      isEmptyFields = true;
   }
 
-  
-  var inputs = form.querySelectorAll('input');
-  var request = new XMLHttpRequest();
-  request.open('POST', link, true);
-  request.send(data);
-
-  indexPreloader.style.display = 'block';
-
-  var isEmptyFields = false;
   for (var i = 0; i < inputs.length; i++) {
     if (inputs[i].value === '') {
       inputs[i].classList.add('input--error');
@@ -188,8 +194,13 @@ function validateForm(link, data, form, modal) {
 
   if (isEmptyFields) return;
 
+  indexPreloader.style.display = 'block';
+  var request = new XMLHttpRequest();
+  request.open('POST', link, true);
+  request.send(data);
+
   request.addEventListener('readystatechange', function() {
-    
+
     indexPreloader.style.display = 'none';
 
     if (request.status === 200 && request.readyState === 4) {
@@ -242,17 +253,21 @@ function validateForm(link, data, form, modal) {
 // #### Modal Forget Password ####
 
 var forgetModel = document.querySelector('.js-modal-forget');
-var forgetModelClose = forgetModel.querySelector('.js-close');
 var forgetForm = document.querySelector('.js-forget-form');
 
-document.querySelector('.js-forget').addEventListener('click', function (){
-  hideEnterModal();
-  forgetModel.style.display = 'flex';
-});
+document.querySelector('.js-forget').addEventListener('click', displayForgetModal);
+forgetModel.querySelector('.js-close').addEventListener('click', hideForgetModel);
 
-forgetModelClose.addEventListener('click', function() {
+function displayForgetModal() {
+  hideEnterModal();
+  isPopupOpen = true;
+  forgetModel.style.display = 'flex';
+}
+
+function hideForgetModel() {
+  isPopupOpen = false;
   forgetModel.style.display = 'none';
-});
+}
 
 forgetForm.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -359,7 +374,7 @@ function sendCode() {
   if (!isCodeValid(codeInput.value)) {
     btnAnimation.classList.add('code--error');
     return;
-  } 
+  }
   btnAnimation.classList.remove('code--error');
 
   console.log('sendCode: isLoggedIn = ', isLoggedIn);
@@ -444,11 +459,13 @@ function openTextModal(param) {
 }
 
 function openModal(modal) {
+  isPopupOpen = true;
   modal.style.display = 'flex';
   // modal.style.zIndex = 250;
 }
 
 function closeModal(modal) {
+  isPopupOpen = false;
   modal.style.display = 'none';
   if (openNextSignIn) {
     openNextSignIn = false;
@@ -457,7 +474,7 @@ function closeModal(modal) {
 }
 
 
-// #### Modal How To Find
+// #### Modal How To Find ####
 
 document.getElementById('show-find-modal').addEventListener('click', function (){
   openTextModal({
@@ -468,4 +485,103 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
     imagePath: '/img/find-code.png',
     imageAlt: 'find code',
   });
-})
+});
+
+
+// #### Profile Popup #####
+
+var modalPr = document.getElementsByClassName('profile')[0];
+var formPr = document.getElementsByClassName('profile__wrapper')[0];
+var closeSignPr = document.getElementsByClassName('profile__close')[0];
+var headerBg = document.getElementsByClassName('page-header')[0];
+var profileBtn = document.getElementById('profileBtn');
+
+modalPr.addEventListener('click', hideModalProfile);
+closeSignPr.addEventListener('click', hideModalProfile);
+
+function openProfile() {
+  indexPreloader.style.display = 'block';
+  isPopupOpen = true;
+  $.get( '/api/cabinet/', function( data ) {
+    indexPreloader.style.display = 'none';
+    if (data.hasOwnProperty('status') && data.status == false) {
+      // popup error
+      hideModalProfile();
+      openTextModal({
+        title: 'Увага',
+        text: data.message,
+      });
+    } else {
+      $( '#phone' ).html(data.phone);
+      $( '#email' ).html(data.email);
+
+      var codesHtml = '';
+      for (var i = 0; i < data.codes.length; i++) {
+        var code = data.codes[i];
+        codesHtml += '<p class="profile__row">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</p>';
+      }
+      $( '#codes' ).html(codesHtml);
+      modalPr.style.display = 'block';
+      modalPr.style.zIndex = '3000';
+      closeSignPr.style.zIndex = '3000';
+      headerBg.style.zIndex = '2999';
+      // modalPr.style.display='none';
+    }
+  });
+}
+
+function hideModalProfile(){
+  isPopupOpen = false;
+  modalPr.style.display = 'none';
+  headerBg.style.zIndex = '1';
+}
+
+
+// #### Super Custom Scroll ####
+
+var rePrizes = new RegExp('^/prizes/?$');
+if (rePrizes.test(window.location.pathname)) {
+  document.querySelector('.prizes').classList.add('show');
+}
+
+var reHollywood = new RegExp('^/hollywood/?$');
+if (reHollywood.test(window.location.pathname)) {
+  document.querySelector('.hollywood').classList.add('show');
+  document.querySelector('.prizes').classList.add('show');
+}
+
+var reMain = new RegExp('^/main/?(\\?.+)?$');
+var reRoot = new RegExp('^/(\\?.+)?$');
+
+// Slider
+document.addEventListener('wheel', scrollDirection);
+
+var lastScrollDate = new Date();
+function scrollDirection(e) {
+  closeMenu();
+  console.log('scrollDirection: isPopupOpen = ' + isPopupOpen);
+  if (isPopupOpen) return;
+  if (new Date() - lastScrollDate <= 500) {
+    return;
+  } else {
+    lastScrollDate = new Date();
+  }
+  if ((e.deltaY > 0)) {
+    if (document.getElementById('bottom-block') && (reMain.test(window.location.pathname) || reRoot.test(window.location.pathname)) ) {
+      window.history.pushState("", "", '/prizes');
+      document.getElementById('bottom-block').classList.add('show');
+    } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
+      window.history.pushState("", "", '/hollywood');
+      document.getElementById('js-scroll-hollywood').classList.add('show');
+    }
+  } else {
+    if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
+      window.history.pushState("", "", '/prizes');
+      document.getElementById('js-scroll-hollywood').classList.remove('show');
+    }
+    else if (rePrizes.test(window.location.pathname)) {
+      window.history.pushState("", "", '/main');
+      document.getElementById('bottom-block').classList.remove('show');
+    }
+  }
+}
