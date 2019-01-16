@@ -8,7 +8,7 @@
   
   display: none;
 
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(35,113,185,.8);
 
   &--show {
     display: block;
@@ -23,23 +23,26 @@
   margin: 0 auto;
   padding: 60px 30px;
 
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(254, 251, 232, 0.9);
+  border-radius: 20px;
 }
 
 .rules__close {
   position: absolute;
-  right: 0;
+  right: 10px;
   top: 0;
 
-  width: 32px;
-  height: 32px;
-
+  font-weight: 100;
   background-color: transparent;
-  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.298 18.181l-11.7-11.7c-.283-.283-.267-.76.038-1.065.305-.305.782-.321 1.066-.037l11.7 11.7c.283.283.267.76-.038 1.065-.305.305-.782.321-1.066.037'/%3E%3Cpath d='M18.401 6.482l-11.7 11.7c-.283.283-.76.267-1.065-.038-.305-.305-.321-.782-.037-1.066l11.7-11.7c.283-.283.76-.267 1.065.038.305.305.321.782.037 1.066'/%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 90%;
+  font-size: 50px;
+  color: red;
+  
+  width: 55px;
+  height: 55px;
+
   border: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .rules__title {
@@ -47,6 +50,7 @@
   margin-bottom: 30px;
 
   text-align: center;
+  color: #ed1d24;
 }
 
 .rules__content {
