@@ -11,8 +11,10 @@ window.addEventListener('DOMContentLoaded', function() {
   isAuth();
 });
 
+var indexPreloader =  document.querySelector('#index-preloader');
+
 window.addEventListener('load', function() {
-  document.querySelector('#index-preloader').style.display = 'none';  
+ indexPreloader.style.display = 'none';  
 });
 
 
@@ -137,10 +139,13 @@ function validateForm(link, data, form, modal) {
       // return;
   }
 
+  
   var inputs = form.querySelectorAll('input');
   var request = new XMLHttpRequest();
   request.open('POST', link, true);
   request.send(data);
+
+  indexPreloader.style.display = 'block';
 
   var isEmptyFields = false;
   for (var i = 0; i < inputs.length; i++) {
@@ -155,6 +160,8 @@ function validateForm(link, data, form, modal) {
   if (isEmptyFields) return;
 
   request.addEventListener('readystatechange', function() {
+    
+    indexPreloader.style.display = 'none';
 
     if (request.status === 200 && request.readyState === 4) {
       var response = JSON.parse(request.response);
@@ -226,8 +233,8 @@ forgetForm.addEventListener('submit', function(e) {
       forgetModel.style.display = 'none';
       openTextModal({
           text: {
-            title: 'Успіх!',
-            body: e.message,
+            title: e.message.title,
+            body: e.message.body,
           }
       });
     } else {
@@ -339,9 +346,13 @@ function sendCode() {
     return;
   }
   console.log('sendCode: $post code = ', codeInput.value);
+  indexPreloader.style.display = 'block';
+
   $.post('/api/code/', {code: codeInput.value.toUpperCase()}, function(e) {
     hideRegModal();
     hideEnterModal();
+    indexPreloader.style.display = 'none';
+
     if (e.status) {
       codeInput.value = '';
       // popup success
