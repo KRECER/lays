@@ -38,6 +38,10 @@
   background: rgba(254,251,232,0.9);
   border-radius: 20px;
 
+  form {
+    height: 100%;
+  }
+
   @media (max-width: 768px) {
     top: 0;
 
