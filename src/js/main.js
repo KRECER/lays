@@ -15,7 +15,7 @@ var isPopupOpen = false;
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
-  
+
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
@@ -58,6 +58,12 @@ window.addEventListener('DOMContentLoaded', function() {
       document.getElementById('menu-inner-block').classList.remove('expanded');
       document.getElementById('close-menu-bg').classList.remove('expanded');
       rulesModal.classList.toggle('rules--show');
+
+      if (rulesModal.classList.contains('rules--show')) {
+        isPopupOpen = true;
+      } else {
+        isPopupOpen = false;
+      }
     });
 
     rulesModal.addEventListener('click', function(event) {
@@ -65,6 +71,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
       if (target == rulesClose || target == rulesModal) {
         rulesModal.classList.toggle('rules--show');
+      }
+
+      if (rulesModal.classList.contains('rules--show')) {
+        isPopupOpen = true;
+      } else {
+        isPopupOpen = false;
       }
     });
 
