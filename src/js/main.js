@@ -15,6 +15,7 @@ var isPopupOpen = false;
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
+  
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
