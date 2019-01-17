@@ -19,7 +19,12 @@ window.addEventListener('DOMContentLoaded', function() {
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
-    rulesClose = document.querySelector('.rules__close'),
+    rulesClose = document.querySelector('.rules__close');
+
+  var winnersModal = document.querySelector('.winners'),
+    winnersList = document.querySelector('.winners__list'),
+    winnersItem = document.querySelector('.winners-item'),
+    winnersClose = document.querySelector('.winners__close');
 
     xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/rules/', true);
@@ -28,6 +33,24 @@ window.addEventListener('DOMContentLoaded', function() {
     xhr.addEventListener('readystatechange', function() {
       var json = JSON.parse(xhr.response);
       rulesContent.innerHTML = json.content;
+    });
+
+    xhr2 = new XMLHttpRequest();
+    xhr2.open('GET', '/api/winners/', true);
+    xhr2.send();
+
+    xhr2.addEventListener('readystatechange', function() {
+      if (xhr2.status == 200 && xhr2.readyState == 4) {
+        var json = JSON.parse(xhr2.response);
+        var html = '';
+
+        for (var i = 0; i < json.winners.length; i++) {
+          html += '<li class="winners__item">' + '<span class="winners__date">' + json.winners[i].date + '</span>' + '<span class="winners__name">' + json.winners[i].name + '</span>';
+        }
+
+        winnersList.innerHTML = html;
+
+      }
     });
 
     rulesItem.addEventListener('click', function() {
@@ -54,6 +77,23 @@ window.addEventListener('DOMContentLoaded', function() {
         isPopupOpen = true;
       } else {
         isPopupOpen = false;
+      }
+    });
+
+    winnersItem.addEventListener('click', function() {
+      isPopupOpen = true;
+      document.getElementById('menu-block').classList.remove('expanded');
+      document.getElementById('menu-inner-block').classList.remove('expanded');
+      document.getElementById('close-menu-bg').classList.remove('expanded');
+      winnersModal.classList.toggle('winners--show');
+    });
+
+    winnersModal.addEventListener('click', function(event) {
+      isPopupOpen = false;
+      var target = event.target;
+
+      if (target == winnersClose || target == winnersModal) {
+        winnersModal.classList.toggle('winners--show');
       }
     });
 
