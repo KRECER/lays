@@ -47,7 +47,7 @@
 
 .winners__title {
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   padding: 15px 0;
 
   color: #ffffff;
@@ -64,16 +64,28 @@
   width: 100%;
   height: 350px;
   overflow-y: auto;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
 
+  color: #2371b9;
+  font-size: 14px;
+
   background-color: #ffffff;
-  border: 1px solid #e3e3e3;
+  border: 4px solid #FDE619;
+  border-radius: 15px;
   -webkit-overflow-scrolling: touch;
 }
 
 .winners__item {
+  margin-bottom: 15px;
+
   list-style: none;
+}
+
+.winners__date {
+  display: inline-block;
+  margin-left: 25%;
+  margin-right: 15%;
 }
 
 @media (max-width: 768px) {
