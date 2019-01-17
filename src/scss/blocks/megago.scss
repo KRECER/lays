@@ -135,13 +135,20 @@
 	padding: 0px;
 	text-align: center;
 	width: 40%;
+	border-width: 4px;
+	max-width: 270px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	font-weight: 700;
 	font-size: 20px;
 
 	svg {
+		right: 17px;
 		height: 22px;
+	}
+
+	&::after {
+		border-width: 4px;
 	}
 }
 
