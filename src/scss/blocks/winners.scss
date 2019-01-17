@@ -5,6 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: 3500;
+  overflow-y: scroll; 
   
   display: none;
 
@@ -21,7 +22,7 @@
 
   max-width: 770px;
   margin: 0 auto;
-  padding: 60px 50px;
+  padding: 30px 50px;
 
   background-color: rgba(254, 251, 232, 0.9);
   border-radius: 20px;
@@ -45,6 +46,47 @@
   outline: none;
 }
 
+.winners__logo-lays {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.winners__logo-lays img {
+  height: 100%;
+}
+
+.winners__prizes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+
+  list-style: none;
+}
+
+.winners__prizes-item {
+  width: calc(33%);
+  height: 190px;
+  text-align: center;
+}
+
+.winners__prizes-item img {
+  height: 100%;
+  width: 100%;
+}
+
+.winners__notification {
+  margin-bottom: 35px;
+
+  font-size: 17px;
+  font-weight: 700;
+  color: #ed1d24;
+  text-align: center;
+}
+
 .winners__title {
   margin: 0;
   margin-bottom: 5px;
@@ -60,15 +102,9 @@
   border-radius: 15px;
 }
 
-.winners__list {
+.winners__list-wrapper {
   width: 100%;
-  height: 350px;
-  overflow-y: auto;
-  padding: 10px 0;
-  margin: 0;
-
-  color: #2371b9;
-  font-size: 14px;
+  max-height: 350px;
 
   background-color: #ffffff;
   border: 4px solid #FDE619;
@@ -76,23 +112,61 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.winners__list {
+  width: 50%;
+  margin: 0 auto;
+  padding: 0;
+  padding: 10px 0;
+  overflow-y: auto;
+  list-style: none;
+
+  color: #2371b9;
+  font-size: 14px;
+}
+
 .winners__item {
+  display: flex;
   margin-bottom: 15px;
 
   list-style: none;
 }
 
-.winners__date {
-  display: inline-block;
-  margin-left: 25%;
-  margin-right: 15%;
+.winners__name {
+  margin-left: auto;
 }
 
 @media (max-width: 768px) {
+  .winners__logo-lays {
+    margin-bottom: 20px;
+  }
+
+  .winners__logo-lays img {
+    width: 90%;
+  }
+
+  .winners__prizes-item {
+    display: flex;
+    align-items: center;
+    height: auto;
+  }
+
+  .winners__prizes-item img {
+    height: auto;
+    width: 90%;
+  }
+
+  .winners__title {
+    font-size: 14px;
+  }
+
   .winners__inner {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
     padding: 60px 20px;
     border-radius: 0;
+  }
+
+  .winners__list {
+    width: 100%;
+    padding: 20px;
   }
 }
