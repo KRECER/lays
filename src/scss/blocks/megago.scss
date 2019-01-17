@@ -135,7 +135,7 @@
 	text-align: center;
 	width: 40%;
 	margin-top: 20px;
-	margin-bottom: 0px;
+	margin-bottom: 20px;
 	font-weight: 700;
 	font-size: 20px;
 
@@ -215,8 +215,20 @@ input:focus::placeholder      {color: transparent;}
 	color: black;
 	font-size: 10px;
 	color: white;
-	padding: 30px 10px 0;
-	// margin-top: auto !important;
+	margin-top: auto;
+	margin-bottom: 5px;
+}
+
+.megago__link {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.megago__how-use {
+	display: block;
+	
+	color: #eed617;
+	text-decoration: none;
 }
 
 .megago__text .megago__films {
