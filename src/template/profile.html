@@ -1,20 +1,33 @@
-<!-- <section class="profile" onclick="hideModalProfileOverlay()"> -->
-<section class="profile">
-	<div class="profile__wrapper" onclick="event.stopPropagation()">
-			<div class="profile__close">&times;</div>
-			<div class="profile__logo"><img src="/img/logo.png" alt=""></div>
-			<div class="profile__infoblock"><span class="profile__inf">Номер телефону <span id="phone"></span></span></div>
-			<div class="profile__infoblock"><span class="profile__inf">Email: <span id="email"></span></span></div>
-			<div class="profile__voucher" id="codes">
-				<p class="profile__row"><span class="profile__code">12312672123</span><span class="profile__prize">7-денна підписка на перегляд відеохітів від Megogo. Код активації: 123123123123 </span> <span class="profile__date">14.01.2019 16:26</span></p>
-				<p class="profile__row"><span class="profile__code">12312672123</span><span class="profile__prize">7-денна підписка на перегляд відеохітів від Megogo. Код активації: 123123123123 </span> <span class="profile__date">14.01.2019 16:26</span></p>
-				<p class="profile__row"><span class="profile__code">12312672123</span><span class="profile__prize">7-денна підписка на перегляд відеохітів від Megogo. Код активації: 123123123123 </span> <span class="profile__date">14.01.2019 16:26</span></p>
-				<p class="profile__row"><span class="profile__code">12312672123</span><span class="profile__prize">7-денна підписка на перегляд відеохітів від Megogo. Код активації: 123123123123 </span> <span class="profile__date">14.01.2019 16:26</span></p>
-				<p class="profile__row"><span class="profile__code">12312672123</span><span class="profile__prize">7-денна підписка на перегляд відеохітів від Megogo. Код активації: 123123123123 </span> <span class="profile__date">14.01.2019 16:26</span></p>
-				<p class="profile__row"><span class="profile__code">12312672123</span><span class="profile__prize">7-денна підписка на перегляд відеохітів від Megogo. Код активації: 123123123123 </span> <span class="profile__date">14.01.2019 16:26</span></p>
-			</div>
-			<div class="profile__head">Маєш код авторизації MEGOGO? <br> Активуй та переглядай відео у форматі HD</div>
-			<!--<a class="profile__btn button" href="https://megogo.net/ru/auth_login?from=/ru/profile" >АКТИВУВАТИ</a>-->
-			<a class="profile__btn button" href="/megogo" >АКТИВУВАТИ</a>
+<div class="profile">
+		<div class="profile__inner">
+			<button class="profile__close" type="button">&times;</button>
+			<div class="profile__logo-lays"><img src="/img/logo.png" alt=""></div>
+			<div class="profile__title">Приватний кабінет</div>
+			<ul class="profile__data">
+				<li class="profile__data-item"><span class="profile__data-name">ІМЯ:</span> <span class="profile__name">Соколов Дмитрий</span></li>
+				<li class="profile__data-item"><span class="profile__data-name">Номер телефону:</span> <span class="profile__phone">+3 (095) 453-32-32</span></li>
+				<li class="profile__data-item"><span class="profile__data-name">E-MAIL:</span> <span class="profile__email">sokolov@gmail.com</span></li>
+			</ul>
+			<div class="profile__title-list">Акційні коди та виграші</div>
+			<ul class="profile__list">
+				<li class="profile__item">
+					<div class="profile__left">
+						<div class="profile__code">232305454434</div>
+						<div class="profile__date">15.01.2019 12:01</div>
+					</div>
+					<div class="profile__right">
+						<div class="profile__prize">
+								7-денна передплата на перегляд відеохітів від Megogo. Код активації: 528894592029
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="profile__megogo-notice"><span class="profile__megogo-notice profile__megogo-notice--red">Маєш код авторизації MEGOGO?</span> <br> Активуй та переглядай відео у форматі HD!</div>
+			<a class="profile__btn profile__btn--blue button" href="/megogo">
+				АКТИВУЙ КОД MEGOGO
+				<svg class="hollywood__icon-triangle">
+					<use xlink:href="#icon-triangle"></use>
+				</svg>
+			</a>
+		</div>
 	</div>
-</section>
