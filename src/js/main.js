@@ -11,7 +11,8 @@ $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 // #### general variables ####
 
 var indexPreloader = document.querySelector('#index-preloader');
-var isPopupOpen = false;
+var isPopupOpen = false,
+    isPopupOverPopup = false;
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
@@ -19,7 +20,10 @@ window.addEventListener('DOMContentLoaded', function() {
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
-    rulesClose = document.querySelector('.rules__close');
+    rulesClose = document.querySelector('.rules__close'),
+    registrationAgreementTextLink = document.querySelector('.registration__agreementText .underline');
+
+  console.log('DOMContentLoaded: registrationAgreementTextLink', registrationAgreementTextLink);
 
   var winnersModal = document.querySelector('.winners'),
     winnersList = document.querySelector('.winners__list'),
@@ -53,6 +57,9 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+
+    // #### Rules Popup ####
+
     rulesItem.addEventListener('click', function() {
       document.getElementById('menu-block').classList.remove('expanded');
       document.getElementById('menu-inner-block').classList.remove('expanded');
@@ -61,7 +68,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
       if (rulesModal.classList.contains('rules--show')) {
         isPopupOpen = true;
-      } else {
+      } else if (!isPopupOverPopup) {
         isPopupOpen = false;
       }
     });
@@ -75,17 +82,40 @@ window.addEventListener('DOMContentLoaded', function() {
 
       if (rulesModal.classList.contains('rules--show')) {
         isPopupOpen = true;
-      } else {
+      } else if (!isPopupOverPopup) {
         isPopupOpen = false;
+      }
+
+      if (!rulesModal.classList.contains('rules--show')) {
+        isPopupOverPopup = false; // over registration popup
       }
     });
 
+    registrationAgreementTextLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      rulesModal.classList.toggle('rules--show');
+
+      if (rulesModal.classList.contains('rules--show')) {
+        isPopupOverPopup = true; // over registration popup
+      } else {
+        isPopupOverPopup = false; // over registration popup
+      }
+    });
+
+
+     // #### Winner Popup ####
+
     winnersItem.addEventListener('click', function() {
-      isPopupOpen = true;
       document.getElementById('menu-block').classList.remove('expanded');
       document.getElementById('menu-inner-block').classList.remove('expanded');
       document.getElementById('close-menu-bg').classList.remove('expanded');
       winnersModal.classList.toggle('winners--show');
+
+      if (winnersModal.classList.contains('winners--show')) {
+        isPopupOpen = true;
+      } else {
+        isPopupOpen = false;
+      }
     });
 
     winnersModal.addEventListener('click', function(event) {
@@ -94,6 +124,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
       if (target == winnersClose || target == winnersModal) {
         winnersModal.classList.toggle('winners--show');
+      }
+
+      if (winnersModal.classList.contains('winners--show')) {
+        isPopupOpen = true;
+      } else {
+        isPopupOpen = false;
       }
     });
 
