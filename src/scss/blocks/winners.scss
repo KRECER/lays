@@ -18,7 +18,7 @@
 
 .winners__inner {
   position: relative;
-  top: 10%;
+  top: 3%;
 
   max-width: 770px;
   margin: 0 auto;
@@ -49,7 +49,7 @@
 .winners__logo-lays {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .winners__logo-lays img {
@@ -81,7 +81,7 @@
 .winners__notification {
   margin-bottom: 35px;
 
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: #ed1d24;
   text-align: center;
@@ -93,7 +93,7 @@
   padding: 15px 0;
 
   color: #ffffff;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   text-align: center;
 
@@ -113,7 +113,7 @@
   width: 50%;
   margin: 0 auto;
   padding: 0;
-  max-height: 350px;
+  max-height: 130px;
   padding: 10px 0;
   overflow-y: auto;
   list-style: none;
@@ -134,12 +134,17 @@
 }
 
 @media (max-width: 768px) {
+  .winners__close {
+    right: 0;
+    top: -10px;
+  }
+
   .winners__logo-lays {
     margin-bottom: 20px;
   }
 
   .winners__logo-lays img {
-    width: 90%;
+    width: 80%;
   }
 
   .winners__prizes-item {
@@ -153,18 +158,26 @@
     width: 90%;
   }
 
+  .winners__notification {
+    margin-bottom: 12px;
+  }
+
   .winners__title {
     font-size: 14px;
   }
 
   .winners__inner {
     top: 0;
-    padding: 60px 20px;
+    padding: 20px 20px;
     border-radius: 0;
   }
 
   .winners__list {
     width: 100%;
     padding: 20px;
+  }
+
+  .winners__list {
+    max-height: 110px;
   }
 }
