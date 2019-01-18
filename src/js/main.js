@@ -84,6 +84,7 @@ window.addEventListener('DOMContentLoaded', function() {
         isPopupOpen = true;
       } else if (!isPopupOverPopup) {
         isPopupOpen = false;
+        document.body.style.position = 'static';
       }
 
       if (!rulesModal.classList.contains('rules--show')) {
@@ -130,6 +131,7 @@ window.addEventListener('DOMContentLoaded', function() {
         isPopupOpen = true;
       } else {
         isPopupOpen = false;
+        document.body.style.position = 'static';
       }
     });
 
@@ -194,10 +196,14 @@ function signIn() {
   document.getElementById('close-menu-bg').classList.remove('expanded');
 }
 
-function hideEnterModal() {
-  isPopupOpen = false;
+function hideEnterModal(event, isNewPopupOpen) {
+  if (isNewPopupOpen !== undefined) {
+    isPopupOpen = true;
+  } else {
+    isPopupOpen = false;
+    document.body.style.position = 'static';
+  }
   modal.style.display = 'none';
-  document.body.style.position = 'static';
 }
 
 formEnter.addEventListener('submit', function(event) {
@@ -248,7 +254,7 @@ closeSignReg.addEventListener('click', hideRegModal);
 modalReg.addEventListener('click', hideRegModal);
 
 function getRegistration() {
-  // hideEnterModal();
+  hideEnterModal(null, true);
   isPopupOpen = true;
   modalReg.focus();
   modalReg.style.display = 'block';
@@ -355,13 +361,16 @@ document.querySelector('.js-forget').addEventListener('click', displayForgetModa
 forgetModel.querySelector('.js-close').addEventListener('click', hideForgetModel);
 
 function displayForgetModal() {
-  hideEnterModal();
+  hideEnterModal(null, true);
   isPopupOpen = true;
   forgetModel.style.display = 'flex';
+
+  forgetForm.focus();
 }
 
 function hideForgetModel() {
   isPopupOpen = false;
+  document.body.style.position = 'static';
   forgetModel.style.display = 'none';
 }
 
@@ -557,12 +566,12 @@ function openTextModal(param) {
 function openModal(modal) {
   isPopupOpen = true;
   modal.style.display = 'flex';
-  // modal.style.zIndex = 250;
 }
 
 function closeModal(modal) {
   isPopupOpen = false;
   modal.style.display = 'none';
+  document.body.style.position = 'static';
   if (openNextSignIn) {
     openNextSignIn = false;
     signIn();
