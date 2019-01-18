@@ -248,7 +248,7 @@ closeSignReg.addEventListener('click', hideRegModal);
 modalReg.addEventListener('click', hideRegModal);
 
 function getRegistration() {
-  hideEnterModal();
+  // hideEnterModal();
   isPopupOpen = true;
   modalReg.focus();
   modalReg.style.display = 'block';
