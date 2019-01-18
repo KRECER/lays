@@ -21,9 +21,9 @@ window.addEventListener('DOMContentLoaded', function() {
     rulesContent = document.querySelector('.rules__content'),
     rulesItem = document.querySelector('.rules-item'),
     rulesClose = document.querySelector('.rules__close'),
-    registrationAgreementText2Link = document.querySelector('.registration__agreementText2 .underline');
+    registrationAgreementTextLink = document.querySelector('.registration__agreementText .underline');
 
-  console.log('DOMContentLoaded: registrationAgreementText2Link', registrationAgreementText2Link);
+  console.log('DOMContentLoaded: registrationAgreementTextLink', registrationAgreementTextLink);
 
   var winnersModal = document.querySelector('.winners'),
     winnersList = document.querySelector('.winners__list'),
@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    registrationAgreementText2Link.addEventListener('click', function(event) {
+    registrationAgreementTextLink.addEventListener('click', function(event) {
       event.preventDefault();
       rulesModal.classList.toggle('rules--show');
 
