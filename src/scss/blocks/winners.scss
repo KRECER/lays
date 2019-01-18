@@ -140,11 +140,12 @@
   }
 
   .winners__logo-lays {
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
 
   .winners__logo-lays img {
-    width: 80%;
+    width: 25%;
+    min-width: 150px;
   }
 
   .winners__prizes-item {
@@ -160,15 +161,17 @@
 
   .winners__notification {
     margin-bottom: 12px;
+
+    font-size: 14px;
   }
 
   .winners__title {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .winners__inner {
     top: 0;
-    padding: 20px 20px;
+    padding: 20px 10px;
     border-radius: 0;
   }
 

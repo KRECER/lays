@@ -24,7 +24,7 @@ img {
 }
 
 @media (max-width: 768px) {
+    display: none;
     .widget-button.bottom-right {
-        display: none;
     }
 }

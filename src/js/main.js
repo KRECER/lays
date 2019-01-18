@@ -26,6 +26,11 @@ window.addEventListener('DOMContentLoaded', function() {
     winnersItem = document.querySelector('.winners-item'),
     winnersClose = document.querySelector('.winners__close');
 
+  var profileModal = document.querySelector('.profile'),
+    profileList = document.querySelector('.profile__list'),
+    profileItem = document.querySelector('.profile-item'),
+    profileClose = document.querySelector('.profile__close');
+
     xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/rules/', true);
     xhr.send();
@@ -572,15 +577,17 @@ function openProfile() {
         text: data.message,
       });
     } else {
-      $( '#phone' ).html(data.phone);
-      $( '#email' ).html(data.email);
+      $( '.profile__name' ).html(data.name);
+      $( '.profile__phone' ).html(data.phone);
+      $( '.profile__email' ).html(data.email);
 
       var codesHtml = '';
       for (var i = 0; i < data.codes.length; i++) {
         var code = data.codes[i];
-        codesHtml += '<p class="profile__row">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</p>';
+        codesHtml += '<div class="profile__item">' + '<div class="profile__left">' + '<div class="profile__code">' + code.code + "</div>" + '<div class="profile__date">' + code.date + "</div>" +  "</div>" + '<div class="profile__right">' + '<div class="profile__prize">' + code.prize + '</div>' +  "</div>" + '</div>';
+        // codesHtml += '<div class="profile__item">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</div>';
       }
-      $( '#codes' ).html(codesHtml);
+      $('.profile__list').html(codesHtml);
       modalPr.style.display = 'block';
       modalPr.style.zIndex = '3000';
       closeSignPr.style.zIndex = '3000';
