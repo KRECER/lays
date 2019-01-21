@@ -4,6 +4,15 @@
 	display: flex;
 }
 
+.page-megago {
+	overflow: auto;
+	background-color: #00a3e2;
+	background-image: url(../img/megago/lenth.png);
+	background-size: 182px auto;
+	background-repeat: repeat-y;
+	// height: 100vh;
+}
+
 .js-btn {
 	position: relative;
     display: none;
@@ -35,17 +44,20 @@
 .megago__headers {
 	display: flex;
 	flex-direction:column;
+	padding-top: 20px;
+	// justify-content: center;
 	width: 700px;
 	color: white;
 }
 
 .megago__arrows {
 	text-align: left;
-	height: 8vh;
-	line-height: 8vh;
+	// height: 8vh;
+	// line-height: 8vh;
 	display: flex;
 	align-items:center;
 	font-weight: lighter;
+	margin-bottom: 70px;
 
 	a{
 		margin-left:20px;
@@ -60,27 +72,26 @@
 }
 
 .megago__camera{
-	height: 30vh;
+	// height: 200px;
 	text-align: center;
-	position: relative;
+	// position: relative;
+	margin-bottom: 70px;
 
 	img {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		// position: absolute;
 		margin: auto;
-		height: 200px;
+		height: 170px;
 	}
 }
 
 .megago__logo {
-	height: 25vh;
-	position: relative;
+	// height: 10px;
+	// position: relative;
 	text-align: center;
+	margin-bottom: 70px;
 
 	div {
-		position: absolute;
+		// position: absolute;
 		display: flex;
 		align-items:center;
 		left: 0;
@@ -97,11 +108,11 @@
 }
 
 .megago__films {
-	height: 25vh;
-	position: relative;
+	// height: 25px;
+	// position: relative;
 
 	img {
-		position: absolute;
+		// position: absolute;
 		display: flex;
 		align-items:center;
 		left: 0;
@@ -121,7 +132,7 @@
 	width: 900px;
 	padding-right: 20px;
 	color: white;
-	position: relative;
+	// position: relative;
 	text-align: center;
 	height: 100vh;
 }
@@ -153,21 +164,21 @@
 }
 
 .megago__watching {
-	margin-top: 6vh;
+	margin-top: 50px;
 
 	img {
 		width: 80%;
 	}
 
 	h2 {
-		padding: 1vh 0px;
+		padding: 10px 0px;
 		font-weight: 700;
-		font-size: 2.5vh;
+		font-size: 18px;
 	}
 
 	div {
 		font-weight: 300;
-		font-size: 2.2vh;
+		font-size: 18px;
 		span {
 			font-weight: 600;
 		}
@@ -176,15 +187,18 @@
 
 .circle {
 	border-radius: 50%;
-	height: 7vh;
-	width: 7vh;
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
 	background:#eed617;
 	border: 5px solid #c8bd31;
-	line-height: 6vh;
 	text-align: center;
 	color: #ed1d24;
 	font-weight: bold;
-	font-size: 3vh;
+	font-size: 26px;
 }
 
 .megago__form > div {
@@ -195,7 +209,8 @@
 }
 
 .megago__form input{
-	height: 7vh;
+	// height: 7vh;
+	padding: 13px 0;
 	margin-left: 20px;
 	width: 30vw;
 	border: 5px solid #eed617;
@@ -204,7 +219,6 @@
 	padding-left: 10px;
 	text-align: center;
 	font-weight: 700;
-	padding: 0;
 	&:focus {
 		outline: none;
 	}
@@ -224,7 +238,7 @@ input:focus::placeholder      {color: transparent;}
 	font-size: 10px;
 	color: white;
 	margin-top: auto;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .megago__link {
@@ -234,6 +248,7 @@ input:focus::placeholder      {color: transparent;}
 
 .megago__how-use {
 	display: block;
+	margin-bottom: 15px;
 	
 	color: #eed617;
 	text-decoration: none;
@@ -244,13 +259,19 @@ input:focus::placeholder      {color: transparent;}
 }
 
 form.megago__form {
-	// height: 100%;
-	display: flex;
-	flex-direction: column;
 }
 
 // Tablet
 @media (max-width: 1294px) {
+	.page-megago {
+		// overflow: auto;
+		// background-color: #00a3e2;
+		background-image: url(../img/megago/lenth.png);
+		background-size: 116px auto;
+		background-repeat: repeat-y;
+		// height: 100vh;
+	}
+
 	.megago__lenth {
 		min-width: 116px;
 		background-size: 100% auto;
@@ -282,7 +303,7 @@ form.megago__form {
  }
 
 	.megago__camera img {
-    // height: 128px;
+    height: 20vh;
 	}
 
 	.megago__logo img {
@@ -319,6 +340,9 @@ form.megago__form {
 
 // Mobile
 @media (max-width: 768px) {
+	.page-megago {
+		background-size: 50px auto;
+	}
 	.megago__text .megago__arrows {
 		display: flex;
 		img {
@@ -346,7 +370,7 @@ form.megago__form {
 
 	.megago {
 		height: auto;
-		position: relative;
+		// position: relative;
 	}
 
 	.megago__headers {
@@ -396,6 +420,8 @@ form.megago__form {
 		padding-right: 15px;
 		width: 80%;
 		height: 40px;
+
+
 		font-size: 12px;
 	}
 
@@ -418,10 +444,20 @@ form.megago__form {
 }
 
 @media (max-width: 768px) {
+	.page-megago {
+		// overflow: auto;
+		// background-color: #00a3e2;
+		background-image: url(../img/megago/lenth.png);
+		background-size: 50px auto;
+		background-repeat: repeat-y;
+		// height: 100vh;
+	}
+	
 	.megago__lenth {
 		min-width: 50px;
 	}
 	.megago__arrows {
+		margin-bottom: 0;
 		img {
 			width: 49px;
 		}
