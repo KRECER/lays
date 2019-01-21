@@ -5,8 +5,8 @@
   right: 0;
   bottom: 0;
   z-index: 3500;
-  overflow-y: scroll; 
-  
+  overflow-y: scroll;
+
   display: none;
 
   background-color: rgba(35,113,185,.8);
@@ -38,7 +38,7 @@
   background-color: transparent;
   font-size: 50px;
   color: red;
-  
+
   width: 55px;
   height: 55px;
 
@@ -124,11 +124,21 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.profile__list::-webkit-scrollbar {
+  background-color: #f7f7f7;
+  width: 16px;
+}
+
+.profile__list::-webkit-scrollbar-thumb {
+  background-color: #FDCB33;
+  border-radius: 55px;
+}
+
 .profile__item {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  
+
   list-style: none;
 }
 
@@ -179,7 +189,7 @@
     height: 15px;
     right: 30px;
   }
-  
+
 }
 
 @media (max-width: 768px) {
