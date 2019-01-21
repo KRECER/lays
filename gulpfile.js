@@ -133,6 +133,13 @@ gulp.task('copy', () => {
 		.pipe( gulp.dest('build') )
 });
 
+gulp.task('tinypng', function() {
+	return gulp.src('src/img/**/*.{jpg,png}')
+		.pipe( tinyPng('WYFtJYfxrL1VNKh6RmRnhZcV0shrHvpY') )
+		.pipe( gulp.dest('build/img') );
+});
+
+
 gulp.task('build', gulp.series('del', 'copy', 'images', 'sprite', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
 
 gulp.task('dev', gulp.series('build', 'server') );

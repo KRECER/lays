@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: 3500;
-  
+
   display: none;
 
   background-color: rgba(35,113,185,.8);
@@ -36,7 +36,7 @@
   background-color: transparent;
   font-size: 50px;
   color: red;
-  
+
   width: 55px;
   height: 55px;
 
@@ -61,8 +61,18 @@
 
   background-color: #ffffff;
   border: 1px solid #e3e3e3;
-  -webkit-overflow-scrolling: touch;
 }
+
+.rules__content::-webkit-scrollbar {
+  background-color: #f7f7f7;
+  width: 7px;
+}
+
+.rules__content::-webkit-scrollbar-thumb {
+  background-color: #FDCB33;
+  border-radius: 55px;
+}
+
 
 @media (max-width: 768px) {
   .rules__inner {
