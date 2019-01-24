@@ -44,23 +44,22 @@ var height = document.body.getBoundingClientRect().height;
 
 window.addEventListener('DOMContentLoaded', function() {
 
-  Snap.load('img/prizes/megogo-01.svg', function(megogo) {
+  Snap.load('img/prizes/megogo.svg', function(megogo) {
     Snap('#megogo').append(megogo);
 
-    title = $('#title'),
-    icon  = $('#icon'),
-    desc  = $('#desc'),
-    bg    = $('#bg1');
+    titleMegogo = $('#title-megogo'),
+    iconMegogo  = $('#icon-megogo'),
+    descMegogo  = $('#desc-megogo'),
+    bgMegogo    = $('#bg-megogo');
   });
 
   Snap.load('img/prizes/hollywood.svg', function(hollywood) {
     Snap('#hollywood').append(hollywood);
 
-    bgHolly    = $('#bg1-hollywood'),
+    bgHolly    = $('#bg-hollywood'),
     logoHolly    = $('#logo-hollywood'),
     movieHolly   = $('#movie-hollywood'),
     starHolly   = $('#star-hollywood'),
-    shadowHolly   = $('#shadow-hollywood'),
     titleHolly   = $('#title-hollywood'),
     descHolly   = $('#desc-hollywood');
   });
@@ -765,15 +764,17 @@ function scrollDirection(e) {
 
 function animateSecondScreen() {
 
+  if (width < 1200) return;
+
   var tl = new TimelineMax();
 
   tl.set('.prizes__chips', {opacity: 0})
     .set('.prizes__title', {opacity: 0, scale: 0.5})
     .set('.prizes__item--megogo', {x: '-100%'})
-    .set(icon, {opacity: 0})
-    .set(title, {opacity: 0})
-    .set(desc, {opacity: 0})
-    .set(bg, {opacity: 0})
+    .set(iconMegogo, {opacity: 0})
+    .set(titleMegogo, {opacity: 0})
+    .set(descMegogo, {opacity: 0})
+    .set(bgMegogo, {opacity: 0})
     .set('.prizes__item--lg', {x: '100%'})
     .set(iconLg, {opacity: 0})
     .set(titleLg, {opacity: 0})
@@ -793,23 +794,23 @@ function animateSecondScreen() {
     .to('.prizes__title', 0.6, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 1)
     .to('.prizes__item--megogo', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.3)
     .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.6)
-    .to(icon, 1, {opacity: 1}, 1.9)
-    .to(title, 0.3, {opacity: 1}, 2.2)
-    .to(desc, 0.3, {opacity: 1}, 2.5)
-    .to(bg, 1, {opacity: 1}, 2.8)
+    .to(iconMegogo, 1, {opacity: 1}, 1.9)
+    .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
+    .to(descMegogo, 0.3, {opacity: 1}, 2.5)
+    .to(bgMegogo, 0.3, {opacity: 1}, 2.8)
     .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
     .to(iconLg, 0.3, {opacity: 1}, 2.2)
     .to(titleLg, 0.3, {opacity: 1}, 2.5)
     .to(descLg, 0.3, {opacity: 1}, 2.8)
-    .to(bgLg, 1, {opacity: 1}, 3.1)
+    .to(bgLg, 0.3, {opacity: 1}, 3.1)
     .to(logoHolly, 0.4, {opacity: 1}, 2.5)
     .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 2.8)
     .to(movieHolly, 0.4, {opacity: 1}, 3.1)
     .to(titleHolly, 0.4, {opacity: 1}, 3.4)
     .to(descHolly, 0.4, {opacity: 1}, 3.7)
-    .to(bgHolly, 1, {opacity: 1}, 4)
+    .to(bgHolly, 0.3, {opacity: 1}, 4)
     .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
-    .to('.prizes__btn', 1, {color: '#FDE619', repeat: 10}, 4.3);
+    .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, ease: Linear.easeNone}, 4.3);
 }
 
 function parallaxInit() {
