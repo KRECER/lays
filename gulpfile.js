@@ -122,7 +122,7 @@ gulp.task('images', () => {
 		.pipe(imagemin([
 			imagemin.jpegtran({progressive: true}),
 			imagemin.optipng({optimizationLevel: 3}),
-			imagemin.svgo()
+			// imagemin.svgo()
 		]))
 		.pipe( gulp.dest('build/img') )
 		.pipe(browserSync.stream());
