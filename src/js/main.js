@@ -8,13 +8,70 @@ $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
 
+
 // #### general variables ####
 
 var indexPreloader = document.querySelector('#index-preloader');
 var isPopupOpen = false,
     isPopupOverPopup = false;
 
+
+// SVG Layers
+var title,
+    icon,
+    desc,
+    bg;
+
+var titleLg,
+    iconLg,
+    descLg,
+    bgLg;
+
+var bgHolly,
+    logoHolly,
+    movieHolly,
+    starHolly,
+    shadowHolly,
+    titleHolly,
+    descHolly;
+
+// end SVG Layers
+
+var prizesHeader = document.querySelector('.prizes__header');
+var width = document.body.getBoundingClientRect().width;
+
 window.addEventListener('DOMContentLoaded', function() {
+
+  Snap.load('img/prizes/megogo-01.svg', function(megogo) {
+    Snap('#megogo').append(megogo);
+
+    title = $('#title'),
+    icon  = $('#icon'),
+    desc  = $('#desc'),
+    bg    = $('#bg1');
+  });
+
+  Snap.load('img/prizes/hollywood.svg', function(hollywood) {
+    Snap('#hollywood').append(hollywood);
+
+    bgHolly    = $('#bg1-hollywood'),
+    logoHolly    = $('#logo-hollywood'),
+    movieHolly   = $('#movie-hollywood'),
+    starHolly   = $('#star-hollywood'),
+    shadowHolly   = $('#shadow-hollywood'),
+    titleHolly   = $('#title-hollywood'),
+    descHolly   = $('#desc-hollywood');
+  });
+
+  Snap.load('img/prizes/lg.svg', function(lg) {
+    Snap('#lg').append(lg);
+
+    titleLg = $('#title-lg'),
+    iconLg  = $('#icon-lg'),
+    descLg  = $('#desc-lg'),
+    bgLg    = $('#bg1-lg');
+  });
+
   isAuth();
 
   var rulesModal = document.querySelector('.rules'),
@@ -682,9 +739,13 @@ function scrollDirection(e) {
     if (document.getElementById('bottom-block') && (reMain.test(window.location.pathname) || reRoot.test(window.location.pathname)) ) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('bottom-block').classList.add('show');
+
+      animateSecondScreen();
+
     } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/hollywood');
       document.getElementById('js-scroll-hollywood').classList.add('show');
+
     }
   } else {
     if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
@@ -696,4 +757,67 @@ function scrollDirection(e) {
       document.getElementById('bottom-block').classList.remove('show');
     }
   }
+}
+
+
+
+function animateSecondScreen() {
+
+  var tl = new TimelineMax();
+
+  tl.set('.prizes__chips', {opacity: 0})
+    .set('.prizes__title', {opacity: 0, scale: 0.5})
+    .set('.prizes__item--megogo', {x: '-100%'})
+    .set(icon, {opacity: 0})
+    .set(title, {opacity: 0})
+    .set(desc, {opacity: 0})
+    .set(bg, {opacity: 0})
+    .set('.prizes__item--lg', {x: '100%'})
+    .set(iconLg, {opacity: 0})
+    .set(titleLg, {opacity: 0})
+    .set(descLg, {opacity: 0})
+    .set(bgLg, {opacity: 0})
+    .set('.prizes__item--hollywood', {y: '100%'})
+    .set(logoHolly, {opacity: 0})
+    .set(starHolly, {opacity: 0, rotation: 200})
+    .set(movieHolly, {opacity: 0})
+    .set(titleHolly, {opacity: 0})
+    .set(descHolly, {opacity: 0})
+    .set(bgHolly, {opacity: 0})
+    .set('.prizes__btn', {marginBottom: '-50'});
+
+  tl.to('.prizes__chips', 1, {opacity: 1, ease: Back.easeOut.config(1.7)}, 0.6)
+    .to('.prizes__title', 0.6, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 1)
+    .to('.prizes__item--megogo', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.3)
+    .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.6)
+    .to(icon, 1, {opacity: 1}, 1.9)
+    .to(title, 0.3, {opacity: 1}, 2.2)
+    .to(desc, 0.3, {opacity: 1}, 2.5)
+    .to(bg, 1, {opacity: 1}, 2.8)
+    .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 3.1)
+    .to(iconLg, 0.3, {opacity: 1}, 3.4)
+    .to(titleLg, 0.3, {opacity: 1}, 3.7)
+    .to(descLg, 0.3, {opacity: 1}, 4)
+    .to(bgLg, 2, {opacity: 1}, 4.3)
+    .to(logoHolly, 0.4, {opacity: 1}, 4.8)
+    .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 5.1)
+    .to(movieHolly, 0.4, {opacity: 1}, 5.4)
+    .to(titleHolly, 0.4, {opacity: 1}, 5.7)
+    .to(descHolly, 0.4, {opacity: 1}, 6)
+    .to(bgHolly, 2.5, {opacity: 1, ease: Back.easeOut.config(1.7)}, 6.3)
+    .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 6.6);
+}
+
+function parallaxInit() {
+  prizesHeader.addEventListener('mousemove', parallaxIt);
+}
+
+var messiImg = prizesHeader.querySelectorAll('img');
+
+function parallaxIt(e) {
+  var relX = (e.pageX - width / 2) / (width/2);
+
+  if (width < 1000) return;
+
+  TweenLite.to(messiImg[1], 0.5, { x: relX * 5, rotation: 0.0001 }, 0.3);
 }

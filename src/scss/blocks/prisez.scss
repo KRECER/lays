@@ -1,15 +1,21 @@
 .prizes {
   height: 100vh;
+	background-color: #fde619;
 }
 .prizes__header {
+  position: relative;
   display: flex;
   min-height: 40vh;
+}
 
-  background-image: url("../img/prizes/chips.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 84%;
-  background-color: #fde619;
+.prizes__chips {
+	position: absolute;
+	top: 10%;
+  left: 13%;
+
+  width: 80%;
+
+  object-fit: cover;
 }
 
 .prizes__title {
@@ -33,7 +39,7 @@
 	// height: 250px;
 
   &--megogo {
-    background: #00aa4f url("../img/prizes/megogo.svg") no-repeat center;
+    // background: #00aa4f url("../img/prizes/megogo.svg") no-repeat center;
     background-size: 100% 100%;
   }
 
@@ -43,12 +49,12 @@
 		justify-content: flex-end;
     flex-basis: 10%;
 
-    background: #ed1d24 url("../img/prizes/hollywood.svg") no-repeat center;
+    // background: #ed1d24 url("../img/prizes/hollywood.svg") no-repeat center;
     background-size: 100% 100%;
   }
 
   &--lg {
-    background: #00a3e2 url("../img/prizes/lg.svg") no-repeat center;
+    // background: #00a3e2 url("../img/prizes/lg.svg") no-repeat center;
     background-size: 100% 100%;
   }
 }
@@ -114,7 +120,7 @@
     background-image: url("../img/prizes/chips-mobile.png");
     background-size: cover;
 	}
-	
+
 	.prizes__title {
     width: 75vw;
 		height: auto;

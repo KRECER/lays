@@ -11,3 +11,4 @@ build/
 npm-debug.*
 source/css/*.css
 Thumbs.db
+.gulp/
