@@ -39,8 +39,7 @@
 	// height: 250px;
 
   &--megogo {
-    // background: #00aa4f url("../img/prizes/megogo.svg") no-repeat center;
-    background-size: 100% 100%;
+    background-color: #00AA4F;
   }
 
   &--hollywood {
@@ -49,34 +48,34 @@
 		justify-content: flex-end;
     flex-basis: 10%;
 
-    // background: #ed1d24 url("../img/prizes/hollywood.svg") no-repeat center;
-    background-size: 100% 100%;
+    background-color: #ed1d24;
   }
 
   &--lg {
-    // background: #00a3e2 url("../img/prizes/lg.svg") no-repeat center;
-    background-size: 100% 100%;
+    background-color: darken(#00a3e2, 10%);
   }
 }
 
 .prizes__btn {
 	position: relative;
-  text-align: center;
+  // text-align: center;
   text-decoration: none;
 	display: block;
 	margin: 0 auto;
 	width: 200px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	margin-bottom: 30px;
+  margin-bottom: 30px;
+  
 	text-transform: uppercase;
 	color: #fff;
-	font-size: 12px;
+  font-size: 12px;
+  text-align: center;
 
 	background-color: #ed1d24;
 	outline: 0;
 	border: 3px solid #fcc403;
-	border-radius: 25px;
+  border-radius: 25px;
 
   &::after {
     content: '';
@@ -89,6 +88,30 @@
 
     border: 3px solid #fde619;
     border-radius: inherit;
+  }
+
+  svg {
+    right: 20px;
+
+    display: none;
+    height: 10px;
+  }
+
+  &:hover {
+    padding-left: 27px;
+
+    text-align: left;
+    color: #ed1d24 !important;
+    font-weight: 700;
+
+    background-color: #ffffff;
+
+    svg {
+      display: block;
+
+      fill: #ED1D24;
+    }
+
   }
 }
 

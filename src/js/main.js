@@ -37,8 +37,10 @@ var bgHolly,
 
 // end SVG Layers
 
-var prizesHeader = document.querySelector('.prizes__header');
+var prizes = document.querySelector('.prizes');
+var prizesBtn = document.querySelector('.prizes__btn');
 var width = document.body.getBoundingClientRect().width;
+var height = document.body.getBoundingClientRect().height;
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -69,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function() {
     titleLg = $('#title-lg'),
     iconLg  = $('#icon-lg'),
     descLg  = $('#desc-lg'),
-    bgLg    = $('#bg1-lg');
+    bgLg    = $('#bg-lg');
   });
 
   isAuth();
@@ -784,7 +786,8 @@ function animateSecondScreen() {
     .set(titleHolly, {opacity: 0})
     .set(descHolly, {opacity: 0})
     .set(bgHolly, {opacity: 0})
-    .set('.prizes__btn', {marginBottom: '-50'});
+    .set('.prizes__btn', {marginBottom: '-50'})
+    .set('.prizes__btn', {color: '#ffffff'});
 
   tl.to('.prizes__chips', 1, {opacity: 1, ease: Back.easeOut.config(1.7)}, 0.6)
     .to('.prizes__title', 0.6, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 1)
@@ -794,30 +797,32 @@ function animateSecondScreen() {
     .to(title, 0.3, {opacity: 1}, 2.2)
     .to(desc, 0.3, {opacity: 1}, 2.5)
     .to(bg, 1, {opacity: 1}, 2.8)
-    .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 3.1)
-    .to(iconLg, 0.3, {opacity: 1}, 3.4)
-    .to(titleLg, 0.3, {opacity: 1}, 3.7)
-    .to(descLg, 0.3, {opacity: 1}, 4)
-    .to(bgLg, 2, {opacity: 1}, 4.3)
-    .to(logoHolly, 0.4, {opacity: 1}, 4.8)
-    .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 5.1)
-    .to(movieHolly, 0.4, {opacity: 1}, 5.4)
-    .to(titleHolly, 0.4, {opacity: 1}, 5.7)
-    .to(descHolly, 0.4, {opacity: 1}, 6)
-    .to(bgHolly, 2.5, {opacity: 1, ease: Back.easeOut.config(1.7)}, 6.3)
-    .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 6.6);
+    .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
+    .to(iconLg, 0.3, {opacity: 1}, 2.2)
+    .to(titleLg, 0.3, {opacity: 1}, 2.5)
+    .to(descLg, 0.3, {opacity: 1}, 2.8)
+    .to(bgLg, 1, {opacity: 1}, 3.1)
+    .to(logoHolly, 0.4, {opacity: 1}, 2.5)
+    .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 2.8)
+    .to(movieHolly, 0.4, {opacity: 1}, 3.1)
+    .to(titleHolly, 0.4, {opacity: 1}, 3.4)
+    .to(descHolly, 0.4, {opacity: 1}, 3.7)
+    .to(bgHolly, 1, {opacity: 1}, 4)
+    .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
+    .to('.prizes__btn', 1, {color: '#FDE619', repeat: 10}, 4.3);
 }
 
 function parallaxInit() {
-  prizesHeader.addEventListener('mousemove', parallaxIt);
+  prizes.addEventListener('mousemove', parallaxIt);
 }
 
-var messiImg = prizesHeader.querySelectorAll('img');
+var messiImg = prizes.querySelectorAll('img');
 
 function parallaxIt(e) {
   var relX = (e.pageX - width / 2) / (width/2);
+  var relY = (e.pageY - height / 2) / (height/2);
 
   if (width < 1000) return;
 
-  TweenLite.to(messiImg[1], 0.5, { x: relX * 5, rotation: 0.0001 }, 0.3);
+  TweenLite.to(messiImg[1], 0.5, { x: relX * 10, y: relY * 10, rotation: 0.0001 }, 0.3);
 }
