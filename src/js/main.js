@@ -43,7 +43,6 @@ var width = document.body.getBoundingClientRect().width;
 var height = document.body.getBoundingClientRect().height;
 
 window.addEventListener('DOMContentLoaded', function() {
-
   Snap.load('img/prizes/megogo.svg', function(megogo) {
     Snap('#megogo').append(megogo);
 
@@ -74,6 +73,29 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 
   isAuth();
+
+  CSSPlugin.defaultTransformPerspective = 2000;
+//transformPerspective:500
+/*TweenMax.from("#box1", 0.8, { rotationY:90, transformOrigin:"0% 50%", ease:Quint.easeOut})*/
+
+var tl = new TimelineMax();
+
+tl.set('.room__sofa', {opacity: 0, rotationX: -80})
+  .set('.room__people', {opacity: 0, rotationX: -40})
+  .set('.page-header__bg', {opacity: 0})
+  .set('.instruction', {x: '-100%'})
+  .set('.menu', {x: '-100%'});
+
+tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'}, 1)
+  .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'}, 1.6)
+  .to('.page-header__bg', 0.6, {opacity: 1}, 2.1)
+  .to('.instruction', 1, {x: '0%'}, 2.4)
+  .staggerFrom('.instruction__item img, .instruction__icon', 2, {opacity: 0}, 0.1, '-=0.5')
+  .to('.menu', 0.3, {x: '0%'}, 3.9)
+  .staggerFrom('.logan-fhd, .logo-lays, .hamburger-menu-icon', 0.3, {opacity: 0}, 0.3);
+
+
+
 
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),

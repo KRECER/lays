@@ -1,10 +1,8 @@
 .page-header {
-  height: 100vh;
   position: relative;
-  background-repeat:  no-repeat;
-  background-size: 694vh 241%;
-  background-image: url('../img/wallRedTextMini.png');
-  background-position: center;
+
+  height: 100vh;
+
   background-color: #ffdf0c;
 
   @media screen and (max-width: 182vh) {
@@ -35,6 +33,45 @@
   }
   @media screen and (max-height: 400px) {
     margin-top: -20%;
+  }
+}
+
+.page-header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 100vh;
+
+  background-repeat:  no-repeat;
+  background-size: 694vh 241%;
+  background-image: url('../img/wallRedTextMini.png');
+  background-position: center;
+
+  @media screen and (max-width: 182vh) {
+    background-size: auto 135vw;
+    background-position: center;
+  }
+  /*//mob Bohdana , (max-width: 567px) */
+  @media (max-aspect-ratio: 3/3), (max-width: 567px) {
+    /*iphone 5,6 */
+    background-image: url('../img/wallMobailYellow.png');
+    background-size: 200vw auto;
+    background-position-y: top;
+
+    @media screen and (max-height: $maxHightTab){
+    /*ipad */
+      background-size: 135vh auto;
+    }
+    @media screen and (min-height: $minHightIphX){
+    /*iphone 10 */
+
+      background-size: 215vw auto;
+    }
+  }
+  @media screen and (max-height: 400px) {
+
   }
 }
 

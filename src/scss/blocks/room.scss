@@ -8,6 +8,7 @@
   @media (max-aspect-ratio:3/3) {
     width: 100%;
   }
+
   &__wrapper {
     position: absolute;
     left: -2.2%;
@@ -15,6 +16,7 @@
     width: 72%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    perspective: 900px;
 
     @media screen and (max-width: 182vh) {
       top: 46vh;
@@ -55,6 +57,11 @@
     width: 100%;
     padding-top: 10%;
   }
+
+  .softUp {
+    transform-origin: 50% 100%;
+  }
+
   &__people{
     display: block;
     position: absolute;
