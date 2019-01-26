@@ -1,187 +1,253 @@
 .page-header__btn {
-    height: 38vh;
-    width: 27%;
-    position: absolute;
-    right: 11%;
-    top: 63%;
-    // pointer-events: none;
-    @media screen and (max-width: 169vh) {
-      top: 59vh;  
-    }
-    //mob Bohdana , (max-width: 567px) 
+  position: absolute;
+  top: 63%;
+  right: 11%;
 
-  	@media (max-aspect-ratio: 3/3), (max-width: 567px){
-      z-index:2;
-      width: 65%;
-      height: 25vh;
-      position: absolute;
-      left: 50%;
-      right: auto;
-      top: auto;
-      bottom: -13%;
-      transform: translateX(-50%);
-      @media screen and (max-height: $maxHightTab){ 
-				width: 57vw; 
-				//mob Bohdana
-				width: 45vh; 
-      	height: 17vh;
-      }
-      @media screen and (min-height: $minHightIphX){
-      	height: 20vh;
-      	width: 65%;
-      	bottom: 0;
-      }
-    }
-
-	.find-сode{
-		font-family: "Gotham Pro Medium";
-		color: #ed1d24;
-		font-size: 1.2vw;
-		width: 100%;
-		text-align: center;	
-		margin: .5vw 0 0;
-		text-transform: uppercase;
-		&:hover{
-			cursor: pointer;
-		}
-		@media (max-aspect-ratio:3/3){
-	      font-size: 3.8vw;
-
-	      @media screen and (max-height: $maxHightTab){
-	        font-size: 1.8vh;
-	      }
-	    }
-	}    
-}
-.btn {
-	position: relative;
-	display: block;
-	border: 0.5vh solid #fcc403;
-	border-radius: 100px;
-	box-shadow: 0px 0px 50px 1px rgba(0,0,0,.7);
-	overflow: hidden;
-	pointer-events: auto;
-	padding-top: 16%;
-
-	&::before{
-		content:'';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		border: 0.5vh solid #fde619;
-		border-radius: 100px;
-		pointer-events: none;
-		background: #ed1d24;
-		z-index: 4;
-		@media (max-aspect-ratio:3/3){
-			border: 0.8vw solid #fde619;
-		}
+  width: 27%;
+  height: 38vh;
+  // pointer-events: none;
+  @media screen and (max-width: 169vh) {
+    top: 59vh;
   }
-	&::after {
-		content: 'реєструй код';
-		position: absolute;
-		left: 0;
-		top: 0;
-		z-index: 4;
-		color: #fff;
-		width: 100%;
-		height: 100%;
-		font-family: "Gotham Pro Bold";	
-		font-weight: 700;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 1.5vw;
-		display: flex;
-		align-items: center;
-		justify-content: center;
- 		@media (max-aspect-ratio:3/3){
-			font-size: 3.5vw;
-		}	
-	}
+  //mob Bohdana , (max-width: 567px)
+
+  @media (max-aspect-ratio: 3/3), (max-width: 567px) {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: -13%;
+    left: 50%;
+    z-index: 2;
+
+    width: 65%;
+    height: 25vh;
+
+    transform: translateX(-50%);
+    @media screen and (max-height: $maxHightTab) {
+      width: 57vw;
+      //mob Bohdana
+      width: 45vh;
+      height: 17vh;
+    }
+    @media screen and (min-height: $minHightIphX) {
+      bottom: 0;
+
+      width: 65%;
+      height: 20vh;
+    }
+  }
+
+  .find-сode {
+    width: 100%;
+    margin: 0.5vw 0 0;
+
+    font-size: 1.2vw;
+    font-family: "Gotham Pro Medium";
+    text-align: center;
+    color: #ed1d24;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    @media (max-aspect-ratio:3/3) {
+      font-size: 3.8vw;
+
+      @media screen and (max-height: $maxHightTab) {
+        font-size: 1.8vh;
+      }
+    }
+
+  }
+}
+
+.btn {
+  position: relative;
+
+  display: block;
+  padding-top: 16%;
+  overflow: hidden;
+
+  border: 0.5vh solid #fcc403;
+  border-radius: 100px;
+  box-shadow: 0 0 50px 1px rgba(0,0,0,0.7);
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+
+    width: 100%;
+    height: 100%;
+
+    background: #ed1d24;
+    border: 0.5vh solid #fde619;
+    border-radius: 100px;
+
+    pointer-events: none;
+
+    @media (max-aspect-ratio:3/3) {
+      border: 0.8vw solid #fde619;
+    }
+
+  }
+
+  &::after {
+    content: "реєструй код";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    font-weight: 700;
+    font-size: 1.5vw;
+    font-family: "Gotham Pro Bold";
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media (max-aspect-ratio:3/3) {
+      font-size: 3.5vw;
+    }
+
+  }
+}
+
+.btn:hover::before {
+  background-color: #ffffff;
+  color: red;
+}
+
+.btn:hover::after {
+  color: red;
+}
+
+.btn:hover svg {
+  fill: red;
 }
 
 .btn__icon {
-	position: absolute;
-	left: 1.5%;
-	top: 50%;
-	transform: translateY(-50%);
-	z-index: 4;
-	fill: #fff;
-	width: 13.2%;
- 	&:hover{
-		cursor: pointer;
-	}  
+  position: absolute;
+  top: 50%;
+  left: 1.5%;
+  z-index: 4;
+
+  width: 13.2%;
+
+  transform: translateY(-50%);
+
+  fill: #ffffff;
+
+  &:hover {
+    cursor: pointer;
+  }
+
 }
 .btn__input {
-	display: block;
-	background: #fff;
-	color: #000;
-	font-size: 1.8vw;
-	padding: 0 10px;
-	outline: none;
-	border: none;
-	border-bottom: 0.3vh solid #ed1d24;
-	border-radius: 0;
-	position: absolute;
-	bottom: 10%;
-	left: 0;
-	height: 80%;
-	width: 83%;
-	transform: translateX(-100%);
-	pointer-events: none;
-	z-index: 4; 
-	text-transform:uppercase;
- 	@media (max-aspect-ratio:3/3){
-		font-size: 5vw;
-	}
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  z-index: 4;
+
+  display: block;
+  width: 83%;
+  height: 80%;
+  padding: 0 10px;
+
+  font-size: 1.8vw;
+  color: #000000;
+  text-transform: uppercase;
+
+  background: #ffffff;
+  border: none;
+  border-bottom: 0.3vh solid #ed1d24;
+  border-radius: 0;
+  outline: none;
+  transform: translateX(-100%);
+
+  pointer-events: none;
+
+  @media (max-aspect-ratio:3/3) {
+    font-size: 5vw;
+  }
+
 }
 
 @keyframes rotationSvg {
-	from {transform: rotate(0deg)}
-	to {transform: rotate(360deg)}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
-.btn-animation{
-  background:#fcc403;
+.btn-animation {
+  background: #fcc403;
+
   pointer-events: none;
-	&:after{
-		background: #fff;
-		color: #ed1d24;
-		z-index: 3;
-   	left: 0;
-	}
-	&::before{
-		z-index: 5;
-		background: transparent;
-	}
+  &:after {
+    left: 0;
+    z-index: 3;
 
- 	@media (max-aspect-ratio:3/3){
-		//for Safari
-		z-index: 10;
-	}
-	.animationSvg{
-		transform-origin: center;
-		animation: rotationSvg 1s linear;
-	}
-	.btn__input{
-		background:#fff;
-    	transition: transform 1s linear;
-		transform: translateX(0);
-		left: 8%;
-   		pointer-events: auto; 
-	}
-	.btn__icon{
-		fill: #ed1d24;
-		left: 85%;
-   	transition: left 1s linear;    
-   	pointer-events: auto;
-	}	
-	&.code--error{
-		border-color: #ed1d24;
-	}
+    color: #ed1d24;
+
+    background: #ffffff;
+  }
+  &::before {
+    z-index: 4;
+
+    background: transparent;
+  }
+
+  @media (max-aspect-ratio:3/3) {
+    //for Safari
+    z-index: 10;
+  }
+  .animationSvg {
+    transform-origin: center;
+    fill: red;
+
+    animation: rotationSvg 1s linear;
+  }
+
+  .btn__input {
+    left: 8%;
+
+    background: #ffffff;
+    transform: translateX(0);
+
+    transition: transform 1s linear;
+
+    pointer-events: auto;
+  }
+
+  .btn__icon {
+    left: 85%;
+
+    transition: left 1s linear;
+
+    pointer-events: auto;
+
+    fill: #ed1d24;
+  }
+
+  &.code--error {
+    border-color: #ed1d24;
+  }
 }
-

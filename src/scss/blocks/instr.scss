@@ -1,3 +1,4 @@
+
 .arrow {
   display: none;
 
@@ -52,8 +53,6 @@
 
     width: 20px;
     height: 20%;
-
-    fill: #ffffff;
   }
 
   &__steps {
@@ -192,6 +191,13 @@
     }
   }
 }
+
+svg path.st3 {
+  stroke: #fff;
+  fill: #fff;
+}
+
+
 .slideshow-container {
   position: relative;
 

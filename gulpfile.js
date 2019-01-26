@@ -125,7 +125,7 @@ gulp.task('images', () => {
 		.pipe(imagemin([
 			imagemin.jpegtran({progressive: true}),
 			imagemin.optipng({optimizationLevel: 3}),
-			// imagemin.svgo()
+			// imagemin.svgo({})
 		]))
 		.pipe( gulp.dest('build/img') )
 		.pipe(browserSync.stream());
@@ -169,6 +169,6 @@ gulp.task('sprite:svg', function() {
 });
 
 
-gulp.task('build', gulp.series('del', 'copy', 'images', 'sprite:svg', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
+gulp.task('build', gulp.series('del', 'copy', 'sprite', 'images', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
 
 gulp.task('dev', gulp.series('build', 'server') );

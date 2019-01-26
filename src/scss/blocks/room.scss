@@ -143,7 +143,7 @@
         width: 100%;
         transform: translateY(-100%);
         opacity: 0;
-        animation: light 10s linear 2.4s infinite;
+        animation: light 10s linear 5.7s infinite;
         @media (max-aspect-ratio:3/3){
            @media screen and (min-height: $minHightIphX){
             height: 13vh;
@@ -171,11 +171,13 @@
     opacity: 0;
     &--couple {
       animation-name:couple;
+      animation-delay: 6s;
       left: 0;
     }
 
     &--superman {
       animation-name:superman;
+      animation-delay: 6s;
       top: -11%;
       left: 50%;
       width: 45%;
@@ -184,6 +186,7 @@
 
     &--alien {
       animation-name:ufo;
+      animation-delay: 6s;
       right: 9%;
     }
   }
