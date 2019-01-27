@@ -107,9 +107,32 @@ function animatePageHeader() {
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
 
-  if(width > 1000) {
-    animatePageHeader();
+  if(width > 1200) {
+    // animatePageHeader();
   }
+
+  var toggleMode = document.querySelector('.menu__toggle-mode');
+  var pageHeaderBg = document.querySelector('.page-header__bg');
+  var yellowBg = pageHeaderBg.style.backgroundImage;
+  var sofa = document.querySelector('.room__sofa');
+  var peopleSofa = document.querySelector('.room__people');
+  var shadow = document.querySelector('.tv__shadow');
+  var couple = document.querySelector('.room__shadow--couple');
+  var superman = document.querySelector('.room__shadow--superman');
+  var alien = document.querySelector('.room__shadow--alien');
+
+  toggleMode.addEventListener('click', function(event) {
+    pageHeaderBg.classList.toggle('page-header__bg--night');
+    sofa.setAttribute('src', '/img/sofa_cut_blue.png');
+    peopleSofa.setAttribute('src', '/img/people_blueShadow.png');
+    shadow.classList.toggle('tv__shadow--blue');
+    couple.setAttribute('src', '/img/blueScreen/couple.png');
+    superman.setAttribute('src', '/img/blueScreen/superman.png');
+    alien.setAttribute('src', '/img/blueScreen/ufo.png');
+    $('.instruction').css({
+      boxShadow: '0 0 15px rgba(0,0,0,0.3)'
+    });
+  });
 
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
@@ -724,7 +747,6 @@ function openProfile() {
       for (var i = 0; i < data.codes.length; i++) {
         var code = data.codes[i];
         codesHtml += '<div class="profile__item">' + '<div class="profile__left">' + '<div class="profile__code">' + code.code + "</div>" + '<div class="profile__date">' + code.date + "</div>" +  "</div>" + '<div class="profile__right">' + '<div class="profile__prize">' + code.prize + '</div>' +  "</div>" + '</div>';
-        // codesHtml += '<div class="profile__item">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</div>';
       }
       $('.profile__list').html(codesHtml);
       modalPr.style.display = 'block';
@@ -799,7 +821,7 @@ function scrollDirection(e) {
 
 
 function animateSecondScreen() {
-  if (width > 1000) {
+  if (width > 1200) {
     var tl = new TimelineMax();
 
     tl.set('.prizes__chips', {opacity: 0})

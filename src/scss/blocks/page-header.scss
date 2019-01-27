@@ -49,6 +49,10 @@
   background-image: url('../img/wallRedTextMini.png');
   background-position: center;
 
+  &--night {
+    background-image: url('../img/night-mode.png');
+  }
+
   @media screen and (max-width: 182vh) {
     background-size: auto 135vw;
     background-position: center;
