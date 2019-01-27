@@ -34,81 +34,82 @@ var bgHolly,
     shadowHolly,
     titleHolly,
     descHolly;
-
 // end SVG Layers
+
+Snap.load('img/prizes/megogo.svg', function(megogo) {
+  Snap('#megogo').append(megogo);
+
+  titleMegogo = $('#title-megogo'),
+  iconMegogo  = $('#icon-megogo'),
+  descMegogo  = $('#desc-megogo'),
+  bgMegogo    = $('#bg-megogo');
+});
+
+Snap.load('img/prizes/hollywood.svg', function(hollywood) {
+  Snap('#hollywood').append(hollywood);
+
+  bgHolly    = $('#bg-hollywood'),
+  logoHolly    = $('#logo-hollywood'),
+  movieHolly   = $('#movie-hollywood'),
+  starHolly   = $('#star-hollywood'),
+  titleHolly   = $('#title-hollywood'),
+  descHolly   = $('#desc-hollywood');
+});
+
+Snap.load('img/prizes/lg.svg', function(lg) {
+  Snap('#lg').append(lg);
+
+  titleLg = $('#title-lg'),
+  iconLg  = $('#icon-lg'),
+  descLg  = $('#desc-lg'),
+  bgLg    = $('#bg-lg');
+});
 
 var prizes = document.querySelector('.prizes');
 var prizesBtn = document.querySelector('.prizes__btn');
 var width = document.body.getBoundingClientRect().width;
 var height = document.body.getBoundingClientRect().height;
 
+
+function animatePageHeader() {
+  CSSPlugin.defaultTransformPerspective = 2000;
+
+  var tl = new TimelineLite();
+
+  tl.set('.room__sofa', {opacity: 0, rotationX: -80})
+    .set('.room__people', {opacity: 0, rotationX: -40})
+    .set('.page-header__bg', {opacity: 0})
+    .set('.instruction', {x: '-100%'})
+    .set('.menu', {x: '-100%'})
+    .set('.logan-fhd', {opacity: 0})
+    .set('.logo-lays', {opacity: 0})
+    .set('.hamburger-menu-icon', {opacity: 0})
+    .set('.page-header__btn', {x: '+800', opacity: 0})
+    .set('.room__tv', {y: '100%', opacity: 0})
+    .set('.tv__scroll-btn', {opacity: 0})
+    .set('.widget-button', {opacity: 0});
+
+  tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'}, 1)
+    .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'}, 1.6)
+    .to('.page-header__bg', 0.6, {opacity: 1}, 2.1)
+    .to('.instruction', 1, {x: '0%'}, 2.6)
+    .staggerFrom('.instruction__item img, .instruction__icon', 2, {opacity: 0}, 0.1, '-=0.5')
+    .to('.menu', 0.3, {x: '0%', ease: Elastic.easeOut.config(1.3, 0.5)}, 3.8)
+    .to('.logan-fhd', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.2)
+    .to('.logo-lays', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.5)
+    .to('.hamburger-menu-icon', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.4)
+    .to('.page-header__btn', 0.6, {x: '20', opacity: 1, ease: Elastic.easeOut.config(1.3, 0.5)}, 3.9)
+    .to('.room__tv', 0.6, {y: '0%', opacity: 1, ease: Elastic.easeOut.config(0.6, 0.6)}, 4.9)
+    .to('.tv__scroll-btn', 0.6, {opacity: 1}, 5.6)
+    .to('.widget-button', 1, {opacity: 1}, 5.9);
+}
+
 window.addEventListener('DOMContentLoaded', function() {
-  Snap.load('img/prizes/megogo.svg', function(megogo) {
-    Snap('#megogo').append(megogo);
-
-    titleMegogo = $('#title-megogo'),
-    iconMegogo  = $('#icon-megogo'),
-    descMegogo  = $('#desc-megogo'),
-    bgMegogo    = $('#bg-megogo');
-  });
-
-  Snap.load('img/prizes/hollywood.svg', function(hollywood) {
-    Snap('#hollywood').append(hollywood);
-
-    bgHolly    = $('#bg-hollywood'),
-    logoHolly    = $('#logo-hollywood'),
-    movieHolly   = $('#movie-hollywood'),
-    starHolly   = $('#star-hollywood'),
-    titleHolly   = $('#title-hollywood'),
-    descHolly   = $('#desc-hollywood');
-  });
-
-  Snap.load('img/prizes/lg.svg', function(lg) {
-    Snap('#lg').append(lg);
-
-    titleLg = $('#title-lg'),
-    iconLg  = $('#icon-lg'),
-    descLg  = $('#desc-lg'),
-    bgLg    = $('#bg-lg');
-  });
-
   isAuth();
 
-  CSSPlugin.defaultTransformPerspective = 2000;
-//transformPerspective:500
-/*TweenMax.from("#box1", 0.8, { rotationY:90, transformOrigin:"0% 50%", ease:Quint.easeOut})*/
-
-var tl = new TimelineLite();
-
-tl.set('.room__sofa', {opacity: 0, rotationX: -80})
-  .set('.room__people', {opacity: 0, rotationX: -40})
-  .set('.page-header__bg', {opacity: 0})
-  .set('.instruction', {x: '-100%'})
-  .set('.menu', {x: '-100%'})
-  .set('.logan-fhd', {opacity: 0})
-  .set('.logo-lays', {opacity: 0})
-  .set('.hamburger-menu-icon', {opacity: 0})
-  .set('.page-header__btn', {x: '+800', opacity: 0})
-  .set('.room__tv', {y: '100%', opacity: 0})
-  .set('.tv__scroll-btn', {opacity: 0})
-  .set('.widget-button', {opacity: 0});
-
-tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'}, 1)
-  .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'}, 1.6)
-  .to('.page-header__bg', 0.6, {opacity: 1}, 2.1)
-  .to('.instruction', 1, {x: '0%'}, 2.6)
-  .staggerFrom('.instruction__item img, .instruction__icon', 2, {opacity: 0}, 0.1, '-=0.5')
-  .to('.menu', 0.3, {x: '0%', ease: Elastic.easeOut.config(1.3, 0.5)}, 3.8)
-  .to('.logan-fhd', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.2)
-  .to('.logo-lays', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.5)
-  .to('.hamburger-menu-icon', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.4)
-  .to('.page-header__btn', 0.6, {x: '20', opacity: 1, ease: Elastic.easeOut.config(1.3, 0.5)}, 3.9)
-  .to('.room__tv', 0.6, {y: '0%', opacity: 1, ease: Elastic.easeOut.config(0.6, 0.6)}, 4.9)
-  .to('.tv__scroll-btn', 0.6, {opacity: 1}, 5.6)
-  .to('.widget-button', 1, {opacity: 1}, 5.9);
-
-
-
+  if(width > 1000) {
+    animatePageHeader();
+  }
 
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
@@ -798,12 +799,10 @@ function scrollDirection(e) {
 
 
 function animateSecondScreen() {
+  if (width > 1000) {
+    var tl = new TimelineMax();
 
-  if (width < 1200) return;
-
-  var tl = new TimelineMax();
-
-  tl.set('.prizes__chips', {opacity: 0})
+    tl.set('.prizes__chips', {opacity: 0})
     .set('.prizes__title', {opacity: 0, scale: 0.5})
     .set('.prizes__item--megogo', {x: '-100%'})
     .set(iconMegogo, {opacity: 0})
@@ -824,6 +823,7 @@ function animateSecondScreen() {
     .set(bgHolly, {opacity: 0})
     .set('.prizes__btn', {marginBottom: '-50'})
     .set('.prizes__btn', {color: '#ffffff'});
+
 
   tl.to('.prizes__chips', 1, {opacity: 1, ease: Back.easeOut.config(1.7)}, 0.6)
     .to('.prizes__title', 0.6, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 1)
@@ -846,6 +846,7 @@ function animateSecondScreen() {
     .to(bgHolly, 0.3, {opacity: 1}, 4)
     .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
     .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, ease: Linear.easeNone}, 4.3);
+  }
 }
 
 function parallaxInit() {
