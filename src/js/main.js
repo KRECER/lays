@@ -87,7 +87,9 @@ function animatePageHeader() {
     .set('.page-header__btn', {x: '+800', opacity: 0})
     .set('.room__tv', {y: '100%', opacity: 0})
     .set('.tv__scroll-btn', {opacity: 0})
-    .set('.widget-button', {opacity: 0});
+    .set('.widget-button', {opacity: 0})
+    .set('.btn__icon', {fill: '#fff'})
+    .set('.tv__scroll-btn svg', {y: '+=0%'});
 
   tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'}, 1)
     .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'}, 1.6)
@@ -101,14 +103,17 @@ function animatePageHeader() {
     .to('.page-header__btn', 0.6, {x: '20', opacity: 1, ease: Elastic.easeOut.config(1.3, 0.5)}, 3.9)
     .to('.room__tv', 0.6, {y: '0%', opacity: 1, ease: Elastic.easeOut.config(0.6, 0.6)}, 4.9)
     .to('.tv__scroll-btn', 0.6, {opacity: 1}, 5.6)
-    .to('.widget-button', 1, {opacity: 1}, 5.9);
+    .to('.widget-button', 1, {opacity: 1}, 5.9)
+    .to('.btn__icon', 1, {fill: 'yellow', repeat: -1, yoyo: true}, 7)
+    .to('.tv__scroll-btn svg', 0.3, {y: '+=15%', yoyo:true, repeat: -1}, 6.7);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
 
   if(width > 1200) {
-    // animatePageHeader();
+    animatePageHeader();
+
   }
 
   var toggleMode = document.querySelector('.menu__toggle-mode');
@@ -124,7 +129,7 @@ window.addEventListener('DOMContentLoaded', function() {
   toggleMode.addEventListener('click', function(event) {
     pageHeaderBg.classList.toggle('page-header__bg--night');
     shadow.classList.toggle('tv__shadow--blue');
-    $('.instruction').css({boxShadow: '0 0 15px rgba(0,0,0,0.3)'});
+    // $('.instruction').css({boxShadow: '0 0 15px rgba(0,0,0,0.3)'});
 
     if (this.checked) {
       sofa.setAttribute('src', '/img/sofa_cut_blue.png');
@@ -863,20 +868,20 @@ function animateSecondScreen() {
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
     .to(descMegogo, 0.3, {opacity: 1}, 2.5)
-    .to(bgMegogo, 0.3, {opacity: 1}, 2.8)
+    // .to(bgMegogo, 0.3, {opacity: 1}, 2.8)
     .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
     .to(iconLg, 0.3, {opacity: 1}, 2.2)
     .to(titleLg, 0.3, {opacity: 1}, 2.5)
     .to(descLg, 0.3, {opacity: 1}, 2.8)
-    .to(bgLg, 0.3, {opacity: 1}, 3.1)
+    // .to(bgLg, 0.3, {opacity: 1}, 3.1)
     .to(logoHolly, 0.4, {opacity: 1}, 2.5)
     .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 2.8)
     .to(movieHolly, 0.4, {opacity: 1}, 3.1)
     .to(titleHolly, 0.4, {opacity: 1}, 3.4)
     .to(descHolly, 0.4, {opacity: 1}, 3.7)
-    .to(bgHolly, 0.3, {opacity: 1}, 4)
+    // .to(bgHolly, 0.3, {opacity: 1}, 4)
     .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
-    .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, ease: Linear.easeNone}, 4.3);
+    .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, yoyo: true}, 4.3);
   }
 }
 
