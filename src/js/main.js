@@ -36,8 +36,8 @@ var bgHolly,
     descHolly;
 // end SVG Layers
 
-Snap.load('img/prizes/megogo.svg', function(megogo) {
-  Snap('#megogo').append(megogo);
+Snap.load('img/prizes/megogo-content.svg', function(megogo) {
+  Snap('#megogo-content').append(megogo);
 
   titleMegogo = $('#title-megogo'),
   iconMegogo  = $('#icon-megogo'),
@@ -45,8 +45,8 @@ Snap.load('img/prizes/megogo.svg', function(megogo) {
   bgMegogo    = $('#bg-megogo');
 });
 
-Snap.load('img/prizes/hollywood.svg', function(hollywood) {
-  Snap('#hollywood').append(hollywood);
+Snap.load('img/prizes/hollywood-content.svg', function(hollywood) {
+  Snap('#hollywood-content').append(hollywood);
 
   bgHolly    = $('#bg-hollywood'),
   logoHolly    = $('#logo-hollywood'),
@@ -56,8 +56,8 @@ Snap.load('img/prizes/hollywood.svg', function(hollywood) {
   descHolly   = $('#desc-hollywood');
 });
 
-Snap.load('img/prizes/lg.svg', function(lg) {
-  Snap('#lg').append(lg);
+Snap.load('img/prizes/lg-content.svg', function(lg) {
+  Snap('#lg-content').append(lg);
 
   titleLg = $('#title-lg'),
   iconLg  = $('#icon-lg'),
@@ -105,7 +105,7 @@ function animatePageHeader() {
     .to('.tv__scroll-btn', 0.6, {opacity: 1}, 5.6)
     .to('.widget-button', 1, {opacity: 1}, 5.9)
     .to('.btn__icon', 1, {fill: 'yellow', repeat: -1, yoyo: true}, 7)
-    .to('.tv__scroll-btn svg', 0.3, {y: '+=15%', yoyo:true, repeat: -1}, 6.7);
+    .to('.tv__scroll-btn svg', 0.3, {y: '+=15%', yoyo:true, repeat: -1}, 6.6);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -844,19 +844,19 @@ function animateSecondScreen() {
     .set(iconMegogo, {opacity: 0})
     .set(titleMegogo, {opacity: 0})
     .set(descMegogo, {opacity: 0})
-    .set(bgMegogo, {opacity: 0})
+    .set('#megogo-bg', {opacity: 0})
     .set('.prizes__item--lg', {x: '100%'})
     .set(iconLg, {opacity: 0})
     .set(titleLg, {opacity: 0})
     .set(descLg, {opacity: 0})
-    .set(bgLg, {opacity: 0})
+    .set('#lg-bg', {opacity: 0})
     .set('.prizes__item--hollywood', {y: '100%'})
     .set(logoHolly, {opacity: 0})
     .set(starHolly, {opacity: 0, rotation: 200})
     .set(movieHolly, {opacity: 0})
     .set(titleHolly, {opacity: 0})
     .set(descHolly, {opacity: 0})
-    .set(bgHolly, {opacity: 0})
+    .set('#hollywood-bg', {opacity: 0})
     .set('.prizes__btn', {marginBottom: '-50'})
     .set('.prizes__btn', {color: '#ffffff'});
 
@@ -868,18 +868,18 @@ function animateSecondScreen() {
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
     .to(descMegogo, 0.3, {opacity: 1}, 2.5)
-    // .to(bgMegogo, 0.3, {opacity: 1}, 2.8)
+    .to('#megogo-bg', 0.3, {opacity: 1}, 2.8)
     .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
     .to(iconLg, 0.3, {opacity: 1}, 2.2)
     .to(titleLg, 0.3, {opacity: 1}, 2.5)
     .to(descLg, 0.3, {opacity: 1}, 2.8)
-    // .to(bgLg, 0.3, {opacity: 1}, 3.1)
+    .to('#lg-bg', 0.3, {opacity: 1}, 3.1)
     .to(logoHolly, 0.4, {opacity: 1}, 2.5)
     .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 2.8)
     .to(movieHolly, 0.4, {opacity: 1}, 3.1)
     .to(titleHolly, 0.4, {opacity: 1}, 3.4)
     .to(descHolly, 0.4, {opacity: 1}, 3.7)
-    // .to(bgHolly, 0.3, {opacity: 1}, 4)
+    .to('#hollywood-bg', 0.3, {opacity: 1}, 4)
     .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
     .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, yoyo: true}, 4.3);
   }
