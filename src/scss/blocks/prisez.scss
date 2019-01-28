@@ -10,7 +10,7 @@
 
 .prizes__chips {
 	position: absolute;
-	top: 10%;
+	top: 0;
   left: 13%;
 
   width: 80%;
@@ -58,14 +58,14 @@
 
 .prizes__btn {
   position: relative;
-  
+
 	display: block;
 	margin: 0 auto;
 	width: 200px;
 	padding-top: 15px;
 	padding-bottom: 15px;
   margin-bottom: 30px;
-  
+
 	text-transform: uppercase;
   text-decoration: none;
 	color: #fff;
@@ -119,11 +119,11 @@
   .prizes__header {
 		height: 50vh;
   }
-  
+
   .prizes__chips {
     top: 25%;
     left: 0;
-  
+
     width: 100%;
   }
 

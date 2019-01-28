@@ -34,46 +34,119 @@ var bgHolly,
     shadowHolly,
     titleHolly,
     descHolly;
-
 // end SVG Layers
+
+Snap.load('img/prizes/megogo.svg', function(megogo) {
+  Snap('#megogo').append(megogo);
+
+  titleMegogo = $('#title-megogo'),
+  iconMegogo  = $('#icon-megogo'),
+  descMegogo  = $('#desc-megogo'),
+  bgMegogo    = $('#bg-megogo');
+});
+
+Snap.load('img/prizes/hollywood.svg', function(hollywood) {
+  Snap('#hollywood').append(hollywood);
+
+  bgHolly    = $('#bg-hollywood'),
+  logoHolly    = $('#logo-hollywood'),
+  movieHolly   = $('#movie-hollywood'),
+  starHolly   = $('#star-hollywood'),
+  titleHolly   = $('#title-hollywood'),
+  descHolly   = $('#desc-hollywood');
+});
+
+Snap.load('img/prizes/lg.svg', function(lg) {
+  Snap('#lg').append(lg);
+
+  titleLg = $('#title-lg'),
+  iconLg  = $('#icon-lg'),
+  descLg  = $('#desc-lg'),
+  bgLg    = $('#bg-lg');
+});
 
 var prizes = document.querySelector('.prizes');
 var prizesBtn = document.querySelector('.prizes__btn');
 var width = document.body.getBoundingClientRect().width;
 var height = document.body.getBoundingClientRect().height;
 
+
+function animatePageHeader() {
+  CSSPlugin.defaultTransformPerspective = 2000;
+
+  var tl = new TimelineLite();
+
+  tl.set('.room__sofa', {opacity: 0, rotationX: -80})
+    .set('.room__people', {opacity: 0, rotationX: -40})
+    .set('.page-header__bg', {opacity: 0})
+    .set('.instruction', {x: '-100%'})
+    .set('.menu', {x: '-100%'})
+    .set('.logan-fhd', {opacity: 0})
+    .set('.logo-lays', {opacity: 0})
+    .set('.hamburger-menu-icon', {opacity: 0})
+    .set('.page-header__btn', {x: '+800', opacity: 0})
+    .set('.room__tv', {y: '100%', opacity: 0})
+    .set('.tv__scroll-btn', {opacity: 0})
+    .set('.widget-button', {opacity: 0})
+    .set('.btn__icon', {fill: '#fff'})
+    .set('.tv__scroll-btn svg', {y: '+=0%'});
+
+  tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'}, 1)
+    .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'}, 1.6)
+    .to('.page-header__bg', 0.6, {opacity: 1}, 2.1)
+    .to('.instruction', 1, {x: '0%'}, 2.6)
+    .staggerFrom('.instruction__item img, .instruction__icon', 2, {opacity: 0}, 0.1, '-=0.5')
+    .to('.menu', 0.3, {x: '0%', ease: Elastic.easeOut.config(1.3, 0.5)}, 3.8)
+    .to('.logan-fhd', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.2)
+    .to('.logo-lays', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.5)
+    .to('.hamburger-menu-icon', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.4)
+    .to('.page-header__btn', 0.6, {x: '20', opacity: 1, ease: Elastic.easeOut.config(1.3, 0.5)}, 3.9)
+    .to('.room__tv', 0.6, {y: '0%', opacity: 1, ease: Elastic.easeOut.config(0.6, 0.6)}, 4.9)
+    .to('.tv__scroll-btn', 0.6, {opacity: 1}, 5.6)
+    .to('.widget-button', 1, {opacity: 1}, 5.9)
+    .to('.btn__icon', 1, {fill: 'yellow', repeat: -1, yoyo: true}, 7)
+    .to('.tv__scroll-btn svg', 0.3, {y: '+=15%', yoyo:true, repeat: -1}, 6.7);
+}
+
 window.addEventListener('DOMContentLoaded', function() {
-
-  Snap.load('img/prizes/megogo.svg', function(megogo) {
-    Snap('#megogo').append(megogo);
-
-    titleMegogo = $('#title-megogo'),
-    iconMegogo  = $('#icon-megogo'),
-    descMegogo  = $('#desc-megogo'),
-    bgMegogo    = $('#bg-megogo');
-  });
-
-  Snap.load('img/prizes/hollywood.svg', function(hollywood) {
-    Snap('#hollywood').append(hollywood);
-
-    bgHolly    = $('#bg-hollywood'),
-    logoHolly    = $('#logo-hollywood'),
-    movieHolly   = $('#movie-hollywood'),
-    starHolly   = $('#star-hollywood'),
-    titleHolly   = $('#title-hollywood'),
-    descHolly   = $('#desc-hollywood');
-  });
-
-  Snap.load('img/prizes/lg.svg', function(lg) {
-    Snap('#lg').append(lg);
-
-    titleLg = $('#title-lg'),
-    iconLg  = $('#icon-lg'),
-    descLg  = $('#desc-lg'),
-    bgLg    = $('#bg-lg');
-  });
-
   isAuth();
+
+  if(width > 1200) {
+    animatePageHeader();
+
+  }
+
+  var toggleMode = document.querySelector('.menu__toggle-mode');
+  var pageHeaderBg = document.querySelector('.page-header__bg');
+  var yellowBg = pageHeaderBg.style.backgroundImage;
+  var sofa = document.querySelector('.room__sofa');
+  var peopleSofa = document.querySelector('.room__people');
+  var shadow = document.querySelector('.tv__shadow');
+  var couple = document.querySelector('.room__shadow--couple');
+  var superman = document.querySelector('.room__shadow--superman');
+  var alien = document.querySelector('.room__shadow--alien');
+
+  toggleMode.addEventListener('click', function(event) {
+    pageHeaderBg.classList.toggle('page-header__bg--night');
+    shadow.classList.toggle('tv__shadow--blue');
+    // $('.instruction').css({boxShadow: '0 0 15px rgba(0,0,0,0.3)'});
+
+    if (this.checked) {
+      sofa.setAttribute('src', '/img/sofa_cut_blue.png');
+      peopleSofa.setAttribute('src', '/img/people_blueShadow.png');
+      couple.setAttribute('src', '/img/blueScreen/couple.png');
+      superman.setAttribute('src', '/img/blueScreen/superman.png');
+      alien.setAttribute('src', '/img/blueScreen/ufo.png');
+      $('.find-сode').css({color: '#ffffff'});
+    } else {
+      sofa.setAttribute('src', '/img/sofa_cut.png');
+      peopleSofa.setAttribute('src', '/img/people_yellowShadow.png');
+      couple.setAttribute('src', '/img/shadows/couple.png');
+      superman.setAttribute('src', '/img/shadows/superman.png');
+      alien.setAttribute('src', '/img/shadows/ufo.png');
+      $('.find-сode').css({color: '#DA1B21'});
+    }
+  });
 
   var rulesModal = document.querySelector('.rules'),
     rulesContent = document.querySelector('.rules__content'),
@@ -688,7 +761,6 @@ function openProfile() {
       for (var i = 0; i < data.codes.length; i++) {
         var code = data.codes[i];
         codesHtml += '<div class="profile__item">' + '<div class="profile__left">' + '<div class="profile__code">' + code.code + "</div>" + '<div class="profile__date">' + code.date + "</div>" +  "</div>" + '<div class="profile__right">' + '<div class="profile__prize">' + code.prize + '</div>' +  "</div>" + '</div>';
-        // codesHtml += '<div class="profile__item">' + '<span class="profile__code">' +code.code + '</span>' + '<span class="profile__prize">' +  code.prize + ' </span> ' + '<span class="profile__date">' + code.date + '</span>' + '</div>';
       }
       $('.profile__list').html(codesHtml);
       modalPr.style.display = 'block';
@@ -763,12 +835,10 @@ function scrollDirection(e) {
 
 
 function animateSecondScreen() {
+  if (width > 1200) {
+    var tl = new TimelineMax();
 
-  if (width < 1200) return;
-
-  var tl = new TimelineMax();
-
-  tl.set('.prizes__chips', {opacity: 0})
+    tl.set('.prizes__chips', {opacity: 0})
     .set('.prizes__title', {opacity: 0, scale: 0.5})
     .set('.prizes__item--megogo', {x: '-100%'})
     .set(iconMegogo, {opacity: 0})
@@ -790,6 +860,7 @@ function animateSecondScreen() {
     .set('.prizes__btn', {marginBottom: '-50'})
     .set('.prizes__btn', {color: '#ffffff'});
 
+
   tl.to('.prizes__chips', 1, {opacity: 1, ease: Back.easeOut.config(1.7)}, 0.6)
     .to('.prizes__title', 0.6, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 1)
     .to('.prizes__item--megogo', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.3)
@@ -797,20 +868,21 @@ function animateSecondScreen() {
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
     .to(descMegogo, 0.3, {opacity: 1}, 2.5)
-    .to(bgMegogo, 0.3, {opacity: 1}, 2.8)
+    // .to(bgMegogo, 0.3, {opacity: 1}, 2.8)
     .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
     .to(iconLg, 0.3, {opacity: 1}, 2.2)
     .to(titleLg, 0.3, {opacity: 1}, 2.5)
     .to(descLg, 0.3, {opacity: 1}, 2.8)
-    .to(bgLg, 0.3, {opacity: 1}, 3.1)
+    // .to(bgLg, 0.3, {opacity: 1}, 3.1)
     .to(logoHolly, 0.4, {opacity: 1}, 2.5)
     .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 2.8)
     .to(movieHolly, 0.4, {opacity: 1}, 3.1)
     .to(titleHolly, 0.4, {opacity: 1}, 3.4)
     .to(descHolly, 0.4, {opacity: 1}, 3.7)
-    .to(bgHolly, 0.3, {opacity: 1}, 4)
+    // .to(bgHolly, 0.3, {opacity: 1}, 4)
     .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
-    .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, ease: Linear.easeNone}, 4.3);
+    .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, yoyo: true}, 4.3);
+  }
 }
 
 function parallaxInit() {

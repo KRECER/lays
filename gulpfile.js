@@ -19,7 +19,10 @@ const gulp 				    =	require('gulp'),
 			cheerio         = require('gulp-cheerio'),
 			svgstore        = require('gulp-svgstore'),
 			history		    = require('connect-history-api-fallback')
-			proxyMiddleware = require('http-proxy-middleware');
+      proxyMiddleware = require('http-proxy-middleware'),
+      svgMIN          = require('gulp-svgmin'),
+      replace          = require('gulp-replace'),
+      svgSprite        = require('gulp-svg-sprite');
 
 
 /**
@@ -122,7 +125,7 @@ gulp.task('images', () => {
 		.pipe(imagemin([
 			imagemin.jpegtran({progressive: true}),
 			imagemin.optipng({optimizationLevel: 3}),
-			// imagemin.svgo()
+			// imagemin.svgo({})
 		]))
 		.pipe( gulp.dest('build/img') )
 		.pipe(browserSync.stream());
@@ -139,7 +142,33 @@ gulp.task('tinypng', function() {
 		.pipe( gulp.dest('build/img') );
 });
 
+gulp.task('sprite:svg', function() {
+  return gulp.src('./src/img/sprite/*.svg', {base: 'src/img/sprite/'})
+    .pipe(svgMIN({
+      js2svg: {
+        pretty: true
+      }
+    }))
+    .pipe(cheerio({
+      run: function ($) {
+        $('[fill]').removeAttr('fill');
+        $('[stroke]').removeAttr('stroke');
+        $('[style]').removeAttr('style');
+      },
+      parserOptions: { xmlMode: true }
+    }))
+    .pipe(replace('&gt;', '>'))
+    .pipe(svgSprite({
+      mode: {
+        symbol: {
+          sprite: "../sprite.svg"
+        }
+      }
+    }))
+    .pipe(gulp.dest('./build/img/sprite'));
+});
 
-gulp.task('build', gulp.series('del', 'copy', 'images', 'sprite', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
+
+gulp.task('build', gulp.series('del', 'copy', 'sprite', 'images', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
 
 gulp.task('dev', gulp.series('build', 'server') );

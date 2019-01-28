@@ -1,32 +1,47 @@
 $lays-yellow: #feda00;
 $lays-red: #e13016;
+
 .menu {
   position: fixed;
-  z-index: 1000;
   top: 0;
   left: 0;
+  z-index: 1000;
+
   box-sizing: border-box;
   width: 15vh;
   padding: 2vh;
-  transition: background-color 200ms;
+
   background-color: $lays-yellow;
+
+  transition: background-color 200ms;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+
+
   &.expanded {
-    background: white;
     z-index: 7;
+
+    background: white;
     .hamburger-menu-icon {
-      pointer-events: none;
       opacity: 0;
+
       transition: opacity 200ms;
+
+      pointer-events: none;
     }
     .cross {
       position: absolute;
       top: 0.8vh;
       right: 0.8vh;
+
       width: 1.5vh;
       height: 1.5vh;
-      background: transparent url('../img/menu/cross.svg') center center no-repeat;
+
+      background: transparent url("../img/menu/cross.svg") center center no-repeat;
       background-size: 100%;
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
     }
@@ -34,6 +49,7 @@ $lays-red: #e13016;
   .item {
     display: block;
     margin: auto;
+
     cursor: pointer;
   }
   .hamburger-menu-icon-mobile {
@@ -41,8 +57,11 @@ $lays-red: #e13016;
   }
   .hamburger-menu-icon {
     width: 45%;
+
     cursor: pointer;
+
     transition: opacity 200ms 200ms;
+
     object-fit: contain;
   }
   .item ~ .item {
@@ -53,139 +72,163 @@ $lays-red: #e13016;
 
 .menu-inner-wrapper {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   z-index: 6;
+
   width: 100%;
   height: 100%;
-  transition: all 200ms;
-  pointer-events: none;
+
   opacity: 0;
+
+  transition: all 200ms;
+
+  pointer-events: none;
   &.expanded {
-    pointer-events: all;
+    background: rgba(0, 0, 0, 0.5);
     opacity: 1;
-    background: rgba(0, 0, 0, .5);
+
+    pointer-events: all;
   }
 }
 
 .menu-inner {
-  display: flex;
   position: fixed;
-  z-index: 7;
   top: 22vh;
+  z-index: 7;
+
+  display: flex;
+  flex-flow: column nowrap;
   width: 15vh;
   height: calc(100% - 22vh);
-  opacity: 0;
-  transform: translate3d(0, -100vh, 0);
-  transition: transform 300ms, opacity 200ms;
+
   background: white;
-  flex-flow: column nowrap;
+  transform: translate3d(0, -100vh, 0);
+  opacity: 0;
+
+  transition: transform 300ms, opacity 200ms;
   .hide {
     display: none !important;
   }
   &.expanded {
-    opacity: 1;
     transform: translate3d(0, 0, 0);
+    opacity: 1;
+
     transition: opacity 300ms 105ms, transform 220ms 50ms;
   }
   ul {
     width: 100%;
     margin: 0;
     padding: 0;
+
     list-style: none;
     color: $lays-red;
   }
   .item {
     display: flex;
+    display: flex;
+    flex-flow: column nowrap;
     flex-flow: column nowrap;
     justify-content: center;
-    cursor: pointer;
-    display: flex;
-    font-size: 1.5vh;
     box-sizing: border-box;
     height: 11vh;
     padding: 0 2vh;
+
+    font-size: 1.5vh;
     text-align: center;
-    flex-flow: column nowrap;
-    transition: all 300ms;
     color: inherit;
     text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 300ms;
     &:hover {
       background-color: $lays-yellow;
     }
     img {
-      margin-bottom: 6px;
-      fill: white;
       max-height: 40%;
+      margin-bottom: 6px;
+
+      fill: white;
     }
   }
 }
 
 //mob Bohdana , (max-width: 567px)
-@media (max-aspect-ratio: 3/3), (max-width: 567px){
+@media (max-aspect-ratio: 3/3), (max-width: 567px) {
   .menu-inner {
-    z-index: 6;
     top: 0;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     left: initial;
-    height: 100vh;
-    width: 100%;
-    padding-top: 75px;
-    transform: translate3d(100px, 0, 0);
+    z-index: 6;
+
     box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    padding-top: 75px;
     -webkit-overflow-scrolling: touch;
+
+    transform: translate3d(100px, 0, 0);
+
     pointer-events: none;
     &.expanded {
-      pointer-events: auto;
       transform: translate3d(0, 0, 0);
+
+      pointer-events: auto;
     }
-    .item{
+    .item {
       height: 12vh;
     }
   }
-  .logan-fhd{
+  .logan-fhd {
     width: 12%;
   }
 
   .menu-inner-wrapper {
     top: 0;
     bottom: 0;
+
     height: 100vh;
   }
   .menu {
-    display: flex;
-    align-items: center;
     position: relative;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
     width: 100%;
     height: 8vh;
     padding-top: 3px;
     padding-bottom: 0;
-    flex-flow: row nowrap;
     .item {
       display: block;
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
     .item ~ .item {
+      width: 12%;
       margin: auto;
       margin-left: 0;
-      width: 12%;
     }
     .item.hamburger-menu-icon {
-      display: block;
       position: absolute;
-      right: 2%;
       top: 50%;
+      right: 2%;
+
+      display: block;
       height: 65%;
+
       transform: translateY(-50%);
     }
   }
-  .menu.expanded .cross{
-      position: absolute;
-      width: 4%;
-      padding: 4%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  .menu.expanded .cross {
+    position: absolute;
+    top: 50%;
+
+    width: 4%;
+    padding: 4%;
+
+    transform: translateY(-50%);
+  }
 }
