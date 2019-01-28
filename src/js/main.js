@@ -123,15 +123,24 @@ window.addEventListener('DOMContentLoaded', function() {
 
   toggleMode.addEventListener('click', function(event) {
     pageHeaderBg.classList.toggle('page-header__bg--night');
-    sofa.setAttribute('src', '/img/sofa_cut_blue.png');
-    peopleSofa.setAttribute('src', '/img/people_blueShadow.png');
     shadow.classList.toggle('tv__shadow--blue');
-    couple.setAttribute('src', '/img/blueScreen/couple.png');
-    superman.setAttribute('src', '/img/blueScreen/superman.png');
-    alien.setAttribute('src', '/img/blueScreen/ufo.png');
-    $('.instruction').css({
-      boxShadow: '0 0 15px rgba(0,0,0,0.3)'
-    });
+    $('.instruction').css({boxShadow: '0 0 15px rgba(0,0,0,0.3)'});
+
+    if (this.checked) {
+      sofa.setAttribute('src', '/img/sofa_cut_blue.png');
+      peopleSofa.setAttribute('src', '/img/people_blueShadow.png');
+      couple.setAttribute('src', '/img/blueScreen/couple.png');
+      superman.setAttribute('src', '/img/blueScreen/superman.png');
+      alien.setAttribute('src', '/img/blueScreen/ufo.png');
+      $('.find-сode').css({color: '#ffffff'});
+    } else {
+      sofa.setAttribute('src', '/img/sofa_cut.png');
+      peopleSofa.setAttribute('src', '/img/people_yellowShadow.png');
+      couple.setAttribute('src', '/img/shadows/couple.png');
+      superman.setAttribute('src', '/img/shadows/superman.png');
+      alien.setAttribute('src', '/img/shadows/ufo.png');
+      $('.find-сode').css({color: '#DA1B21'});
+    }
   });
 
   var rulesModal = document.querySelector('.rules'),
