@@ -58,6 +58,8 @@
 
 .prizes__btn {
   position: relative;
+  z-index: 3;
+  pointer-events: all;
 
 	display: block;
 	margin: 0 auto;
