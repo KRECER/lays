@@ -111,9 +111,8 @@ function animatePageHeader() {
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
 
-  if(width > 1200) {
+  if(width > 1200 && window.location.pathname === '/main') {
     animatePageHeader();
-
   }
 
   var toggleMode = document.querySelector('.menu__toggle-mode');
@@ -852,12 +851,12 @@ function animateSecondScreen() {
     .set('#lg-bg', {opacity: 0})
     .set('.prizes__item--hollywood', {y: '100%'})
     .set(logoHolly, {opacity: 0})
-    .set(starHolly, {opacity: 0, rotation: 200})
+    .set(starHolly, {opacity: 0})
     .set(movieHolly, {opacity: 0})
     .set(titleHolly, {opacity: 0})
     .set(descHolly, {opacity: 0})
     .set('#hollywood-bg', {opacity: 0})
-    .set('.prizes__btn', {marginBottom: '-50'})
+    .set('.prizes__btn', {y: '100'})
     .set('.prizes__btn', {color: '#ffffff'});
 
 
@@ -875,12 +874,12 @@ function animateSecondScreen() {
     .to(descLg, 0.3, {opacity: 1}, 2.8)
     .to('#lg-bg', 0.3, {opacity: 1}, 3.1)
     .to(logoHolly, 0.4, {opacity: 1}, 2.5)
-    .to(starHolly, 1, {opacity: 1, rotation: 0, ease: Elastic.easeOut.config(1, 0.4)}, 2.8)
+    .to(starHolly, 1, {opacity: 1}, 2.8)
     .to(movieHolly, 0.4, {opacity: 1}, 3.1)
     .to(titleHolly, 0.4, {opacity: 1}, 3.4)
     .to(descHolly, 0.4, {opacity: 1}, 3.7)
     .to('#hollywood-bg', 0.3, {opacity: 1}, 4)
-    .to('.prizes__btn', 0.3, {marginBottom: '20px', onComplete: parallaxInit}, 4.3)
+    .to('.prizes__btn', 0.3, {y: '20px', onComplete: parallaxInit}, 4.3)
     .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, yoyo: true}, 4.3);
   }
 }
