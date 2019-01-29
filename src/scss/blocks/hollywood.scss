@@ -83,7 +83,7 @@
 
 	display: flex;
 	align-items: center;
-	width: 340px;
+	width: 326px;
 	padding: 23px 0;
 	padding-left: 40px;
 	margin-top: 2vh;
@@ -181,7 +181,7 @@
 	.hollywood__lights-desktop {
 		display: none;
 	}
-	
+
 	.hollywood__lights-mobile {
 		display: block;
 		position: absolute;
@@ -193,7 +193,7 @@
 		width: 100%;
 		z-index: 2;
 	}
-	
+
 
 	.hollywood__montains {
 		position: absolute;
@@ -202,7 +202,7 @@
 		z-index: -1;
 
 		display: none;
-	
+
 		&--mobile {
 			display: block;
 		}

@@ -152,11 +152,12 @@
 
     .infoBtn {
       position: absolute;
-      right: 30%;
-      bottom: 25%;
+
+      right: 32%;
+      bottom: 27%;
 
       width: 5%;
-      height: 15%;
+      height: 14%;
 
       // background: url("../img/information.svg") right no-repeat;
       background-size: contain;
@@ -178,7 +179,7 @@
 
       &__icon {
         position: relative;
-        top: 30%;
+        top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: 10px;
