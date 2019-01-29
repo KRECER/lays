@@ -18,6 +18,10 @@
   position: absolute;
 }
 
+#icon-arrow-right {
+  fill: #ffffff !important;
+}
+
 .lays {
   @media (max-aspect-ratio:3/3) {
     height: 59%;
@@ -214,12 +218,6 @@
     }
   }
 }
-
-svg path.st3 {
-  stroke: #fff;
-  fill: #fff;
-}
-
 
 .slideshow-container {
   position: relative;

@@ -884,6 +884,9 @@ function animateSecondScreen() {
   }
 }
 
+
+
+
 function parallaxInit() {
   prizes.addEventListener('mousemove', parallaxIt);
 }
