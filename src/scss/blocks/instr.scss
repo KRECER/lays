@@ -158,14 +158,36 @@
       width: 5%;
       height: 15%;
 
-      background: url("../img/information.svg") right no-repeat;
+      // background: url("../img/information.svg") right no-repeat;
       background-size: contain;
-      // float: right;
+      float: right;
 
       pointer-events: auto;
+      border-radius: 50%;
+      border: 1px solid #fde619;
 
       &:hover {
         cursor: pointer;
+        border-color: #fff;
+        background-color: #fff;
+
+        svg {
+          fill: #009fe5;
+        }
+      }
+
+      &__icon {
+        position: relative;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 10px;
+        width: 5px;
+        fill: #fde619;
+
+        &:hover {
+
+        }
       }
 
       @media (max-aspect-ratio:3/3) {
