@@ -111,7 +111,7 @@ function animatePageHeader() {
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
 
-  if(width > 1200 && window.location.pathname === '/main') {
+  if(width > 1200) {
     animatePageHeader();
   }
 
