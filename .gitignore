@@ -3,6 +3,7 @@
 .vscode
 *.ai
 *.log
+*.exe
 *.psd
 *.sublime*
 node_modules/

@@ -124,25 +124,33 @@ window.addEventListener('DOMContentLoaded', function() {
   var couple = document.querySelector('.room__shadow--couple');
   var superman = document.querySelector('.room__shadow--superman');
   var alien = document.querySelector('.room__shadow--alien');
+  var lamp = document.querySelector('.menu__lamp');
 
   toggleMode.addEventListener('click', function(event) {
     pageHeaderBg.classList.toggle('page-header__bg--night');
     shadow.classList.toggle('tv__shadow--blue');
-    // $('.instruction').css({boxShadow: '0 0 15px rgba(0,0,0,0.3)'});
+    pageHeaderBg.classList.toggle('page-header__bg--mobile-night');
+    document.querySelector('.page-header').classList.toggle('page-header--shadow-night');
+    $('.page-header__bg').css({boxShadow: 'inset 0 -138px 200px rgba(0,0,0,0.4)'});
 
     if (this.checked) {
+      lamp.setAttribute('src', '/img/lamp-off.svg');
       sofa.setAttribute('src', '/img/sofa_cut_blue.png');
       peopleSofa.setAttribute('src', '/img/people_blueShadow.png');
       couple.setAttribute('src', '/img/blueScreen/couple.png');
       superman.setAttribute('src', '/img/blueScreen/superman.png');
       alien.setAttribute('src', '/img/blueScreen/ufo.png');
+      document.querySelector('.page-header').style.backgroundColor = "#00a3de";
+
       $('.find-сode').css({color: '#ffffff'});
     } else {
+      lamp.setAttribute('src', '/img/lamp-on.svg');
       sofa.setAttribute('src', '/img/sofa_cut.png');
       peopleSofa.setAttribute('src', '/img/people_yellowShadow.png');
       couple.setAttribute('src', '/img/shadows/couple.png');
       superman.setAttribute('src', '/img/shadows/superman.png');
       alien.setAttribute('src', '/img/shadows/ufo.png');
+      document.querySelector('.page-header').style.backgroundColor = "#ffdf0c";
       $('.find-сode').css({color: '#DA1B21'});
     }
   });
@@ -811,22 +819,24 @@ function scrollDirection(e) {
     if (document.getElementById('bottom-block') && (reMain.test(window.location.pathname) || reRoot.test(window.location.pathname)) ) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('bottom-block').classList.add('show');
-
+      document.querySelector('.menu__lamp').style.display = 'none';
       animateSecondScreen();
 
     } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/hollywood');
       document.getElementById('js-scroll-hollywood').classList.add('show');
-
+      document.querySelector('.menu__lamp').style.display = 'none';
     }
   } else {
     if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('js-scroll-hollywood').classList.remove('show');
+      document.querySelector('.menu__lamp').style.display = 'none';
     }
     else if (rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/main');
       document.getElementById('bottom-block').classList.remove('show');
+      document.querySelector('.menu__lamp').style.display = 'block';
     }
   }
 }
