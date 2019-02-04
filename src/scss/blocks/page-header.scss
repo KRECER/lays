@@ -53,6 +53,8 @@
   background-image: url('../img/wallRedTextMini.png');
   background-position: center;
 
+  opacity: 0;
+
   &--night {
     background-image: url('../img/night-mode.png');
   }

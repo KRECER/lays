@@ -77,36 +77,28 @@ function animatePageHeader() {
   var tl = new TimelineLite();
 
   tl.set('.room__sofa', {opacity: 0, rotationX: -80})
-    .set('.room__people', {opacity: 0, rotationX: -40})
-    .set('.page-header__bg', {opacity: 0})
-    .set('.instruction', {x: '-100%'})
-    .set('.menu', {x: '-100%'})
-    .set('.logan-fhd', {opacity: 0})
-    .set('.logo-lays', {opacity: 0})
-    .set('.hamburger-menu-icon', {opacity: 0})
-    .set('.page-header__btn', {x: '+800', opacity: 0})
-    .set('.room__tv', {y: '100%', opacity: 0})
-    .set('.tv__scroll-btn', {opacity: 0})
-    .set('.widget-button', {opacity: 0})
-    .set('.btn__icon', {fill: '#fff'})
-    .set('.tv__scroll-btn svg', {y: '+=0%'});
+  .set('.room__people', {opacity: 0, rotationX: -40})
+  .set('.page-header__bg', {opacity: 0})
+  .set('.instruction', {x: '-100%'})
+  .set('.menu', {x: '-150'})
+  .set('.page-header__btn', {x: '+800', opacity: 0})
+  .set('.room__tv', {y: '100%', opacity: 0})
+  .set('.tv__scroll-btn', {opacity: 0})
+  .set('.tv__scroll-btn svg', {y: '0%'})
+  .set('.btn__icon', {fill: '#fff'});
 
-  tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'}, 1)
-    .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'}, 1.6)
-    .to('.page-header__bg', 0.6, {opacity: 1}, 2.1)
-    .to('.instruction', 1, {x: '0%'}, 2.6)
-    .staggerFrom('.instruction__item img, .instruction__icon', 2, {opacity: 0}, 0.1, '-=0.5')
-    .to('.menu', 0.3, {x: '0%', ease: Elastic.easeOut.config(1.3, 0.5)}, 3.8)
-    .to('.logan-fhd', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.2)
-    .to('.logo-lays', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.5)
-    .to('.hamburger-menu-icon', 0.3, {opacity: 1, ease: Power3.easeOut}, 4.4)
-    .to('.page-header__btn', 0.6, {x: '20', opacity: 1, ease: Elastic.easeOut.config(1.3, 0.5)}, 3.9)
-    .to('.room__tv', 0.6, {y: '0%', opacity: 1, ease: Elastic.easeOut.config(0.6, 0.6)}, 4.9)
-    .to('.tv__scroll-btn', 0.6, {opacity: 1}, 5.6)
-    .to('.widget-button', 1, {opacity: 1}, 5.9)
-    .to('.btn__icon', 1, {fill: 'yellow', repeat: -1, yoyo: true}, 7)
-    .to('.tv__scroll-btn svg', 0.3, {y: '+=15%', yoyo:true, repeat: -1}, 6.6);
-}
+  tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'})
+  .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'})
+  .to('.page-header__bg', 0.6, {opacity: 1})
+  .to('.instruction', 0.6, {x: '0%'}, '-=0.5')
+  .staggerFrom('.instruction__item img, .instruction__icon', 0.3, {opacity: 0}, 0.1)
+  .to('.menu', 0.3, {x: '0'})
+  .to('.page-header__btn', 0.3, {x: '20', opacity: 1})
+  .to('.room__tv', 0.6, {y: '0%', opacity: 1})
+  .to('.tv__scroll-btn', 0.6, {opacity: 1})
+  .to('.tv__scroll-btn svg', 0.3, {y: '15%', repeat: -1, yoyo: true})
+  .to('.btn__icon', 1, {fill: '#fde618', yoyo: true, repeat: -1});
+};
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
@@ -826,23 +818,26 @@ function scrollDirection(e) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('bottom-block').classList.add('show');
       document.querySelector('.menu__lamp').style.display = 'none';
+      document.querySelector('.menu__mode').style.display = 'none';
       animateSecondScreen();
 
     } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/hollywood');
       document.getElementById('js-scroll-hollywood').classList.add('show');
       document.querySelector('.menu__lamp').style.display = 'none';
+      document.querySelector('.menu__mode').style.display = 'none';
     }
   } else {
     if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('js-scroll-hollywood').classList.remove('show');
       document.querySelector('.menu__lamp').style.display = 'none';
+      document.querySelector('.menu__mode').style.display = 'none';
     }
     else if (rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/main');
       document.getElementById('bottom-block').classList.remove('show');
-      document.querySelector('.menu__lamp').style.display = 'block';
+      document.querySelector('.menu__mode').style.display = 'flex';
     }
   }
 }
