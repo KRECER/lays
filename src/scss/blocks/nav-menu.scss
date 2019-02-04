@@ -37,6 +37,7 @@ $lays-red: #e13016;
             transition: opacity 200ms;
             pointer-events: none;
 
+
             opacity: 0;
         }
         .cross
@@ -80,6 +81,9 @@ $lays-red: #e13016;
     .item ~ .item
     {
         margin-top: 2.4vh;
+        @media (max-aspect-ratio: 3/3), (max-width: 567px) {
+          margin-top: 0;
+        }
     }
 }
 
@@ -263,6 +267,10 @@ $lays-red: #e13016;
             width: 12%;
             margin: auto;
             margin-left: 0;
+
+            @media (max-aspect-ratio: 3/3), (max-width: 567px) {
+              margin: 0;
+            }
         }
         .item.hamburger-menu-icon
         {
@@ -296,8 +304,4 @@ $lays-red: #e13016;
 
         transform: translateY(-50%);
     }
-}
-
-.menu__toggle-mode {
-
 }

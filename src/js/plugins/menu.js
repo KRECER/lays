@@ -16,7 +16,10 @@ function closeMenu(e) {
 		document.body.style.position = 'static';
 		menu.classList.remove('expanded');
 		menuInner.classList.remove('expanded');
-		bgMenu.classList.remove('expanded');
+    bgMenu.classList.remove('expanded');
+    document.querySelector('.menu__inner').style.backgroundColor = "#feda00";
+    document.querySelector('.menu__mode').style.display = "flex";
+    document.querySelector('.menu__lamp').style.display = "block";
 	}
 function openMenu(e) {
 	if (e) e.preventDefault();
@@ -25,7 +28,10 @@ function openMenu(e) {
 		}
 		menu.classList.add('expanded');
 		menuInner.classList.add('expanded');
-		bgMenu.classList.add('expanded');
+    bgMenu.classList.add('expanded');
+    document.querySelector('.menu__inner').style.backgroundColor = "#fff";
+    document.querySelector('.menu__mode').style.display = "none";
+    document.querySelector('.menu__lamp').style.display = "none";
 	}
 
 function toggleMenu(e) {

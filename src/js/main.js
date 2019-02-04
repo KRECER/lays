@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', function() {
     animatePageHeader();
   }
 
-  var toggleMode = document.querySelector('.menu__toggle-mode');
+  var toggleMode = document.querySelector('.mode__toggler');
   var pageHeaderBg = document.querySelector('.page-header__bg');
   var yellowBg = pageHeaderBg.style.backgroundImage;
   var sofa = document.querySelector('.room__sofa');
@@ -131,19 +131,24 @@ window.addEventListener('DOMContentLoaded', function() {
     shadow.classList.toggle('tv__shadow--blue');
     pageHeaderBg.classList.toggle('page-header__bg--mobile-night');
     document.querySelector('.page-header').classList.toggle('page-header--shadow-night');
-    $('.page-header__bg').css({boxShadow: 'inset 0 -138px 200px rgba(0,0,0,0.4)'});
+
 
     if (this.checked) {
+      document.querySelector('.mode__state').innerHTML = 'OFF';
+      document.querySelector('.mode__state').classList.add('mode__state--night');
       lamp.setAttribute('src', '/img/lamp-off.svg');
       sofa.setAttribute('src', '/img/sofa_cut_blue.png');
       peopleSofa.setAttribute('src', '/img/people_blueShadow.png');
       couple.setAttribute('src', '/img/blueScreen/couple.png');
       superman.setAttribute('src', '/img/blueScreen/superman.png');
       alien.setAttribute('src', '/img/blueScreen/ufo.png');
-      document.querySelector('.page-header').style.backgroundColor = "#00a3de";
+      document.querySelector('.page-header').style.backgroundColor = "rgb(2, 138, 187, 0.7)";
+      $('.page-header__bg').css({boxShadow: 'inset 0 -138px 200px rgba(0,0,0,0.1)'});
 
       $('.find-сode').css({color: '#ffffff'});
     } else {
+      document.querySelector('.mode__state').innerHTML = 'ON';
+      document.querySelector('.mode__state').classList.remove('mode__state--night');
       lamp.setAttribute('src', '/img/lamp-on.svg');
       sofa.setAttribute('src', '/img/sofa_cut.png');
       peopleSofa.setAttribute('src', '/img/people_yellowShadow.png');
@@ -152,6 +157,7 @@ window.addEventListener('DOMContentLoaded', function() {
       alien.setAttribute('src', '/img/shadows/ufo.png');
       document.querySelector('.page-header').style.backgroundColor = "#ffdf0c";
       $('.find-сode').css({color: '#DA1B21'});
+      $('.page-header__bg').css({boxShadow: 'inset 0 -138px 200px rgba(0,0,0,0.0)'});
     }
   });
 
