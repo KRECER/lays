@@ -166,7 +166,7 @@
       transform: translateY(-100%);
       opacity: 0;
 
-      animation: light 10s linear 5.7s infinite;
+      animation: light 10s linear 2.4s infinite;
 
       &--blue {
         background-image: url("../img/shadow-blue.png");
@@ -206,7 +206,7 @@
       left: 0;
 
       animation-name: couple;
-      animation-delay: 6s;
+      animation-delay: 2.4s;
     }
 
     &--superman {
@@ -218,14 +218,14 @@
       transform: translateX(-50%);
 
       animation-name: superman;
-      animation-delay: 6s;
+      animation-delay: 2.4s;
     }
 
     &--alien {
       right: 9%;
 
       animation-name: ufo;
-      animation-delay: 6s;
+      animation-delay: 2.4s;
     }
   }
 }

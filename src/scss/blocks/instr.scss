@@ -32,11 +32,26 @@
   position: absolute;
   bottom: 0vh;
   left: 0;
+  z-index: 3;
 
   width: 100%;
 
-  background: url("../img/Asset.svg");
-  background-size: auto 100%;
+  &--shadow {
+    box-shadow: inset 0 1px 200px rgba(0, 0, 0, 0.7),
+                0 1px 200px rgba(0, 0, 0, 0.8);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: -3;
+
+    background: url("../img/Asset.svg");
+    background-size: auto 100%;
+  }
 
   @media (max-aspect-ratio:3/3) {
     bottom: 0;
@@ -170,6 +185,7 @@
       pointer-events: auto;
       border-radius: 50%;
       border: 1px solid #fde619;
+      transition: background-color 0.2s;
 
       &:hover {
         cursor: pointer;

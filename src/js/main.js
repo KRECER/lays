@@ -13,7 +13,8 @@ $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
 var indexPreloader = document.querySelector('#index-preloader');
 var isPopupOpen = false,
-    isPopupOverPopup = false;
+    isPopupOverPopup = false,
+    isSecondScreenAnimationPlayed = false;
 
 
 // SVG Layers
@@ -78,7 +79,6 @@ function animatePageHeader() {
 
   tl.set('.room__sofa', {opacity: 0, rotationX: -80})
   .set('.room__people', {opacity: 0, rotationX: -40})
-  .set('.page-header__bg', {opacity: 0})
   .set('.instruction', {x: '-100%'})
   .set('.menu', {x: '-150'})
   .set('.page-header__btn', {x: '+800', opacity: 0})
@@ -89,15 +89,14 @@ function animatePageHeader() {
 
   tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'})
   .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'})
-  .to('.page-header__bg', 0.6, {opacity: 1})
   .to('.instruction', 0.6, {x: '0%'}, '-=0.5')
-  .staggerFrom('.instruction__item img, .instruction__icon', 0.3, {opacity: 0}, 0.1)
-  .to('.menu', 0.3, {x: '0'})
-  .to('.page-header__btn', 0.3, {x: '20', opacity: 1})
+  .staggerFrom('.instruction__item img, .instruction__icon', 0.3, {opacity: 0}, 0.1, '-=0.6')
+  .to('.menu', 0.3, {x: '0'}, '-=0.3')
+  .to('.page-header__btn', 0.3, {x: '20', opacity: 1}, '-=0.3')
   .to('.room__tv', 0.6, {y: '0%', opacity: 1})
-  .to('.tv__scroll-btn', 0.6, {opacity: 1})
-  .to('.tv__scroll-btn svg', 0.3, {y: '15%', repeat: -1, yoyo: true})
-  .to('.btn__icon', 1, {fill: '#fde618', yoyo: true, repeat: -1});
+  .to('.tv__scroll-btn', 0.1, {opacity: 1})
+  .to('.tv__scroll-btn svg', 0.4, {y: '15%', repeat: -1, yoyo: true})
+  .to('.btn__icon', 1, {fill: '#fde618', yoyo: true, repeat: -1}, '1');
 };
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -123,6 +122,7 @@ window.addEventListener('DOMContentLoaded', function() {
     shadow.classList.toggle('tv__shadow--blue');
     pageHeaderBg.classList.toggle('page-header__bg--mobile-night');
     document.querySelector('.page-header').classList.toggle('page-header--shadow-night');
+    document.querySelector('.instruction').classList.toggle('instruction--shadow');
 
 
     if (this.checked) {
@@ -134,8 +134,7 @@ window.addEventListener('DOMContentLoaded', function() {
       couple.setAttribute('src', '/img/blueScreen/couple.png');
       superman.setAttribute('src', '/img/blueScreen/superman.png');
       alien.setAttribute('src', '/img/blueScreen/ufo.png');
-      document.querySelector('.page-header').style.backgroundColor = "rgb(2, 138, 187, 0.7)";
-      $('.page-header__bg').css({boxShadow: 'inset 0 -138px 200px rgba(0,0,0,0.1)'});
+      document.querySelector('.page-header').style.backgroundColor = "#00a3de";
 
       $('.find-сode').css({color: '#ffffff'});
     } else {
@@ -149,7 +148,6 @@ window.addEventListener('DOMContentLoaded', function() {
       alien.setAttribute('src', '/img/shadows/ufo.png');
       document.querySelector('.page-header').style.backgroundColor = "#ffdf0c";
       $('.find-сode').css({color: '#DA1B21'});
-      $('.page-header__bg').css({boxShadow: 'inset 0 -138px 200px rgba(0,0,0,0.0)'});
     }
   });
 
@@ -799,45 +797,59 @@ if (reHollywood.test(window.location.pathname)) {
 
 var reMain = new RegExp('^/main/?(\\?.+)?$');
 var reRoot = new RegExp('^/(\\?.+)?$');
+var menuLamp = document.querySelector('.menu__lamp');
+var menuMode = document.querySelector('.menu__mode');
 
 // Slider
 document.addEventListener('wheel', scrollDirection);
 
+if (document.querySelector('.prizes').classList.contains('show') || document.querySelector('.hollywood').classList.contains('show')) {
+    document.querySelector('.menu__lamp').style.display = 'none';
+    document.querySelector('.menu__mode').style.display = 'none';
+}
+
 var lastScrollDate = new Date();
 function scrollDirection(e) {
-  closeMenu();
-  console.log('scrollDirection: isPopupOpen = ' + isPopupOpen);
+  // closeMenu();
+  // console.log('scrollDirection: isPopupOpen = ' + isPopupOpen);
   if (isPopupOpen) return;
   if (new Date() - lastScrollDate <= 500) {
     return;
   } else {
     lastScrollDate = new Date();
   }
+
+  var menuLamp = document.querySelector('.menu__lamp'),
+      menuMode = document.querySelector('.menu__mode');
+
   if ((e.deltaY > 0)) {
     if (document.getElementById('bottom-block') && (reMain.test(window.location.pathname) || reRoot.test(window.location.pathname)) ) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('bottom-block').classList.add('show');
-      document.querySelector('.menu__lamp').style.display = 'none';
-      document.querySelector('.menu__mode').style.display = 'none';
-      animateSecondScreen();
-
+      menuLamp.style.display = 'none';
+      menuMode.style.display = 'none';
+      if (!isSecondScreenAnimationPlayed) {
+        animateSecondScreen();
+        isSecondScreenAnimationPlayed = true;
+      }
     } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/hollywood');
       document.getElementById('js-scroll-hollywood').classList.add('show');
-      document.querySelector('.menu__lamp').style.display = 'none';
-      document.querySelector('.menu__mode').style.display = 'none';
+      menuLamp.style.display = 'none';
+      menuMode.style.display = 'none';
     }
   } else {
     if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('js-scroll-hollywood').classList.remove('show');
-      document.querySelector('.menu__lamp').style.display = 'none';
-      document.querySelector('.menu__mode').style.display = 'none';
+      menuLamp.style.display = 'none';
+      menuMode.style.display = 'none';
     }
     else if (rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/main');
       document.getElementById('bottom-block').classList.remove('show');
-      document.querySelector('.menu__mode').style.display = 'flex';
+      menuLamp.style.display = 'block';
+      menuMode.style.display = 'flex';
     }
   }
 }

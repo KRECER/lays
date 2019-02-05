@@ -27,7 +27,7 @@
     @media screen and (min-height: $minHightIphX){
     /*iphone 10 */
       &--shadow-night {
-        box-shadow: rgba(0, 0, 0, 0.4) 0px -138px 200px inset;
+        // box-shadow: rgba(0, 0, 0, 0.4) 0px -138px 200px inset;
       }
 
       background-size: 215vw auto;
@@ -46,6 +46,8 @@
   left: 0;
   right: 0;
 
+  // display: none;
+
   height: 100vh;
 
   background-repeat:  no-repeat;
@@ -53,7 +55,7 @@
   background-image: url('../img/wallRedTextMini.png');
   background-position: center;
 
-  opacity: 0;
+  // opacity: 0;
 
   &--night {
     background-image: url('../img/night-mode.png');
