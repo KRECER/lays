@@ -18,8 +18,8 @@ function closeMenu(e) {
 		menuInner.classList.remove('expanded');
     bgMenu.classList.remove('expanded');
     document.querySelector('.menu__inner').style.backgroundColor = "#feda00";
-    // document.querySelector('.menu__mode').style.display = "flex";
-    // document.querySelector('.menu__lamp').style.display = "block";
+    document.querySelector('.menu__mode').style.display = "flex";
+    document.querySelector('.menu__lamp').style.display = "block";
     console.log('lol');
 	}
 function openMenu(e) {
