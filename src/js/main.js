@@ -164,10 +164,7 @@ window.addEventListener('DOMContentLoaded', function() {
     winnersItem = document.querySelector('.winners-item'),
     winnersClose = document.querySelector('.winners__close');
 
-  var profileModal = document.querySelector('.profile'),
-    profileList = document.querySelector('.profile__list'),
-    profileItem = document.querySelector('.profile-item'),
-    profileClose = document.querySelector('.profile__close');
+
 
     xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/rules/', true);
@@ -734,18 +731,28 @@ document.getElementById('show-find-modal').addEventListener('click', function ()
 
 // #### Profile Popup #####
 
-var modalPr = document.getElementsByClassName('profile')[0];
-var formPr = document.getElementsByClassName('profile__wrapper')[0];
-var closeSignPr = document.getElementsByClassName('profile__close')[0];
-var headerBg = document.getElementsByClassName('page-header')[0];
-var profileBtn = document.getElementById('profileBtn');
+var profileModal = document.querySelector('.profile'),
+profileList = document.querySelector('.profile__list'),
+profileItem = document.querySelector('#menu-cabinet'),
+profileClose = document.querySelector('.profile__close');
 
-modalPr.addEventListener('click', hideModalProfile);
-closeSignPr.addEventListener('click', hideModalProfile);
+
+profileItem.addEventListener('click', function() {
+  profileModal.classList.add('profile--show');
+});
+
+profileModal.addEventListener('click', function(event) {
+  var target = event.target;
+
+  if (target == profileClose || target == profileModal) {
+    profileModal.classList.remove('profile--show');
+    openProfile();
+  }
+});
 
 function openProfile() {
-  indexPreloader.style.display = 'block';
   isPopupOpen = true;
+
   $.get( '/api/cabinet/', function( data ) {
     indexPreloader.style.display = 'none';
     if (data.hasOwnProperty('status') && data.status == false) {
@@ -766,19 +773,12 @@ function openProfile() {
         codesHtml += '<div class="profile__item">' + '<div class="profile__left">' + '<div class="profile__code">' + code.code + "</div>" + '<div class="profile__date">' + code.date + "</div>" +  "</div>" + '<div class="profile__right">' + '<div class="profile__prize">' + code.prize + '</div>' +  "</div>" + '</div>';
       }
       $('.profile__list').html(codesHtml);
-      modalPr.style.display = 'block';
-      modalPr.style.zIndex = '3000';
-      closeSignPr.style.zIndex = '3000';
-      headerBg.style.zIndex = '2999';
-      // modalPr.style.display='none';
     }
   });
 }
 
 function hideModalProfile(){
   isPopupOpen = false;
-  modalPr.style.display = 'none';
-  headerBg.style.zIndex = '1';
 }
 
 
@@ -860,8 +860,8 @@ function animateSecondScreen() {
   if (width > 1200) {
     var tl = new TimelineMax();
 
-    tl.set('.prizes__chips', {opacity: 0})
-    .set('.prizes__title', {opacity: 0, scale: 0.5})
+    tl.set('.prizes__chips', {opacity: 0, scale: 0.5})
+    .set('.prizes__title', {opacity: 0})
     .set('.prizes__item--megogo', {x: '-100%'})
     .set(iconMegogo, {opacity: 0})
     .set(titleMegogo, {opacity: 0})
@@ -883,9 +883,9 @@ function animateSecondScreen() {
     .set('.prizes__btn', {color: '#ffffff'});
 
 
-  tl.to('.prizes__chips', 1, {opacity: 1, ease: Back.easeOut.config(1.7)}, 0.6)
-    .to('.prizes__title', 0.6, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 1)
-    .to('.prizes__item--megogo', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.3)
+  tl.to('.prizes__chips', 1, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 0.6)
+    .to('.prizes__title', 3, {opacity: 1}, 1)
+    .to('.prizes__item--megogo', 0.3, {x: '0%'}, 1.3)
     .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.6)
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
