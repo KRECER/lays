@@ -70,7 +70,8 @@
   padding-top: 16%;
   overflow: hidden;
 
-  border: 0.5vh solid #fcc403;
+  border: 7px solid #fcc403;
+  background-color: #fcc403;
   border-radius: 100px;
   box-shadow: 0 0 50px 1px rgba(0,0,0,0.7);
   cursor: pointer;
@@ -89,7 +90,7 @@
     height: 100%;
 
     background: #ed1d24;
-    border: 0.5vh solid #fde619;
+    border: 5px solid #fde619;
     border-radius: 100px;
 
     pointer-events: none;
