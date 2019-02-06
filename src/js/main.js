@@ -14,7 +14,8 @@ $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 var indexPreloader = document.querySelector('#index-preloader');
 var isPopupOpen = false,
     isPopupOverPopup = false,
-    isSecondScreenAnimationPlayed = false;
+    isSecondScreenAnimationPlayed = false,
+    isThirdScreenAnimationPlayed = false;
 
 
 // SVG Layers
@@ -157,7 +158,6 @@ window.addEventListener('DOMContentLoaded', function() {
     rulesClose = document.querySelector('.rules__close'),
     registrationAgreementTextLink = document.querySelector('.registration__agreementText .underline');
 
-  console.log('DOMContentLoaded: registrationAgreementTextLink', registrationAgreementTextLink);
 
   var winnersModal = document.querySelector('.winners'),
     winnersList = document.querySelector('.winners__list'),
@@ -359,9 +359,7 @@ function isAuth() {
   xhr.send();
 
   xhr.addEventListener('readystatechange', function() {
-    console.log('isAuth', xhr.response);
     var json = JSON.parse(xhr.response);
-    console.log('isAuth', json);
 
     if (xhr.status == 200 && xhr.readyState == 4) {
       if (json.status) {
@@ -474,7 +472,6 @@ function validateForm(link, data, form, modal) {
 
         isLoggedIn = true;
         if (codeInput.value) {
-          console.log("validateForm: code = ", codeInput.value);
           sendCode();
         } else {
           openTextModal({
@@ -586,12 +583,10 @@ document.getElementById('js-menu-code').addEventListener('click', function (e){
 // listeners
 codeInput.addEventListener('keyup', function(e) {
   if (e.keyCode === 13) {
-    console.log('//send code e.keyCode');
     sendCode();
   }
 });
 document.getElementById('send-code').addEventListener('click', function (){
-  console.log('//send code addEventListener');
   sendCode();
 });
 
@@ -611,14 +606,12 @@ function isCodeValid(str) {
 }
 
 function sendCode() {
-  console.log('sendCode: isCodeValid(codeInput.value) = ', isCodeValid(codeInput.value));
   if (!isCodeValid(codeInput.value)) {
     btnAnimation.classList.add('code--error');
     return;
   }
   btnAnimation.classList.remove('code--error');
 
-  console.log('sendCode: isLoggedIn = ', isLoggedIn);
   if (!isLoggedIn) {
     openNextSignIn = true;
     openTextModal({
@@ -630,7 +623,6 @@ function sendCode() {
     // signIn();
     return;
   }
-  console.log('sendCode: $post code = ', codeInput.value);
   indexPreloader.style.display = 'block';
 
   $.post('/api/code/', {code: codeInput.value.toUpperCase()}, function(e) {
@@ -811,7 +803,6 @@ if (document.querySelector('.prizes').classList.contains('show') || document.que
 var lastScrollDate = new Date();
 function scrollDirection(e) {
   // closeMenu();
-  // console.log('scrollDirection: isPopupOpen = ' + isPopupOpen);
   if (isPopupOpen) return;
   if (new Date() - lastScrollDate <= 500) {
     return;
@@ -837,6 +828,11 @@ function scrollDirection(e) {
       document.getElementById('js-scroll-hollywood').classList.add('show');
       menuLamp.style.display = 'none';
       menuMode.style.display = 'none';
+
+      if (!isThirdScreenAnimationPlayed) {
+        animateThirdScreen();
+        isThirdScreenAnimationPlayed = true;
+      }
     }
   } else {
     if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
@@ -905,6 +901,7 @@ function animateSecondScreen() {
     .to('.prizes__btn', 0.3, {y: '20px', onComplete: parallaxInit}, 4.3)
     .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, yoyo: true}, 4.3);
   }
+
 }
 
 
@@ -924,3 +921,42 @@ function parallaxIt(e) {
 
   TweenLite.to(messiImg[1], 0.5, { x: relX * 10, y: relY * 10, rotation: 0.0001 }, 0.3);
 }
+
+
+
+function animateThirdScreen() {
+  var tl = new TimelineMax();
+  tl.from('.hollywood__houses--dark', .6, {y: 800, ease: Power0.ease}, 0.3)
+    .from('.hollywood__houses--light', .6, {y: 800, ease: Power0.ease}, .8)
+    .from('.hollywood__montains', .6, {y: -50, opacity: 0, ease: Power0.ease}, 1.1)
+    .from('.hollywood__hero', .6, {x: -1000, scale: 2, ease: Power0.ease}, 1.6)
+    .from('.hollywood__btn', .6, {y: 250, ease: Power0.ease}, 2)
+    .from('.hollywood__description, .hollywood__text', 1, {opacity: 0, ease: Power0.ease}, 2.5)
+    .from('#r1', .2, {opacity: 0, ease: Power0.ease}, 3)
+    .from('#r2', .2, {opacity: 0, ease: Power0.ease}, 3)
+    .from('#r3', .2, {opacity: 0, ease: Power0.ease}, 3.5)
+    .from('#r4', .2, {opacity: 0, ease: Power0.ease}, 3.5)
+    .from('#r5', .2, {opacity: 0, ease: Power0.ease}, 4)
+    .from('#r6', .2, {opacity: 0, ease: Power0.ease}, 4);
+    // .from('#r6', .2, {opacity: 0, ease: Power0.ease}, 4);
+}
+
+
+// var holl = document.querySelector('.hollywood');
+
+// function parallaxLights() {
+//   holl.addEventListener('mousemove', parallaxItto);
+// } 
+
+// var raysArr = holl.querySelectorAll('.ray');
+
+// function parallaxItto(e) {
+
+//   var relX = (e.pageX - width / 2) / (width/2);
+  
+//   if (width < 1000) return;
+
+//   for(var i = 0; i <= raysArr.length; i++) {
+//     TweenLite.to(raysArr[i], 0.3, {transformOrigin:'50% 100%', rotation: relX * 5 + (i*2)}, 0.1);
+//   }
+// }
