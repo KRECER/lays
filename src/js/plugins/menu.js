@@ -18,7 +18,8 @@ function closeMenu(e) {
 		menuInner.classList.remove('expanded');
     bgMenu.classList.remove('expanded');
     document.querySelector('.menu__inner').style.backgroundColor = "#feda00";
-    if (!document.querySelector('.prizes').classList.contains('show') ||  !document.querySelector('.hollywood').classList.contains('show')) {
+
+    if (window.location.pathname == '/main') {
       document.querySelector('.menu__mode').style.display = "flex";
       document.querySelector('.menu__lamp').style.display = "block";
     }
