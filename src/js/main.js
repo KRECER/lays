@@ -7,8 +7,6 @@ $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-
 $(".registration [name=phone]").mask("+38(999) 999-99-99");
 $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
 
-
-
 // #### general variables ####
 
 var indexPreloader = document.querySelector('#index-preloader');
@@ -90,14 +88,18 @@ function animatePageHeader() {
   tl.to('.room__sofa', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__sofa'})
   .to('.room__people', 0.6, {opacity: 1, rotationX: 0, className: 'softUp room__people'})
   .to('.instruction', 0.6, {x: '0%'}, '-=0.5')
-  .staggerFrom('.instruction__item img, .instruction__icon', 0.3, {opacity: 0}, 0.1, '-=0.6')
+  .staggerFrom('.instruction__item img, .instruction__icon', 0.3, {opacity: 0}, 0.1, '-=0.3')
   .to('.menu', 0.3, {x: '0'}, '-=0.3')
   .to('.page-header__btn', 0.3, {x: '20', opacity: 1}, '-=0.3')
   .to('.room__tv', 0.6, {y: '0%', opacity: 1})
-  .to('.tv__scroll-btn', 0.1, {opacity: 1})
-  .to('.tv__scroll-btn svg', 0.4, {y: '15%', repeat: -1, yoyo: true})
-  .to('.btn__icon', 1, {fill: '#fde618', yoyo: true, repeat: -1}, '1');
+  .to('.tv__scroll-btn', 0.1, {opacity: 1, onComplete: test})
+  .to('.tv__scroll-btn svg', 0.4, {y: '15%', repeat: -1, yoyo: true, onComplete: test })
 };
+
+function test() {
+  document.querySelector('.widget-button').classList.add('widget-button--show');
+  console.log(11111);
+}
 
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
@@ -274,7 +276,7 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('load', function() {
-  indexPreloader.style.display = 'none';
+
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     js = d.createElement(s);
@@ -282,6 +284,8 @@ window.addEventListener('load', function() {
     js.src = "https://widget.sender.mobi/build/init.js";
     fjs.parentNode.insertBefore(js, fjs, 'sender-widget');
   })(document, 'script');
+
+  indexPreloader.style.display = 'none';
 });
 
 
@@ -886,8 +890,8 @@ function animateSecondScreen() {
   tl.to('.prizes__chips', 1, {opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.4)}, 0.6)
     .to('.prizes__title', 3, {opacity: 1}, 1)
     .to('.prizes__item--megogo', 0.3, {x: '0%'}, 1.3)
-    .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.6)
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
+    .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
     .to(descMegogo, 0.3, {opacity: 1}, 2.5)
     .to('#megogo-bg', 0.3, {opacity: 1}, 2.8)
@@ -903,7 +907,6 @@ function animateSecondScreen() {
     .to(descHolly, 0.4, {opacity: 1}, 3.7)
     .to('#hollywood-bg', 0.3, {opacity: 1}, 4)
     .to('.prizes__btn', 0.3, {y: '20px', onComplete: parallaxInit}, 4.3)
-    .to('.prizes__btn', 1, {color: '#FDE619', repeat: -1, yoyo: true}, 4.3);
   }
 }
 

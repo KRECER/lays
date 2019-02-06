@@ -18,9 +18,15 @@ function closeMenu(e) {
 		menuInner.classList.remove('expanded');
     bgMenu.classList.remove('expanded');
     document.querySelector('.menu__inner').style.backgroundColor = "#feda00";
-    document.querySelector('.menu__mode').style.display = "flex";
-    document.querySelector('.menu__lamp').style.display = "block";
-    console.log('lol');
+    if (!document.querySelector('.prizes').classList.contains('show') ||  !document.querySelector('.hollywood').classList.contains('show')) {
+      document.querySelector('.menu__mode').style.display = "flex";
+      document.querySelector('.menu__lamp').style.display = "block";
+    }
+
+    if (width < 768) {
+      document.querySelector('.menu__mode').style.display = "flex";
+      document.querySelector('.menu__lamp').style.display = "block";
+    }
 	}
 function openMenu(e) {
 	if (e) e.preventDefault();

@@ -3,13 +3,13 @@ body{
 }
 .prizes{
     position: relative;
-    z-index: 6;
+    z-index: 5;
     transition: transform 600ms;
     transform: translate3d(0, 0, 0);
 }
 .hollywood{
     position: relative;
-    z-index: 6;
+    z-index: 5;
     transition: transform 600ms;
     transform: translate3d(0, -100%, 0);
 }

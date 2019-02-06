@@ -6,6 +6,10 @@ $lays-red: #e13016;
   background-color: $lays-yellow;
 
   padding: 2vh;
+
+  &:hover {
+    background-color: #ffffff;
+  }
 }
 
 .menu
