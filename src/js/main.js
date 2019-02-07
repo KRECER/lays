@@ -735,6 +735,7 @@ profileClose = document.querySelector('.profile__close');
 
 profileItem.addEventListener('click', function() {
   profileModal.classList.add('profile--show');
+  openProfile();
 });
 
 profileModal.addEventListener('click', function(event) {
@@ -742,7 +743,7 @@ profileModal.addEventListener('click', function(event) {
 
   if (target == profileClose || target == profileModal) {
     profileModal.classList.remove('profile--show');
-    openProfile();
+    isPopupOpen = false;
   }
 });
 
