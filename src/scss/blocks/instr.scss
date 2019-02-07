@@ -171,18 +171,21 @@
 
     .infoBtn {
       position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       right: 32%;
       bottom: 27%;
 
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
 
       // background: url("../img/information.svg") right no-repeat;
-      background-size: contain;
-      float: right;
+      // background-size: contain;
+      // float: right;
 
-      pointer-events: auto;
+      // pointer-events: auto;
       border-radius: 50%;
       border: 1px solid #fde619;
       transition: background-color 0.2s;
@@ -194,15 +197,14 @@
 
         svg {
           fill: #009fe5;
-          width: 10px;
         }
       }
 
       &__icon {
         position: relative;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 8px;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        height: 10px;
         width: 5px;
         fill: #fde619;
 

@@ -949,14 +949,14 @@ function animateThirdScreen() {
 
 // function parallaxLights() {
 //   holl.addEventListener('mousemove', parallaxItto);
-// } 
+// }
 
 // var raysArr = holl.querySelectorAll('.ray');
 
 // function parallaxItto(e) {
 
 //   var relX = (e.pageX - width / 2) / (width/2);
-  
+
 //   if (width < 1000) return;
 
 //   for(var i = 0; i <= raysArr.length; i++) {
