@@ -735,6 +735,7 @@ profileClose = document.querySelector('.profile__close');
 
 profileItem.addEventListener('click', function() {
   profileModal.classList.add('profile--show');
+  openProfile();
 });
 
 profileModal.addEventListener('click', function(event) {
@@ -742,7 +743,7 @@ profileModal.addEventListener('click', function(event) {
 
   if (target == profileClose || target == profileModal) {
     profileModal.classList.remove('profile--show');
-    openProfile();
+    isPopupOpen = false;
   }
 });
 
@@ -887,11 +888,11 @@ function animateSecondScreen() {
     .to('.prizes__title', 3, {opacity: 1}, 1)
     .to('.prizes__item--megogo', 0.3, {x: '0%'}, 1.3)
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
-    .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.9)
+    .to('.prizes__item--lg', 0.3, {x: '0%'}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
     .to(descMegogo, 0.3, {opacity: 1}, 2.5)
     .to('#megogo-bg', 0.3, {opacity: 1}, 2.8)
-    .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
+    .to('.prizes__item--hollywood', 0.6, {y: '0%'}, 2.2)
     .to(iconLg, 0.3, {opacity: 1}, 2.2)
     .to(titleLg, 0.3, {opacity: 1}, 2.5)
     .to(descLg, 0.3, {opacity: 1}, 2.8)
@@ -922,7 +923,10 @@ function parallaxIt(e) {
 
   if (width < 1000) return;
 
-  TweenLite.to(messiImg[1], 0.5, { x: relX * 10, y: relY * 10, rotation: 0.0001 }, 0.3);
+  if ( !e.target.classList.contains('prizes__btn') ) {
+    TweenLite.to(messiImg[1], 0.5, { x: relX * 10, y: relY * 10, rotation: 0.0001 }, 0.3);
+    console.log(e.target);
+  }
 }
 
 
@@ -930,17 +934,17 @@ function parallaxIt(e) {
 function animateThirdScreen() {
   var tl = new TimelineMax();
   tl.from('.hollywood__houses--dark', .6, {y: 800, ease: Power0.ease}, 0.3)
-    .from('.hollywood__houses--light', .6, {y: 800, ease: Power0.ease}, .8)
+    .from('.hollywood__houses--light', .6, {y: 800, ease: Power0.ease}, 0.8)
     .from('.hollywood__montains', .6, {y: -50, opacity: 0, ease: Power0.ease}, 1.1)
     .from('.hollywood__hero', .6, {x: -1000, scale: 2, ease: Power0.ease}, 1.6)
     .from('.hollywood__btn', .6, {y: 250, ease: Power0.ease}, 2)
     .from('.hollywood__description, .hollywood__text', 1, {opacity: 0, ease: Power0.ease}, 2.5)
-    .from('#r1', .2, {opacity: 0, ease: Power0.ease}, 3)
-    .from('#r2', .2, {opacity: 0, ease: Power0.ease}, 3)
-    .from('#r3', .2, {opacity: 0, ease: Power0.ease}, 3.5)
-    .from('#r4', .2, {opacity: 0, ease: Power0.ease}, 3.5)
-    .from('#r5', .2, {opacity: 0, ease: Power0.ease}, 4)
-    .from('#r6', .2, {opacity: 0, ease: Power0.ease}, 4);
+    .from('#r1', 0.2, {opacity: 0, ease: Power0.ease}, 3)
+    .from('#r2', 0.2, {opacity: 0, ease: Power0.ease}, 3)
+    .from('#r3', 0.2, {opacity: 0, ease: Power0.ease}, 3.5)
+    .from('#r4', 0.2, {opacity: 0, ease: Power0.ease}, 3.5)
+    .from('#r5', 0.2, {opacity: 0, ease: Power0.ease}, 4)
+    .from('#r6', 0.2, {opacity: 0, ease: Power0.ease}, 4);
     // .from('#r6', .2, {opacity: 0, ease: Power0.ease}, 4);
 }
 
