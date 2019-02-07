@@ -304,3 +304,40 @@
 		margin-bottom: 10px;
 	}
 }
+
+.ray {
+	position: absolute;
+	z-index: 3;
+	transform-origin: bottom center;
+	// transition: transform .3s ;
+}
+.ray1 {
+	bottom: -350px;
+	left: -250px;
+	// transform: rotate(36deg);
+}
+.ray2 {
+	bottom: -450px;
+	right: 400px;
+	// transform: rotate(-35deg);
+}
+.ray3 {
+	bottom: -640px;
+	right: 730px;
+	// transform: rotate(16deg);
+}
+.ray4 {
+	bottom: -560px;
+	right: 40px;
+	// transform: rotate(-25deg);
+}
+.ray5 {
+	bottom: -790px;
+	right: 670px;
+	// transform: rotate(33deg);
+}
+.ray6 {
+	bottom: -420px;
+	right: -770px;
+	// transform: rotate(-37deg);
+}

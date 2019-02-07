@@ -99,7 +99,6 @@ function animatePageHeader() {
 
 function test() {
   document.querySelector('.widget-button').classList.add('widget-button--show');
-  console.log(11111);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -909,8 +908,6 @@ function animateSecondScreen() {
 }
 
 
-
-
 function parallaxInit() {
   prizes.addEventListener('mousemove', parallaxIt);
 }
@@ -925,45 +922,65 @@ function parallaxIt(e) {
 
   if ( !e.target.classList.contains('prizes__btn') ) {
     TweenLite.to(messiImg[1], 0.5, { x: relX * 10, y: relY * 10, rotation: 0.0001 }, 0.3);
-    console.log(e.target);
   }
 }
 
 
 
+
+
+var holl = document.querySelector('.hollywood');
+var rays = document.querySelectorAll('.ray');
+var degs = [36, -35, 16, -25, 33, -37];
+var rotats = [];
+
+for(var i = 0; i < rays.length; i++) {
+      rays[i].style.transform = 'rotate(' + degs[i] + 'deg)';
+   }
+
 function animateThirdScreen() {
-  var tl = new TimelineMax();
-  tl.from('.hollywood__houses--dark', .6, {y: 800, ease: Power0.ease}, 0.3)
-    .from('.hollywood__houses--light', .6, {y: 800, ease: Power0.ease}, 0.8)
-    .from('.hollywood__montains', .6, {y: -50, opacity: 0, ease: Power0.ease}, 1.1)
-    .from('.hollywood__hero', .6, {x: -1000, scale: 2, ease: Power0.ease}, 1.6)
-    .from('.hollywood__btn', .6, {y: 250, ease: Power0.ease}, 2)
-    .from('.hollywood__description, .hollywood__text', 1, {opacity: 0, ease: Power0.ease}, 2.5)
-    .from('#r1', 0.2, {opacity: 0, ease: Power0.ease}, 3)
-    .from('#r2', 0.2, {opacity: 0, ease: Power0.ease}, 3)
-    .from('#r3', 0.2, {opacity: 0, ease: Power0.ease}, 3.5)
-    .from('#r4', 0.2, {opacity: 0, ease: Power0.ease}, 3.5)
-    .from('#r5', 0.2, {opacity: 0, ease: Power0.ease}, 4)
-    .from('#r6', 0.2, {opacity: 0, ease: Power0.ease}, 4);
-    // .from('#r6', .2, {opacity: 0, ease: Power0.ease}, 4);
+  
+  if (width > 1200) {
+
+    var tl = new TimelineMax();
+
+    tl.from('.hollywood__houses--dark', .6, {y: 800, ease: Power0.ease}, 0.3)
+      .from('.hollywood__houses--light', .6, {y: 800, ease: Power0.ease}, 0.8)
+      .from('.hollywood__montains', .6, {y: -50, opacity: 0, ease: Power0.ease}, 1.1)
+      .from('.hollywood__hero', .6, {x: -1000, scale: 2, ease: Power0.ease}, 1.6)
+      .from('.hollywood__btn', .6, {y: 250, ease: Power0.ease}, 2)
+      .from('.hollywood__description, .hollywood__text', 1, {opacity: 0, ease: Power0.ease}, 2.5)
+      .from('.ray1', 0.1, {opacity: 0, ease: Power0.ease}, 3)
+      .from('.ray2', 0.1, {opacity: 0, ease: Power0.ease}, 3)
+      .from('.ray3', 0.1, {opacity: 0, ease: Power0.ease}, 3.3)
+      .from('.ray4', 0.1, {opacity: 0, ease: Power0.ease}, 3.3)
+      .from('.ray5', 0.1, {opacity: 0, ease: Power0.ease}, 3.6)
+      .from('.ray6', 0.1, {opacity: 0, ease: Power0.ease}, 3.6)
+      .to('.ray1', 5, {ease: Linear.easeNone, rotation: 40, repeat: -1, yoyo: true}, 4)
+      .to('.ray2', 5, {ease: Linear.easeNone, rotation: -40, repeat: -1, yoyo: true}, 4)
+      .to('.ray3', 5, {ease: Linear.easeNone, rotation: 20, repeat: -1, yoyo: true}, 4)
+      .to('.ray4', 5, {ease: Linear.easeNone, rotation: -30, repeat: -1, yoyo: true}, 4)
+      .to('.ray5', 5, {ease: Linear.easeNone, rotation: 28, repeat: -1, yoyo: true}, 4)
+      .to('.ray6', 5, {ease: Linear.easeNone, rotation: -30, repeat: -1, yoyo: true}, 4);
+  }
 }
 
 
-// var holl = document.querySelector('.hollywood');
 
-// function parallaxLights() {
-//   holl.addEventListener('mousemove', parallaxItto);
-// }
 
-// var raysArr = holl.querySelectorAll('.ray');
+function parallaxLights() {
+  holl.addEventListener('mousemove', parallaxItto);
+}
 
-// function parallaxItto(e) {
+var raysArr = holl.querySelectorAll('.ray');
 
-//   var relX = (e.pageX - width / 2) / (width/2);
+function parallaxItto(e) {
+  // if (width < 1000) return
 
-//   if (width < 1000) return;
+  //   var relX = (width / 10) / e.pageX ;
 
-//   for(var i = 0; i <= raysArr.length; i++) {
-//     TweenLite.to(raysArr[i], 0.3, {transformOrigin:'50% 100%', rotation: relX * 5 + (i*2)}, 0.1);
-//   }
-// }
+  //   for(var i = 0; i < rays.length; i++) {
+  //     rays[i].style.transform = 'rotate(' + degs[i] + relX  + 'deg)';
+  //  }
+
+}
