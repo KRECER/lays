@@ -887,11 +887,11 @@ function animateSecondScreen() {
     .to('.prizes__title', 3, {opacity: 1}, 1)
     .to('.prizes__item--megogo', 0.3, {x: '0%'}, 1.3)
     .to(iconMegogo, 1, {opacity: 1}, 1.9)
-    .to('.prizes__item--lg', 0.6, {x: '0%', ease: Back.easeOut.config(1.7)}, 1.9)
+    .to('.prizes__item--lg', 0.3, {x: '0%'}, 1.9)
     .to(titleMegogo, 0.3, {opacity: 1}, 2.2)
     .to(descMegogo, 0.3, {opacity: 1}, 2.5)
     .to('#megogo-bg', 0.3, {opacity: 1}, 2.8)
-    .to('.prizes__item--hollywood', 0.8, {y: '0%'}, 2.2)
+    .to('.prizes__item--hollywood', 0.6, {y: '0%'}, 2.2)
     .to(iconLg, 0.3, {opacity: 1}, 2.2)
     .to(titleLg, 0.3, {opacity: 1}, 2.5)
     .to(descLg, 0.3, {opacity: 1}, 2.8)
@@ -949,14 +949,14 @@ function animateThirdScreen() {
 
 // function parallaxLights() {
 //   holl.addEventListener('mousemove', parallaxItto);
-// } 
+// }
 
 // var raysArr = holl.querySelectorAll('.ray');
 
 // function parallaxItto(e) {
 
 //   var relX = (e.pageX - width / 2) / (width/2);
-  
+
 //   if (width < 1000) return;
 
 //   for(var i = 0; i <= raysArr.length; i++) {
