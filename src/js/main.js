@@ -36,7 +36,7 @@ var bgHolly,
     descHolly;
 // end SVG Layers
 
-Snap.load('img/prizes/megogo-content.svg', function(megogo) {
+Snap.load('/img/prizes/megogo-content.svg', function(megogo) {
   Snap('#megogo-content').append(megogo);
 
   titleMegogo = $('#title-megogo'),
@@ -45,7 +45,7 @@ Snap.load('img/prizes/megogo-content.svg', function(megogo) {
   bgMegogo    = $('#bg-megogo');
 });
 
-Snap.load('img/prizes/hollywood-content.svg', function(hollywood) {
+Snap.load('/img/prizes/hollywood-content.svg', function(hollywood) {
   Snap('#hollywood-content').append(hollywood);
 
   bgHolly    = $('#bg-hollywood'),
@@ -56,7 +56,7 @@ Snap.load('img/prizes/hollywood-content.svg', function(hollywood) {
   descHolly   = $('#desc-hollywood');
 });
 
-Snap.load('img/prizes/lg-content.svg', function(lg) {
+Snap.load('/img/prizes/lg-content.svg', function(lg) {
   Snap('#lg-content').append(lg);
 
   titleLg = $('#title-lg'),
