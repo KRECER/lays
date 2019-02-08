@@ -799,13 +799,15 @@ var menuMode = document.querySelector('.menu__mode');
 // Slider
 document.addEventListener('wheel', scrollDirection);
 
+
 if (document.querySelector('.prizes').classList.contains('show') || document.querySelector('.hollywood').classList.contains('show')) {
-    document.querySelector('.menu__lamp').style.display = 'none';
-    document.querySelector('.menu__mode').style.display = 'none';
+    // document.querySelector('.menu__lamp').style.display = 'none';
+    // document.querySelector('.menu__mode').style.display = 'none';
 }
 
 var lastScrollDate = new Date();
 function scrollDirection(e) {
+  console.log('aaaaaaa');
   // closeMenu();
   if (isPopupOpen) return;
   if (new Date() - lastScrollDate <= 500) {
@@ -821,8 +823,8 @@ function scrollDirection(e) {
     if (document.getElementById('bottom-block') && (reMain.test(window.location.pathname) || reRoot.test(window.location.pathname)) ) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('bottom-block').classList.add('show');
-      menuLamp.style.display = 'none';
-      menuMode.style.display = 'none';
+      // menuLamp.style.display = 'none';
+      // menuMode.style.display = 'none';
       if (!isSecondScreenAnimationPlayed) {
         // animateSecondScreen();
         isSecondScreenAnimationPlayed = true;
@@ -830,8 +832,8 @@ function scrollDirection(e) {
     } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/hollywood');
       document.getElementById('js-scroll-hollywood').classList.add('show');
-      menuLamp.style.display = 'none';
-      menuMode.style.display = 'none';
+      // menuLamp.style.display = 'none';
+      // menuMode.style.display = 'none';
 
       if (!isThirdScreenAnimationPlayed) {
         // animateThirdScreen();
@@ -842,14 +844,14 @@ function scrollDirection(e) {
     if (document.getElementById('bottom-block') && reHollywood.test(window.location.pathname)) {
       window.history.pushState("", "", '/prizes');
       document.getElementById('js-scroll-hollywood').classList.remove('show');
-      menuLamp.style.display = 'none';
-      menuMode.style.display = 'none';
+      // menuLamp.style.display = 'none';
+      // menuMode.style.display = 'none';
     }
     else if (rePrizes.test(window.location.pathname)) {
       window.history.pushState("", "", '/main');
       document.getElementById('bottom-block').classList.remove('show');
-      menuLamp.style.display = 'block';
-      menuMode.style.display = 'flex';
+      // menuLamp.style.display = 'block';
+      // menuMode.style.display = 'flex';
     }
   }
 }

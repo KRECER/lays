@@ -20,13 +20,13 @@ function closeMenu(e) {
     document.querySelector('.menu__inner').style.backgroundColor = "#feda00";
 
     if (window.location.pathname == '/main') {
-      document.querySelector('.menu__mode').style.display = "flex";
-      document.querySelector('.menu__lamp').style.display = "block";
+      // document.querySelector('.menu__mode').style.display = "flex";
+      // document.querySelector('.menu__lamp').style.display = "block";
     }
 
     if (width < 768) {
-      document.querySelector('.menu__mode').style.display = "flex";
-      document.querySelector('.menu__lamp').style.display = "block";
+      // document.querySelector('.menu__mode').style.display = "flex";
+      // document.querySelector('.menu__lamp').style.display = "block";
     }
 	}
 function openMenu(e) {
@@ -38,8 +38,8 @@ function openMenu(e) {
 		menuInner.classList.add('expanded');
     bgMenu.classList.add('expanded');
     document.querySelector('.menu__inner').style.backgroundColor = "#fff";
-    document.querySelector('.menu__mode').style.display = "none";
-    document.querySelector('.menu__lamp').style.display = "none";
+    // document.querySelector('.menu__mode').style.display = "none";
+    // document.querySelector('.menu__lamp').style.display = "none";
 	}
 
 function toggleMenu(e) {

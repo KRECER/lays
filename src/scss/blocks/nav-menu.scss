@@ -4,8 +4,8 @@ $lays-red: #e13016;
 
 .menu__inner {
   background-color: $lays-yellow;
-
   padding: 2vh;
+  // padding-bottom: 7vh;
 
   &:hover {
     background-color: #ffffff;
@@ -15,14 +15,11 @@ $lays-red: #e13016;
 .menu
 {
     position: fixed;
-    z-index: 1000;
+    z-index: 10;
     top: 0;
     left: 0;
-
     box-sizing: border-box;
     width: 15vh;
-
-
     transition: background-color 200ms;
 
     &:hover
@@ -92,11 +89,12 @@ $lays-red: #e13016;
 }
 
 .menu__lamp {
-  position: absolute;
-  bottom: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
+  position: fixed;
+  top: 31vh;
+  left: 0;
+  width: 15vh;
+  // transform: translateX(-50%);
+  z-index: 1;
   cursor: pointer;
 }
 
@@ -205,10 +203,11 @@ $lays-red: #e13016;
 {
     .menu__lamp {
       width: 60px;
-      bottom: -70px;
+      top: -30px;
       transform: none;
       left: auto;
       right: 0;
+      position: absolute;
     }
 
     .menu-inner
