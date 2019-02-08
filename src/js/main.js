@@ -36,7 +36,7 @@ var bgHolly,
     descHolly;
 // end SVG Layers
 
-Snap.load('img/prizes/megogo-content.svg', function(megogo) {
+Snap.load('/img/prizes/megogo-content.svg', function(megogo) {
   Snap('#megogo-content').append(megogo);
 
   titleMegogo = $('#title-megogo'),
@@ -45,7 +45,7 @@ Snap.load('img/prizes/megogo-content.svg', function(megogo) {
   bgMegogo    = $('#bg-megogo');
 });
 
-Snap.load('img/prizes/hollywood-content.svg', function(hollywood) {
+Snap.load('/img/prizes/hollywood-content.svg', function(hollywood) {
   Snap('#hollywood-content').append(hollywood);
 
   bgHolly    = $('#bg-hollywood'),
@@ -56,7 +56,7 @@ Snap.load('img/prizes/hollywood-content.svg', function(hollywood) {
   descHolly   = $('#desc-hollywood');
 });
 
-Snap.load('img/prizes/lg-content.svg', function(lg) {
+Snap.load('/img/prizes/lg-content.svg', function(lg) {
   Snap('#lg-content').append(lg);
 
   titleLg = $('#title-lg'),
@@ -80,6 +80,8 @@ function animatePageHeader() {
   .set('.room__people', {opacity: 0, rotationX: -40})
   .set('.instruction', {x: '-100%'})
   .set('.menu', {x: '-150'})
+  .set('.mode', {x: '-150'})
+  .set('.menu__lamp', {x: '-150'})
   .set('.page-header__btn', {x: '+800', opacity: 0})
   .set('.room__tv', {y: '100%', opacity: 0})
   .set('.tv__scroll-btn', {opacity: 0})
@@ -91,6 +93,8 @@ function animatePageHeader() {
   .to('.instruction', 0.6, {x: '0%'}, '-=0.5')
   .staggerFrom('.instruction__item img, .instruction__icon', 0.3, {opacity: 0}, 0.1, '-=0.3')
   .to('.menu', 0.3, {x: '0'}, '-=0.3')
+  .to('.mode', 0.3, {x: '0'}, '-=0.3')
+  .to('.menu__lamp', 0.3, {x: '0'}, '-=0.3')
   .to('.page-header__btn', 0.3, {x: '20', opacity: 1}, '-=0.3')
   .to('.room__tv', 0.6, {y: '0%', opacity: 1})
   .to('.tv__scroll-btn', 0.1, {opacity: 1, onComplete: test})
