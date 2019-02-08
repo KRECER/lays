@@ -108,9 +108,9 @@ function test() {
 window.addEventListener('DOMContentLoaded', function() {
   isAuth();
 
-  if(width > 1200) {
-    animatePageHeader();
-  }
+  // if(width > 1200) {
+  //   animatePageHeader();
+  // }
 
   var toggleMode = document.querySelector('.mode__toggler');
   var pageHeaderBg = document.querySelector('.page-header__bg');
@@ -830,7 +830,7 @@ function scrollDirection(e) {
       // menuLamp.style.display = 'none';
       // menuMode.style.display = 'none';
       if (!isSecondScreenAnimationPlayed) {
-        animateSecondScreen();
+        // animateSecondScreen();
         isSecondScreenAnimationPlayed = true;
       }
     } else if (document.getElementById('js-scroll-hollywood') && rePrizes.test(window.location.pathname)) {
@@ -840,7 +840,7 @@ function scrollDirection(e) {
       // menuMode.style.display = 'none';
 
       if (!isThirdScreenAnimationPlayed) {
-        animateThirdScreen();
+        // animateThirdScreen();
         isThirdScreenAnimationPlayed = true;
       }
     }
