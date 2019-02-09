@@ -3,13 +3,22 @@ $lays-red: #e13016;
 
 
 .menu__inner {
-  background-color: $lays-yellow;
+  // background-color: $lays-yellow;
   padding: 2vh;
   // padding-bottom: 7vh;
 
   &:hover {
-    background-color: #ffffff;
+    // background-color: #ffffff;
   }
+}
+
+
+.menu:hover ~ .page-header .menu__mode {
+  background-color: #ffffff !important;
+}
+
+.white {
+  background-color: #fff;
 }
 
 .menu
@@ -22,10 +31,14 @@ $lays-red: #e13016;
     width: 15vh;
     transition: background-color 200ms;
 
+    background-color: $lays-yellow;
+
     &:hover
     {
-        background-color: #fff;
+        background-color: #ffffff;
     }
+
+
 
 
     &.expanded
