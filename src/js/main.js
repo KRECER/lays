@@ -1,11 +1,24 @@
-$(".tel").mask("+38(999) 999-99-99");
-$(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
-// $(".registration__inp [name=birthdate").mask("00-00-0000");
+// $(".tel").mask("+38(999) 999-99-99");
+// $(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
 
 $(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
 
-$(".registration [name=phone]").mask("+38(999) 999-99-99");
-$(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
+// $(".registration [name=phone]").mask("+38(999) 999-99-99");
+// $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
+
+var phoneInputs = document.querySelectorAll('.js-phone-mask');
+var phoneMask = ['+', '3', '8', ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+
+
+for (var i = 0; i < phoneInputs.length; i++) {
+  vanillaTextMask.maskInput({
+    inputElement: phoneInputs[i],
+    mask: phoneMask,
+    guide: false
+  });
+}
+
+
 
 // #### general variables ####
 
