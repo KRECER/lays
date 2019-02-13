@@ -542,7 +542,7 @@ forgetForm.addEventListener('submit', function(e) {
 // #### Code Registration ####
 
 var openNextSignIn = false;
-var codeInput = document.getElementById("super-puper-input-id");
+var codeInput = document.getElementById("code-input");
 var isAnimationClicked = false;
 var btnAnimation = document.getElementById('js-btn-animation');
 btnAnimation.addEventListener('click', function(event) {
