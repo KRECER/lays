@@ -84,6 +84,16 @@ gulp.task('script', () => {
 		.pipe( browserSync.stream() );
 });
 
+gulp.task('script:megogo', () => {
+	return gulp.src('src/js/megogo.js', {base: 'src/js'})
+		.pipe( babel() )
+		.pipe( gulp.dest('build/js') )
+		.pipe( uglify() )
+		.pipe( rename('megogo-min.js') )
+		.pipe( gulp.dest('build/js') )
+		.pipe( browserSync.stream() );
+});
+
 gulp.task('del', () => {
 	return del(['build/css', 'build/fonts', 'build/js', 'build/*.html']);
 });
@@ -169,6 +179,6 @@ gulp.task('sprite:svg', function() {
 });
 
 
-gulp.task('build', gulp.series('del', 'copy', 'sprite', 'images', gulp.parallel('html', 'style', 'script', 'plugins:js')) );
+gulp.task('build', gulp.series('del', 'copy', 'sprite', 'images', gulp.parallel('html', 'style', 'script', 'plugins:js', 'script:megogo')) );
 
 gulp.task('dev', gulp.series('build', 'server') );
