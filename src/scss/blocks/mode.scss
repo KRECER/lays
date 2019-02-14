@@ -19,6 +19,10 @@
   padding-bottom: 20px;
   padding-top: 20px;
   transition: background-color 200ms;
+
+  @media (min-height: 994px) {
+    top: 310px;
+  }
 }
 
 .mode__state {

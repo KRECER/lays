@@ -51,7 +51,7 @@
 		<form class="megago__form" id="code-registration-form">
 			<div>
 				<div class="circle">1</div>
-				<input type="tel" name="phone" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel">
+				<input type="tel" name="phone" id="phone-input" placeholder="НОМЕР МОБІЛЬНОГО ТЕЛЕФОНУ" class="tel js-phone-mask">
 			</div>
 			<div>
 				<div class="circle">2</div>
@@ -90,8 +90,6 @@
 <script src="/js/plugins.js"></script>
 
 <script>
-$(".megago__form [type=tel]").mask("+38(999) 999-99-99");
-
 var submitBtn = document.querySelector("#submit-btn");
 var form = document.querySelector("#code-registration-form");
 
