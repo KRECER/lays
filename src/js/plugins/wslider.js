@@ -18,7 +18,6 @@ function sliderInit() {
 // arrows
 
 function sliderToggler(e) {
-  console.log('tabletMedia', tabletMedia);
   if (tabletMedia.matches) {
     sliderInit();
   } else {

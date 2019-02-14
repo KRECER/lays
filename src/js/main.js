@@ -1,13 +1,13 @@
-// $(".tel").mask("+38(999) 999-99-99");
-// $(".registration__inp [type=tel]").mask("+38(099) 999-99-99");
-
-$(".registration__inp [name=birthdate]").mask("00-00-0000", {placeholder: "ДД-ММ-РРРР"});
-
-// $(".registration [name=phone]").mask("+38(999) 999-99-99");
-// $(".enterform__wrapper form [name=phone]").mask("+38(999) 999-99-99");
-
 var phoneInputs = document.querySelectorAll('.js-phone-mask');
+var birthdayInput = document.querySelector('.js-birthday-mask');
 var phoneMask = ['+', '3', '8', ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+var birthdayMask = [/\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+vanillaTextMask.maskInput({
+  inputElement: birthdayInput,
+  mask: birthdayMask,
+  guide: false
+});
 
 
 for (var i = 0; i < phoneInputs.length; i++) {
@@ -189,8 +189,10 @@ window.addEventListener('DOMContentLoaded', function() {
     xhr.send();
 
     xhr.addEventListener('readystatechange', function() {
-      var json = JSON.parse(xhr.response);
-      rulesContent.innerHTML = json.content;
+      if (xhr.status == 200 && xhr.readyState == 4) {
+        var json = JSON.parse(xhr.response);
+        rulesContent.innerHTML = json.content;
+      }
     });
 
     xhr2 = new XMLHttpRequest();
@@ -379,9 +381,8 @@ function isAuth() {
   xhr.send();
 
   xhr.addEventListener('readystatechange', function() {
-    var json = JSON.parse(xhr.response);
-
     if (xhr.status == 200 && xhr.readyState == 4) {
+      var json = JSON.parse(xhr.response);
       if (json.status) {
         isLoggedIn = true;
         menuLogin.classList.add("hide");
