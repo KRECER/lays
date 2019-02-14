@@ -14,14 +14,15 @@
   top: 30vh;
   left: 0;
   width: 15vh;
+  max-width: 226px;
   z-index: 1;
   background-color: #feda00;
   padding-bottom: 20px;
   padding-top: 20px;
   transition: background-color 200ms;
 
-  @media (min-height: 994px) {
-    top: 310px;
+  @media (min-height: 940px) {
+    top: 282px;
   }
 }
 

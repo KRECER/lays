@@ -29,6 +29,8 @@ $lays-red: #e13016;
     left: 0;
     box-sizing: border-box;
     width: 15vh;
+    max-width: 226px;
+    max-height: 296px;
     transition: background-color 200ms;
 
     background-color: $lays-yellow;
@@ -86,6 +88,7 @@ $lays-red: #e13016;
     .hamburger-menu-icon
     {
         width: 45%;
+        max-width: 50px;
 
         cursor: pointer;
         transition: opacity 200ms 200ms;
@@ -94,7 +97,7 @@ $lays-red: #e13016;
     }
     .item ~ .item
     {
-        margin-top: 2.4vh;
+        margin-top: 19px;
         @media (max-aspect-ratio: 3/3), (max-width: 567px) {
           margin-top: 0;
         }
@@ -103,12 +106,17 @@ $lays-red: #e13016;
 
 .menu__lamp {
   position: fixed;
-  top: 31vh;
+  top: 28vh;
   left: 0;
   width: 15vh;
+  max-width: 150px;
   // transform: translateX(-50%);
   z-index: 1;
   cursor: pointer;
+
+  @media (min-height: 940px) {
+    top: 250px;
+  }
 }
 
 
@@ -144,6 +152,7 @@ $lays-red: #e13016;
     display: flex;
 
     width: 15vh;
+    max-width: 164px;
     height: calc(100% - 22vh);
 
     transition: transform 300ms, opacity 200ms;
