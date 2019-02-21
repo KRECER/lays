@@ -11,9 +11,13 @@
     flex-direction: column;
     justify-content: flex-end;
     padding-top: 18px;
-    padding-bottom: 12px;
+    padding-bottom: 15px;
     background-color: #ffffff;
     font-size: 12px;
+    background-image: url('../img/down-arrow.svg');
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
   }
   &__wrapper {
     display: flex;
@@ -48,7 +52,7 @@
 	    	content: '';
 	    	display: block;
         position: absolute;
-	    	bottom: -20px;
+	    	bottom: -19px;
 	    	left: 50%;
 	    	transform: translate(-50%);
 	    	border: 10px solid transparent;	border-top: 10px solid rgba(255, 255, 255, 1);
